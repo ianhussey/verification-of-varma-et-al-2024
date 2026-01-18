@@ -1,7 +1,7 @@
 ---
 title: "Verification of Varma et al. (2024)"
 subtitle: "Preprocessing"
-author: "Original code by authors of Varma et al. (2024). Additions by Ian Hussey, Saein Lee & Martin Götz"
+author: "Original code by authors of Varma et al. (2024). Additions by Ian Hussey, Sae In Lee & Martin Götz"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   html_document:
