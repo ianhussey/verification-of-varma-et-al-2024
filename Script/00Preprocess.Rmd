@@ -1,0 +1,49 @@
+---
+title: "Verification of Varma et al. (2024)"
+subtitle: "Preprocessing"
+author: "Original code by authors of Varma et al. (2024). Additions by Ian Hussey, Saein Lee & Martin Götz"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_download: true
+    code_folding: hide
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+```{r}
+
+## ==== Subset different directions ====
+options(scipen=999)
+
+#Outcome-level File
+AllFile <- "../Data/IntrusionMetaData_Clean_v2.csv"
+NameAllFile_forDescriptive <-"../Data/AllIntrusionEffectSizes_forDescriptive.csv"
+NameAllFile <- "../Data/AllIntrusionEffectSizes.csv"
+NameIncreaseFile <- "../Data/IncreaseIntrusionEffectSizes.csv"
+NameDecreaseFile <- "../Data/DecreaseIntrusionEffectSizes.csv"
+NameUnspecifiedFile <- "../Data/UnspecifiedIntrusionEffectSizes.csv"
+
+alldf = read.csv(AllFile,na.strings=c("","NA"))
+
+# For all effect size
+all = alldf
+
+# Exclude effectsizes with no direction information
+alldf=alldf[!grepl("No direction",alldf$Notes_fromSZ),] #removed 9
+
+# Create a separate file for increase, decrease and unspecified for all outcome
+increasedf = subset(alldf, Intrusion_Predicted_Direction == "Increase")
+decreasedf = subset(alldf, Intrusion_Predicted_Direction == "Decrease")
+unspecifieddf = subset(alldf, Intrusion_Predicted_Direction == "Unspecified")
+
+# Output files for further analysis
+write.csv(all, NameAllFile_forDescriptive,row.names = F)
+write.csv(alldf, NameAllFile,row.names = F)
+write.csv(increasedf, NameIncreaseFile,row.names = F)
+write.csv(decreasedf, NameDecreaseFile,row.names = F)
+write.csv(unspecifieddf,NameUnspecifiedFile,row.names=F)
+
+```

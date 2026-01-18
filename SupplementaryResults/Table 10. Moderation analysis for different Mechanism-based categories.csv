@@ -1,0 +1,225 @@
+Analysis,Prediction,Mechanism-basedCategory,Outcome,Suboutcome,OutlierRemove,N,j,n,k,Hedgesg,CI,QM,z,p
+Moderation Analysis: Time of Administration,All,Emotion,Intrusion frequency,NA,no,NA,NA,NA,NA,NA,NA,5.417,NA,0.247
+Immediate post,All,Emotion,Intrusion frequency,NA,no,1023,10,10,16,-0.03," [-0.29, 0.22]",NA,-0.257269,0.796971
+Peri,All,Emotion,Intrusion frequency,NA,no,227,3,3,10,0.36," [-0.11, 0.82]",NA,1.504632,0.132419
+Peri + immediate post,All,Emotion,Intrusion frequency,NA,no,67,1,1,1,-0.51," [-1.40, 0.38]",NA,-1.128027,0.259308
+Pre,All,Emotion,Intrusion frequency,NA,no,291,5,5,9,0.22," [-0.13, 0.56]",NA,1.238617,0.215487
+Pre + peri,All,Emotion,Intrusion frequency,NA,no,108,1,1,2,-0.24," [-1.05, 0.58]",NA,-0.567055,0.570677
+Moderation Analysis: Time of Administration,All,Emotion,Intrusion frequency,NA,yes,NA,NA,NA,NA,NA,NA,6.809,NA,0.146
+Immediate post,All,Emotion,Intrusion frequency,NA,yes,984,9,9,15,0.06," [-0.15, 0.28]",NA,0.577134,0.563849
+Peri,All,Emotion,Intrusion frequency,NA,yes,227,3,3,10,0.36," [-0.01, 0.72]",NA,1.929888,0.053621
+Peri + immediate post,All,Emotion,Intrusion frequency,NA,yes,67,1,1,1,-0.51," [-1.25, 0.22]",NA,-1.3641,0.172536
+Pre,All,Emotion,Intrusion frequency,NA,yes,291,5,5,9,0.25," [-0.05, 0.54]",NA,1.643712,0.100236
+Pre + peri,All,Emotion,Intrusion frequency,NA,yes,108,1,1,2,-0.24," [-0.88, 0.41]",NA,-0.717119,0.473301
+Moderation Analysis: Time of Administration,All,Imagery,Intrusion frequency,NA,no,NA,NA,NA,NA,NA,NA,1.922,NA,0.589
+Delayed post,All,Imagery,Intrusion frequency,NA,no,837,7,8,27,0.26," [-0.03, 0.54]",NA,1.762884,0.07792
+Immediate post,All,Imagery,Intrusion frequency,NA,no,2933,31,37,96,0.32," [0.18, 0.46]",NA,4.585825,0.000005
+Peri,All,Imagery,Intrusion frequency,NA,no,750,10,11,17,0.51," [0.24, 0.78]",NA,3.67865,0.000234
+Pre,All,Imagery,Intrusion frequency,NA,no,120,2,2,3,0.32," [-0.28, 0.91]",NA,1.042635,0.297117
+Moderation Analysis: Time of Administration,All,Imagery,Intrusion frequency,NA,yes,NA,NA,NA,NA,NA,NA,2.921,NA,0.404
+Delayed post,All,Imagery,Intrusion frequency,NA,yes,837,7,8,25,0.2," [-0.07, 0.47]",NA,1.47142,0.141178
+Immediate post,All,Imagery,Intrusion frequency,NA,yes,2903,30,36,93,0.29," [0.16, 0.42]",NA,4.419374,0.00001
+Peri,All,Imagery,Intrusion frequency,NA,yes,750,10,11,17,0.51," [0.25, 0.77]",NA,3.860506,0.000113
+Pre,All,Imagery,Intrusion frequency,NA,yes,120,2,2,3,0.31," [-0.25, 0.87]",NA,1.098506,0.271984
+Moderation Analysis: Time of Administration,All,Other,Intrusion frequency,NA,no,NA,NA,NA,NA,NA,NA,3.06,NA,0.382
+Delayed post,All,Other,Intrusion frequency,NA,no,181,1,1,2,0.09," [-0.45, 0.64]",NA,0.342006,0.732347
+Immediate post,All,Other,Intrusion frequency,NA,no,1288,17,19,38,0.25," [0.10, 0.40]",NA,3.277071,0.001049
+Peri,All,Other,Intrusion frequency,NA,no,311,6,6,7,-0.05," [-0.36, 0.26]",NA,-0.314825,0.752895
+Pre,All,Other,Intrusion frequency,NA,no,262,4,4,11,0.22," [-0.09, 0.53]",NA,1.392787,0.163684
+Moderation Analysis: Time of Administration,All,Other,Intrusion frequency,NA,yes,NA,NA,NA,NA,NA,NA,3.06,NA,0.382
+Delayed post,All,Other,Intrusion frequency,NA,yes,181,1,1,2,0.09," [-0.45, 0.64]",NA,0.342006,0.732347
+Immediate post,All,Other,Intrusion frequency,NA,yes,1288,17,19,38,0.25," [0.10, 0.40]",NA,3.277071,0.001049
+Peri,All,Other,Intrusion frequency,NA,yes,311,6,6,7,-0.05," [-0.36, 0.26]",NA,-0.314825,0.752895
+Pre,All,Other,Intrusion frequency,NA,yes,262,4,4,11,0.22," [-0.09, 0.53]",NA,1.392787,0.163684
+Moderation Analysis: Time of Administration,All,Verbal,Intrusion frequency,NA,no,NA,NA,NA,NA,NA,NA,12.07,NA,0.017
+Delayed post,All,Verbal,Intrusion frequency,NA,no,140,2,2,2,0.6," [0.00, 1.21]",NA,1.960111,0.049983
+Immediate + delayed post,All,Verbal,Intrusion frequency,NA,no,139,2,2,4,-0.37," [-0.88, 0.14]",NA,-1.424979,0.154163
+Immediate post,All,Verbal,Intrusion frequency,NA,no,1135,14,15,53,0.1," [-0.08, 0.27]",NA,1.041279,0.297746
+Peri,All,Verbal,Intrusion frequency,NA,no,933,12,13,24,-0.2," [-0.42, 0.02]",NA,-1.822599,0.068364
+Pre,All,Verbal,Intrusion frequency,NA,no,80,1,2,2,-0.4," [-0.94, 0.13]",NA,-1.475502,0.140078
+Moderation Analysis: Time of Administration,All,Verbal,Intrusion frequency,NA,yes,NA,NA,NA,NA,NA,NA,17.214,NA,0.002
+Delayed post,All,Verbal,Intrusion frequency,NA,yes,140,2,2,2,0.61," [0.11, 1.10]",NA,2.402484,0.016284
+Immediate + delayed post,All,Verbal,Intrusion frequency,NA,yes,139,2,2,4,-0.36," [-0.73, 0.02]",NA,-1.847192,0.064719
+Immediate post,All,Verbal,Intrusion frequency,NA,yes,1135,14,15,51,0.14," [0.01, 0.27]",NA,2.134602,0.032793
+Peri,All,Verbal,Intrusion frequency,NA,yes,830,11,11,21,-0.06," [-0.24, 0.12]",NA,-0.660822,0.508726
+Pre,All,Verbal,Intrusion frequency,NA,yes,80,1,2,2,-0.4," [-0.81, 0.01]",NA,-1.912742,0.055781
+Moderation Analysis: Time of Administration,All,Emotion,Intrusion frequency,Intrusion diary,no,NA,NA,NA,NA,NA,NA,2.592,NA,0.628
+Immediate post,All,Emotion,Intrusion frequency,Intrusion diary,no,702,7,7,11,-0.07," [-0.41, 0.28]",NA,-0.378947,0.704727
+Peri,All,Emotion,Intrusion frequency,Intrusion diary,no,227,3,3,5,0.2," [-0.33, 0.73]",NA,0.728168,0.466511
+Peri + immediate post,All,Emotion,Intrusion frequency,Intrusion diary,no,67,1,1,1,-0.51," [-1.47, 0.44]",NA,-1.050554,0.293463
+Pre,All,Emotion,Intrusion frequency,Intrusion diary,no,210,4,4,5,0.18," [-0.30, 0.66]",NA,0.733378,0.463328
+Pre + peri,All,Emotion,Intrusion frequency,Intrusion diary,no,108,1,1,2,-0.24," [-1.12, 0.64]",NA,-0.526922,0.598247
+Moderation Analysis: Time of Administration,All,Emotion,Intrusion frequency,Intrusion diary,yes,NA,NA,NA,NA,NA,NA,4.177,NA,0.383
+Immediate post,All,Emotion,Intrusion frequency,Intrusion diary,yes,663,6,6,10,0.09," [-0.18, 0.36]",NA,0.669658,0.503076
+Peri,All,Emotion,Intrusion frequency,Intrusion diary,yes,227,3,3,5,0.2," [-0.20, 0.60]",NA,0.989647,0.322347
+Peri + immediate post,All,Emotion,Intrusion frequency,Intrusion diary,yes,67,1,1,1,-0.51," [-1.25, 0.22]",NA,-1.367188,0.171566
+Pre,All,Emotion,Intrusion frequency,Intrusion diary,yes,210,4,4,5,0.2," [-0.18, 0.57]",NA,1.03103,0.302527
+Pre + peri,All,Emotion,Intrusion frequency,Intrusion diary,yes,108,1,1,2,-0.24," [-0.87, 0.40]",NA,-0.726829,0.467331
+Moderation Analysis: Time of Administration,All,Imagery,Intrusion frequency,Intrusion diary,no,NA,NA,NA,NA,NA,NA,4.468,NA,0.215
+Delayed post,All,Imagery,Intrusion frequency,Intrusion diary,no,501,5,6,11,0.43," [0.10, 0.75]",NA,2.570754,0.010148
+Immediate post,All,Imagery,Intrusion frequency,Intrusion diary,no,2549,28,33,73,0.26," [0.12, 0.40]",NA,3.64037,0.000272
+Peri,All,Imagery,Intrusion frequency,Intrusion diary,no,677,9,10,15,0.57," [0.30, 0.84]",NA,4.118557,0.000038
+Pre,All,Imagery,Intrusion frequency,Intrusion diary,no,120,2,2,2,0.44," [-0.15, 1.03]",NA,1.468535,0.141959
+Moderation Analysis: Time of Administration,All,Imagery,Intrusion frequency,Intrusion diary,yes,NA,NA,NA,NA,NA,NA,5.575,NA,0.134
+Delayed post,All,Imagery,Intrusion frequency,Intrusion diary,yes,449,5,5,9,0.24," [-0.08, 0.56]",NA,1.455608,0.145501
+Immediate post,All,Imagery,Intrusion frequency,Intrusion diary,yes,2483,27,31,71,0.21," [0.09, 0.34]",NA,3.265825,0.001091
+Peri,All,Imagery,Intrusion frequency,Intrusion diary,yes,677,9,10,14,0.54," [0.29, 0.79]",NA,4.226124,0.000024
+Pre,All,Imagery,Intrusion frequency,Intrusion diary,yes,120,2,2,2,0.44," [-0.10, 0.98]",NA,1.597013,0.110263
+Moderation Analysis: Time of Administration,All,Other,Intrusion frequency,Intrusion diary,no,NA,NA,NA,NA,NA,NA,1.478,NA,0.478
+Immediate post,All,Other,Intrusion frequency,Intrusion diary,no,1172,15,17,28,0.24," [0.09, 0.39]",NA,3.103676,0.001911
+Peri,All,Other,Intrusion frequency,Intrusion diary,no,246,5,5,6,0.04," [-0.27, 0.36]",NA,0.27615,0.782433
+Pre,All,Other,Intrusion frequency,Intrusion diary,no,229,3,3,5,0.1," [-0.24, 0.44]",NA,0.579623,0.562169
+Moderation Analysis: Time of Administration,All,Other,Intrusion frequency,Intrusion diary,yes,NA,NA,NA,NA,NA,NA,1.478,NA,0.478
+Immediate post,All,Other,Intrusion frequency,Intrusion diary,yes,1172,15,17,28,0.24," [0.09, 0.39]",NA,3.103676,0.001911
+Peri,All,Other,Intrusion frequency,Intrusion diary,yes,246,5,5,6,0.04," [-0.27, 0.36]",NA,0.27615,0.782433
+Pre,All,Other,Intrusion frequency,Intrusion diary,yes,229,3,3,5,0.1," [-0.24, 0.44]",NA,0.579623,0.562169
+Moderation Analysis: Time of Administration,All,Verbal,Intrusion frequency,Intrusion diary,no,NA,NA,NA,NA,NA,NA,8.072,NA,0.089
+Delayed post,All,Verbal,Intrusion frequency,Intrusion diary,no,140,2,2,2,0.6," [-0.05, 1.25]",NA,1.809359,0.070395
+Immediate + delayed post,All,Verbal,Intrusion frequency,Intrusion diary,no,139,2,2,3,-0.34," [-0.93, 0.25]",NA,-1.115443,0.26466
+Immediate post,All,Verbal,Intrusion frequency,Intrusion diary,no,838,11,12,25,0.07," [-0.17, 0.30]",NA,0.552345,0.580712
+Peri,All,Verbal,Intrusion frequency,Intrusion diary,no,795,10,11,19,-0.18," [-0.44, 0.08]",NA,-1.390508,0.164375
+Pre,All,Verbal,Intrusion frequency,Intrusion diary,no,80,1,2,2,-0.4," [-0.99, 0.19]",NA,-1.340566,0.180061
+Moderation Analysis: Time of Administration,All,Verbal,Intrusion frequency,Intrusion diary,yes,NA,NA,NA,NA,NA,NA,13.579,NA,0.009
+Delayed post,All,Verbal,Intrusion frequency,Intrusion diary,yes,140,2,2,2,0.61," [0.09, 1.13]",NA,2.287874,0.022145
+Immediate + delayed post,All,Verbal,Intrusion frequency,Intrusion diary,yes,139,2,2,3,-0.33," [-0.77, 0.11]",NA,-1.477019,0.139671
+Immediate post,All,Verbal,Intrusion frequency,Intrusion diary,yes,838,11,12,23,0.14," [-0.04, 0.32]",NA,1.561798,0.118336
+Peri,All,Verbal,Intrusion frequency,Intrusion diary,yes,757,10,10,17,-0.08," [-0.28, 0.12]",NA,-0.759579,0.447506
+Pre,All,Verbal,Intrusion frequency,Intrusion diary,yes,80,1,2,2,-0.4," [-0.84, 0.04]",NA,-1.792643,0.07303
+Moderation Analysis: Time of Administration,All,Emotion,Intrusion frequency,Lab-based intrusion monitoring task,no,NA,NA,NA,NA,NA,NA,5.376,NA,0.068
+Immediate post,All,Emotion,Intrusion frequency,Lab-based intrusion monitoring task,no,81,1,1,2,0.02," [-0.35, 0.40]",NA,0.10977,0.912591
+Peri,All,Emotion,Intrusion frequency,Lab-based intrusion monitoring task,no,171,2,2,3,0.58," [0.28, 0.87]",NA,3.867582,0.00011
+Pre,All,Emotion,Intrusion frequency,Lab-based intrusion monitoring task,no,129,2,2,4,0.43," [0.16, 0.71]",NA,3.060611,0.002209
+Moderation Analysis: Time of Administration,All,Emotion,Intrusion frequency,Lab-based intrusion monitoring task,yes,NA,NA,NA,NA,NA,NA,5.376,NA,0.068
+Immediate post,All,Emotion,Intrusion frequency,Lab-based intrusion monitoring task,yes,81,1,1,2,0.02," [-0.35, 0.40]",NA,0.10977,0.912591
+Peri,All,Emotion,Intrusion frequency,Lab-based intrusion monitoring task,yes,171,2,2,3,0.58," [0.28, 0.87]",NA,3.867582,0.00011
+Pre,All,Emotion,Intrusion frequency,Lab-based intrusion monitoring task,yes,129,2,2,4,0.43," [0.16, 0.71]",NA,3.060611,0.002209
+Moderation Analysis: Time of Administration,All,Imagery,Intrusion frequency,Lab-based intrusion monitoring task,no,NA,NA,NA,NA,NA,NA,3.5,NA,0.321
+Delayed post,All,Imagery,Intrusion frequency,Lab-based intrusion monitoring task,no,273,2,3,7,0.36," [-0.07, 0.80]",NA,1.637712,0.101482
+Immediate post,All,Imagery,Intrusion frequency,Lab-based intrusion monitoring task,no,713,8,10,19,0.6," [0.35, 0.86]",NA,4.680602,0.000003
+Peri,All,Imagery,Intrusion frequency,Lab-based intrusion monitoring task,no,86,1,1,1,0.74," [-0.11, 1.60]",NA,1.713329,0.086652
+Pre,All,Imagery,Intrusion frequency,Lab-based intrusion monitoring task,no,56,1,1,1,-0.13," [-0.97, 0.71]",NA,-0.304357,0.760856
+Moderation Analysis: Time of Administration,All,Imagery,Intrusion frequency,Lab-based intrusion monitoring task,yes,NA,NA,NA,NA,NA,NA,3.5,NA,0.321
+Delayed post,All,Imagery,Intrusion frequency,Lab-based intrusion monitoring task,yes,273,2,3,7,0.36," [-0.07, 0.80]",NA,1.637712,0.101482
+Immediate post,All,Imagery,Intrusion frequency,Lab-based intrusion monitoring task,yes,713,8,10,19,0.6," [0.35, 0.86]",NA,4.680602,0.000003
+Peri,All,Imagery,Intrusion frequency,Lab-based intrusion monitoring task,yes,86,1,1,1,0.74," [-0.11, 1.60]",NA,1.713329,0.086652
+Pre,All,Imagery,Intrusion frequency,Lab-based intrusion monitoring task,yes,56,1,1,1,-0.13," [-0.97, 0.71]",NA,-0.304357,0.760856
+Moderation Analysis: Time of Administration,All,Other,Intrusion frequency,Lab-based intrusion monitoring task,no,NA,NA,NA,NA,NA,NA,4.968,NA,0.174
+Delayed post,All,Other,Intrusion frequency,Lab-based intrusion monitoring task,no,181,1,1,1,0.08," [-0.46, 0.62]",NA,0.297059,0.766421
+Immediate post,All,Other,Intrusion frequency,Lab-based intrusion monitoring task,no,490,8,8,10,0.28," [0.05, 0.51]",NA,2.349963,0.018775
+Peri,All,Other,Intrusion frequency,Lab-based intrusion monitoring task,no,65,1,1,1,-0.61," [-1.37, 0.15]",NA,-1.565799,0.117396
+Pre,All,Other,Intrusion frequency,Lab-based intrusion monitoring task,no,200,3,3,5,0.14," [-0.23, 0.50]",NA,0.747821,0.454568
+Moderation Analysis: Time of Administration,All,Other,Intrusion frequency,Lab-based intrusion monitoring task,yes,NA,NA,NA,NA,NA,NA,4.968,NA,0.174
+Delayed post,All,Other,Intrusion frequency,Lab-based intrusion monitoring task,yes,181,1,1,1,0.08," [-0.46, 0.62]",NA,0.297059,0.766421
+Immediate post,All,Other,Intrusion frequency,Lab-based intrusion monitoring task,yes,490,8,8,10,0.28," [0.05, 0.51]",NA,2.349963,0.018775
+Peri,All,Other,Intrusion frequency,Lab-based intrusion monitoring task,yes,65,1,1,1,-0.61," [-1.37, 0.15]",NA,-1.565799,0.117396
+Pre,All,Other,Intrusion frequency,Lab-based intrusion monitoring task,yes,200,3,3,5,0.14," [-0.23, 0.50]",NA,0.747821,0.454568
+Moderation Analysis: Time of Administration,All,Verbal,Intrusion frequency,Lab-based intrusion monitoring task,no,NA,NA,NA,NA,NA,NA,1.004,NA,0.316
+Immediate post,All,Verbal,Intrusion frequency,Lab-based intrusion monitoring task,no,346,4,5,11,0.12," [-0.13, 0.36]",NA,0.93838,0.348049
+Peri,All,Verbal,Intrusion frequency,Lab-based intrusion monitoring task,no,261,3,3,4,-0.13," [-0.53, 0.28]",NA,-0.603855,0.54594
+Moderation Analysis: Time of Administration,All,Verbal,Intrusion frequency,Lab-based intrusion monitoring task,yes,NA,NA,NA,NA,NA,NA,0.523,NA,0.469
+Immediate post,All,Verbal,Intrusion frequency,Lab-based intrusion monitoring task,yes,346,4,5,11,0.17," [-0.10, 0.44]",NA,1.249451,0.2115
+Peri,All,Verbal,Intrusion frequency,Lab-based intrusion monitoring task,yes,196,2,2,2,0.38," [-0.11, 0.87]",NA,1.512254,0.130469
+Moderation Analysis: Time of Administration,All,Emotion,Intrusion frequency,Self-report questionnaire,no,NA,NA,NA,NA,NA,NA,0.072,NA,0.788
+Immediate post,All,Emotion,Intrusion frequency,Self-report questionnaire,no,240,2,2,3,0.17," [-0.96, 1.30]",NA,0.299927,0.764233
+Peri,All,Emotion,Intrusion frequency,Self-report questionnaire,no,56,1,1,2,0.44," [-1.16, 2.05]",NA,0.54008,0.589142
+Moderation Analysis: Time of Administration,All,Emotion,Intrusion frequency,Self-report questionnaire,yes,NA,NA,NA,NA,NA,NA,0.072,NA,0.788
+Immediate post,All,Emotion,Intrusion frequency,Self-report questionnaire,yes,240,2,2,3,0.17," [-0.96, 1.30]",NA,0.299927,0.764233
+Peri,All,Emotion,Intrusion frequency,Self-report questionnaire,yes,56,1,1,2,0.44," [-1.16, 2.05]",NA,0.54008,0.589142
+Moderation Analysis: Time of Administration,All,Imagery,Intrusion frequency,Self-report questionnaire,no,NA,NA,NA,NA,NA,NA,5.374,NA,0.068
+Delayed post,All,Imagery,Intrusion frequency,Self-report questionnaire,no,336,2,2,9,-0.13," [-0.57, 0.30]",NA,-0.596274,0.550992
+Immediate post,All,Imagery,Intrusion frequency,Self-report questionnaire,no,285,3,3,4,0.54," [0.10, 0.98]",NA,2.407989,0.016041
+Peri,All,Imagery,Intrusion frequency,Self-report questionnaire,no,73,1,1,1,-0.21," [-1.02, 0.61]",NA,-0.494708,0.620806
+Moderation Analysis: Time of Administration,All,Imagery,Intrusion frequency,Self-report questionnaire,yes,NA,NA,NA,NA,NA,NA,4.796,NA,0.091
+Delayed post,All,Imagery,Intrusion frequency,Self-report questionnaire,yes,336,2,2,9,-0.14," [-0.53, 0.26]",NA,-0.676099,0.498978
+Immediate post,All,Imagery,Intrusion frequency,Self-report questionnaire,yes,285,3,3,3,0.47," [0.04, 0.90]",NA,2.129417,0.03322
+Peri,All,Imagery,Intrusion frequency,Self-report questionnaire,yes,73,1,1,1,-0.21," [-0.97, 0.56]",NA,-0.525027,0.599565
+Moderation Analysis: Time of Administration,All,Other,Intrusion frequency,Self-report questionnaire,no,NA,NA,NA,NA,NA,NA,3.127,NA,0.077
+Delayed post,All,Other,Intrusion frequency,Self-report questionnaire,no,181,1,1,1,0.11," [-0.18, 0.40]",NA,0.723516,0.469363
+Pre,All,Other,Intrusion frequency,Self-report questionnaire,no,33,1,1,1,0.8," [0.09, 1.51]",NA,2.20943,0.027145
+Moderation Analysis: Time of Administration,All,Other,Intrusion frequency,Self-report questionnaire,yes,NA,NA,NA,NA,NA,NA,3.127,NA,0.077
+Delayed post,All,Other,Intrusion frequency,Self-report questionnaire,yes,181,1,1,1,0.11," [-0.18, 0.40]",NA,0.723516,0.469363
+Pre,All,Other,Intrusion frequency,Self-report questionnaire,yes,33,1,1,1,0.8," [0.09, 1.51]",NA,2.20943,0.027145
+Moderation Analysis: Time of Administration,All,Verbal,Intrusion frequency,Self-report questionnaire,no,NA,NA,NA,NA,NA,NA,2.255,NA,0.324
+Immediate + delayed post,All,Verbal,Intrusion frequency,Self-report questionnaire,no,82,1,1,1,-0.32," [-0.79, 0.16]",NA,-1.299911,0.193631
+Immediate post,All,Verbal,Intrusion frequency,Self-report questionnaire,no,455,5,5,17,0.07," [-0.08, 0.21]",NA,0.856387,0.391784
+Peri,All,Verbal,Intrusion frequency,Self-report questionnaire,no,73,1,1,1,-0.01," [-0.60, 0.58]",NA,-0.020509,0.983637
+Moderation Analysis: Time of Administration,All,Verbal,Intrusion frequency,Self-report questionnaire,yes,NA,NA,NA,NA,NA,NA,2.255,NA,0.324
+Immediate + delayed post,All,Verbal,Intrusion frequency,Self-report questionnaire,yes,82,1,1,1,-0.32," [-0.79, 0.16]",NA,-1.299911,0.193631
+Immediate post,All,Verbal,Intrusion frequency,Self-report questionnaire,yes,455,5,5,17,0.07," [-0.08, 0.21]",NA,0.856387,0.391784
+Peri,All,Verbal,Intrusion frequency,Self-report questionnaire,yes,73,1,1,1,-0.01," [-0.60, 0.58]",NA,-0.020509,0.983637
+Moderation Analysis: Time of Administration,All,Emotion,Intrusion symptoms,NA,no,NA,NA,NA,NA,NA,NA,4.081,NA,0.395
+Delayed post,All,Emotion,Intrusion symptoms,NA,no,132,2,2,2,-0.22," [-0.75, 0.32]",NA,-0.799882,0.423779
+Immediate post,All,Emotion,Intrusion symptoms,NA,no,345,3,3,4,-0.07," [-0.41, 0.26]",NA,-0.423839,0.671683
+Peri,All,Emotion,Intrusion symptoms,NA,no,118,2,2,2,0.18," [-0.34, 0.70]",NA,0.667326,0.504564
+Peri + immediate post,All,Emotion,Intrusion symptoms,NA,no,67,1,1,1,-0.63," [-1.35, 0.09]",NA,-1.716522,0.086067
+Pre,All,Emotion,Intrusion symptoms,NA,no,52,1,1,1,0.23," [-0.53, 0.99]",NA,0.594371,0.552264
+Moderation Analysis: Time of Administration,All,Emotion,Intrusion symptoms,NA,yes,NA,NA,NA,NA,NA,NA,6.622,NA,0.157
+Delayed post,All,Emotion,Intrusion symptoms,NA,yes,69,1,1,1,0.19," [-0.36, 0.75]",NA,0.682817,0.494723
+Immediate post,All,Emotion,Intrusion symptoms,NA,yes,345,3,3,4,-0.07," [-0.33, 0.18]",NA,-0.55158,0.581236
+Peri,All,Emotion,Intrusion symptoms,NA,yes,118,2,2,2,0.18," [-0.24, 0.60]",NA,0.83868,0.401649
+Peri + immediate post,All,Emotion,Intrusion symptoms,NA,yes,67,1,1,1,-0.63," [-1.20, -0.06]",NA,-2.167144,0.030224
+Pre,All,Emotion,Intrusion symptoms,NA,yes,52,1,1,1,0.23," [-0.39, 0.85]",NA,0.729209,0.465874
+Moderation Analysis: Time of Administration,All,Imagery,Intrusion symptoms,NA,no,NA,NA,NA,NA,NA,NA,0.714,NA,0.7
+Delayed post,All,Imagery,Intrusion symptoms,NA,no,476,5,6,10,0.04," [-0.24, 0.32]",NA,0.285864,0.774982
+Immediate post,All,Imagery,Intrusion symptoms,NA,no,863,10,11,20,-0.04," [-0.24, 0.15]",NA,-0.424183,0.671432
+Peri,All,Imagery,Intrusion symptoms,NA,no,337,3,3,3,0.17," [-0.32, 0.65]",NA,0.673172,0.500838
+Moderation Analysis: Time of Administration,All,Imagery,Intrusion symptoms,NA,yes,NA,NA,NA,NA,NA,NA,0.259,NA,0.879
+Delayed post,All,Imagery,Intrusion symptoms,NA,yes,476,5,6,10,0.05," [-0.21, 0.31]",NA,0.381993,0.702467
+Immediate post,All,Imagery,Intrusion symptoms,NA,yes,863,10,11,18,0.05," [-0.13, 0.24]",NA,0.568959,0.569384
+Peri,All,Imagery,Intrusion symptoms,NA,yes,337,3,3,3,0.17," [-0.25, 0.59]",NA,0.782752,0.433773
+Moderation Analysis: Time of Administration,All,Other,Intrusion symptoms,NA,no,NA,NA,NA,NA,NA,NA,1.849,NA,0.604
+Delayed post,All,Other,Intrusion symptoms,NA,no,54,1,1,1,0.26," [-0.61, 1.14]",NA,0.59064,0.554761
+Immediate post,All,Other,Intrusion symptoms,NA,no,838,11,12,17,0.1," [-0.10, 0.30]",NA,0.940686,0.346866
+Peri,All,Other,Intrusion symptoms,NA,no,65,1,1,1,0.57," [-0.27, 1.41]",NA,1.321434,0.186357
+Pre,All,Other,Intrusion symptoms,NA,no,167,2,2,3,-0.07," [-0.54, 0.39]",NA,-0.303425,0.761566
+Moderation Analysis: Time of Administration,All,Other,Intrusion symptoms,NA,yes,NA,NA,NA,NA,NA,NA,1.849,NA,0.604
+Delayed post,All,Other,Intrusion symptoms,NA,yes,54,1,1,1,0.26," [-0.61, 1.14]",NA,0.59064,0.554761
+Immediate post,All,Other,Intrusion symptoms,NA,yes,838,11,12,17,0.1," [-0.10, 0.30]",NA,0.940686,0.346866
+Peri,All,Other,Intrusion symptoms,NA,yes,65,1,1,1,0.57," [-0.27, 1.41]",NA,1.321434,0.186357
+Pre,All,Other,Intrusion symptoms,NA,yes,167,2,2,3,-0.07," [-0.54, 0.39]",NA,-0.303425,0.761566
+Moderation Analysis: Time of Administration,All,Verbal,Intrusion symptoms,NA,no,NA,NA,NA,NA,NA,NA,2.825,NA,0.419
+Delayed post,All,Verbal,Intrusion symptoms,NA,no,86,1,1,1,-0.03," [-0.91, 0.85]",NA,-0.066954,0.946618
+Immediate post,All,Verbal,Intrusion symptoms,NA,no,715,7,8,14,0.17," [-0.07, 0.41]",NA,1.402589,0.160739
+Peri,All,Verbal,Intrusion symptoms,NA,no,512,5,5,6,-0.02," [-0.39, 0.34]",NA,-0.133907,0.893476
+Pre,All,Verbal,Intrusion symptoms,NA,no,378,2,2,3,-0.25," [-0.72, 0.21]",NA,-1.068835,0.285144
+Moderation Analysis: Time of Administration,All,Verbal,Intrusion symptoms,NA,yes,NA,NA,NA,NA,NA,NA,4.603,NA,0.203
+Delayed post,All,Verbal,Intrusion symptoms,NA,yes,86,1,1,1,-0.03," [-0.64, 0.58]",NA,-0.095643,0.923805
+Immediate post,All,Verbal,Intrusion symptoms,NA,yes,670,6,7,12,0.22," [0.03, 0.41]",NA,2.237798,0.025234
+Peri,All,Verbal,Intrusion symptoms,NA,yes,512,5,5,6,-0.01," [-0.28, 0.26]",NA,-0.053152,0.957611
+Pre,All,Verbal,Intrusion symptoms,NA,yes,378,2,2,3,-0.14," [-0.44, 0.16]",NA,-0.912694,0.361404
+Moderation Analysis: Time of Administration,All,Emotion,Intrusion-related distress,NA,no,NA,NA,NA,NA,NA,NA,3.669,NA,0.16
+Immediate post,All,Emotion,Intrusion-related distress,NA,no,521,6,6,9,-0.13," [-0.49, 0.23]",NA,-0.701239,0.483154
+Peri,All,Emotion,Intrusion-related distress,NA,no,145,2,2,6,-0.02," [-0.69, 0.65]",NA,-0.058638,0.95324
+Pre,All,Emotion,Intrusion-related distress,NA,no,390,6,6,11,0.27," [-0.10, 0.63]",NA,1.435164,0.15124
+Moderation Analysis: Time of Administration,All,Emotion,Intrusion-related distress,NA,yes,NA,NA,NA,NA,NA,NA,3.934,NA,0.14
+Immediate post,All,Emotion,Intrusion-related distress,NA,yes,482,5,5,8,0.03," [-0.23, 0.29]",NA,0.213087,0.831259
+Peri,All,Emotion,Intrusion-related distress,NA,yes,145,2,2,6,-0.02," [-0.44, 0.39]",NA,-0.116724,0.907079
+Pre,All,Emotion,Intrusion-related distress,NA,yes,390,6,6,11,0.33," [0.08, 0.58]",NA,2.541061,0.011052
+Moderation Analysis: Time of Administration,All,Imagery,Intrusion-related distress,NA,no,NA,NA,NA,NA,NA,NA,1.888,NA,0.596
+Delayed post,All,Imagery,Intrusion-related distress,NA,no,173,1,1,3,-0.11," [-0.58, 0.37]",NA,-0.445646,0.655853
+Immediate post,All,Imagery,Intrusion-related distress,NA,no,1448,15,16,25,0.12," [-0.03, 0.27]",NA,1.554822,0.119988
+Peri,All,Imagery,Intrusion-related distress,NA,no,262,2,2,2,-0.15," [-0.64, 0.34]",NA,-0.615951,0.537927
+Pre,All,Imagery,Intrusion-related distress,NA,no,64,1,1,1,-0.05," [-0.69, 0.59]",NA,-0.143241,0.8861
+Moderation Analysis: Time of Administration,All,Imagery,Intrusion-related distress,NA,yes,NA,NA,NA,NA,NA,NA,1.616,NA,0.656
+Delayed post,All,Imagery,Intrusion-related distress,NA,yes,173,1,1,3,-0.11," [-0.54, 0.33]",NA,-0.488666,0.625078
+Immediate post,All,Imagery,Intrusion-related distress,NA,yes,1382,14,15,24,0.09," [-0.06, 0.23]",NA,1.178823,0.238468
+Peri,All,Imagery,Intrusion-related distress,NA,yes,262,2,2,2,-0.16," [-0.63, 0.31]",NA,-0.6593,0.509703
+Pre,All,Imagery,Intrusion-related distress,NA,yes,64,1,1,1,-0.05," [-0.66, 0.56]",NA,-0.150383,0.880462
+Moderation Analysis: Time of Administration,All,Other,Intrusion-related distress,NA,no,NA,NA,NA,NA,NA,NA,9.019,NA,0.029
+Delayed post,All,Other,Intrusion-related distress,NA,no,181,1,1,2,-0.07," [-0.28, 0.14]",NA,-0.657059,0.511143
+Immediate post,All,Other,Intrusion-related distress,NA,no,872,11,12,17,0.19," [0.07, 0.31]",NA,3.033237,0.002419
+Peri,All,Other,Intrusion-related distress,NA,no,176,3,3,4,-0.15," [-0.47, 0.17]",NA,-0.922818,0.356102
+Pre,All,Other,Intrusion-related distress,NA,no,167,2,2,3,-0.12," [-0.39, 0.16]",NA,-0.820575,0.411889
+Moderation Analysis: Time of Administration,All,Other,Intrusion-related distress,NA,yes,NA,NA,NA,NA,NA,NA,9.019,NA,0.029
+Delayed post,All,Other,Intrusion-related distress,NA,yes,181,1,1,2,-0.07," [-0.28, 0.14]",NA,-0.657059,0.511143
+Immediate post,All,Other,Intrusion-related distress,NA,yes,872,11,12,17,0.19," [0.07, 0.31]",NA,3.033237,0.002419
+Peri,All,Other,Intrusion-related distress,NA,yes,176,3,3,4,-0.15," [-0.47, 0.17]",NA,-0.922818,0.356102
+Pre,All,Other,Intrusion-related distress,NA,yes,167,2,2,3,-0.12," [-0.39, 0.16]",NA,-0.820575,0.411889
+Moderation Analysis: Time of Administration,All,Verbal,Intrusion-related distress,NA,no,NA,NA,NA,NA,NA,NA,6.425,NA,0.04
+Immediate + delayed post,All,Verbal,Intrusion-related distress,NA,no,139,2,2,4,-0.41," [-0.71, -0.11]",NA,-2.650862,0.008029
+Immediate post,All,Verbal,Intrusion-related distress,NA,no,468,6,7,22,-0.04," [-0.18, 0.10]",NA,-0.519365,0.603506
+Peri,All,Verbal,Intrusion-related distress,NA,no,424,4,4,5,0.09," [-0.17, 0.35]",NA,0.650613,0.515296
+Moderation Analysis: Time of Administration,All,Verbal,Intrusion-related distress,NA,yes,NA,NA,NA,NA,NA,NA,2.971,NA,0.226
+Immediate + delayed post,All,Verbal,Intrusion-related distress,NA,yes,139,2,2,3,-0.3," [-0.66, 0.05]",NA,-1.681438,0.092678
+Immediate post,All,Verbal,Intrusion-related distress,NA,yes,468,6,7,22,-0.04," [-0.18, 0.11]",NA,-0.489234,0.624676
+Peri,All,Verbal,Intrusion-related distress,NA,yes,424,4,4,5,0.08," [-0.18, 0.35]",NA,0.617331,0.537017

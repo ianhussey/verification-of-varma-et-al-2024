@@ -1,0 +1,476 @@
+---
+title: "Verification of Varma et al. (2024)"
+subtitle: "Publication bias"
+author: "Original code by authors of Varma et al. (2024). Additions by Ian Hussey, Saein Lee & Martin Götz"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_download: true
+    code_folding: hide
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+# Dependencies
+
+```{r}
+
+library(metafor)
+library(weightr)
+library(dplyr)
+
+```
+
+# Data and dirs
+
+```{r}
+
+# Set data paths
+dataPath = file.path("../Results/OutlierInfluential/data") # Set data path
+date = 20260119
+dataPath = paste0(dataPath,"/",date,"/")
+dir.create(file.path("../Results/OutlierInfluential/ExpLevel_data/"), showWarnings = FALSE)
+dataPath_expLevel = paste0("../Results/OutlierInfluential/ExpLevel_data/",date,"/")
+
+# Set output paths
+outputPath = file.path("../Results/PublicationBias")
+outputPath_expLevel = file.path("../Results/OutlierInfluential/ExpLevel_data/")
+outputPath_expLevel = paste0(outputPath_expLevel,"/",date,"/")
+
+# Create path if not exist
+dir.create(file.path(outputPath), showWarnings = FALSE)
+dir.create(file.path(outputPath,"plots"), showWarnings = FALSE)
+dir.create(file.path(outputPath,"EggersTest"), showWarnings = FALSE)
+dir.create(file.path(outputPath,"TrimFill"), showWarnings = FALSE)
+dir.create(file.path(outputPath,"TrimFill","plots"), showWarnings = FALSE)
+dir.create(file.path(outputPath,"ThreePSM"), showWarnings = FALSE)
+dir.create(file.path(outputPath_expLevel), showWarnings = FALSE)
+
+# Outcome-level files
+outcomeFile =list.files(dataPath)
+
+# Experiment-level files
+exp_calculate <-function(dataName,dataPath,outputPath,outlier = F){
+  df=read.csv(file.path(dataPath,dataName))
+  
+  # if remove outlier
+  if (outlier) {
+    outlierInd = which(df$outliers==1 | df$cooks_inf==1 | df$DFBETAS_inf==1)
+    name = "_OutRm"
+    if (length(outlierInd)!=0) {
+      df = df[-outlierInd,]
+    }
+  } else {name = ""}
+  
+  require(metafor)
+  temp = escalc(yi=yi_pos, vi=vi, slab = Citation_ExpLevel,data=df)
+  temp_cal= aggregate(temp,cluster = StudyID,struct="CS",rho = 0.6)
+  temp_cal$se = sqrt(temp_cal$vi) #recalculate se
+  #re-calculated the stats that are calculated from the single study
+  temp_cal= temp_cal[,-which(names(temp_cal)=="yi_pos")] #remove the yi_pos, which is calculated from single study 
+  temp_cal$Lower.Limit = temp_cal$yi-1.96*temp_cal$se
+  temp_cal$Upper.Limit = temp_cal$yi+1.96*temp_cal$se
+  temp_cal$Z.value = as.numeric(temp_cal$yi)/as.numeric(temp_cal$se)
+  temp_cal$p.value = ifelse(temp_cal$Z.value>=0,pnorm(temp_cal$Z.value,lower.tail =  F)*2,
+                                 pnorm(temp_cal$Z.value,lower.tail =  T)*2)
+  
+  write.csv(temp_cal,paste0(outputPath,"ExpLevel_",substring(dataName,30,nchar(dataName)-4),name,".csv"),
+            row.names = F)
+}
+
+```
+
+# Calculate experiment level data from the outcome file
+
+```{r}
+
+for (k in outcomeFile) {
+  exp_calculate(k,dataPath,outputPath_expLevel,outlier = F)
+  exp_calculate(k,dataPath,outputPath_expLevel,outlier = T)
+}
+
+expFile = list.files(outputPath_expLevel)
+
+```
+
+# Function of all tests
+
+Enter a df, export the results as csv of the test
+
+## Egger's test
+
+```{r}
+
+Egger <- function(dataName,dataPath,outputPath,outlier = F,optimizer_name = "nlminb"){
+  optimizer = list(optimizer=optimizer_name)
+  optimizer2 =  list(optimizer="optim")
+  
+  df=read.csv(file.path(dataPath,dataName))
+  # Formating names
+  temp_name = tail(unlist(strsplit(dataName,"_")),n=1)
+  temp_name_Outcome = unlist(strsplit(dataName,"_"))[4]
+  if (grepl("Intrusion frequency_Intrusion diary",dataName)) {
+    suboutcomeName = "Intrusion diary"
+  }else if (grepl("Intrusion frequency_Self-report questionnaire",dataName)) {
+    suboutcomeName = "Self-report questionnaire"
+  }else if (grepl("Intrusion frequency_Lab-based intrusion monitoring task",dataName)) {
+    suboutcomeName = "Lab-based intrusion monitoring task"
+  }else{
+    suboutcomeName = NA
+  }
+  
+  # if remove outlier
+  if (outlier) {
+    outlierInd = which(df$outliers==1 | df$cooks_inf==1 | df$DFBETAS_inf==1)
+    if (length(outlierInd)!=0) {
+      df = df[-outlierInd,]
+    }
+  }
+  
+  # multilevel = TRUE
+  # if (multilevel){
+  #Multilevel model:
+  #enter the standard error term as moderator to the multilevel model (se = sqrt(vi))
+  meta <- try(rma.mv(yi=yi_pos, V = vi,mods=sqrt(vi), data=df, slab=StudyID, random = ~ 1 | StudyID/EffectSizeID,
+                     control = optimizer),silent = T)
+  if("try-error" %in% class(meta)){
+    meta <- try(rma.mv(yi=yi_pos, V = vi,mods=sqrt(vi), data=df, slab=StudyID, random = ~ 1 | StudyID/EffectSizeID,
+                       control = optimizer2),silent = T)
+    
+  }
+  
+  sampleSize = 0
+  for (thisID in unique(df$StudyID)){
+    thisSampleSize = subset(df,StudyID == thisID)$SampleSize[1]
+    # print(thisSampleSize)
+    sampleSize = sampleSize + thisSampleSize
+  }
+  
+  res.df <- data.frame(Analysis = "Egger's test for funnel plot asymmetry",
+                       Prediction = substring(temp_name,1,nchar(temp_name)-24),
+                       Outcome = temp_name_Outcome,
+                       Suboutcome = suboutcomeName,
+                       OutlierRemove= ifelse(outlier,"yes","no"),
+                       N = sampleSize,
+                       n_article = length(unique(df$ArticleID)),
+                       n_study = length(unique(df$StudyID)),
+                       k = as.character(nrow(df)),
+                       z = meta$zval[2],
+                       p = meta$pval[2])
+  # print(meta)
+  # } else {
+  #   #Simple random effect model:
+  #   meta <- rma(yi = yi_pos, vi = vi, data = df)
+  #   res <- regtest(meta, model = "rma", predictor="sei" )
+  #   res.df <- data.frame(Analysis = "Egger's test for funnel plot asymmetry",
+  #                        z = res$zval,
+  #                        p = res$pval)
+  # }
+  # 
+  return(res.df)
+  # write.csv(res.df,paste(outputPath,"/EggersTest/Results_EggersTest_",substring(dataName,30,nchar(dataName)-4),".csv",sep=""),row.names = F)
+}
+
+```
+
+## Trim and Fill
+
+```{r}
+
+getTemplate_PublicationAnalysis <- function(){
+  df_temp = data.frame(
+    Analysis = character(),
+    Prediction = character(),
+    Outcome = character(),
+    Suboutcome = character(),
+    OutlierRemove = character(),
+    N = character(),
+    n_article = character(),
+    n_study = character(),
+    k = character(),
+    ImputedSide = character(),
+    ImputedStudies = character(),
+    Hedgesg = character(),
+    se = character(),
+    z = character(),
+    p = character(),
+    CI = character(),
+    stringsAsFactors = FALSE
+  )
+  return(df_temp)
+}
+
+Trim_Fill <- function(dataName_expLevel,dataPath_expLevel,outputPath){ 
+  require(metafor)
+  require(meta)
+  df=read.csv(file.path(dataPath_expLevel,dataName_expLevel))
+  
+  # Formating names
+  if (grepl("OutRm",dataName_expLevel)) {
+    temp_name = paste0(tail(unlist(strsplit(dataName_expLevel,"_")),n = 2)[1],".csv")
+  }else{temp_name = tail(unlist(strsplit(dataName_expLevel,"_")),n=1)}
+  
+  temp_name_Outcome = unlist(strsplit(dataName_expLevel,"_"))[2]
+  if (grepl("Intrusion frequency_Intrusion diary",dataName_expLevel)) {
+    suboutcomeName = "Intrusion diary"
+  }else if (grepl("Intrusion frequency_Self-report questionnaire",dataName_expLevel)) {
+    suboutcomeName = "Self-report questionnaire"
+  }else if (grepl("Intrusion frequency_Lab-based intrusion monitoring task",dataName_expLevel)) {
+    suboutcomeName = "Lab-based intrusion monitoring task"
+  }else{
+    suboutcomeName = NA
+  }
+  
+  # Remove outlier
+  # outlierInd = which(df$outliers==1 | df$cooks_inf==1 | df$DFBETAS_inf==1)
+  # if (length(outlierInd)!=0) { # if outlier present
+  #   df_out = df[-outlierInd,]
+  # 
+  # # Get the template of the data
+  # currentdf=getTemplate_PublicationAnalysis()
+  # row = 1
+  # for (i in c("df","df_out")) {
+  #   meta <- rma(yi = yi, vi = vi, data = get(i))
+  #   res <- trimfill(meta)
+  # 
+  #   sampleSize = 0
+  #   for (thisID in unique(df$StudyID)){
+  #     thisSampleSize = subset(df,StudyID == thisID)$SampleSize[1]
+  #     # print(thisSampleSize)
+  #     sampleSize = sampleSize + thisSampleSize
+  #   }
+  # 
+  #   currentdf[row,"Analysis"] = "Trim and Fill (Averaged Outcome)"
+  #   currentdf[row,"N"] = sampleSize
+  #   currentdf[row,"n_article"] = length(unique(get(i)$ArticleID))
+  #   currentdf[row,"n_study"] = length(unique(get(i)$StudyID))
+  #   currentdf[row,"k"] = as.character(nrow(get(i)))
+  #   currentdf[row,"Prediction"] = substring(temp_name,1,nchar(temp_name)-24)
+  #   currentdf[row,"Outcome"] = temp_name_Outcome
+  #   currentdf[row,"Suboutcome"] = suboutcomeName
+  #   currentdf[row,"OutlierRemove"] = ifelse(grepl("out",i),"yes","no")
+  #   currentdf[row,"ImputedSide"] = res$side
+  #   currentdf[row,"ImputedStudies"] = res$k0
+  #   currentdf[row,"Hedgesg"] = res$beta
+  #   currentdf[row,"se"] = res$se
+  #   currentdf[row,"z"] = res$zval
+  #   currentdf[row,"p"] = res$pval
+  #   cilb = formatC(res$ci.lb,2,format="f")
+  #   ciub = formatC(res$ci.ub,2,format="f")
+  #   currentdf[row,"CI"] = paste(" [",cilb,", ",ciub,"]",sep="")
+  #   row = row +1
+  # 
+  #   assign(paste0(i,"_trimfill"),res)
+  # }
+  # 
+  # # Export plot
+  # # Define fill colors for contour
+  # contour <- c(0.9, 0.95, 0.99)
+  # col.contour <- c("white", "gray55", "gray75")
+  # 
+  # png(paste(outputPath,"/TrimFill/plots/FunnelPlot_",substring(dataName_expLevel,10,nchar(dataName_expLevel)-4),".png",sep=""), width = 8, height = 5, units = 'in',res = 300)
+  # 
+  # # Use 'par' to create two plots in one row (row, columns)
+  # par(mfrow=c(1,2),cex = 0.8)
+  # 
+  # # Contour-enhanced funnel plot (full data)
+  # funnel.rma(df_trimfill, level=contour, shade=col.contour,
+  #            xlim = c(-2,2),
+  #            refline=0,legend = "topright", digits = 2L,bg = "darkgray",back = "gray95",
+  #            xlab = expression(paste("Hedge's ",italic("g"),sep="")))
+  # title("Funnel Plot")
+  # 
+  # # Contour-enhanced funnel plot (outliers removed)
+  # funnel.rma(df_out_trimfill, level=contour, shade=col.contour,xlim = c(-2,2),
+  #            refline=0,legend = "topright", digits = 2L,bg = "darkgray",back = "gray95",
+  #            xlab = expression(paste("Hedge's ",italic("g"),sep="")))
+  # title("Funnel Plot - Outliers Removed")
+  # # p <- recordPlot()
+  # # invisible(print(p))
+  # dev.off()
+  # 
+  # }else{ # if no outlier
+  # Get the template of the data
+  currentdf=getTemplate_PublicationAnalysis()
+  row = 1
+  
+  # run model
+  meta <- rma(yi = yi, vi = vi, data = df)
+  res <- trimfill(meta)
+  
+  sampleSize = 0
+  for (thisID in unique(df$StudyID)){
+    thisSampleSize = subset(df,StudyID == thisID)$SampleSize[1]
+    # print(thisSampleSize)
+    sampleSize = sampleSize + thisSampleSize
+  }
+  
+  # save data
+  currentdf[row,"Analysis"] = "Trim and Fill (Averaged Outcome)"
+  currentdf[row,"N"] = sampleSize
+  currentdf[row,"n_article"] = length(unique(df$ArticleID))
+  currentdf[row,"n_study"] = length(unique(df$StudyID))
+  currentdf[row,"k"] = as.character(nrow(df))
+  currentdf[row,"Prediction"] = substring(temp_name,1,nchar(temp_name)-24)
+  currentdf[row,"Outcome"] = temp_name_Outcome
+  currentdf[row,"Suboutcome"] = suboutcomeName
+  currentdf[row,"OutlierRemove"] = ifelse(grepl("_OutRm",dataName_expLevel),"yes","no")
+  currentdf[row,"ImputedSide"] = res$side
+  currentdf[row,"ImputedStudies"] = res$k0
+  currentdf[row,"Hedgesg"] = res$beta
+  currentdf[row,"se"] = res$se
+  currentdf[row,"z"] = res$zval
+  currentdf[row,"p"] = res$pval
+  cilb = formatC(res$ci.lb,2,format="f")
+  ciub = formatC(res$ci.ub,2,format="f")
+  currentdf[row,"CI"] = paste(" [",cilb,", ",ciub,"]",sep="")
+  row = row +1
+  
+  prediction = substring(temp_name,1,nchar(temp_name)-24)
+  # Export plot
+  # Define fill colors for contour
+  contour <- c(0.9, 0.95, 0.99)
+  col.contour <- c("white", "gray55", "gray75")
+  
+  if (prediction == "Decrease") {
+    dotCol = c("#0069aa","#0069aa")
+  }else if (prediction == "Increase") {
+    dotCol = c("#c00700","#c00700")
+  }else{
+    dotCol = c("black","black")
+  }
+  
+  dir.create(paste0(outputPath,"/TrimFill/plots/",date),showWarnings = F)
+  png(paste0(outputPath,"/TrimFill/plots/",date,"/FunnelPlot_",substring(dataName_expLevel,10,nchar(dataName_expLevel)-4),".png",sep=""), width = 4, height = 5, units = 'in', res = 300)
+  
+  # Use 'par' to create two plots in one row (row, columns)
+  par(cex = 0.8)
+  
+  # Contour-enhanced funnel plot (full data)
+  funnel.rma(res, level=contour, shade=col.contour,
+             xlim = c(-2,2),
+             refline=0,legend = list("topright",cex = 0.88), digits = 2L,bg = "darkgray",back = "gray95",
+             col = dotCol,
+             xlab = expression(paste("Hedge's ",italic("g"),sep="")))
+  title(prediction)
+  # Decrease color: #0069aa
+  # Increase color: #c00700
+  
+  # p <- recordPlot()
+  # invisible(print(p))
+  dev.off()
+  
+  return(currentdf)
+}
+
+```
+
+## Selection model
+
+three-parameter likelihood model (Iyengar & Greenhouse, 1988)
+
+```{r}
+
+#one-sided testing with the cutpoint at .025
+ThreePSM <- function(dataName,dataPath,outputPath,outlier = F){
+  df=read.csv(file.path(dataPath,dataName))
+  # Formating names
+  temp_name = tail(unlist(strsplit(dataName,"_")),n=1)
+  temp_name_Outcome = unlist(strsplit(dataName,"_"))[4]
+  if (grepl("Intrusion frequency_Intrusion diary",dataName)) {
+    suboutcomeName = "Intrusion diary"
+  }else if (grepl("Intrusion frequency_Self-report questionnaire",dataName)) {
+    suboutcomeName = "Self-report questionnaire"
+  }else if (grepl("Intrusion frequency_Lab-based intrusion monitoring task",dataName)) {
+    suboutcomeName = "Lab-based intrusion monitoring task"
+  }else{
+    suboutcomeName = NA
+  }
+  
+  # if remove outlier
+  if (outlier) {
+    outlierInd = which(df$outliers==1 | df$cooks_inf==1 | df$DFBETAS_inf==1)
+    if (length(outlierInd)!=0) {
+      df = df[-outlierInd,]
+    }
+  }
+  
+  sm <- weightfunct(df$yi_pos,df$vi , steps = c(0.025, 1), mods = NULL, weights = NULL, fe = FALSE)
+  meta <- rma(yi = yi_pos, vi = vi, data = df)
+  # selmodel(meta,
+  #          type = "stepfun",
+  #          steps = 0.025,verbose=TRUE)
+  
+  # print(sm)
+  sampleSize = 0
+  for (thisID in unique(df$StudyID)){
+    thisSampleSize = subset(df,StudyID == thisID)$SampleSize[1]
+    # print(thisSampleSize)
+    sampleSize = sampleSize + thisSampleSize
+  }
+  
+  
+  sm.df <- data.frame(Analysis = "3 Parameter Selection Model",
+                      Prediction = substring(temp_name,1,nchar(temp_name)-24),
+                      Outcome = temp_name_Outcome,
+                      Suboutcome = suboutcomeName,
+                      OutlierRemove= ifelse(outlier,"yes","no"),
+                      N = sampleSize,
+                      n_article = length(unique(df$ArticleID)),
+                      n_study = length(unique(df$StudyID)),
+                      k = as.character(nrow(df)),
+                      estimate = sm$adj_est[[2]], 
+                      std.error = sm$adj_se[[2]],
+                      z.stat = sm$z_adj[[2]],
+                      p.val = sm$p_adj[[2]],
+                      ci.lb = sm$ci.lb_adj[[2]],
+                      ci.ub = sm$ci.ub_adj[[2]])
+  
+  return(sm.df)
+  # write.csv(sm.df,paste(outputPath,"/Results_3PSM_SelectionModel_",substring(dataName,30,nchar(dataName)-4),".csv",sep=""),row.names = F)
+}
+
+```
+
+# Perform all tests
+
+```{r}
+
+# ---- Run for Egger's Test ----
+egger = data.frame()
+for (i in outcomeFile) {
+  tryCatch({temp = Egger(i,dataPath,outputPath,outlier = F)},
+  error=function(e){cat(paste0("ERROR :",conditionMessage(e), "\n",i,"\n \n"))})
+  
+  tryCatch({temp_out = Egger(i,dataPath,outputPath,outlier = T)},
+           error=function(e){cat(paste0("ERROR :",conditionMessage(e), "\n",i,"\n \n"))})
+  egger = rbind(egger,temp,temp_out)
+  
+}
+
+write.csv(egger,paste(outputPath,"/EggersTest/Results_EggersTest_",date, ".csv",sep=""),row.names = F)
+
+# ---- Run for Trim & Fill----
+trimfill_df = data.frame()
+for (i in expFile) {
+  tryCatch({temp = Trim_Fill(i,dataPath_expLevel,outputPath)},
+           error=function(e){cat(paste0("Model: Trim & Fill \nERROR :",conditionMessage(e), "\n",i,"\n \n"))})
+  trimfill_df=rbind(trimfill_df,temp)
+}
+write.csv(trimfill_df,paste(outputPath,"/TrimFill/Results_TrimFill_",date, ".csv",sep=""),row.names = F)
+
+# ---- Run for ThreePSM ----
+psm=data.frame()
+for (i in outcomeFile) {
+  tryCatch({temp= ThreePSM(i,dataPath,outputPath,outlier = F)},
+           error=function(e){cat(paste0("Model: ThreePSM \nERROR :",conditionMessage(e), "\n",i,"\nOutlier : False\n \n"))})
+  
+  tryCatch({temp_out= ThreePSM(i,dataPath,outputPath,outlier = T)},
+           error=function(e){cat(paste0("Model: ThreePSM \nERROR :",conditionMessage(e), "\n",i,"\nOutlier : True\n \n"))})
+  psm=rbind(psm,temp,temp_out)
+}
+write.csv(psm,paste(outputPath,"/ThreePSM/Results_ThreePSM_",date, ".csv",sep=""),row.names = F)
+
+```

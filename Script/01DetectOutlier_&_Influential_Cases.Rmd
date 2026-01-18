@@ -1,0 +1,253 @@
+---
+title: "Verification of Varma et al. (2024)"
+subtitle: "Outlier detection"
+author: "Original code by authors of Varma et al. (2024). Additions by Ian Hussey, Saein Lee & Martin Götz"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_download: true
+    code_folding: hide
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+# Dependencies
+
+```{r}
+
+library(metafor)
+library(weightr)
+library(dplyr)
+
+```
+
+# Data and dirs
+
+```{r}
+
+dir.create(file.path("../Results"), showWarnings = FALSE) # create folder named Results
+dir.create(file.path("../Results/OutlierInfluential"), showWarnings = FALSE)
+dir.create(file.path("../Results/OutlierInfluential/data"), showWarnings = FALSE)
+dir.create(file.path("../Results/OutlierInfluential/plots"), showWarnings = FALSE)
+
+```
+
+# Functions
+
+```{r}
+
+# Load functions to run outlier and influential cases
+computeOutliers<- function(file,dataPath,outputPath,ncore,date){
+  require(metafor)
+  require(meta)
+  # require(ggplot2)
+  # require(gridExtra)
+  dataOutputPath = file.path(paste0(outputPath,"/OutlierInfluential/data/",date))
+  plotOutputPath = file.path(paste0(outputPath,"/OutlierInfluential/plots/",date))
+  dir.create(dataOutputPath, showWarnings = FALSE)
+  dir.create(plotOutputPath, showWarnings = FALSE)
+  
+  setwd(dataPath)
+  temp = read.csv(file)
+  outcome =sort(unique(temp$DependentVariablesType))
+  
+  for (i in outcome) {
+    df = temp[temp$DependentVariablesType==i,]
+    if (i == "Intrusion frequency") {
+      suboutcome = unique(df$ModeOfMeasurement) # for intrusive memory, separate for different types of measurements
+      for (k in suboutcome) {
+        df_sub = df[df$ModeOfMeasurement==k,]
+        
+        ###### Get the outliers ######
+        #Multilevel meta-analysis
+        meta <- rma.mv(yi=yi_pos, V = vi, data=df_sub, random = ~ 1 | StudyID/EffectSizeID)
+        
+        #Compute studentized residuals
+        metarstudent = rstudent(meta,parallel="multicore",ncpus = ncore)$z
+        df_sub$StudentizedResiduals<-NA
+        df_sub$StudentizedResiduals[!is.na(df_sub$yi_pos)] = metarstudent
+        
+        #Get a subset of the dataset with only outliers
+        #Studentized Residuals  +-1.96
+        Studendized_cutoff = 1.96
+        df_sub$outliers <- ifelse(df_sub$StudentizedResiduals< -1.96|df_sub$StudentizedResiduals > 1.96, 1,0)
+        
+        #Export the outliers (optional)
+        # write.csv(df_Studentized_Outliers,paste0(outputPath,"/OutlierInfluential/Results_Studentized_Outliers_",i,"_",k,"_", file)
+        #           ,row.names = F)
+        
+        ###### Influential Case ######
+        #Cook's distances for each observed outcome
+        cooks = cooks.distance(meta,parallel="multicore",ncpus = ncore)
+        df_sub$cooks <- NA
+        df_sub$cooks[!is.na(df_sub$yi_pos)] = cooks
+        cooks_cutoff = round(qchisq(0.5, df=dim(meta$beta)[1],lower.tail = TRUE),2)
+        df_sub$cooks_inf = ifelse(df_sub$cooks>cooks_cutoff,1,0)
+        
+        #DFBETAS
+        a <- dfbetas(meta,parallel="multicore",ncpus = ncore)
+        df_sub$DFBETAS <-NA
+        df_sub$DFBETAS[!is.na(df_sub$yi_pos)] =  a$intrcpt
+        DFBETAS_cutoff = 1
+        df_sub$DFBETAS_inf = ifelse(df_sub$DFBETAS>DFBETAS_cutoff,1,0)
+        
+        ###### Plot ###### 
+        png(paste0(plotOutputPath,"/Outlier_InfluentialCases_",i,"_",k,"_",
+                   substring(file,1,nchar(file)-4),".png"), width = 8, height = 8, units = 'in', res = 300)
+        
+        par(mar = c(5,2,2,2)+ 0.1, #c(bottom, left, top, right)  default:c(5, 4, 4, 2) + 0.1.
+            mfrow=c(3,1),
+            mgp =c(3,0.6,0), #The margin line (in mex units) for the axis title, axis labels and axis line. Note that mgp[1] affects title whereas mgp[2:3] affect axis. The default is c(3, 1, 0).
+            mai = c(0.6, 0.8, 0.1, 0.5)) # margin between plots
+        
+        # Studendized outliers
+        plot(metarstudent, type="o", pch=19,xlab="",  ylab="Studentized Residuals",xaxt="n",
+             col=ifelse(abs(metarstudent)>1.96, 'blue', 'black'))
+        axis(side=1, at=seq_along(metarstudent), labels=as.numeric(df_sub$EffectSizeID[!is.na(df_sub$yi_pos)]),las=2,cex.axis = 1)
+        abline(h = Studendized_cutoff, lty = 2) # add cutoff line
+        abline(h = -Studendized_cutoff, lty = 2) # add cutoff line
+        
+        # Cook's distance   
+        plot(cooks, type="o", pch=19,xlab="", ylab="Cook's Distance",xaxt="n",
+             col=ifelse(cooks>cooks_cutoff, 'blue', 'black'))
+        axis(side=1, at=seq_along(cooks), labels=as.numeric(df_sub$EffectSizeID[!is.na(df_sub$yi_pos)]),las=2,cex.axis = 1)
+        abline(h = cooks_cutoff, lty = 2) # add cutoff line
+        
+        # DFBETAS
+        plot(a$intrcpt, type="o", pch=19, xlab="Effect Size ID", ylab="DFBETAS",xaxt="n",
+             col=ifelse(a$intrcpt>DFBETAS_cutoff, 'blue', 'black'))
+        axis(side=1, at=seq_along(a$intrcpt), labels=as.numeric(df_sub$EffectSizeID[!is.na(df_sub$yi_pos)]),las=2,cex.axis = 1)
+        abline(h = DFBETAS_cutoff, lty = 2) # add cutoff line
+        
+        dev.off()
+        
+        #Save dataset
+        
+        write.csv(df_sub,paste0(dataOutputPath,"/Data_Influential_Diagnostics_",i,"_",k,"_", file)
+                  ,row.names = F)
+        
+        # use ggplot
+        # x =  df_sub$EffectSizeID[!is.na(df_sub$yi_pos)]
+        #   p1<-ggplot(data = df_sub[!is.na(df_sub$yi_pos),],aes(x=EffectSizeID ,y=StudentizedResiduals))+
+        #     geom_line()+
+        #     geom_point() + theme_minimal() + 
+        #     geom_hline(yintercept = Studendized_cutoff,size = 0.3, linetype="dashed")+
+        #     geom_hline(yintercept = -Studendized_cutoff,size = 0.3, linetype="dashed")+
+        #     scale_x_continuous(breaks = 1)+
+        #   theme(axis.title.x = element_blank(), axis.text.x = element_blank())
+        # 
+        #   p2<-ggplot(data = df_sub[!is.na(df_sub$yi_pos),],aes(x=EffectSizeID ,y=cooks))+
+        #     geom_line()+
+        #     geom_point() + theme_minimal() + 
+        #     geom_hline(yintercept = cooks_cutoff,size = 0.3, linetype="dashed")+
+        #     scale_x_continuous(breaks = 1)+
+        #     theme(axis.title.x = element_blank(), axis.text.x = element_blank())
+        #   
+        #   p3<-ggplot(data = df_sub[!is.na(df_sub$yi_pos),],aes(x=EffectSizeID ,y=DFBETAS))+
+        #     geom_line()+
+        #     geom_point() + theme_minimal() + 
+        #     geom_hline(yintercept = DFBETAS_cutoff,size = 0.3, linetype="dashed")+
+        #     theme(axis.title.x = element_blank(), axis.text.x = element_text(angle=90))
+        # 
+        #   library(grid)
+        #   grid.newpage()
+        #   grid.draw(rbind(ggplotGrob(p1), ggplotGrob(p2), ggplotGrob(p3), size = "last"))
+        #   
+        
+      }
+    } # end for Intrusion frequency
+    
+    # For all the other outcomes
+    ###### Get the outliers ######
+    #Multilevel meta-analysis
+    meta <- rma.mv(yi=yi_pos, V = vi, data=df, random = ~ 1 | StudyID/EffectSizeID)
+    
+    #Compute studentized residuals
+    metarstudent = rstudent(meta,parallel="multicore",ncpus = ncore)$z
+    df$StudentizedResiduals<-NA
+    df$StudentizedResiduals[!is.na(df$yi_pos)] = metarstudent
+    
+    #Get a subset of the dataset with only outliers
+    #Studentized Residuals  +-1.96
+    Studendized_cutoff = 1.96
+    df$outliers <- ifelse(df$StudentizedResiduals< -1.96|df$StudentizedResiduals > 1.96, 1,0)
+    
+    
+    #Export the outliers(Optional)
+    # write.csv(df_Studentized_Outliers,paste0(outputPath,"/OutlierInfluential/Results_Studentized_Outliers_",i,"_", file)
+    #           ,row.names = F)
+    
+    ###### Influential Case ######
+    #Cook's distances for each observed outcome
+    cooks = cooks.distance(meta,parallel="multicore",ncpus = ncore)
+    df$cooks <- NA
+    df$cooks[!is.na(df$yi_pos)] = cooks
+    cooks_cutoff = round(qchisq(0.5, df=dim(meta$beta)[1],lower.tail = TRUE),2)
+    df$cooks_inf = ifelse(df$cooks>cooks_cutoff,1,0)
+    
+    #DFBETAS
+    a <- dfbetas(meta,parallel="multicore",ncpus = ncore)
+    df$DFBETAS <-NA
+    df$DFBETAS[!is.na(df$yi_pos)] =  a$intrcpt
+    DFBETAS_cutoff = 1
+    df$DFBETAS_inf = ifelse(df$DFBETAS>DFBETAS_cutoff,1,0)
+    
+    ###### Plot ###### 
+    png(paste0(plotOutputPath,"/Outlier_InfluentialCases_",i,"_",
+               substring(file,1,nchar(file)-4),".png"), width = 8, height = 8, units = 'in', res = 300)
+    
+    par(mar = c(5,2,2,2)+ 0.1, #c(bottom, left, top, right)  default:c(5, 4, 4, 2) + 0.1.
+        mfrow=c(3,1),
+        mgp =c(3,0.6,0), #The margin line (in mex units) for the axis title, axis labels and axis line. Note that mgp[1] affects title whereas mgp[2:3] affect axis. The default is c(3, 1, 0).
+        mai = c(0.6, 0.8, 0.1, 0.5)) # margin between plots
+    
+    # Studendized outliers
+    plot(metarstudent, type="o", pch=19,xlab="",  ylab="Studentized Residuals",xaxt="n",
+         col=ifelse(abs(metarstudent)>1.96, 'blue', 'black'))
+    axis(side=1, at=seq_along(metarstudent), labels=as.numeric(df$EffectSizeID[!is.na(df$yi_pos)]),las=2,cex.axis = 1)
+    abline(h = Studendized_cutoff, lty = 2) # add cutoff line
+    abline(h = -Studendized_cutoff, lty = 2) # add cutoff line
+    
+    # Cook's distance   
+    plot(cooks, type="o", pch=19,xlab="", ylab="Cook's Distance",xaxt="n",
+         col=ifelse(cooks>cooks_cutoff, 'blue', 'black'))
+    axis(side=1, at=seq_along(cooks), labels=as.numeric(df$EffectSizeID[!is.na(df$yi_pos)]),las=2,cex.axis = 1)
+    abline(h = cooks_cutoff, lty = 2) # add cutoff line
+    
+    # DFBETAS
+    plot(a$intrcpt, type="o", pch=19, xlab="Effect Size ID", ylab="DFBETAS",xaxt="n",
+         col=ifelse(a$intrcpt>DFBETAS_cutoff, 'blue', 'black'))
+    axis(side=1, at=seq_along(a$intrcpt), labels=as.numeric(df$EffectSizeID[!is.na(df$yi_pos)]),las=2,cex.axis = 1)
+    abline(h = DFBETAS_cutoff, lty = 2) # add cutoff line
+    
+    dev.off()
+    paste0()
+    write.csv(df,paste0(dataOutputPath, "/Data_Influential_Diagnostics_",i,"_", file)
+              ,row.names = F)
+  }
+  
+}
+
+```
+
+# Run
+
+```{r}
+
+# set the data path where the dataset store and the output path
+dataPath <- "../Data" 
+outputPath <- "../Results"
+
+# set the core number for running
+ncore = parallel::detectCores()-3
+date = "20260119" # enter the date of running the analysis (for create folder and file name only)
+
+# run for each file
+computeOutliers("AllIntrusionEffectSizes.csv",dataPath,outputPath,ncore,date)
+computeOutliers("IncreaseIntrusionEffectSizes.csv",dataPath,outputPath,ncore,date)
+computeOutliers("DecreaseIntrusionEffectSizes.csv",dataPath,outputPath,ncore,date)
+computeOutliers("UnspecifiedIntrusionEffectSizes.csv",dataPath,outputPath,ncore,date)
+
+```

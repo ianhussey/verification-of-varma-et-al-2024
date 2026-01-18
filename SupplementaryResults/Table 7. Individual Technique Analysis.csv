@@ -1,0 +1,922 @@
+Analysis,Individual Technique Name,Time of Administration,Prediction,Outcome,Suboutcome,OutlierRemove,N,j,n,k,Hedgesg,CI,z,p,Q,tau2.studylevel,tau2.outcomelevel,I2,Q.pval
+Individual Technique,Hydrocortisone,Delayed post,All,Intrusion frequency,NA,no,65,1,1,2,-0.192571951," [-0.54, 0.15]",-1.094758844,0.273622301,0.205828166,0,5.30365E-12,8.57016E-09,0.650057083
+Individual Technique,Imagery re-experience,Delayed post,All,Intrusion frequency,NA,no,88,1,1,1,0.28612," [-0.23, 0.80]",1.093122357,0.274340081,NA,NA,NA,NA,NA
+Individual Technique,Imagery rescripting,Delayed post,All,Intrusion frequency,NA,no,88,1,1,1,0.02688," [-0.48, 0.54]",0.103207916,0.917797957,NA,NA,NA,NA,NA
+Individual Technique,Pre-neutral vs. Pre-negative trauma reminder,Delayed post,All,Intrusion frequency,NA,no,173,1,1,1,0.21769," [-0.19, 0.63]",1.040782851,0.297976341,NA,NA,NA,NA,NA
+Individual Technique,Pre-vs. Post-extinction using trauma reminder,Delayed post,All,Intrusion frequency,NA,no,336,2,2,4,-0.173570113," [-0.47, 0.12]",-1.166008405,0.243611047,2.408541999,0.020472862,4.02621E-12,32.85410522,0.492046513
+Individual Technique,Sleep-directed hypnosis,Delayed post,All,Intrusion frequency,NA,no,181,1,1,2,0.094554074," [-0.11, 0.30]",0.898682904,0.368821586,0.01554963,0,5.8292E-12,2.63288E-08,0.900762519
+Individual Technique,Tetris,Delayed post,All,Intrusion frequency,NA,no,72,1,1,2,0.349441712," [-0.12, 0.82]",1.455191376,0.145616288,1.015156997,0,0.001722672,1.493072526,0.313670544
+Individual Technique,Tetris + trauma reminder,Delayed post,All,Intrusion frequency,NA,no,149,1,1,2,0.046204395," [-0.27, 0.36]",0.284678583,0.7758904,0.001542778,0,5.07708E-12,9.63666E-09,0.968668579
+Individual Technique,Trauma reminder,Delayed post,All,Intrusion frequency,NA,no,72,1,1,2,-0.101265741," [-0.56, 0.36]",-0.428190053,0.668512758,0.784625398,0,2.57416E-11,2.30113E-08,0.375730251
+Individual Technique,Trauma reminder + break + tetris,Delayed post,All,Intrusion frequency,NA,no,149,1,1,2,-0.077325534," [-0.39, 0.24]",-0.479253187,0.631758521,0.009228849,0,5.21676E-12,1.00197E-08,0.923467443
+Individual Technique,Trauma reminder + extinction vs. Extinction,Delayed post,All,Intrusion frequency,NA,no,336,2,2,4,-0.18278104," [-0.82, 0.45]",-0.564534677,0.572390307,7.616438463,0.180473999,5.71067E-13,80.08884861,0.054640932
+Individual Technique,Trauma reminder + tetris,Delayed post,All,Intrusion frequency,NA,no,273,2,3,6,0.770606855," [0.07, 1.48]",2.141438362,0.032238704,20.77433319,0.342932605,1.3078E-11,80.24598988,0.000893553
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Delayed post,All,Intrusion frequency,NA,no,140,2,2,2,0.424936805," [-0.49, 1.34]",0.914527591,0.360439687,4.63222173,0.169579352,0.169579352,78.41208689,0.031376908
+Individual Technique,Trauma reminder + word game vs. Trauma reminder,Delayed post,All,Intrusion frequency,NA,no,140,2,2,2,0.61322387," [0.20, 1.03]",2.902974796,0.003696364,0.169199809,1.78261E-12,1.78261E-12,3.79886E-09,0.680823944
+Individual Technique,Hydrocortisone,Delayed post,All,Intrusion frequency,NA,yes,65,1,1,2,-0.192571951," [-0.54, 0.15]",-1.094758844,0.273622301,0.205828166,0,5.30365E-12,8.57016E-09,0.650057083
+Individual Technique,Imagery re-experience,Delayed post,All,Intrusion frequency,NA,yes,88,1,1,1,0.28612," [-0.23, 0.80]",1.093122357,0.274340081,NA,NA,NA,NA,NA
+Individual Technique,Imagery rescripting,Delayed post,All,Intrusion frequency,NA,yes,88,1,1,1,0.02688," [-0.48, 0.54]",0.103207916,0.917797957,NA,NA,NA,NA,NA
+Individual Technique,Pre-neutral vs. Pre-negative trauma reminder,Delayed post,All,Intrusion frequency,NA,yes,173,1,1,1,0.21769," [-0.19, 0.63]",1.040782851,0.297976341,NA,NA,NA,NA,NA
+Individual Technique,Pre-vs. Post-extinction using trauma reminder,Delayed post,All,Intrusion frequency,NA,yes,336,2,2,4,-0.173570113," [-0.47, 0.12]",-1.166008405,0.243611047,2.408541999,0.020472862,4.02621E-12,32.85410522,0.492046513
+Individual Technique,Sleep-directed hypnosis,Delayed post,All,Intrusion frequency,NA,yes,181,1,1,2,0.094554074," [-0.11, 0.30]",0.898682904,0.368821586,0.01554963,0,5.8292E-12,2.63288E-08,0.900762519
+Individual Technique,Tetris,Delayed post,All,Intrusion frequency,NA,yes,72,1,1,2,0.349441712," [-0.12, 0.82]",1.455191376,0.145616288,1.015156997,0,0.001722672,1.493072526,0.313670544
+Individual Technique,Tetris + trauma reminder,Delayed post,All,Intrusion frequency,NA,yes,149,1,1,2,0.046204395," [-0.27, 0.36]",0.284678583,0.7758904,0.001542778,0,5.07708E-12,9.63666E-09,0.968668579
+Individual Technique,Trauma reminder,Delayed post,All,Intrusion frequency,NA,yes,72,1,1,2,-0.101265741," [-0.56, 0.36]",-0.428190053,0.668512758,0.784625398,0,2.57416E-11,2.30113E-08,0.375730251
+Individual Technique,Trauma reminder + break + tetris,Delayed post,All,Intrusion frequency,NA,yes,149,1,1,2,-0.077325534," [-0.39, 0.24]",-0.479253187,0.631758521,0.009228849,0,5.21676E-12,1.00197E-08,0.923467443
+Individual Technique,Trauma reminder + extinction vs. Extinction,Delayed post,All,Intrusion frequency,NA,yes,336,2,2,4,-0.18278104," [-0.82, 0.45]",-0.564534677,0.572390307,7.616438463,0.180473999,5.71067E-13,80.08884861,0.054640932
+Individual Technique,Trauma reminder + tetris,Delayed post,All,Intrusion frequency,NA,yes,273,2,3,4,0.662119323," [-0.00, 1.32]",1.959606273,0.050041828,11.36021468,0.266777561,2.0368E-11,77.83669012,0.009929314
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Delayed post,All,Intrusion frequency,NA,yes,140,2,2,2,0.424936805," [-0.49, 1.34]",0.914527591,0.360439687,4.63222173,0.169579352,0.169579352,78.41208689,0.031376908
+Individual Technique,Trauma reminder + word game vs. Trauma reminder,Delayed post,All,Intrusion frequency,NA,yes,140,2,2,2,0.61322387," [0.20, 1.03]",2.902974796,0.003696364,0.169199809,1.78261E-12,1.78261E-12,3.79886E-09,0.680823944
+Individual Technique,Deceptive placebo,Immediate + delayed post,All,Intrusion frequency,NA,no,112,1,1,1,0.27759," [-0.17, 0.73]",1.204189737,0.228516252,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate + delayed post,All,Intrusion frequency,NA,no,139,2,2,3,-0.339039601," [-0.74, 0.06]",-1.671150231,0.094692008,1.948017394,0.033337625,8.0919E-13,34.44646511,0.377566451
+Individual Technique,Non-film related rumination,Immediate + delayed post,All,Intrusion frequency,NA,no,57,1,1,1,-0.48948," [-1.14, 0.16]",-1.466365069,0.142548857,NA,NA,NA,NA,NA
+Individual Technique,Open-label placebo,Immediate + delayed post,All,Intrusion frequency,NA,no,112,1,1,1,0.07257," [-0.38, 0.53]",0.311922523,0.755099405,NA,NA,NA,NA,NA
+Individual Technique,Deceptive placebo,Immediate + delayed post,All,Intrusion frequency,NA,yes,112,1,1,1,0.27759," [-0.17, 0.73]",1.204189737,0.228516252,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate + delayed post,All,Intrusion frequency,NA,yes,139,2,2,3,-0.339039601," [-0.74, 0.06]",-1.671150231,0.094692008,1.948017394,0.033337625,8.0919E-13,34.44646511,0.377566451
+Individual Technique,Non-film related rumination,Immediate + delayed post,All,Intrusion frequency,NA,yes,57,1,1,1,-0.48948," [-1.14, 0.16]",-1.466365069,0.142548857,NA,NA,NA,NA,NA
+Individual Technique,Open-label placebo,Immediate + delayed post,All,Intrusion frequency,NA,yes,112,1,1,1,0.07257," [-0.38, 0.53]",0.311922523,0.755099405,NA,NA,NA,NA,NA
+Individual Technique,Attentional bias modification,Immediate post,All,Intrusion frequency,NA,no,45,1,1,2,0.779632636," [0.35, 1.21]",3.564010569,0.000365231,0.037327975,0,4.84252E-12,5.05958E-09,0.846798823
+Individual Technique,Autobiographical memory elaboration,Immediate post,All,Intrusion frequency,NA,no,315,3,3,6,0.030849998," [-0.15, 0.21]",0.330853897,0.740754847,4.250092184,1.35023E-09,1.83914E-06,0.003518976,0.513999015
+Individual Technique,Bilateral eye movement,Immediate post,All,Intrusion frequency,NA,no,66,1,1,2,0.68014566," [0.33, 1.03]",3.79698798,0.000146465,0.028848637,0,7.91862E-12,1.23391E-08,0.865128997
+Individual Technique,Block rehearsal + thought suppression,Immediate post,All,Intrusion frequency,NA,no,120,1,1,3,0.159727669," [-0.17, 0.49]",0.955661299,0.339243381,0.704293056,0,3.60504E-12,4.30155E-09,0.703177079
+Individual Technique,Challenged vs. Unchallenged memory,Immediate post,All,Intrusion frequency,NA,no,61,1,1,2,0.553600921," [0.16, 0.95]",2.764188549,0.005706455,2.268047158,0,0.044857168,55.90920608,0.132066223
+Individual Technique,Clay modeling,Immediate post,All,Intrusion frequency,NA,no,41,1,1,3,-0.050991666," [-0.56, 0.46]",-0.197456968,0.843469953,0.001750117,0,4.95999E-12,2.47917E-09,0.999125324
+Individual Technique,Conceptual vs. Data-driven processing,Immediate post,All,Intrusion frequency,NA,no,34,1,1,1,0.58175," [-0.12, 1.28]",1.636274414,0.101782168,NA,NA,NA,NA,NA
+Individual Technique,Concrete processing,Immediate post,All,Intrusion frequency,NA,no,83,1,1,2,0.306304231," [-0.07, 0.68]",1.595685282,0.110559076,0.283691724,0,5.23065E-12,7.09722E-09,0.594291676
+Individual Technique,Concrete processing vs. Film-related rumination,Immediate post,All,Intrusion frequency,NA,no,83,1,1,2,0.216713897," [-0.15, 0.59]",1.143375268,0.252882816,0.018730232,0,6.40337E-12,8.91213E-09,0.89114269
+Individual Technique,Detached mindfulness,Immediate post,All,Intrusion frequency,NA,no,56,1,1,1,0.94608," [0.16, 1.73]",2.373814616,0.017605387,NA,NA,NA,NA,NA
+Individual Technique,Dog interaction film,Immediate post,All,Intrusion frequency,NA,no,60,1,1,1,-0.07471," [-0.69, 0.55]",-0.23616351,0.813305793,NA,NA,NA,NA,NA
+Individual Technique,Emotional acceptance,Immediate post,All,Intrusion frequency,NA,no,56,1,1,1,0.61137," [-0.15, 1.37]",1.58100849,0.113876097,NA,NA,NA,NA,NA
+Individual Technique,Exercise,Immediate post,All,Intrusion frequency,NA,no,71,1,1,1,-0.15879," [-0.73, 0.41]",-0.5433205,0.586909152,NA,NA,NA,NA,NA
+Individual Technique,Expressive vs. Factual trauma disclosure,Immediate post,All,Intrusion frequency,NA,no,73,1,1,1,0.20599," [-0.26, 0.67]",0.870998785,0.383754816,NA,NA,NA,NA,NA
+Individual Technique,Extinction,Immediate post,All,Intrusion frequency,NA,no,84,1,1,1,0.23625," [-0.23, 0.70]",0.998021326,0.318269018,NA,NA,NA,NA,NA
+Individual Technique,Field perspective recall,Immediate post,All,Intrusion frequency,NA,no,85,1,1,1,-0.59276," [-1.15, -0.03]",-2.068133345,0.038627486,NA,NA,NA,NA,NA
+Individual Technique,Field vs. Observer perspective recall,Immediate post,All,Intrusion frequency,NA,no,85,1,1,1,-0.42373," [-0.98, 0.14]",-1.480412852,0.138763102,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate post,All,Intrusion frequency,NA,no,370,4,5,16,-0.228358761," [-0.78, 0.33]",-0.805631285,0.420455481,29.20252065,0.351469373,0.008370644,83.47372788,0.015145273
+Individual Technique,Film-related rumination vs. Autobiographical memory elaboration,Immediate post,All,Intrusion frequency,NA,no,101,1,1,3,0.004078633," [-0.27, 0.28]",0.0288663,0.976971223,1.403298755,0,5.17237E-12,8.63607E-09,0.495766922
+Individual Technique,Finger tapping,Immediate post,All,Intrusion frequency,NA,no,60,1,1,1,0.68113," [0.04, 1.32]",2.094072785,0.036253497,NA,NA,NA,NA,NA
+Individual Technique,Guilt induction,Immediate post,All,Intrusion frequency,NA,no,39,1,1,1,-1.42646," [-2.13, -0.72]",-3.975938613,7.01022E-05,NA,NA,NA,NA,NA
+Individual Technique,Hydrocortisone,Immediate post,All,Intrusion frequency,NA,no,88,1,1,1,0.60506," [0.08, 1.13]",2.253031142,0.024257186,NA,NA,NA,NA,NA
+Individual Technique,Hyperventilation provocation + thought suppression,Immediate post,All,Intrusion frequency,NA,no,120,1,1,3,-0.073897696," [-0.46, 0.31]",-0.374716024,0.707871674,2.775789164,0,0.032474862,27.83334213,0.249600265
+Individual Technique,Imagery re-experience,Immediate post,All,Intrusion frequency,NA,no,880,8,8,9,0.112797099," [-0.09, 0.32]",1.068929101,0.285101618,11.03315338,0.018465891,5.14155E-11,19.38765782,0.19982775
+Individual Technique,Imagery re-experience + eye movement,Immediate post,All,Intrusion frequency,NA,no,250,1,3,3,0.489505983," [0.13, 0.85]",2.667055302,0.007651908,2.468557635,0.008989412,0.008989412,17.78446702,0.291044583
+Individual Technique,Imagery re-experience + number counting,Immediate post,All,Intrusion frequency,NA,no,250,1,3,3,0.560905437," [0.12, 1.00]",2.511384401,0.012025867,3.555712645,0.032723134,0.032723134,43.72807482,0.169000041
+Individual Technique,Imagery re-experience + traumagameplay2,Immediate post,All,Intrusion frequency,NA,no,120,1,1,2,-0.346076724," [-0.71, 0.02]",-1.865192386,0.062154442,0.07197875,0,8.02742E-12,1.16584E-08,0.788477214
+Individual Technique,Imagery re-experience vs. Positive imagery,Immediate post,All,Intrusion frequency,NA,no,76,1,1,1,-0.2529," [-0.80, 0.29]",-0.907546533,0.364117854,NA,NA,NA,NA,NA
+Individual Technique,Imagery rescripting,Immediate post,All,Intrusion frequency,NA,no,319,3,3,5,0.28574621," [-0.08, 0.65]",1.541151782,0.12327985,8.523739204,7.07632E-11,0.091055356,53.00986344,0.074170914
+Individual Technique,Imagery rescripting vs. Imagery re-experience,Immediate post,All,Intrusion frequency,NA,no,116,2,2,3,0.473760504," [-0.40, 1.34]",1.066735821,0.286091147,5.936786209,0.324838123,3.18792E-11,76.89363422,0.051385816
+Individual Technique,Imagery rescripting vs. Positive imagery,Immediate post,All,Intrusion frequency,NA,no,76,1,1,1,0.63751," [0.07, 1.20]",2.216986133,0.026624039,NA,NA,NA,NA,NA
+Individual Technique,Imagery trauma elaboration,Immediate post,All,Intrusion frequency,NA,no,106,1,1,1,0.47249," [0.09, 0.86]",2.399045829,0.016437857,NA,NA,NA,NA,NA
+Individual Technique,Imaginary re-exposure,Immediate post,All,Intrusion frequency,NA,no,56,1,1,1,0.24648," [-0.50, 0.99]",0.649661948,0.515910609,NA,NA,NA,NA,NA
+Individual Technique,Letter cancellation task,Immediate post,All,Intrusion frequency,NA,no,70,1,1,1,-0.54921," [-1.30, 0.21]",-1.426423851,0.153746033,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers,Immediate post,All,Intrusion frequency,NA,no,80,1,1,3,-0.215588382," [-0.58, 0.14]",-1.175002529,0.239993704,0.980379561,0,6.79004E-13,6.72302E-10,0.612510141
+Individual Technique,Memorize numbers + thought suppression,Immediate post,All,Intrusion frequency,NA,no,200,2,2,6,0.130288821," [-0.46, 0.72]",0.436020477,0.662821872,13.32555765,0.118155121,0.086966645,68.63497186,0.020511646
+Individual Technique,Memory test,Immediate post,All,Intrusion frequency,NA,no,52,1,1,1,0.35993," [-0.03, 0.75]",1.820611417,0.068665946,NA,NA,NA,NA,NA
+Individual Technique,Mindfulness vs. Muscle relaxation,Immediate post,All,Intrusion frequency,NA,no,60,1,1,3,-0.109775835," [-0.42, 0.20]",-0.691370971,0.489332442,0.083712325,0,3.98683E-12,5.27127E-09,0.959007712
+Individual Technique,Negative expectation towards intrusion,Immediate post,All,Intrusion frequency,NA,no,89,1,1,2,0.12863871," [-0.22, 0.47]",0.732246529,0.464018109,0.182478802,0,4.88585E-12,7.91551E-09,0.669251595
+Individual Technique,Negative feedback,Immediate post,All,Intrusion frequency,NA,no,72,1,1,2,0.321334425," [-0.08, 0.72]",1.561503183,0.118405073,0.651066547,0,4.10114E-13,4.84139E-10,0.419731619
+Individual Technique,Negative social reappraisal,Immediate post,All,Intrusion frequency,NA,no,181,1,1,1,0.66088," [0.28, 1.04]",3.435098584,0.000592338,NA,NA,NA,NA,NA
+Individual Technique,Neutral attention walk,Immediate post,All,Intrusion frequency,NA,no,60,1,1,1,-0.43382," [-0.95, 0.08]",-1.66075263,0.096763138,NA,NA,NA,NA,NA
+Individual Technique,Nitrous oxide,Immediate post,All,Intrusion frequency,NA,no,50,1,1,1,-0.0884," [-0.64, 0.47]",-0.312383475,0.754749107,NA,NA,NA,NA,NA
+Individual Technique,Non-film related rumination,Immediate post,All,Intrusion frequency,NA,no,70,1,1,1,-1.022," [-1.81, -0.23]",-2.543034164,0.010989448,NA,NA,NA,NA,NA
+Individual Technique,Number counting,Immediate post,All,Intrusion frequency,NA,no,101,2,2,7,0.305175103," [-0.29, 0.90]",1.010507935,0.312252,7.238014935,0.120883921,2.05499E-10,39.83077224,0.299395632
+Individual Technique,Observer perspective recall,Immediate post,All,Intrusion frequency,NA,no,85,1,1,1,-0.00874," [-0.55, 0.53]",-0.031804633,0.974627852,NA,NA,NA,NA,NA
+Individual Technique,Oxytocin,Immediate post,All,Intrusion frequency,NA,no,202,1,1,1,0.12619," [-0.15, 0.40]",0.895855348,0.370330025,NA,NA,NA,NA,NA
+Individual Technique,Past vs. Now verbal training,Immediate post,All,Intrusion frequency,NA,no,96,1,1,3,0.008521766," [-0.15, 0.17]",0.102253019,0.918555845,0.264002433,0,3.40955E-12,1.63632E-08,0.876339929
+Individual Technique,Positive expectation towards intrusion,Immediate post,All,Intrusion frequency,NA,no,89,1,1,2,0.393048969," [0.02, 0.77]",2.04904706,0.040457513,0.823078454,0,2.53664E-12,3.44606E-09,0.364281633
+Individual Technique,Positive social reappraisal,Immediate post,All,Intrusion frequency,NA,no,181,1,1,1,0.1337," [-0.24, 0.50]",0.706659031,0.479778395,NA,NA,NA,NA,NA
+Individual Technique,Positive vs. Negative cbm training,Immediate post,All,Intrusion frequency,NA,no,341,3,3,4,0.158839047," [-0.12, 0.44]",1.102590447,0.270205061,4.467560302,0.021347371,0.004575782,35.31553519,0.21520215
+Individual Technique,Propranolol,Immediate post,All,Intrusion frequency,NA,no,88,1,1,1,0.44628," [-0.07, 0.96]",1.692787332,0.090495955,NA,NA,NA,NA,NA
+Individual Technique,Prosocial behavior,Immediate post,All,Intrusion frequency,NA,no,180,1,2,3,0.495997951," [0.25, 0.74]",3.967995389,7.24797E-05,0.161640949,1.1281E-11,1.35071E-14,2.40803E-08,0.922359264
+Individual Technique,Rem sleep,Immediate post,All,Intrusion frequency,NA,no,41,1,1,1,0.50993," [-0.11, 1.13]",1.606207694,0.108228283,NA,NA,NA,NA,NA
+Individual Technique,Sad induction,Immediate post,All,Intrusion frequency,NA,no,81,1,1,2,0.02096731," [-0.35, 0.40]",0.109770478,0.912591405,0.058755379,0,5.23128E-12,7.16908E-09,0.80847404
+Individual Technique,Sad vs. Humor induction,Immediate post,All,Intrusion frequency,NA,no,184,1,1,1,-0.3803," [-0.67, -0.09]",-2.555724863,0.010596687,NA,NA,NA,NA,NA
+Individual Technique,Self efficacy,Immediate post,All,Intrusion frequency,NA,no,74,1,1,4,0.070253685," [-0.23, 0.37]",0.451940486,0.651311857,3.476320778,0,0.011504885,11.89889102,0.323846247
+Individual Technique,Sleep,Immediate post,All,Intrusion frequency,NA,no,552,8,8,9,0.264270036," [0.10, 0.43]",3.06996643,0.002140828,7.589324435,1.12938E-12,7.39141E-13,2.78175E-09,0.474577503
+Individual Technique,Social comparison,Immediate post,All,Intrusion frequency,NA,no,120,1,1,9,0.34014783," [0.17, 0.51]",3.915944059,9.00511E-05,4.34229551,0,4.13171E-12,6.08431E-09,0.824995743
+Individual Technique,Social support,Immediate post,All,Intrusion frequency,NA,no,81,1,1,1,-0.19269," [-0.74, 0.36]",-0.685251018,0.493185535,NA,NA,NA,NA,NA
+Individual Technique,Tetris,Immediate post,All,Intrusion frequency,NA,no,71,1,1,1,0.07006," [-0.50, 0.64]",0.240024597,0.810311189,NA,NA,NA,NA,NA
+Individual Technique,Therapy dog interaction,Immediate post,All,Intrusion frequency,NA,no,60,1,1,1,-0.4555," [-1.08, 0.17]",-1.422081482,0.155002598,NA,NA,NA,NA,NA
+Individual Technique,Thought suppression,Immediate post,All,Intrusion frequency,NA,no,200,2,2,6,0.112458784," [-0.15, 0.37]",0.849755637,0.395460959,5.588721026,2.67117E-11,0.01297788,12.34364168,0.348315343
+Individual Technique,Threat attention walk,Immediate post,All,Intrusion frequency,NA,no,60,1,1,1,0.06829," [-0.44, 0.57]",0.264402593,0.791469714,NA,NA,NA,NA,NA
+Individual Technique,Threat vs. Neutral attention walk,Immediate post,All,Intrusion frequency,NA,no,60,1,1,1,-0.50684," [-1.02, 0.01]",-1.932209741,0.053333623,NA,NA,NA,NA,NA
+Individual Technique,Trauma re-exposure,Immediate post,All,Intrusion frequency,NA,no,115,1,1,1,-0.04336," [-0.49, 0.40]",-0.191189418,0.848377194,NA,NA,NA,NA,NA
+Individual Technique,Trauma re-exposure + verbal update,Immediate post,All,Intrusion frequency,NA,no,115,1,1,1,0.49956," [0.04, 0.96]",2.115937217,0.034350148,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder +  visual stimulation imagery,Immediate post,All,Intrusion frequency,NA,no,114,1,1,3,-0.463450307," [-0.73, -0.20]",-3.426527812,0.000611351,0.87293407,0,6.43979E-12,1.17332E-08,0.646315803
+Individual Technique,Trauma reminder + d-corsi vs. Trauma reminder,Immediate post,All,Intrusion frequency,NA,no,107,1,1,2,0.36408748," [-0.31, 1.04]",1.051305359,0.293118366,3.952367375,0,0.179193804,74.69869411,0.046805477
+Individual Technique,Trauma reminder + finger tapping,Immediate post,All,Intrusion frequency,NA,no,75,1,1,1,0.57235," [0.01, 1.14]",1.983361627,0.04732705,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + imagery rescripting vs. Trauma reminder,Immediate post,All,Intrusion frequency,NA,no,60,1,1,1,0.44729," [-0.18, 1.07]",1.397101395,0.162383082,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + number counting,Immediate post,All,Intrusion frequency,NA,no,75,1,1,1,-0.39497," [-0.95, 0.16]",-1.38302333,0.166657712,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + pub quiz,Immediate post,All,Intrusion frequency,NA,no,135,1,2,4,0.126888054," [-0.48, 0.73]",0.412381071,0.680060135,12.24461103,1.62285E-10,0.287226621,75.99200882,0.006590517
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Immediate post,All,Intrusion frequency,NA,no,607,8,11,21,0.799506194," [0.66, 0.93]",11.58722513,4.7838E-31,13.14465662,6.3618E-12,6.65029E-12,1.29615E-08,0.871091519
+Individual Technique,Trauma reminder + traumagameplay1,Immediate post,All,Intrusion frequency,NA,no,92,1,1,4,0.062128428," [-0.19, 0.31]",0.484920074,0.627733042,0.273098105,0,6.75787E-12,1.02922E-08,0.965005961
+Individual Technique,Traumagameplay2,Immediate post,All,Intrusion frequency,NA,no,120,1,1,2,0.199282866," [-0.16, 0.56]",1.088680046,0.276295004,0.073435978,0,5.16436E-12,7.70627E-09,0.786398159
+Individual Technique,Unconscious imagery re-experience,Immediate post,All,Intrusion frequency,NA,no,149,1,1,1,0.46274," [-0.09, 1.01]",1.646694378,0.09962088,NA,NA,NA,NA,NA
+Individual Technique,Unconscious vs. Conscious imagery re-experience,Immediate post,All,Intrusion frequency,NA,no,149,1,1,1,0.60707," [0.10, 1.11]",2.362325405,0.018160694,NA,NA,NA,NA,NA
+Individual Technique,Unsupportive social interaction,Immediate post,All,Intrusion frequency,NA,no,81,1,1,1,-0.23374," [-0.77, 0.30]",-0.850617165,0.394982051,NA,NA,NA,NA,NA
+Individual Technique,Ve allocentric recognition memory task,Immediate post,All,Intrusion frequency,NA,no,45,1,1,3,-0.286917258," [-1.10, 0.53]",-0.689033598,0.490802124,7.433656425,0,0.3797117,72.99676525,0.024310955
+Individual Technique,Ve egocentric recognition memory task,Immediate post,All,Intrusion frequency,NA,no,45,1,1,3,-0.101002145," [-1.04, 0.84]",-0.211164944,0.832758564,9.63323696,0,0.54518426,79.43615357,0.008094111
+Individual Technique,Visual stimulation,Immediate post,All,Intrusion frequency,NA,no,120,1,1,6,-0.115583083," [-0.30, 0.06]",-1.262313023,0.206836172,4.169968723,0,8.46775E-12,1.68329E-08,0.525213322
+Individual Technique,Visual stimulation imagery,Immediate post,All,Intrusion frequency,NA,no,114,1,1,3,-0.298261701," [-0.56, -0.04]",-2.238575713,0.025183536,0.03213154,0,6.00134E-12,1.12687E-08,0.984062596
+Individual Technique,Wakeful rest,Immediate post,All,Intrusion frequency,NA,no,85,1,2,3,0.374312064," [0.09, 0.66]",2.553553899,0.010662977,1.302753753,0.004205197,0,6.655888314,0.521327479
+Individual Technique,Writing-based rescripting,Immediate post,All,Intrusion frequency,NA,no,119,1,1,1,0.75715," [0.24, 1.27]",2.879517785,0.003982838,NA,NA,NA,NA,NA
+Individual Technique,Attentional bias modification,Immediate post,All,Intrusion frequency,NA,yes,45,1,1,2,0.779632636," [0.35, 1.21]",3.564010569,0.000365231,0.037327975,0,4.84252E-12,5.05958E-09,0.846798823
+Individual Technique,Autobiographical memory elaboration,Immediate post,All,Intrusion frequency,NA,yes,315,3,3,6,0.030849998," [-0.15, 0.21]",0.330853897,0.740754847,4.250092184,1.35023E-09,1.83914E-06,0.003518976,0.513999015
+Individual Technique,Bilateral eye movement,Immediate post,All,Intrusion frequency,NA,yes,66,1,1,2,0.68014566," [0.33, 1.03]",3.79698798,0.000146465,0.028848637,0,7.91862E-12,1.23391E-08,0.865128997
+Individual Technique,Block rehearsal + thought suppression,Immediate post,All,Intrusion frequency,NA,yes,120,1,1,3,0.159727669," [-0.17, 0.49]",0.955661299,0.339243381,0.704293056,0,3.60504E-12,4.30155E-09,0.703177079
+Individual Technique,Challenged vs. Unchallenged memory,Immediate post,All,Intrusion frequency,NA,yes,61,1,1,2,0.553600921," [0.16, 0.95]",2.764188549,0.005706455,2.268047158,0,0.044857168,55.90920608,0.132066223
+Individual Technique,Clay modeling,Immediate post,All,Intrusion frequency,NA,yes,41,1,1,3,-0.050991666," [-0.56, 0.46]",-0.197456968,0.843469953,0.001750117,0,4.95999E-12,2.47917E-09,0.999125324
+Individual Technique,Conceptual vs. Data-driven processing,Immediate post,All,Intrusion frequency,NA,yes,34,1,1,1,0.58175," [-0.12, 1.28]",1.636274414,0.101782168,NA,NA,NA,NA,NA
+Individual Technique,Concrete processing,Immediate post,All,Intrusion frequency,NA,yes,83,1,1,2,0.306304231," [-0.07, 0.68]",1.595685282,0.110559076,0.283691724,0,5.23065E-12,7.09722E-09,0.594291676
+Individual Technique,Concrete processing vs. Film-related rumination,Immediate post,All,Intrusion frequency,NA,yes,83,1,1,2,0.216713897," [-0.15, 0.59]",1.143375268,0.252882816,0.018730232,0,6.40337E-12,8.91213E-09,0.89114269
+Individual Technique,Detached mindfulness,Immediate post,All,Intrusion frequency,NA,yes,56,1,1,1,0.94608," [0.16, 1.73]",2.373814616,0.017605387,NA,NA,NA,NA,NA
+Individual Technique,Dog interaction film,Immediate post,All,Intrusion frequency,NA,yes,60,1,1,1,-0.07471," [-0.69, 0.55]",-0.23616351,0.813305793,NA,NA,NA,NA,NA
+Individual Technique,Emotional acceptance,Immediate post,All,Intrusion frequency,NA,yes,56,1,1,1,0.61137," [-0.15, 1.37]",1.58100849,0.113876097,NA,NA,NA,NA,NA
+Individual Technique,Exercise,Immediate post,All,Intrusion frequency,NA,yes,71,1,1,1,-0.15879," [-0.73, 0.41]",-0.5433205,0.586909152,NA,NA,NA,NA,NA
+Individual Technique,Expressive vs. Factual trauma disclosure,Immediate post,All,Intrusion frequency,NA,yes,73,1,1,1,0.20599," [-0.26, 0.67]",0.870998785,0.383754816,NA,NA,NA,NA,NA
+Individual Technique,Extinction,Immediate post,All,Intrusion frequency,NA,yes,84,1,1,1,0.23625," [-0.23, 0.70]",0.998021326,0.318269018,NA,NA,NA,NA,NA
+Individual Technique,Field perspective recall,Immediate post,All,Intrusion frequency,NA,yes,85,1,1,1,-0.59276," [-1.15, -0.03]",-2.068133345,0.038627486,NA,NA,NA,NA,NA
+Individual Technique,Field vs. Observer perspective recall,Immediate post,All,Intrusion frequency,NA,yes,85,1,1,1,-0.42373," [-0.98, 0.14]",-1.480412852,0.138763102,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate post,All,Intrusion frequency,NA,yes,300,3,4,15,0.013134149," [-0.12, 0.15]",0.194846153,0.84551339,13.29616864,3.92026E-13,2.62605E-09,3.8522E-06,0.503347051
+Individual Technique,Film-related rumination vs. Autobiographical memory elaboration,Immediate post,All,Intrusion frequency,NA,yes,101,1,1,3,0.004078633," [-0.27, 0.28]",0.0288663,0.976971223,1.403298755,0,5.17237E-12,8.63607E-09,0.495766922
+Individual Technique,Finger tapping,Immediate post,All,Intrusion frequency,NA,yes,60,1,1,1,0.68113," [0.04, 1.32]",2.094072785,0.036253497,NA,NA,NA,NA,NA
+Individual Technique,Hydrocortisone,Immediate post,All,Intrusion frequency,NA,yes,88,1,1,1,0.60506," [0.08, 1.13]",2.253031142,0.024257186,NA,NA,NA,NA,NA
+Individual Technique,Hyperventilation provocation + thought suppression,Immediate post,All,Intrusion frequency,NA,yes,120,1,1,3,-0.073897696," [-0.46, 0.31]",-0.374716024,0.707871674,2.775789164,0,0.032474862,27.83334213,0.249600265
+Individual Technique,Imagery re-experience,Immediate post,All,Intrusion frequency,NA,yes,880,8,8,9,0.112797099," [-0.09, 0.32]",1.068929101,0.285101618,11.03315338,0.018465891,5.14155E-11,19.38765782,0.19982775
+Individual Technique,Imagery re-experience + eye movement,Immediate post,All,Intrusion frequency,NA,yes,250,1,3,3,0.489505983," [0.13, 0.85]",2.667055302,0.007651908,2.468557635,0.008989412,0.008989412,17.78446702,0.291044583
+Individual Technique,Imagery re-experience + number counting,Immediate post,All,Intrusion frequency,NA,yes,250,1,3,3,0.560905437," [0.12, 1.00]",2.511384401,0.012025867,3.555712645,0.032723134,0.032723134,43.72807482,0.169000041
+Individual Technique,Imagery re-experience + traumagameplay2,Immediate post,All,Intrusion frequency,NA,yes,120,1,1,2,-0.346076724," [-0.71, 0.02]",-1.865192386,0.062154442,0.07197875,0,8.02742E-12,1.16584E-08,0.788477214
+Individual Technique,Imagery re-experience vs. Positive imagery,Immediate post,All,Intrusion frequency,NA,yes,76,1,1,1,-0.2529," [-0.80, 0.29]",-0.907546533,0.364117854,NA,NA,NA,NA,NA
+Individual Technique,Imagery rescripting,Immediate post,All,Intrusion frequency,NA,yes,319,3,3,5,0.28574621," [-0.08, 0.65]",1.541151782,0.12327985,8.523739204,7.07632E-11,0.091055356,53.00986344,0.074170914
+Individual Technique,Imagery rescripting vs. Imagery re-experience,Immediate post,All,Intrusion frequency,NA,yes,116,2,2,3,0.473760504," [-0.40, 1.34]",1.066735821,0.286091147,5.936786209,0.324838123,3.18792E-11,76.89363422,0.051385816
+Individual Technique,Imagery rescripting vs. Positive imagery,Immediate post,All,Intrusion frequency,NA,yes,76,1,1,1,0.63751," [0.07, 1.20]",2.216986133,0.026624039,NA,NA,NA,NA,NA
+Individual Technique,Imagery trauma elaboration,Immediate post,All,Intrusion frequency,NA,yes,106,1,1,1,0.47249," [0.09, 0.86]",2.399045829,0.016437857,NA,NA,NA,NA,NA
+Individual Technique,Imaginary re-exposure,Immediate post,All,Intrusion frequency,NA,yes,56,1,1,1,0.24648," [-0.50, 0.99]",0.649661948,0.515910609,NA,NA,NA,NA,NA
+Individual Technique,Letter cancellation task,Immediate post,All,Intrusion frequency,NA,yes,70,1,1,1,-0.54921," [-1.30, 0.21]",-1.426423851,0.153746033,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers,Immediate post,All,Intrusion frequency,NA,yes,80,1,1,3,-0.215588382," [-0.58, 0.14]",-1.175002529,0.239993704,0.980379561,0,6.79004E-13,6.72302E-10,0.612510141
+Individual Technique,Memorize numbers + thought suppression,Immediate post,All,Intrusion frequency,NA,yes,200,2,2,5,0.329267084," [0.07, 0.59]",2.442387148,0.01459049,1.863202157,6.53755E-12,0,7.18268E-09,0.760901134
+Individual Technique,Memory test,Immediate post,All,Intrusion frequency,NA,yes,52,1,1,1,0.35993," [-0.03, 0.75]",1.820611417,0.068665946,NA,NA,NA,NA,NA
+Individual Technique,Mindfulness vs. Muscle relaxation,Immediate post,All,Intrusion frequency,NA,yes,60,1,1,3,-0.109775835," [-0.42, 0.20]",-0.691370971,0.489332442,0.083712325,0,3.98683E-12,5.27127E-09,0.959007712
+Individual Technique,Negative expectation towards intrusion,Immediate post,All,Intrusion frequency,NA,yes,89,1,1,2,0.12863871," [-0.22, 0.47]",0.732246529,0.464018109,0.182478802,0,4.88585E-12,7.91551E-09,0.669251595
+Individual Technique,Negative feedback,Immediate post,All,Intrusion frequency,NA,yes,72,1,1,2,0.321334425," [-0.08, 0.72]",1.561503183,0.118405073,0.651066547,0,4.10114E-13,4.84139E-10,0.419731619
+Individual Technique,Negative social reappraisal,Immediate post,All,Intrusion frequency,NA,yes,181,1,1,1,0.66088," [0.28, 1.04]",3.435098584,0.000592338,NA,NA,NA,NA,NA
+Individual Technique,Neutral attention walk,Immediate post,All,Intrusion frequency,NA,yes,60,1,1,1,-0.43382," [-0.95, 0.08]",-1.66075263,0.096763138,NA,NA,NA,NA,NA
+Individual Technique,Nitrous oxide,Immediate post,All,Intrusion frequency,NA,yes,50,1,1,1,-0.0884," [-0.64, 0.47]",-0.312383475,0.754749107,NA,NA,NA,NA,NA
+Individual Technique,Number counting,Immediate post,All,Intrusion frequency,NA,yes,101,2,2,7,0.305175103," [-0.29, 0.90]",1.010507935,0.312252,7.238014935,0.120883921,2.05499E-10,39.83077224,0.299395632
+Individual Technique,Observer perspective recall,Immediate post,All,Intrusion frequency,NA,yes,85,1,1,1,-0.00874," [-0.55, 0.53]",-0.031804633,0.974627852,NA,NA,NA,NA,NA
+Individual Technique,Oxytocin,Immediate post,All,Intrusion frequency,NA,yes,202,1,1,1,0.12619," [-0.15, 0.40]",0.895855348,0.370330025,NA,NA,NA,NA,NA
+Individual Technique,Past vs. Now verbal training,Immediate post,All,Intrusion frequency,NA,yes,96,1,1,3,0.008521766," [-0.15, 0.17]",0.102253019,0.918555845,0.264002433,0,3.40955E-12,1.63632E-08,0.876339929
+Individual Technique,Positive expectation towards intrusion,Immediate post,All,Intrusion frequency,NA,yes,89,1,1,2,0.393048969," [0.02, 0.77]",2.04904706,0.040457513,0.823078454,0,2.53664E-12,3.44606E-09,0.364281633
+Individual Technique,Positive social reappraisal,Immediate post,All,Intrusion frequency,NA,yes,181,1,1,1,0.1337," [-0.24, 0.50]",0.706659031,0.479778395,NA,NA,NA,NA,NA
+Individual Technique,Positive vs. Negative cbm training,Immediate post,All,Intrusion frequency,NA,yes,341,3,3,4,0.158839047," [-0.12, 0.44]",1.102590447,0.270205061,4.467560302,0.021347371,0.004575782,35.31553519,0.21520215
+Individual Technique,Propranolol,Immediate post,All,Intrusion frequency,NA,yes,88,1,1,1,0.44628," [-0.07, 0.96]",1.692787332,0.090495955,NA,NA,NA,NA,NA
+Individual Technique,Prosocial behavior,Immediate post,All,Intrusion frequency,NA,yes,180,1,2,3,0.495997951," [0.25, 0.74]",3.967995389,7.24797E-05,0.161640949,1.1281E-11,1.35071E-14,2.40803E-08,0.922359264
+Individual Technique,Rem sleep,Immediate post,All,Intrusion frequency,NA,yes,41,1,1,1,0.50993," [-0.11, 1.13]",1.606207694,0.108228283,NA,NA,NA,NA,NA
+Individual Technique,Sad induction,Immediate post,All,Intrusion frequency,NA,yes,81,1,1,2,0.02096731," [-0.35, 0.40]",0.109770478,0.912591405,0.058755379,0,5.23128E-12,7.16908E-09,0.80847404
+Individual Technique,Sad vs. Humor induction,Immediate post,All,Intrusion frequency,NA,yes,184,1,1,1,-0.3803," [-0.67, -0.09]",-2.555724863,0.010596687,NA,NA,NA,NA,NA
+Individual Technique,Self efficacy,Immediate post,All,Intrusion frequency,NA,yes,74,1,1,4,0.070253685," [-0.23, 0.37]",0.451940486,0.651311857,3.476320778,0,0.011504885,11.89889102,0.323846247
+Individual Technique,Sleep,Immediate post,All,Intrusion frequency,NA,yes,552,8,8,9,0.264270036," [0.10, 0.43]",3.06996643,0.002140828,7.589324435,1.12938E-12,7.39141E-13,2.78175E-09,0.474577503
+Individual Technique,Social comparison,Immediate post,All,Intrusion frequency,NA,yes,120,1,1,9,0.34014783," [0.17, 0.51]",3.915944059,9.00511E-05,4.34229551,0,4.13171E-12,6.08431E-09,0.824995743
+Individual Technique,Social support,Immediate post,All,Intrusion frequency,NA,yes,81,1,1,1,-0.19269," [-0.74, 0.36]",-0.685251018,0.493185535,NA,NA,NA,NA,NA
+Individual Technique,Tetris,Immediate post,All,Intrusion frequency,NA,yes,71,1,1,1,0.07006," [-0.50, 0.64]",0.240024597,0.810311189,NA,NA,NA,NA,NA
+Individual Technique,Therapy dog interaction,Immediate post,All,Intrusion frequency,NA,yes,60,1,1,1,-0.4555," [-1.08, 0.17]",-1.422081482,0.155002598,NA,NA,NA,NA,NA
+Individual Technique,Thought suppression,Immediate post,All,Intrusion frequency,NA,yes,200,2,2,6,0.112458784," [-0.15, 0.37]",0.849755637,0.395460959,5.588721026,2.67117E-11,0.01297788,12.34364168,0.348315343
+Individual Technique,Threat attention walk,Immediate post,All,Intrusion frequency,NA,yes,60,1,1,1,0.06829," [-0.44, 0.57]",0.264402593,0.791469714,NA,NA,NA,NA,NA
+Individual Technique,Threat vs. Neutral attention walk,Immediate post,All,Intrusion frequency,NA,yes,60,1,1,1,-0.50684," [-1.02, 0.01]",-1.932209741,0.053333623,NA,NA,NA,NA,NA
+Individual Technique,Trauma re-exposure,Immediate post,All,Intrusion frequency,NA,yes,115,1,1,1,-0.04336," [-0.49, 0.40]",-0.191189418,0.848377194,NA,NA,NA,NA,NA
+Individual Technique,Trauma re-exposure + verbal update,Immediate post,All,Intrusion frequency,NA,yes,115,1,1,1,0.49956," [0.04, 0.96]",2.115937217,0.034350148,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder +  visual stimulation imagery,Immediate post,All,Intrusion frequency,NA,yes,114,1,1,3,-0.463450307," [-0.73, -0.20]",-3.426527812,0.000611351,0.87293407,0,6.43979E-12,1.17332E-08,0.646315803
+Individual Technique,Trauma reminder + d-corsi vs. Trauma reminder,Immediate post,All,Intrusion frequency,NA,yes,107,1,1,2,0.36408748," [-0.31, 1.04]",1.051305359,0.293118366,3.952367375,0,0.179193804,74.69869411,0.046805477
+Individual Technique,Trauma reminder + finger tapping,Immediate post,All,Intrusion frequency,NA,yes,75,1,1,1,0.57235," [0.01, 1.14]",1.983361627,0.04732705,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + imagery rescripting vs. Trauma reminder,Immediate post,All,Intrusion frequency,NA,yes,60,1,1,1,0.44729," [-0.18, 1.07]",1.397101395,0.162383082,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + number counting,Immediate post,All,Intrusion frequency,NA,yes,75,1,1,1,-0.39497," [-0.95, 0.16]",-1.38302333,0.166657712,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + pub quiz,Immediate post,All,Intrusion frequency,NA,yes,135,1,2,4,0.126888054," [-0.48, 0.73]",0.412381071,0.680060135,12.24461103,1.62285E-10,0.287226621,75.99200882,0.006590517
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Immediate post,All,Intrusion frequency,NA,yes,577,7,10,18,0.752464954," [0.61, 0.89]",10.38468291,2.91135E-25,8.218911639,1.77158E-14,2.10321E-11,2.21959E-08,0.961639063
+Individual Technique,Trauma reminder + traumagameplay1,Immediate post,All,Intrusion frequency,NA,yes,92,1,1,4,0.062128428," [-0.19, 0.31]",0.484920074,0.627733042,0.273098105,0,6.75787E-12,1.02922E-08,0.965005961
+Individual Technique,Traumagameplay2,Immediate post,All,Intrusion frequency,NA,yes,120,1,1,2,0.199282866," [-0.16, 0.56]",1.088680046,0.276295004,0.073435978,0,5.16436E-12,7.70627E-09,0.786398159
+Individual Technique,Unconscious imagery re-experience,Immediate post,All,Intrusion frequency,NA,yes,149,1,1,1,0.46274," [-0.09, 1.01]",1.646694378,0.09962088,NA,NA,NA,NA,NA
+Individual Technique,Unconscious vs. Conscious imagery re-experience,Immediate post,All,Intrusion frequency,NA,yes,149,1,1,1,0.60707," [0.10, 1.11]",2.362325405,0.018160694,NA,NA,NA,NA,NA
+Individual Technique,Unsupportive social interaction,Immediate post,All,Intrusion frequency,NA,yes,81,1,1,1,-0.23374," [-0.77, 0.30]",-0.850617165,0.394982051,NA,NA,NA,NA,NA
+Individual Technique,Ve allocentric recognition memory task,Immediate post,All,Intrusion frequency,NA,yes,45,1,1,3,-0.286917258," [-1.10, 0.53]",-0.689033598,0.490802124,7.433656425,0,0.3797117,72.99676525,0.024310955
+Individual Technique,Ve egocentric recognition memory task,Immediate post,All,Intrusion frequency,NA,yes,45,1,1,3,-0.101002145," [-1.04, 0.84]",-0.211164944,0.832758564,9.63323696,0,0.54518426,79.43615357,0.008094111
+Individual Technique,Visual stimulation,Immediate post,All,Intrusion frequency,NA,yes,120,1,1,6,-0.115583083," [-0.30, 0.06]",-1.262313023,0.206836172,4.169968723,0,8.46775E-12,1.68329E-08,0.525213322
+Individual Technique,Visual stimulation imagery,Immediate post,All,Intrusion frequency,NA,yes,114,1,1,3,-0.298261701," [-0.56, -0.04]",-2.238575713,0.025183536,0.03213154,0,6.00134E-12,1.12687E-08,0.984062596
+Individual Technique,Wakeful rest,Immediate post,All,Intrusion frequency,NA,yes,85,1,2,3,0.374312064," [0.09, 0.66]",2.553553899,0.010662977,1.302753753,0.004205197,0,6.655888314,0.521327479
+Individual Technique,Writing-based rescripting,Immediate post,All,Intrusion frequency,NA,yes,119,1,1,1,0.75715," [0.24, 1.27]",2.879517785,0.003982838,NA,NA,NA,NA,NA
+Individual Technique,Social support,Peri + immediate post,All,Intrusion frequency,NA,no,67,1,1,1,-0.51207," [-1.00, -0.02]",-2.06021246,0.039378234,NA,NA,NA,NA,NA
+Individual Technique,Social support,Peri + immediate post,All,Intrusion frequency,NA,yes,67,1,1,1,-0.51207," [-1.00, -0.02]",-2.06021246,0.039378234,NA,NA,NA,NA,NA
+Individual Technique,Behavioral control,Peri,All,Intrusion frequency,NA,no,64,1,1,1,0," [-0.49, 0.49]",0,1,NA,NA,NA,NA,NA
+Individual Technique,Chewing gum,Peri,All,Intrusion frequency,NA,no,54,1,1,1,0.45207," [-0.19, 1.10]",1.375898002,0.168853214,NA,NA,NA,NA,NA
+Individual Technique,Clay modeling,Peri,All,Intrusion frequency,NA,no,106,2,2,3,0.762541434," [0.43, 1.09]",4.505596268,6.61868E-06,0.32636733,1.03881E-11,0,1.19393E-08,0.849435163
+Individual Technique,Conceptual processing,Peri,All,Intrusion frequency,NA,no,284,2,2,2,-0.065286778," [-0.42, 0.29]",-0.35641834,0.721527297,0.072631046,8.44287E-13,8.44287E-13,2.43626E-09,0.787543806
+Individual Technique,Concrete processing vs. Film-related rumination,Peri,All,Intrusion frequency,NA,no,50,1,1,1,0.57629," [0.01, 1.14]",1.996468074,0.045882998,NA,NA,NA,NA,NA
+Individual Technique,Contextual information,Peri,All,Intrusion frequency,NA,no,244,4,4,8,-0.200062306," [-0.47, 0.07]",-1.467211734,0.142318466,13.16764194,2.4807E-10,0.067696295,46.88275471,0.068127654
+Individual Technique,Data-driven processing,Peri,All,Intrusion frequency,NA,no,284,2,2,2,-0.061308012," [-0.42, 0.30]",-0.333091117,0.739065504,0.415796295,1.49947E-12,1.49947E-12,4.2644E-09,0.519042099
+Individual Technique,Dissociation,Peri,All,Intrusion frequency,NA,no,128,3,3,4,-0.010154878," [-0.61, 0.59]",-0.033289345,0.973443851,6.648693802,0.185756609,1.03113E-10,62.57847182,0.083979274
+Individual Technique,Emotional acceptance,Peri,All,Intrusion frequency,NA,no,145,2,2,4,0.546793761," [0.26, 0.84]",3.696229627,0.000218825,2.618393673,0,7.37169E-11,8.30731E-08,0.45427402
+Individual Technique,Emotional numbing,Peri,All,Intrusion frequency,NA,no,56,1,1,2,0.218610323," [-0.24, 0.68]",0.937133425,0.34868993,0.001574035,0,3.05866E-12,2.81036E-09,0.968352947
+Individual Technique,Emotional suppression,Peri,All,Intrusion frequency,NA,no,171,2,2,4,0.300913013," [0.02, 0.58]",2.079143764,0.037604139,3.851698154,5.07183E-11,0.0225444,26.84538657,0.277929765
+Individual Technique,Finger tapping,Peri,All,Intrusion frequency,NA,no,360,6,7,12,0.571587344," [0.31, 0.84]",4.248332277,2.15368E-05,13.50625825,0.051774321,9.81363E-11,31.44199138,0.261527147
+Individual Technique,Hyperventilation provocation test (hvpt),Peri,All,Intrusion frequency,NA,no,65,1,1,1,-0.60722," [-1.22, 0.00]",-1.946040581,0.051649865,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers,Peri,All,Intrusion frequency,NA,no,65,1,1,1,-0.81964," [-1.44, -0.20]",-2.580517939,0.009865223,NA,NA,NA,NA,NA
+Individual Technique,Number counting,Peri,All,Intrusion frequency,NA,no,396,6,7,11,-0.166518777," [-0.62, 0.29]",-0.721478818,0.470614969,34.44721526,0.297807927,2.96211E-10,76.17149172,0.00015509
+Individual Technique,Verbalization during encoding,Peri,All,Intrusion frequency,NA,no,136,2,2,2,-0.119703749," [-0.96, 0.72]",-0.278617339,0.780538505,3.887878278,0.137188658,0.137188658,74.27903015,0.04863583
+Individual Technique,Behavioral control,Peri,All,Intrusion frequency,NA,yes,64,1,1,1,0," [-0.49, 0.49]",0,1,NA,NA,NA,NA,NA
+Individual Technique,Chewing gum,Peri,All,Intrusion frequency,NA,yes,54,1,1,1,0.45207," [-0.19, 1.10]",1.375898002,0.168853214,NA,NA,NA,NA,NA
+Individual Technique,Clay modeling,Peri,All,Intrusion frequency,NA,yes,106,2,2,3,0.762541434," [0.43, 1.09]",4.505596268,6.61868E-06,0.32636733,1.03881E-11,0,1.19393E-08,0.849435163
+Individual Technique,Conceptual processing,Peri,All,Intrusion frequency,NA,yes,284,2,2,2,-0.065286778," [-0.42, 0.29]",-0.35641834,0.721527297,0.072631046,8.44287E-13,8.44287E-13,2.43626E-09,0.787543806
+Individual Technique,Concrete processing vs. Film-related rumination,Peri,All,Intrusion frequency,NA,yes,50,1,1,1,0.57629," [0.01, 1.14]",1.996468074,0.045882998,NA,NA,NA,NA,NA
+Individual Technique,Contextual information,Peri,All,Intrusion frequency,NA,yes,244,4,4,8,-0.200062306," [-0.47, 0.07]",-1.467211734,0.142318466,13.16764194,2.4807E-10,0.067696295,46.88275471,0.068127654
+Individual Technique,Data-driven processing,Peri,All,Intrusion frequency,NA,yes,284,2,2,2,-0.061308012," [-0.42, 0.30]",-0.333091117,0.739065504,0.415796295,1.49947E-12,1.49947E-12,4.2644E-09,0.519042099
+Individual Technique,Dissociation,Peri,All,Intrusion frequency,NA,yes,128,3,3,4,-0.010154878," [-0.61, 0.59]",-0.033289345,0.973443851,6.648693802,0.185756609,1.03113E-10,62.57847182,0.083979274
+Individual Technique,Emotional acceptance,Peri,All,Intrusion frequency,NA,yes,145,2,2,4,0.546793761," [0.26, 0.84]",3.696229627,0.000218825,2.618393673,0,7.37169E-11,8.30731E-08,0.45427402
+Individual Technique,Emotional numbing,Peri,All,Intrusion frequency,NA,yes,56,1,1,2,0.218610323," [-0.24, 0.68]",0.937133425,0.34868993,0.001574035,0,3.05866E-12,2.81036E-09,0.968352947
+Individual Technique,Emotional suppression,Peri,All,Intrusion frequency,NA,yes,171,2,2,4,0.300913013," [0.02, 0.58]",2.079143764,0.037604139,3.851698154,5.07183E-11,0.0225444,26.84538657,0.277929765
+Individual Technique,Finger tapping,Peri,All,Intrusion frequency,NA,yes,360,6,7,12,0.571587344," [0.31, 0.84]",4.248332277,2.15368E-05,13.50625825,0.051774321,9.81363E-11,31.44199138,0.261527147
+Individual Technique,Hyperventilation provocation test (hvpt),Peri,All,Intrusion frequency,NA,yes,65,1,1,1,-0.60722," [-1.22, 0.00]",-1.946040581,0.051649865,NA,NA,NA,NA,NA
+Individual Technique,Number counting,Peri,All,Intrusion frequency,NA,yes,298,5,5,9,0.107449195," [-0.28, 0.49]",0.54726202,0.584198732,17.79372945,0.134142549,1.10497E-10,59.80515559,0.022827223
+Individual Technique,Verbalization during encoding,Peri,All,Intrusion frequency,NA,yes,136,2,2,2,-0.119703749," [-0.96, 0.72]",-0.278617339,0.780538505,3.887878278,0.137188658,0.137188658,74.27903015,0.04863583
+Individual Technique,Guilt induction,Pre + peri,All,Intrusion frequency,NA,no,108,1,1,2,-0.235563401," [-0.57, 0.10]",-1.384724714,0.166136659,0.443732613,0,5.45931E-12,9.38914E-09,0.505326362
+Individual Technique,Guilt induction,Pre + peri,All,Intrusion frequency,NA,yes,108,1,1,2,-0.235563401," [-0.57, 0.10]",-1.384724714,0.166136659,0.443732613,0,5.45931E-12,9.38914E-09,0.505326362
+Individual Technique,Anodal tdcs,Pre,All,Intrusion frequency,NA,no,118,1,1,1,0.17093," [-0.27, 0.61]",0.763029576,0.445445758,NA,NA,NA,NA,NA
+Individual Technique,Cathodal tdcs,Pre,All,Intrusion frequency,NA,no,118,1,1,1,0.28166," [-0.16, 0.73]",1.23723106,0.216001314,NA,NA,NA,NA,NA
+Individual Technique,Cold vs. Warm water stress,Pre,All,Intrusion frequency,NA,no,63,1,1,1,-0.186," [-0.68, 0.31]",-0.734248503,0.462797297,NA,NA,NA,NA,NA
+Individual Technique,Concrete processing,Pre,All,Intrusion frequency,NA,no,64,1,1,1,0.61403," [0.11, 1.12]",2.399106163,0.016435149,NA,NA,NA,NA,NA
+Individual Technique,Contextual information,Pre,All,Intrusion frequency,NA,no,80,1,2,2,-0.401724748," [-0.71, -0.09]",-2.513517335,0.01195339,0.502648885,5.29473E-12,5.29473E-12,2.0725E-08,0.478338532
+Individual Technique,High dose alcohol,Pre,All,Intrusion frequency,NA,no,194,3,3,3,-0.221781665," [-0.74, 0.30]",-0.835183643,0.403614318,4.173812999,0.055274593,0.055274594,52.1630649,0.124070354
+Individual Technique,High vs. Low self efficacy,Pre,All,Intrusion frequency,NA,no,33,1,1,2,0.850628085," [0.35, 1.35]",3.306976305,0.000943089,0.039981249,0,2.52557E-12,1.90839E-09,0.841517248
+Individual Technique,Losartan,Pre,All,Intrusion frequency,NA,no,40,1,1,1,-0.22988," [-0.85, 0.39]",-0.724546545,0.468730263,NA,NA,NA,NA,NA
+Individual Technique,Low dose alcohol,Pre,All,Intrusion frequency,NA,no,194,3,3,3,-0.493918754," [-1.01, 0.03]",-1.858685112,0.063071785,4.067224984,0.054001723,0.054001723,50.79698819,0.130861929
+Individual Technique,Low vs. High alcohol,Pre,All,Intrusion frequency,NA,no,96,2,2,2,-0.745388273," [-1.25, -0.24]",-2.877587368,0.004007289,0.487795876,3.57646E-12,3.57646E-12,5.32489E-09,0.484912164
+Individual Technique,Low vs. High resistance to proactive interference,Pre,All,Intrusion frequency,NA,no,54,1,1,3,0.080415363," [-0.23, 0.39]",0.511130956,0.609259361,0.092601559,0,7.49446E-12,1.00927E-08,0.954754748
+Individual Technique,Nicotine,Pre,All,Intrusion frequency,NA,no,54,1,1,2,-0.539836392," [-0.98, -0.09]",-2.378511429,0.017382698,1.333456155,0,0.025776161,25.00690854,0.248191294
+Individual Technique,Oxytocin,Pre,All,Intrusion frequency,NA,no,201,1,1,1,-0.29668," [-0.57, -0.02]",-2.090380707,0.036583615,NA,NA,NA,NA,NA
+Individual Technique,Positive vs. Negative cbm training,Pre,All,Intrusion frequency,NA,no,147,3,3,6,0.272952156," [-0.23, 0.77]",1.070454588,0.28441474,8.743149564,0.13786166,1.12323E-11,61.6100626,0.119758158
+Individual Technique,Sad induction,Pre,All,Intrusion frequency,NA,no,81,1,1,2,0.33647968," [-0.04, 0.71]",1.749291953,0.080240566,0.078490057,0,5.72056E-12,7.73049E-09,0.779354163
+Individual Technique,Self efficacy,Pre,All,Intrusion frequency,NA,no,175,2,2,6,0.060441776," [-0.32, 0.44]",0.3125221,0.75464377,4.936214123,0.047863391,3.27322E-13,42.92236739,0.423714257
+Individual Technique,Tetris,Pre,All,Intrusion frequency,NA,no,56,1,1,2,0.063700969," [-0.32, 0.44]",0.327866853,0.743012337,1.051419932,0,0.00369221,4.890524757,0.30518029
+Individual Technique,Anodal tdcs,Pre,All,Intrusion frequency,NA,yes,118,1,1,1,0.17093," [-0.27, 0.61]",0.763029576,0.445445758,NA,NA,NA,NA,NA
+Individual Technique,Cathodal tdcs,Pre,All,Intrusion frequency,NA,yes,118,1,1,1,0.28166," [-0.16, 0.73]",1.23723106,0.216001314,NA,NA,NA,NA,NA
+Individual Technique,Cold vs. Warm water stress,Pre,All,Intrusion frequency,NA,yes,63,1,1,1,-0.186," [-0.68, 0.31]",-0.734248503,0.462797297,NA,NA,NA,NA,NA
+Individual Technique,Concrete processing,Pre,All,Intrusion frequency,NA,yes,64,1,1,1,0.61403," [0.11, 1.12]",2.399106163,0.016435149,NA,NA,NA,NA,NA
+Individual Technique,Contextual information,Pre,All,Intrusion frequency,NA,yes,80,1,2,2,-0.401724748," [-0.71, -0.09]",-2.513517335,0.01195339,0.502648885,5.29473E-12,5.29473E-12,2.0725E-08,0.478338532
+Individual Technique,High dose alcohol,Pre,All,Intrusion frequency,NA,yes,194,3,3,3,-0.221781665," [-0.74, 0.30]",-0.835183643,0.403614318,4.173812999,0.055274593,0.055274594,52.1630649,0.124070354
+Individual Technique,High vs. Low self efficacy,Pre,All,Intrusion frequency,NA,yes,33,1,1,2,0.850628085," [0.35, 1.35]",3.306976305,0.000943089,0.039981249,0,2.52557E-12,1.90839E-09,0.841517248
+Individual Technique,Losartan,Pre,All,Intrusion frequency,NA,yes,40,1,1,1,-0.22988," [-0.85, 0.39]",-0.724546545,0.468730263,NA,NA,NA,NA,NA
+Individual Technique,Low dose alcohol,Pre,All,Intrusion frequency,NA,yes,194,3,3,3,-0.493918754," [-1.01, 0.03]",-1.858685112,0.063071785,4.067224984,0.054001723,0.054001723,50.79698819,0.130861929
+Individual Technique,Low vs. High alcohol,Pre,All,Intrusion frequency,NA,yes,48,1,1,1,-0.57011," [-1.28, 0.14]",-1.580720422,0.113941977,NA,NA,NA,NA,NA
+Individual Technique,Low vs. High resistance to proactive interference,Pre,All,Intrusion frequency,NA,yes,54,1,1,3,0.080415363," [-0.23, 0.39]",0.511130956,0.609259361,0.092601559,0,7.49446E-12,1.00927E-08,0.954754748
+Individual Technique,Nicotine,Pre,All,Intrusion frequency,NA,yes,54,1,1,1,-0.31786," [-0.85, 0.22]",-1.160590683,0.245808396,NA,NA,NA,NA,NA
+Individual Technique,Oxytocin,Pre,All,Intrusion frequency,NA,yes,201,1,1,1,-0.29668," [-0.57, -0.02]",-2.090380707,0.036583615,NA,NA,NA,NA,NA
+Individual Technique,Positive vs. Negative cbm training,Pre,All,Intrusion frequency,NA,yes,147,3,3,6,0.272952156," [-0.23, 0.77]",1.070454588,0.28441474,8.743149564,0.13786166,1.12323E-11,61.6100626,0.119758158
+Individual Technique,Sad induction,Pre,All,Intrusion frequency,NA,yes,81,1,1,2,0.33647968," [-0.04, 0.71]",1.749291953,0.080240566,0.078490057,0,5.72056E-12,7.73049E-09,0.779354163
+Individual Technique,Self efficacy,Pre,All,Intrusion frequency,NA,yes,175,2,2,6,0.060441776," [-0.32, 0.44]",0.3125221,0.75464377,4.936214123,0.047863391,3.27322E-13,42.92236739,0.423714257
+Individual Technique,Tetris,Pre,All,Intrusion frequency,NA,yes,56,1,1,2,0.063700969," [-0.32, 0.44]",0.327866853,0.743012337,1.051419932,0,0.00369221,4.890524757,0.30518029
+Individual Technique,Hydrocortisone,Delayed post,All,Intrusion frequency,Intrusion diary,no,65,1,1,1,-0.27268," [-0.76, 0.22]",-1.09400858,0.273951215,NA,NA,NA,NA,NA
+Individual Technique,Imagery re-experience,Delayed post,All,Intrusion frequency,Intrusion diary,no,88,1,1,1,0.28612," [-0.23, 0.80]",1.093122357,0.274340081,NA,NA,NA,NA,NA
+Individual Technique,Imagery rescripting,Delayed post,All,Intrusion frequency,Intrusion diary,no,88,1,1,1,0.02688," [-0.48, 0.54]",0.103207916,0.917797957,NA,NA,NA,NA,NA
+Individual Technique,Tetris,Delayed post,All,Intrusion frequency,Intrusion diary,no,72,1,1,1,0.59455," [-0.07, 1.26]",1.745494692,0.080898796,NA,NA,NA,NA,NA
+Individual Technique,Tetris + trauma reminder,Delayed post,All,Intrusion frequency,Intrusion diary,no,149,1,1,1,0.03983," [-0.41, 0.49]",0.173554959,0.862215232,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder,Delayed post,All,Intrusion frequency,Intrusion diary,no,72,1,1,1,0.10711," [-0.55, 0.76]",0.321094669,0.74813865,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + break + tetris,Delayed post,All,Intrusion frequency,Intrusion diary,no,149,1,1,1,-0.09283," [-0.54, 0.35]",-0.406755506,0.684187569,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + tetris,Delayed post,All,Intrusion frequency,Intrusion diary,no,273,2,3,3,0.816600575," [-0.02, 1.66]",1.90283334,0.057062295,13.57532264,0.229850505,0.2298505,83.76770084,0.001127603
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Delayed post,All,Intrusion frequency,Intrusion diary,no,140,2,2,2,0.424936805," [-0.49, 1.34]",0.914527591,0.360439687,4.63222173,0.169579352,0.169579352,78.41208689,0.031376908
+Individual Technique,Trauma reminder + word game vs. Trauma reminder,Delayed post,All,Intrusion frequency,Intrusion diary,no,140,2,2,2,0.61322387," [0.20, 1.03]",2.902974796,0.003696364,0.169199809,1.78261E-12,1.78261E-12,3.79886E-09,0.680823944
+Individual Technique,Hydrocortisone,Delayed post,All,Intrusion frequency,Intrusion diary,yes,65,1,1,1,-0.27268," [-0.76, 0.22]",-1.09400858,0.273951215,NA,NA,NA,NA,NA
+Individual Technique,Imagery re-experience,Delayed post,All,Intrusion frequency,Intrusion diary,yes,88,1,1,1,0.28612," [-0.23, 0.80]",1.093122357,0.274340081,NA,NA,NA,NA,NA
+Individual Technique,Imagery rescripting,Delayed post,All,Intrusion frequency,Intrusion diary,yes,88,1,1,1,0.02688," [-0.48, 0.54]",0.103207916,0.917797957,NA,NA,NA,NA,NA
+Individual Technique,Tetris,Delayed post,All,Intrusion frequency,Intrusion diary,yes,72,1,1,1,0.59455," [-0.07, 1.26]",1.745494692,0.080898796,NA,NA,NA,NA,NA
+Individual Technique,Tetris + trauma reminder,Delayed post,All,Intrusion frequency,Intrusion diary,yes,149,1,1,1,0.03983," [-0.41, 0.49]",0.173554959,0.862215232,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder,Delayed post,All,Intrusion frequency,Intrusion diary,yes,72,1,1,1,0.10711," [-0.55, 0.76]",0.321094669,0.74813865,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + break + tetris,Delayed post,All,Intrusion frequency,Intrusion diary,yes,149,1,1,1,-0.09283," [-0.54, 0.35]",-0.406755506,0.684187569,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + tetris,Delayed post,All,Intrusion frequency,Intrusion diary,yes,149,1,1,1,0.01866," [-0.45, 0.49]",0.077926404,0.937886596,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Delayed post,All,Intrusion frequency,Intrusion diary,yes,140,2,2,2,0.424936805," [-0.49, 1.34]",0.914527591,0.360439687,4.63222173,0.169579352,0.169579352,78.41208689,0.031376908
+Individual Technique,Trauma reminder + word game vs. Trauma reminder,Delayed post,All,Intrusion frequency,Intrusion diary,yes,140,2,2,2,0.61322387," [0.20, 1.03]",2.902974796,0.003696364,0.169199809,1.78261E-12,1.78261E-12,3.79886E-09,0.680823944
+Individual Technique,Deceptive placebo,Immediate + delayed post,All,Intrusion frequency,Intrusion diary,no,112,1,1,1,0.27759," [-0.17, 0.73]",1.204189737,0.228516252,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate + delayed post,All,Intrusion frequency,Intrusion diary,no,139,2,2,2,-0.326685042," [-0.86, 0.20]",-1.210349809,0.226144693,1.930098806,0.036504053,0.036504053,48.18918095,0.164747635
+Individual Technique,Non-film related rumination,Immediate + delayed post,All,Intrusion frequency,Intrusion diary,no,57,1,1,1,-0.48948," [-1.14, 0.16]",-1.466365069,0.142548857,NA,NA,NA,NA,NA
+Individual Technique,Open-label placebo,Immediate + delayed post,All,Intrusion frequency,Intrusion diary,no,112,1,1,1,0.07257," [-0.38, 0.53]",0.311922523,0.755099405,NA,NA,NA,NA,NA
+Individual Technique,Deceptive placebo,Immediate + delayed post,All,Intrusion frequency,Intrusion diary,yes,112,1,1,1,0.27759," [-0.17, 0.73]",1.204189737,0.228516252,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate + delayed post,All,Intrusion frequency,Intrusion diary,yes,139,2,2,2,-0.326685042," [-0.86, 0.20]",-1.210349809,0.226144693,1.930098806,0.036504053,0.036504053,48.18918095,0.164747635
+Individual Technique,Non-film related rumination,Immediate + delayed post,All,Intrusion frequency,Intrusion diary,yes,57,1,1,1,-0.48948," [-1.14, 0.16]",-1.466365069,0.142548857,NA,NA,NA,NA,NA
+Individual Technique,Open-label placebo,Immediate + delayed post,All,Intrusion frequency,Intrusion diary,yes,112,1,1,1,0.07257," [-0.38, 0.53]",0.311922523,0.755099405,NA,NA,NA,NA,NA
+Individual Technique,Attentional bias modification,Immediate post,All,Intrusion frequency,Intrusion diary,no,45,1,1,1,0.73769," [0.13, 1.34]",2.393657634,0.016681312,NA,NA,NA,NA,NA
+Individual Technique,Autobiographical memory elaboration,Immediate post,All,Intrusion frequency,Intrusion diary,no,101,1,1,1,0.00665," [-0.47, 0.48]",0.027299517,0.978220842,NA,NA,NA,NA,NA
+Individual Technique,Bilateral eye movement,Immediate post,All,Intrusion frequency,Intrusion diary,no,66,1,1,2,0.68014566," [0.33, 1.03]",3.79698798,0.000146465,0.028848637,0,7.91862E-12,1.23391E-08,0.865128997
+Individual Technique,Block rehearsal + thought suppression,Immediate post,All,Intrusion frequency,Intrusion diary,no,120,1,1,1,0.35727," [-0.21, 0.93]",1.227868136,0.219496473,NA,NA,NA,NA,NA
+Individual Technique,Challenged vs. Unchallenged memory,Immediate post,All,Intrusion frequency,Intrusion diary,no,61,1,1,1,0.35567," [-0.01, 0.72]",1.91668877,0.055277483,NA,NA,NA,NA,NA
+Individual Technique,Clay modeling,Immediate post,All,Intrusion frequency,Intrusion diary,no,41,1,1,3,-0.050991666," [-0.56, 0.46]",-0.197456968,0.843469953,0.001750117,0,4.95999E-12,2.47917E-09,0.999125324
+Individual Technique,Dog interaction film,Immediate post,All,Intrusion frequency,Intrusion diary,no,60,1,1,1,-0.07471," [-0.69, 0.55]",-0.23616351,0.813305793,NA,NA,NA,NA,NA
+Individual Technique,Exercise,Immediate post,All,Intrusion frequency,Intrusion diary,no,71,1,1,1,-0.15879," [-0.73, 0.41]",-0.5433205,0.586909152,NA,NA,NA,NA,NA
+Individual Technique,Expressive vs. Factual trauma disclosure,Immediate post,All,Intrusion frequency,Intrusion diary,no,73,1,1,1,0.20599," [-0.26, 0.67]",0.870998785,0.383754816,NA,NA,NA,NA,NA
+Individual Technique,Extinction,Immediate post,All,Intrusion frequency,Intrusion diary,no,84,1,1,1,0.23625," [-0.23, 0.70]",0.998021326,0.318269018,NA,NA,NA,NA,NA
+Individual Technique,Field perspective recall,Immediate post,All,Intrusion frequency,Intrusion diary,no,85,1,1,1,-0.59276," [-1.15, -0.03]",-2.068133345,0.038627486,NA,NA,NA,NA,NA
+Individual Technique,Field vs. Observer perspective recall,Immediate post,All,Intrusion frequency,Intrusion diary,no,85,1,1,1,-0.42373," [-0.98, 0.14]",-1.480412852,0.138763102,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate post,All,Intrusion frequency,Intrusion diary,no,287,3,4,4,-0.382241987," [-1.26, 0.50]",-0.853763046,0.393236293,18.93332365,0.352791268,0.352791268,89.4598845,0.000282216
+Individual Technique,Film-related rumination vs. Autobiographical memory elaboration,Immediate post,All,Intrusion frequency,Intrusion diary,no,101,1,1,1,-0.13384," [-0.61, 0.34]",-0.548492202,0.583353983,NA,NA,NA,NA,NA
+Individual Technique,Finger tapping,Immediate post,All,Intrusion frequency,Intrusion diary,no,60,1,1,1,0.68113," [0.04, 1.32]",2.094072785,0.036253497,NA,NA,NA,NA,NA
+Individual Technique,Guilt induction,Immediate post,All,Intrusion frequency,Intrusion diary,no,39,1,1,1,-1.42646," [-2.13, -0.72]",-3.975938613,7.01022E-05,NA,NA,NA,NA,NA
+Individual Technique,Hydrocortisone,Immediate post,All,Intrusion frequency,Intrusion diary,no,88,1,1,1,0.60506," [0.08, 1.13]",2.253031142,0.024257186,NA,NA,NA,NA,NA
+Individual Technique,Hyperventilation provocation + thought suppression,Immediate post,All,Intrusion frequency,Intrusion diary,no,120,1,1,1,0.28866," [-0.28, 0.86]",0.994797118,0.319834948,NA,NA,NA,NA,NA
+Individual Technique,Imagery re-experience,Immediate post,All,Intrusion frequency,Intrusion diary,no,609,6,6,7,0.078504679," [-0.19, 0.35]",0.571331721,0.567774803,9.161444979,0.039225341,5.72881E-11,32.8123644,0.164700033
+Individual Technique,Imagery re-experience + eye movement,Immediate post,All,Intrusion frequency,Intrusion diary,no,250,1,3,3,0.489505983," [0.13, 0.85]",2.667055302,0.007651908,2.468557635,0.008989412,0.008989412,17.78446702,0.291044583
+Individual Technique,Imagery re-experience + number counting,Immediate post,All,Intrusion frequency,Intrusion diary,no,250,1,3,3,0.560905437," [0.12, 1.00]",2.511384401,0.012025867,3.555712645,0.032723134,0.032723134,43.72807482,0.169000041
+Individual Technique,Imagery re-experience + traumagameplay2,Immediate post,All,Intrusion frequency,Intrusion diary,no,120,1,1,2,-0.346076724," [-0.71, 0.02]",-1.865192386,0.062154442,0.07197875,0,8.02742E-12,1.16584E-08,0.788477214
+Individual Technique,Imagery re-experience vs. Positive imagery,Immediate post,All,Intrusion frequency,Intrusion diary,no,76,1,1,1,-0.2529," [-0.80, 0.29]",-0.907546533,0.364117854,NA,NA,NA,NA,NA
+Individual Technique,Imagery rescripting,Immediate post,All,Intrusion frequency,Intrusion diary,no,319,3,3,5,0.28574621," [-0.08, 0.65]",1.541151782,0.12327985,8.523739204,7.07632E-11,0.091055356,53.00986344,0.074170914
+Individual Technique,Imagery rescripting vs. Imagery re-experience,Immediate post,All,Intrusion frequency,Intrusion diary,no,116,2,2,3,0.473760504," [-0.40, 1.34]",1.066735821,0.286091147,5.936786209,0.324838123,3.18792E-11,76.89363422,0.051385816
+Individual Technique,Imagery rescripting vs. Positive imagery,Immediate post,All,Intrusion frequency,Intrusion diary,no,76,1,1,1,0.63751," [0.07, 1.20]",2.216986133,0.026624039,NA,NA,NA,NA,NA
+Individual Technique,Imagery trauma elaboration,Immediate post,All,Intrusion frequency,Intrusion diary,no,106,1,1,1,0.47249," [0.09, 0.86]",2.399045829,0.016437857,NA,NA,NA,NA,NA
+Individual Technique,Letter cancellation task,Immediate post,All,Intrusion frequency,Intrusion diary,no,70,1,1,1,-0.54921," [-1.30, 0.21]",-1.426423851,0.153746033,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers,Immediate post,All,Intrusion frequency,Intrusion diary,no,80,1,1,1,-0.39558," [-1.02, 0.23]",-1.238889651,0.215386367,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers + thought suppression,Immediate post,All,Intrusion frequency,Intrusion diary,no,200,2,2,2,-0.130278639," [-1.59, 1.33]",-0.175208998,0.860915415,11.23464134,0.50372346,0.50372346,91.09895928,0.000802846
+Individual Technique,Memory test,Immediate post,All,Intrusion frequency,Intrusion diary,no,52,1,1,1,0.35993," [-0.03, 0.75]",1.820611417,0.068665946,NA,NA,NA,NA,NA
+Individual Technique,Mindfulness vs. Muscle relaxation,Immediate post,All,Intrusion frequency,Intrusion diary,no,60,1,1,1,-0.16979," [-0.71, 0.37]",-0.616842451,0.537338649,NA,NA,NA,NA,NA
+Individual Technique,Negative expectation towards intrusion,Immediate post,All,Intrusion frequency,Intrusion diary,no,89,1,1,1,0.20386," [-0.28, 0.69]",0.819577617,0.412456938,NA,NA,NA,NA,NA
+Individual Technique,Negative feedback,Immediate post,All,Intrusion frequency,Intrusion diary,no,72,1,1,2,0.321334425," [-0.08, 0.72]",1.561503183,0.118405073,0.651066547,0,4.10114E-13,4.84139E-10,0.419731619
+Individual Technique,Negative social reappraisal,Immediate post,All,Intrusion frequency,Intrusion diary,no,181,1,1,1,0.66088," [0.28, 1.04]",3.435098584,0.000592338,NA,NA,NA,NA,NA
+Individual Technique,Neutral attention walk,Immediate post,All,Intrusion frequency,Intrusion diary,no,60,1,1,1,-0.43382," [-0.95, 0.08]",-1.66075263,0.096763138,NA,NA,NA,NA,NA
+Individual Technique,Nitrous oxide,Immediate post,All,Intrusion frequency,Intrusion diary,no,50,1,1,1,-0.0884," [-0.64, 0.47]",-0.312383475,0.754749107,NA,NA,NA,NA,NA
+Individual Technique,Non-film related rumination,Immediate post,All,Intrusion frequency,Intrusion diary,no,70,1,1,1,-1.022," [-1.81, -0.23]",-2.543034164,0.010989448,NA,NA,NA,NA,NA
+Individual Technique,Number counting,Immediate post,All,Intrusion frequency,Intrusion diary,no,101,2,2,7,0.305175103," [-0.29, 0.90]",1.010507935,0.312252,7.238014935,0.120883921,2.05499E-10,39.83077224,0.299395632
+Individual Technique,Observer perspective recall,Immediate post,All,Intrusion frequency,Intrusion diary,no,85,1,1,1,-0.00874," [-0.55, 0.53]",-0.031804633,0.974627852,NA,NA,NA,NA,NA
+Individual Technique,Oxytocin,Immediate post,All,Intrusion frequency,Intrusion diary,no,202,1,1,1,0.12619," [-0.15, 0.40]",0.895855348,0.370330025,NA,NA,NA,NA,NA
+Individual Technique,Past vs. Now verbal training,Immediate post,All,Intrusion frequency,Intrusion diary,no,96,1,1,3,0.008521766," [-0.15, 0.17]",0.102253019,0.918555845,0.264002433,0,3.40955E-12,1.63632E-08,0.876339929
+Individual Technique,Positive expectation towards intrusion,Immediate post,All,Intrusion frequency,Intrusion diary,no,89,1,1,1,0.56996," [0.03, 1.11]",2.083698566,0.037187595,NA,NA,NA,NA,NA
+Individual Technique,Positive social reappraisal,Immediate post,All,Intrusion frequency,Intrusion diary,no,181,1,1,1,0.1337," [-0.24, 0.50]",0.706659031,0.479778395,NA,NA,NA,NA,NA
+Individual Technique,Positive vs. Negative cbm training,Immediate post,All,Intrusion frequency,Intrusion diary,no,341,3,3,4,0.158839047," [-0.12, 0.44]",1.102590447,0.270205061,4.467560302,0.021347371,0.004575782,35.31553519,0.21520215
+Individual Technique,Propranolol,Immediate post,All,Intrusion frequency,Intrusion diary,no,88,1,1,1,0.44628," [-0.07, 0.96]",1.692787332,0.090495955,NA,NA,NA,NA,NA
+Individual Technique,Prosocial behavior,Immediate post,All,Intrusion frequency,Intrusion diary,no,180,1,2,2,0.483155409," [0.19, 0.78]",3.194244596,0.001401973,0.138904748,7.20843E-12,7.20843E-12,3.15054E-08,0.709372278
+Individual Technique,Self efficacy,Immediate post,All,Intrusion frequency,Intrusion diary,no,74,1,1,2,0.242808861," [-0.31, 0.80]",0.859518159,0.390054706,1.858396277,0,0.073774791,46.19013732,0.172810007
+Individual Technique,Sleep,Immediate post,All,Intrusion frequency,Intrusion diary,no,477,7,7,7,0.271009233," [0.07, 0.47]",2.680520934,0.007350767,7.432956605,0.001363297,0.001363297,3.778311961,0.282654996
+Individual Technique,Social comparison,Immediate post,All,Intrusion frequency,Intrusion diary,no,120,1,1,9,0.34014783," [0.17, 0.51]",3.915944059,9.00511E-05,4.34229551,0,4.13171E-12,6.08431E-09,0.824995743
+Individual Technique,Social support,Immediate post,All,Intrusion frequency,Intrusion diary,no,81,1,1,1,-0.19269," [-0.74, 0.36]",-0.685251018,0.493185535,NA,NA,NA,NA,NA
+Individual Technique,Tetris,Immediate post,All,Intrusion frequency,Intrusion diary,no,71,1,1,1,0.07006," [-0.50, 0.64]",0.240024597,0.810311189,NA,NA,NA,NA,NA
+Individual Technique,Therapy dog interaction,Immediate post,All,Intrusion frequency,Intrusion diary,no,60,1,1,1,-0.4555," [-1.08, 0.17]",-1.422081482,0.155002598,NA,NA,NA,NA,NA
+Individual Technique,Thought suppression,Immediate post,All,Intrusion frequency,Intrusion diary,no,200,2,2,2,0.044297991," [-0.37, 0.46]",0.207531742,0.835594606,0.368950795,1.6929E-13,1.6929E-13,3.68562E-10,0.543576731
+Individual Technique,Threat attention walk,Immediate post,All,Intrusion frequency,Intrusion diary,no,60,1,1,1,0.06829," [-0.44, 0.57]",0.264402593,0.791469714,NA,NA,NA,NA,NA
+Individual Technique,Threat vs. Neutral attention walk,Immediate post,All,Intrusion frequency,Intrusion diary,no,60,1,1,1,-0.50684," [-1.02, 0.01]",-1.932209741,0.053333623,NA,NA,NA,NA,NA
+Individual Technique,Trauma re-exposure,Immediate post,All,Intrusion frequency,Intrusion diary,no,115,1,1,1,-0.04336," [-0.49, 0.40]",-0.191189418,0.848377194,NA,NA,NA,NA,NA
+Individual Technique,Trauma re-exposure + verbal update,Immediate post,All,Intrusion frequency,Intrusion diary,no,115,1,1,1,0.49956," [0.04, 0.96]",2.115937217,0.034350148,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder +  visual stimulation imagery,Immediate post,All,Intrusion frequency,Intrusion diary,no,114,1,1,3,-0.463450307," [-0.73, -0.20]",-3.426527812,0.000611351,0.87293407,0,6.43979E-12,1.17332E-08,0.646315803
+Individual Technique,Trauma reminder + d-corsi vs. Trauma reminder,Immediate post,All,Intrusion frequency,Intrusion diary,no,107,1,1,1,0.02045," [-0.45, 0.50]",0.084298353,0.932819222,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + finger tapping,Immediate post,All,Intrusion frequency,Intrusion diary,no,75,1,1,1,0.57235," [0.01, 1.14]",1.983361627,0.04732705,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + imagery rescripting vs. Trauma reminder,Immediate post,All,Intrusion frequency,Intrusion diary,no,60,1,1,1,0.44729," [-0.18, 1.07]",1.397101395,0.162383082,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + number counting,Immediate post,All,Intrusion frequency,Intrusion diary,no,75,1,1,1,-0.39497," [-0.95, 0.16]",-1.38302333,0.166657712,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + pub quiz,Immediate post,All,Intrusion frequency,Intrusion diary,no,135,1,2,2,-0.355727849," [-0.84, 0.12]",-1.454622039,0.145773926,1.331456965,0.015087093,0.015087092,24.89430554,0.248546188
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Immediate post,All,Intrusion frequency,Intrusion diary,no,550,8,10,10,0.720598569," [0.53, 0.92]",7.231091711,4.79127E-13,9.210542118,0.000252179,0.000252179,0.502024018,0.41807083
+Individual Technique,Trauma reminder + traumagameplay1,Immediate post,All,Intrusion frequency,Intrusion diary,no,92,1,1,4,0.062128428," [-0.19, 0.31]",0.484920074,0.627733042,0.273098105,0,6.75787E-12,1.02922E-08,0.965005961
+Individual Technique,Traumagameplay2,Immediate post,All,Intrusion frequency,Intrusion diary,no,120,1,1,2,0.199282866," [-0.16, 0.56]",1.088680046,0.276295004,0.073435978,0,5.16436E-12,7.70627E-09,0.786398159
+Individual Technique,Unsupportive social interaction,Immediate post,All,Intrusion frequency,Intrusion diary,no,81,1,1,1,-0.23374," [-0.77, 0.30]",-0.850617165,0.394982051,NA,NA,NA,NA,NA
+Individual Technique,Ve allocentric recognition memory task,Immediate post,All,Intrusion frequency,Intrusion diary,no,45,1,1,3,-0.286917258," [-1.10, 0.53]",-0.689033598,0.490802124,7.433656425,0,0.3797117,72.99676525,0.024310955
+Individual Technique,Ve egocentric recognition memory task,Immediate post,All,Intrusion frequency,Intrusion diary,no,45,1,1,3,-0.101002145," [-1.04, 0.84]",-0.211164944,0.832758564,9.63323696,0,0.54518426,79.43615357,0.008094111
+Individual Technique,Visual stimulation,Immediate post,All,Intrusion frequency,Intrusion diary,no,120,1,1,6,-0.115583083," [-0.30, 0.06]",-1.262313023,0.206836172,4.169968723,0,8.46775E-12,1.68329E-08,0.525213322
+Individual Technique,Visual stimulation imagery,Immediate post,All,Intrusion frequency,Intrusion diary,no,114,1,1,3,-0.298261701," [-0.56, -0.04]",-2.238575713,0.025183536,0.03213154,0,6.00134E-12,1.12687E-08,0.984062596
+Individual Technique,Wakeful rest,Immediate post,All,Intrusion frequency,Intrusion diary,no,85,1,2,2,0.38163578," [-0.03, 0.79]",1.81565489,0.069423328,1.299946564,0.011295989,0.011295989,23.07376255,0.254222985
+Individual Technique,Writing-based rescripting,Immediate post,All,Intrusion frequency,Intrusion diary,no,119,1,1,1,0.75715," [0.24, 1.27]",2.879517785,0.003982838,NA,NA,NA,NA,NA
+Individual Technique,Attentional bias modification,Immediate post,All,Intrusion frequency,Intrusion diary,yes,45,1,1,1,0.73769," [0.13, 1.34]",2.393657634,0.016681312,NA,NA,NA,NA,NA
+Individual Technique,Autobiographical memory elaboration,Immediate post,All,Intrusion frequency,Intrusion diary,yes,101,1,1,1,0.00665," [-0.47, 0.48]",0.027299517,0.978220842,NA,NA,NA,NA,NA
+Individual Technique,Bilateral eye movement,Immediate post,All,Intrusion frequency,Intrusion diary,yes,66,1,1,2,0.68014566," [0.33, 1.03]",3.79698798,0.000146465,0.028848637,0,7.91862E-12,1.23391E-08,0.865128997
+Individual Technique,Block rehearsal + thought suppression,Immediate post,All,Intrusion frequency,Intrusion diary,yes,120,1,1,1,0.35727," [-0.21, 0.93]",1.227868136,0.219496473,NA,NA,NA,NA,NA
+Individual Technique,Challenged vs. Unchallenged memory,Immediate post,All,Intrusion frequency,Intrusion diary,yes,61,1,1,1,0.35567," [-0.01, 0.72]",1.91668877,0.055277483,NA,NA,NA,NA,NA
+Individual Technique,Clay modeling,Immediate post,All,Intrusion frequency,Intrusion diary,yes,41,1,1,3,-0.050991666," [-0.56, 0.46]",-0.197456968,0.843469953,0.001750117,0,4.95999E-12,2.47917E-09,0.999125324
+Individual Technique,Dog interaction film,Immediate post,All,Intrusion frequency,Intrusion diary,yes,60,1,1,1,-0.07471," [-0.69, 0.55]",-0.23616351,0.813305793,NA,NA,NA,NA,NA
+Individual Technique,Exercise,Immediate post,All,Intrusion frequency,Intrusion diary,yes,71,1,1,1,-0.15879," [-0.73, 0.41]",-0.5433205,0.586909152,NA,NA,NA,NA,NA
+Individual Technique,Expressive vs. Factual trauma disclosure,Immediate post,All,Intrusion frequency,Intrusion diary,yes,73,1,1,1,0.20599," [-0.26, 0.67]",0.870998785,0.383754816,NA,NA,NA,NA,NA
+Individual Technique,Extinction,Immediate post,All,Intrusion frequency,Intrusion diary,yes,84,1,1,1,0.23625," [-0.23, 0.70]",0.998021326,0.318269018,NA,NA,NA,NA,NA
+Individual Technique,Field perspective recall,Immediate post,All,Intrusion frequency,Intrusion diary,yes,85,1,1,1,-0.59276," [-1.15, -0.03]",-2.068133345,0.038627486,NA,NA,NA,NA,NA
+Individual Technique,Field vs. Observer perspective recall,Immediate post,All,Intrusion frequency,Intrusion diary,yes,85,1,1,1,-0.42373," [-0.98, 0.14]",-1.480412852,0.138763102,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate post,All,Intrusion frequency,Intrusion diary,yes,217,2,3,3,0.013047834," [-0.42, 0.45]",0.058881059,0.953046845,4.407518844,0.040402213,0.040402213,54.85769062,0.110387385
+Individual Technique,Film-related rumination vs. Autobiographical memory elaboration,Immediate post,All,Intrusion frequency,Intrusion diary,yes,101,1,1,1,-0.13384," [-0.61, 0.34]",-0.548492202,0.583353983,NA,NA,NA,NA,NA
+Individual Technique,Finger tapping,Immediate post,All,Intrusion frequency,Intrusion diary,yes,60,1,1,1,0.68113," [0.04, 1.32]",2.094072785,0.036253497,NA,NA,NA,NA,NA
+Individual Technique,Hydrocortisone,Immediate post,All,Intrusion frequency,Intrusion diary,yes,88,1,1,1,0.60506," [0.08, 1.13]",2.253031142,0.024257186,NA,NA,NA,NA,NA
+Individual Technique,Hyperventilation provocation + thought suppression,Immediate post,All,Intrusion frequency,Intrusion diary,yes,120,1,1,1,0.28866," [-0.28, 0.86]",0.994797118,0.319834948,NA,NA,NA,NA,NA
+Individual Technique,Imagery re-experience,Immediate post,All,Intrusion frequency,Intrusion diary,yes,609,6,6,7,0.078504679," [-0.19, 0.35]",0.571331721,0.567774803,9.161444979,0.039225341,5.72881E-11,32.8123644,0.164700033
+Individual Technique,Imagery re-experience + eye movement,Immediate post,All,Intrusion frequency,Intrusion diary,yes,250,1,3,3,0.489505983," [0.13, 0.85]",2.667055302,0.007651908,2.468557635,0.008989412,0.008989412,17.78446702,0.291044583
+Individual Technique,Imagery re-experience + number counting,Immediate post,All,Intrusion frequency,Intrusion diary,yes,250,1,3,3,0.560905437," [0.12, 1.00]",2.511384401,0.012025867,3.555712645,0.032723134,0.032723134,43.72807482,0.169000041
+Individual Technique,Imagery re-experience + traumagameplay2,Immediate post,All,Intrusion frequency,Intrusion diary,yes,120,1,1,2,-0.346076724," [-0.71, 0.02]",-1.865192386,0.062154442,0.07197875,0,8.02742E-12,1.16584E-08,0.788477214
+Individual Technique,Imagery re-experience vs. Positive imagery,Immediate post,All,Intrusion frequency,Intrusion diary,yes,76,1,1,1,-0.2529," [-0.80, 0.29]",-0.907546533,0.364117854,NA,NA,NA,NA,NA
+Individual Technique,Imagery rescripting,Immediate post,All,Intrusion frequency,Intrusion diary,yes,319,3,3,5,0.28574621," [-0.08, 0.65]",1.541151782,0.12327985,8.523739204,7.07632E-11,0.091055356,53.00986344,0.074170914
+Individual Technique,Imagery rescripting vs. Imagery re-experience,Immediate post,All,Intrusion frequency,Intrusion diary,yes,116,2,2,3,0.473760504," [-0.40, 1.34]",1.066735821,0.286091147,5.936786209,0.324838123,3.18792E-11,76.89363422,0.051385816
+Individual Technique,Imagery rescripting vs. Positive imagery,Immediate post,All,Intrusion frequency,Intrusion diary,yes,76,1,1,1,0.63751," [0.07, 1.20]",2.216986133,0.026624039,NA,NA,NA,NA,NA
+Individual Technique,Imagery trauma elaboration,Immediate post,All,Intrusion frequency,Intrusion diary,yes,106,1,1,1,0.47249," [0.09, 0.86]",2.399045829,0.016437857,NA,NA,NA,NA,NA
+Individual Technique,Letter cancellation task,Immediate post,All,Intrusion frequency,Intrusion diary,yes,70,1,1,1,-0.54921," [-1.30, 0.21]",-1.426423851,0.153746033,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers,Immediate post,All,Intrusion frequency,Intrusion diary,yes,80,1,1,1,-0.39558," [-1.02, 0.23]",-1.238889651,0.215386367,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers + thought suppression,Immediate post,All,Intrusion frequency,Intrusion diary,yes,120,1,1,1,0.60574," [0.03, 1.18]",2.05182629,0.040186547,NA,NA,NA,NA,NA
+Individual Technique,Memory test,Immediate post,All,Intrusion frequency,Intrusion diary,yes,52,1,1,1,0.35993," [-0.03, 0.75]",1.820611417,0.068665946,NA,NA,NA,NA,NA
+Individual Technique,Mindfulness vs. Muscle relaxation,Immediate post,All,Intrusion frequency,Intrusion diary,yes,60,1,1,1,-0.16979," [-0.71, 0.37]",-0.616842451,0.537338649,NA,NA,NA,NA,NA
+Individual Technique,Negative expectation towards intrusion,Immediate post,All,Intrusion frequency,Intrusion diary,yes,89,1,1,1,0.20386," [-0.28, 0.69]",0.819577617,0.412456938,NA,NA,NA,NA,NA
+Individual Technique,Negative feedback,Immediate post,All,Intrusion frequency,Intrusion diary,yes,72,1,1,2,0.321334425," [-0.08, 0.72]",1.561503183,0.118405073,0.651066547,0,4.10114E-13,4.84139E-10,0.419731619
+Individual Technique,Negative social reappraisal,Immediate post,All,Intrusion frequency,Intrusion diary,yes,181,1,1,1,0.66088," [0.28, 1.04]",3.435098584,0.000592338,NA,NA,NA,NA,NA
+Individual Technique,Neutral attention walk,Immediate post,All,Intrusion frequency,Intrusion diary,yes,60,1,1,1,-0.43382," [-0.95, 0.08]",-1.66075263,0.096763138,NA,NA,NA,NA,NA
+Individual Technique,Nitrous oxide,Immediate post,All,Intrusion frequency,Intrusion diary,yes,50,1,1,1,-0.0884," [-0.64, 0.47]",-0.312383475,0.754749107,NA,NA,NA,NA,NA
+Individual Technique,Number counting,Immediate post,All,Intrusion frequency,Intrusion diary,yes,101,2,2,7,0.305175103," [-0.29, 0.90]",1.010507935,0.312252,7.238014935,0.120883921,2.05499E-10,39.83077224,0.299395632
+Individual Technique,Observer perspective recall,Immediate post,All,Intrusion frequency,Intrusion diary,yes,85,1,1,1,-0.00874," [-0.55, 0.53]",-0.031804633,0.974627852,NA,NA,NA,NA,NA
+Individual Technique,Oxytocin,Immediate post,All,Intrusion frequency,Intrusion diary,yes,202,1,1,1,0.12619," [-0.15, 0.40]",0.895855348,0.370330025,NA,NA,NA,NA,NA
+Individual Technique,Past vs. Now verbal training,Immediate post,All,Intrusion frequency,Intrusion diary,yes,96,1,1,3,0.008521766," [-0.15, 0.17]",0.102253019,0.918555845,0.264002433,0,3.40955E-12,1.63632E-08,0.876339929
+Individual Technique,Positive expectation towards intrusion,Immediate post,All,Intrusion frequency,Intrusion diary,yes,89,1,1,1,0.56996," [0.03, 1.11]",2.083698566,0.037187595,NA,NA,NA,NA,NA
+Individual Technique,Positive social reappraisal,Immediate post,All,Intrusion frequency,Intrusion diary,yes,181,1,1,1,0.1337," [-0.24, 0.50]",0.706659031,0.479778395,NA,NA,NA,NA,NA
+Individual Technique,Positive vs. Negative cbm training,Immediate post,All,Intrusion frequency,Intrusion diary,yes,341,3,3,4,0.158839047," [-0.12, 0.44]",1.102590447,0.270205061,4.467560302,0.021347371,0.004575782,35.31553519,0.21520215
+Individual Technique,Propranolol,Immediate post,All,Intrusion frequency,Intrusion diary,yes,88,1,1,1,0.44628," [-0.07, 0.96]",1.692787332,0.090495955,NA,NA,NA,NA,NA
+Individual Technique,Prosocial behavior,Immediate post,All,Intrusion frequency,Intrusion diary,yes,180,1,2,2,0.483155409," [0.19, 0.78]",3.194244596,0.001401973,0.138904748,7.20843E-12,7.20843E-12,3.15054E-08,0.709372278
+Individual Technique,Self efficacy,Immediate post,All,Intrusion frequency,Intrusion diary,yes,74,1,1,2,0.242808861," [-0.31, 0.80]",0.859518159,0.390054706,1.858396277,0,0.073774791,46.19013732,0.172810007
+Individual Technique,Sleep,Immediate post,All,Intrusion frequency,Intrusion diary,yes,477,7,7,7,0.271009233," [0.07, 0.47]",2.680520934,0.007350767,7.432956605,0.001363297,0.001363297,3.778311961,0.282654996
+Individual Technique,Social comparison,Immediate post,All,Intrusion frequency,Intrusion diary,yes,120,1,1,9,0.34014783," [0.17, 0.51]",3.915944059,9.00511E-05,4.34229551,0,4.13171E-12,6.08431E-09,0.824995743
+Individual Technique,Social support,Immediate post,All,Intrusion frequency,Intrusion diary,yes,81,1,1,1,-0.19269," [-0.74, 0.36]",-0.685251018,0.493185535,NA,NA,NA,NA,NA
+Individual Technique,Tetris,Immediate post,All,Intrusion frequency,Intrusion diary,yes,71,1,1,1,0.07006," [-0.50, 0.64]",0.240024597,0.810311189,NA,NA,NA,NA,NA
+Individual Technique,Therapy dog interaction,Immediate post,All,Intrusion frequency,Intrusion diary,yes,60,1,1,1,-0.4555," [-1.08, 0.17]",-1.422081482,0.155002598,NA,NA,NA,NA,NA
+Individual Technique,Thought suppression,Immediate post,All,Intrusion frequency,Intrusion diary,yes,200,2,2,2,0.044297991," [-0.37, 0.46]",0.207531742,0.835594606,0.368950795,1.6929E-13,1.6929E-13,3.68562E-10,0.543576731
+Individual Technique,Threat attention walk,Immediate post,All,Intrusion frequency,Intrusion diary,yes,60,1,1,1,0.06829," [-0.44, 0.57]",0.264402593,0.791469714,NA,NA,NA,NA,NA
+Individual Technique,Threat vs. Neutral attention walk,Immediate post,All,Intrusion frequency,Intrusion diary,yes,60,1,1,1,-0.50684," [-1.02, 0.01]",-1.932209741,0.053333623,NA,NA,NA,NA,NA
+Individual Technique,Trauma re-exposure,Immediate post,All,Intrusion frequency,Intrusion diary,yes,115,1,1,1,-0.04336," [-0.49, 0.40]",-0.191189418,0.848377194,NA,NA,NA,NA,NA
+Individual Technique,Trauma re-exposure + verbal update,Immediate post,All,Intrusion frequency,Intrusion diary,yes,115,1,1,1,0.49956," [0.04, 0.96]",2.115937217,0.034350148,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder +  visual stimulation imagery,Immediate post,All,Intrusion frequency,Intrusion diary,yes,114,1,1,3,-0.463450307," [-0.73, -0.20]",-3.426527812,0.000611351,0.87293407,0,6.43979E-12,1.17332E-08,0.646315803
+Individual Technique,Trauma reminder + d-corsi vs. Trauma reminder,Immediate post,All,Intrusion frequency,Intrusion diary,yes,107,1,1,1,0.02045," [-0.45, 0.50]",0.084298353,0.932819222,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + finger tapping,Immediate post,All,Intrusion frequency,Intrusion diary,yes,75,1,1,1,0.57235," [0.01, 1.14]",1.983361627,0.04732705,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + imagery rescripting vs. Trauma reminder,Immediate post,All,Intrusion frequency,Intrusion diary,yes,60,1,1,1,0.44729," [-0.18, 1.07]",1.397101395,0.162383082,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + number counting,Immediate post,All,Intrusion frequency,Intrusion diary,yes,75,1,1,1,-0.39497," [-0.95, 0.16]",-1.38302333,0.166657712,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + pub quiz,Immediate post,All,Intrusion frequency,Intrusion diary,yes,135,1,2,2,-0.355727849," [-0.84, 0.12]",-1.454622039,0.145773926,1.331456965,0.015087093,0.015087092,24.89430554,0.248546188
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Immediate post,All,Intrusion frequency,Intrusion diary,yes,484,7,8,8,0.643876424," [0.44, 0.85]",6.101397118,1.05145E-09,4.291287257,3.12722E-12,3.12722E-12,6.96384E-09,0.745681828
+Individual Technique,Trauma reminder + traumagameplay1,Immediate post,All,Intrusion frequency,Intrusion diary,yes,92,1,1,4,0.062128428," [-0.19, 0.31]",0.484920074,0.627733042,0.273098105,0,6.75787E-12,1.02922E-08,0.965005961
+Individual Technique,Traumagameplay2,Immediate post,All,Intrusion frequency,Intrusion diary,yes,120,1,1,2,0.199282866," [-0.16, 0.56]",1.088680046,0.276295004,0.073435978,0,5.16436E-12,7.70627E-09,0.786398159
+Individual Technique,Unsupportive social interaction,Immediate post,All,Intrusion frequency,Intrusion diary,yes,81,1,1,1,-0.23374," [-0.77, 0.30]",-0.850617165,0.394982051,NA,NA,NA,NA,NA
+Individual Technique,Ve allocentric recognition memory task,Immediate post,All,Intrusion frequency,Intrusion diary,yes,45,1,1,3,-0.286917258," [-1.10, 0.53]",-0.689033598,0.490802124,7.433656425,0,0.3797117,72.99676525,0.024310955
+Individual Technique,Ve egocentric recognition memory task,Immediate post,All,Intrusion frequency,Intrusion diary,yes,45,1,1,3,-0.101002145," [-1.04, 0.84]",-0.211164944,0.832758564,9.63323696,0,0.54518426,79.43615357,0.008094111
+Individual Technique,Visual stimulation,Immediate post,All,Intrusion frequency,Intrusion diary,yes,120,1,1,6,-0.115583083," [-0.30, 0.06]",-1.262313023,0.206836172,4.169968723,0,8.46775E-12,1.68329E-08,0.525213322
+Individual Technique,Visual stimulation imagery,Immediate post,All,Intrusion frequency,Intrusion diary,yes,114,1,1,3,-0.298261701," [-0.56, -0.04]",-2.238575713,0.025183536,0.03213154,0,6.00134E-12,1.12687E-08,0.984062596
+Individual Technique,Wakeful rest,Immediate post,All,Intrusion frequency,Intrusion diary,yes,85,1,2,2,0.38163578," [-0.03, 0.79]",1.81565489,0.069423328,1.299946564,0.011295989,0.011295989,23.07376255,0.254222985
+Individual Technique,Writing-based rescripting,Immediate post,All,Intrusion frequency,Intrusion diary,yes,119,1,1,1,0.75715," [0.24, 1.27]",2.879517785,0.003982838,NA,NA,NA,NA,NA
+Individual Technique,Social support,Peri + immediate post,All,Intrusion frequency,Intrusion diary,no,67,1,1,1,-0.51207," [-1.00, -0.02]",-2.06021246,0.039378234,NA,NA,NA,NA,NA
+Individual Technique,Social support,Peri + immediate post,All,Intrusion frequency,Intrusion diary,yes,67,1,1,1,-0.51207," [-1.00, -0.02]",-2.06021246,0.039378234,NA,NA,NA,NA,NA
+Individual Technique,Behavioral control,Peri,All,Intrusion frequency,Intrusion diary,no,64,1,1,1,0," [-0.49, 0.49]",0,1,NA,NA,NA,NA,NA
+Individual Technique,Chewing gum,Peri,All,Intrusion frequency,Intrusion diary,no,54,1,1,1,0.45207," [-0.19, 1.10]",1.375898002,0.168853214,NA,NA,NA,NA,NA
+Individual Technique,Clay modeling,Peri,All,Intrusion frequency,Intrusion diary,no,106,2,2,2,0.773219364," [0.36, 1.19]",3.631424745,0.000281861,0.319537275,1.66751E-12,1.66751E-12,3.55943E-09,0.571885858
+Individual Technique,Conceptual processing,Peri,All,Intrusion frequency,Intrusion diary,no,211,1,1,1,-0.10651," [-0.57, 0.36]",-0.44632334,0.655363699,NA,NA,NA,NA,NA
+Individual Technique,Concrete processing vs. Film-related rumination,Peri,All,Intrusion frequency,Intrusion diary,no,50,1,1,1,0.57629," [0.01, 1.14]",1.996468074,0.045882998,NA,NA,NA,NA,NA
+Individual Technique,Contextual information,Peri,All,Intrusion frequency,Intrusion diary,no,244,4,4,6,-0.252958905," [-0.54, 0.04]",-1.699496485,0.089225676,6.419604726,0.026345499,3.00002E-11,23.1490089,0.267502686
+Individual Technique,Data-driven processing,Peri,All,Intrusion frequency,Intrusion diary,no,211,1,1,1,0.03649," [-0.43, 0.50]",0.153014002,0.878387234,NA,NA,NA,NA,NA
+Individual Technique,Dissociation,Peri,All,Intrusion frequency,Intrusion diary,no,128,3,3,4,-0.010154878," [-0.61, 0.59]",-0.033289345,0.973443851,6.648693802,0.185756609,1.03113E-10,62.57847182,0.083979274
+Individual Technique,Emotional acceptance,Peri,All,Intrusion frequency,Intrusion diary,no,145,2,2,2,0.330579907," [-0.07, 0.73]",1.616312107,0.106026851,0.113328238,3.66627E-12,3.66627E-12,8.37382E-09,0.73638634
+Individual Technique,Emotional numbing,Peri,All,Intrusion frequency,Intrusion diary,no,56,1,1,1,0.22787," [-0.42, 0.87]",0.690557735,0.489843516,NA,NA,NA,NA,NA
+Individual Technique,Emotional suppression,Peri,All,Intrusion frequency,Intrusion diary,no,171,2,2,2,0.151635137," [-0.32, 0.63]",0.626737768,0.530831143,1.920604952,0.028393758,0.028393758,47.93307188,0.165789986
+Individual Technique,Finger tapping,Peri,All,Intrusion frequency,Intrusion diary,no,360,6,7,12,0.571587344," [0.31, 0.84]",4.248332277,2.15368E-05,13.50625825,0.051774321,9.81363E-11,31.44199138,0.261527147
+Individual Technique,Number counting,Peri,All,Intrusion frequency,Intrusion diary,no,396,6,7,10,-0.165555222," [-0.62, 0.29]",-0.714004593,0.475224339,30.94877306,0.254465218,0.04811014,75.76654573,0.000302082
+Individual Technique,Verbalization during encoding,Peri,All,Intrusion frequency,Intrusion diary,no,136,2,2,2,-0.119703749," [-0.96, 0.72]",-0.278617339,0.780538505,3.887878278,0.137188658,0.137188658,74.27903015,0.04863583
+Individual Technique,Behavioral control,Peri,All,Intrusion frequency,Intrusion diary,yes,64,1,1,1,0," [-0.49, 0.49]",0,1,NA,NA,NA,NA,NA
+Individual Technique,Chewing gum,Peri,All,Intrusion frequency,Intrusion diary,yes,54,1,1,1,0.45207," [-0.19, 1.10]",1.375898002,0.168853214,NA,NA,NA,NA,NA
+Individual Technique,Clay modeling,Peri,All,Intrusion frequency,Intrusion diary,yes,106,2,2,2,0.773219364," [0.36, 1.19]",3.631424745,0.000281861,0.319537275,1.66751E-12,1.66751E-12,3.55943E-09,0.571885858
+Individual Technique,Conceptual processing,Peri,All,Intrusion frequency,Intrusion diary,yes,211,1,1,1,-0.10651," [-0.57, 0.36]",-0.44632334,0.655363699,NA,NA,NA,NA,NA
+Individual Technique,Concrete processing vs. Film-related rumination,Peri,All,Intrusion frequency,Intrusion diary,yes,50,1,1,1,0.57629," [0.01, 1.14]",1.996468074,0.045882998,NA,NA,NA,NA,NA
+Individual Technique,Contextual information,Peri,All,Intrusion frequency,Intrusion diary,yes,244,4,4,6,-0.252958905," [-0.54, 0.04]",-1.699496485,0.089225676,6.419604726,0.026345499,3.00002E-11,23.1490089,0.267502686
+Individual Technique,Data-driven processing,Peri,All,Intrusion frequency,Intrusion diary,yes,211,1,1,1,0.03649," [-0.43, 0.50]",0.153014002,0.878387234,NA,NA,NA,NA,NA
+Individual Technique,Dissociation,Peri,All,Intrusion frequency,Intrusion diary,yes,128,3,3,4,-0.010154878," [-0.61, 0.59]",-0.033289345,0.973443851,6.648693802,0.185756609,1.03113E-10,62.57847182,0.083979274
+Individual Technique,Emotional acceptance,Peri,All,Intrusion frequency,Intrusion diary,yes,145,2,2,2,0.330579907," [-0.07, 0.73]",1.616312107,0.106026851,0.113328238,3.66627E-12,3.66627E-12,8.37382E-09,0.73638634
+Individual Technique,Emotional numbing,Peri,All,Intrusion frequency,Intrusion diary,yes,56,1,1,1,0.22787," [-0.42, 0.87]",0.690557735,0.489843516,NA,NA,NA,NA,NA
+Individual Technique,Emotional suppression,Peri,All,Intrusion frequency,Intrusion diary,yes,171,2,2,2,0.151635137," [-0.32, 0.63]",0.626737768,0.530831143,1.920604952,0.028393758,0.028393758,47.93307188,0.165789986
+Individual Technique,Finger tapping,Peri,All,Intrusion frequency,Intrusion diary,yes,360,6,7,11,0.531884058," [0.28, 0.78]",4.157996996,3.2105E-05,10.44002212,0.038580299,1.12804E-10,26.17763582,0.402772679
+Individual Technique,Number counting,Peri,All,Intrusion frequency,Intrusion diary,yes,298,5,5,8,0.097617441," [-0.31, 0.50]",0.474950117,0.634822529,16.17570918,0.122923628,0.027347183,61.44683075,0.023558652
+Individual Technique,Verbalization during encoding,Peri,All,Intrusion frequency,Intrusion diary,yes,136,2,2,2,-0.119703749," [-0.96, 0.72]",-0.278617339,0.780538505,3.887878278,0.137188658,0.137188658,74.27903015,0.04863583
+Individual Technique,Guilt induction,Pre + peri,All,Intrusion frequency,Intrusion diary,no,108,1,1,2,-0.235563401," [-0.57, 0.10]",-1.384724714,0.166136659,0.443732613,0,5.45931E-12,9.38914E-09,0.505326362
+Individual Technique,Guilt induction,Pre + peri,All,Intrusion frequency,Intrusion diary,yes,108,1,1,2,-0.235563401," [-0.57, 0.10]",-1.384724714,0.166136659,0.443732613,0,5.45931E-12,9.38914E-09,0.505326362
+Individual Technique,Cold vs. Warm water stress,Pre,All,Intrusion frequency,Intrusion diary,no,63,1,1,1,-0.186," [-0.68, 0.31]",-0.734248503,0.462797297,NA,NA,NA,NA,NA
+Individual Technique,Concrete processing,Pre,All,Intrusion frequency,Intrusion diary,no,64,1,1,1,0.61403," [0.11, 1.12]",2.399106163,0.016435149,NA,NA,NA,NA,NA
+Individual Technique,Contextual information,Pre,All,Intrusion frequency,Intrusion diary,no,80,1,2,2,-0.401724748," [-0.71, -0.09]",-2.513517335,0.01195339,0.502648885,5.29473E-12,5.29473E-12,2.0725E-08,0.478338532
+Individual Technique,High dose alcohol,Pre,All,Intrusion frequency,Intrusion diary,no,194,3,3,3,-0.221781665," [-0.74, 0.30]",-0.835183643,0.403614318,4.173812999,0.055274593,0.055274594,52.1630649,0.124070354
+Individual Technique,Losartan,Pre,All,Intrusion frequency,Intrusion diary,no,40,1,1,1,-0.22988," [-0.85, 0.39]",-0.724546545,0.468730263,NA,NA,NA,NA,NA
+Individual Technique,Low dose alcohol,Pre,All,Intrusion frequency,Intrusion diary,no,194,3,3,3,-0.493918754," [-1.01, 0.03]",-1.858685112,0.063071785,4.067224984,0.054001723,0.054001723,50.79698819,0.130861929
+Individual Technique,Low vs. High alcohol,Pre,All,Intrusion frequency,Intrusion diary,no,96,2,2,2,-0.745388273," [-1.25, -0.24]",-2.877587368,0.004007289,0.487795876,3.57646E-12,3.57646E-12,5.32489E-09,0.484912164
+Individual Technique,Low vs. High resistance to proactive interference,Pre,All,Intrusion frequency,Intrusion diary,no,54,1,1,1,0.146," [-0.39, 0.68]",0.535365962,0.592396822,NA,NA,NA,NA,NA
+Individual Technique,Nicotine,Pre,All,Intrusion frequency,Intrusion diary,no,54,1,1,1,-0.31786," [-0.85, 0.22]",-1.160590683,0.245808396,NA,NA,NA,NA,NA
+Individual Technique,Oxytocin,Pre,All,Intrusion frequency,Intrusion diary,no,201,1,1,1,-0.29668," [-0.57, -0.02]",-2.090380707,0.036583615,NA,NA,NA,NA,NA
+Individual Technique,Positive vs. Negative cbm training,Pre,All,Intrusion frequency,Intrusion diary,no,147,3,3,4,0.298333586," [-0.28, 0.88]",1.008783793,0.313078335,8.377218224,0.194267704,3.14802E-11,69.38901678,0.03882631
+Individual Technique,Self efficacy,Pre,All,Intrusion frequency,Intrusion diary,no,175,2,2,4,0.083280234," [-0.29, 0.46]",0.436119899,0.66274974,4.278034263,0.030417494,0.013036539,38.0014792,0.232964378
+Individual Technique,Tetris,Pre,All,Intrusion frequency,Intrusion diary,no,56,1,1,1,0.25857," [-0.27, 0.78]",0.963461313,0.33531607,NA,NA,NA,NA,NA
+Individual Technique,Cold vs. Warm water stress,Pre,All,Intrusion frequency,Intrusion diary,yes,63,1,1,1,-0.186," [-0.68, 0.31]",-0.734248503,0.462797297,NA,NA,NA,NA,NA
+Individual Technique,Concrete processing,Pre,All,Intrusion frequency,Intrusion diary,yes,64,1,1,1,0.61403," [0.11, 1.12]",2.399106163,0.016435149,NA,NA,NA,NA,NA
+Individual Technique,Contextual information,Pre,All,Intrusion frequency,Intrusion diary,yes,80,1,2,2,-0.401724748," [-0.71, -0.09]",-2.513517335,0.01195339,0.502648885,5.29473E-12,5.29473E-12,2.0725E-08,0.478338532
+Individual Technique,High dose alcohol,Pre,All,Intrusion frequency,Intrusion diary,yes,194,3,3,3,-0.221781665," [-0.74, 0.30]",-0.835183643,0.403614318,4.173812999,0.055274593,0.055274594,52.1630649,0.124070354
+Individual Technique,Losartan,Pre,All,Intrusion frequency,Intrusion diary,yes,40,1,1,1,-0.22988," [-0.85, 0.39]",-0.724546545,0.468730263,NA,NA,NA,NA,NA
+Individual Technique,Low dose alcohol,Pre,All,Intrusion frequency,Intrusion diary,yes,194,3,3,3,-0.493918754," [-1.01, 0.03]",-1.858685112,0.063071785,4.067224984,0.054001723,0.054001723,50.79698819,0.130861929
+Individual Technique,Low vs. High alcohol,Pre,All,Intrusion frequency,Intrusion diary,yes,48,1,1,1,-0.57011," [-1.28, 0.14]",-1.580720422,0.113941977,NA,NA,NA,NA,NA
+Individual Technique,Low vs. High resistance to proactive interference,Pre,All,Intrusion frequency,Intrusion diary,yes,54,1,1,1,0.146," [-0.39, 0.68]",0.535365962,0.592396822,NA,NA,NA,NA,NA
+Individual Technique,Nicotine,Pre,All,Intrusion frequency,Intrusion diary,yes,54,1,1,1,-0.31786," [-0.85, 0.22]",-1.160590683,0.245808396,NA,NA,NA,NA,NA
+Individual Technique,Oxytocin,Pre,All,Intrusion frequency,Intrusion diary,yes,201,1,1,1,-0.29668," [-0.57, -0.02]",-2.090380707,0.036583615,NA,NA,NA,NA,NA
+Individual Technique,Positive vs. Negative cbm training,Pre,All,Intrusion frequency,Intrusion diary,yes,147,3,3,4,0.298333586," [-0.28, 0.88]",1.008783793,0.313078335,8.377218224,0.194267704,3.14802E-11,69.38901678,0.03882631
+Individual Technique,Self efficacy,Pre,All,Intrusion frequency,Intrusion diary,yes,175,2,2,4,0.083280234," [-0.29, 0.46]",0.436119899,0.66274974,4.278034263,0.030417494,0.013036539,38.0014792,0.232964378
+Individual Technique,Tetris,Pre,All,Intrusion frequency,Intrusion diary,yes,56,1,1,1,0.25857," [-0.27, 0.78]",0.963461313,0.33531607,NA,NA,NA,NA,NA
+Individual Technique,Hydrocortisone,Delayed post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,65,1,1,1,-0.11307," [-0.60, 0.37]",-0.455378103,0.648837246,NA,NA,NA,NA,NA
+Individual Technique,Sleep-directed hypnosis,Delayed post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,181,1,1,1,0.08144," [-0.21, 0.37]",0.547365385,0.584127732,NA,NA,NA,NA,NA
+Individual Technique,Tetris,Delayed post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,72,1,1,1,0.11418," [-0.54, 0.77]",0.342258568,0.732156313,NA,NA,NA,NA,NA
+Individual Technique,Tetris + trauma reminder,Delayed post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,149,1,1,1,0.05258," [-0.40, 0.50]",0.229069787,0.818814676,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder,Delayed post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,72,1,1,1,-0.31187," [-0.97, 0.35]",-0.929965409,0.352388995,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + break + tetris,Delayed post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,149,1,1,1,-0.06183," [-0.51, 0.39]",-0.271019315,0.786376177,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + tetris,Delayed post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,273,2,3,3,0.699899891," [0.09, 1.31]",2.256236199,0.024055843,7.178303891,0.100639265,0.100639265,70.11956319,0.027621745
+Individual Technique,Hydrocortisone,Delayed post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,65,1,1,1,-0.11307," [-0.60, 0.37]",-0.455378103,0.648837246,NA,NA,NA,NA,NA
+Individual Technique,Sleep-directed hypnosis,Delayed post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,181,1,1,1,0.08144," [-0.21, 0.37]",0.547365385,0.584127732,NA,NA,NA,NA,NA
+Individual Technique,Tetris,Delayed post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,72,1,1,1,0.11418," [-0.54, 0.77]",0.342258568,0.732156313,NA,NA,NA,NA,NA
+Individual Technique,Tetris + trauma reminder,Delayed post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,149,1,1,1,0.05258," [-0.40, 0.50]",0.229069787,0.818814676,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder,Delayed post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,72,1,1,1,-0.31187," [-0.97, 0.35]",-0.929965409,0.352388995,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + break + tetris,Delayed post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,149,1,1,1,-0.06183," [-0.51, 0.39]",-0.271019315,0.786376177,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + tetris,Delayed post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,273,2,3,3,0.699899891," [0.09, 1.31]",2.256236199,0.024055843,7.178303891,0.100639265,0.100639265,70.11956319,0.027621745
+Individual Technique,Attentional bias modification,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,45,1,1,1,0.82222," [0.21, 1.43]",2.647589922,0.00810678,NA,NA,NA,NA,NA
+Individual Technique,Block rehearsal + thought suppression,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,120,1,1,2,0.062444038," [-0.34, 0.46]",0.305817302,0.759743754,0.016357696,0,6.53364E-12,7.83551E-09,0.898230321
+Individual Technique,Challenged vs. Unchallenged memory,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,61,1,1,1,0.75625," [0.38, 1.13]",3.968076818,7.2455E-05,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,116,1,2,6,0.049370597," [-0.16, 0.26]",0.45869945,0.646450009,4.983194586,0,6.08338E-11,8.75167E-08,0.41793459
+Individual Technique,Hyperventilation provocation + thought suppression,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,120,1,1,2,-0.25485232," [-0.66, 0.15]",-1.24208337,0.214205804,0.436857298,0,2.94657E-12,3.49929E-09,0.508643217
+Individual Technique,Imagery re-experience,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,149,1,1,1,-0.10385," [-0.72, 0.51]",-0.332842989,0.739252806,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,80,1,1,2,-0.126865885," [-0.57, 0.31]",-0.565899357,0.571462199,0.506014238,0,7.21332E-13,7.176E-10,0.476869371
+Individual Technique,Memorize numbers + thought suppression,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,200,2,2,4,0.256428121," [-0.04, 0.55]",1.692199088,0.09060802,0.755179281,5.48706E-12,0,5.95879E-09,0.860154711
+Individual Technique,Mindfulness vs. Muscle relaxation,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,60,1,1,2,-0.079849944," [-0.46, 0.30]",-0.410798945,0.681219967,0.012474667,0,5.05759E-12,6.69303E-09,0.91106917
+Individual Technique,Negative expectation towards intrusion,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,89,1,1,1,0.05377," [-0.43, 0.54]",0.216688952,0.828450758,NA,NA,NA,NA,NA
+Individual Technique,Positive expectation towards intrusion,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,89,1,1,1,0.22186," [-0.31, 0.75]",0.824524936,0.409641353,NA,NA,NA,NA,NA
+Individual Technique,Prosocial behavior,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,90,1,1,1,0.52366," [0.09, 0.96]",2.358946956,0.018326875,NA,NA,NA,NA,NA
+Individual Technique,Rem sleep,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,41,1,1,1,0.50993," [-0.11, 1.13]",1.606207694,0.108228283,NA,NA,NA,NA,NA
+Individual Technique,Sad induction,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,81,1,1,2,0.02096731," [-0.35, 0.40]",0.109770478,0.912591405,0.058755379,0,5.23128E-12,7.16908E-09,0.80847404
+Individual Technique,Self efficacy,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,74,1,1,2,-0.095817892," [-0.50, 0.31]",-0.466032537,0.641192211,0.322131766,0,4.02584E-12,4.75755E-09,0.570329339
+Individual Technique,Sleep,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,135,2,2,2,0.237056216," [-0.10, 0.58]",1.361403162,0.173386318,0.124041432,3.32185E-12,3.32544E-12,1.07911E-08,0.724691905
+Individual Technique,Thought suppression,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,200,2,2,4,0.147040315," [-0.24, 0.54]",0.740873717,0.458770013,5.063325854,2.46657E-11,0.064818687,41.15165514,0.167218411
+Individual Technique,Trauma reminder + pub quiz,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,135,1,2,2,0.638776224," [0.22, 1.06]",2.986968188,0.00281759,0.152297586,6.80728E-13,6.80728E-13,1.46772E-09,0.696349302
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,364,5,7,10,0.855599613," [0.65, 1.06]",8.298915387,1.05066E-16,2.484457956,8.05935E-13,5.92061E-15,7.60452E-10,0.981298548
+Individual Technique,Unconscious imagery re-experience,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,149,1,1,1,0.46274," [-0.09, 1.01]",1.646694378,0.09962088,NA,NA,NA,NA,NA
+Individual Technique,Unconscious vs. Conscious imagery re-experience,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,149,1,1,1,0.60707," [0.10, 1.11]",2.362325405,0.018160694,NA,NA,NA,NA,NA
+Individual Technique,Wakeful rest,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,no,45,1,1,1,0.37558," [-0.04, 0.79]",1.766012312,0.077393783,NA,NA,NA,NA,NA
+Individual Technique,Attentional bias modification,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,45,1,1,1,0.82222," [0.21, 1.43]",2.647589922,0.00810678,NA,NA,NA,NA,NA
+Individual Technique,Block rehearsal + thought suppression,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,120,1,1,2,0.062444038," [-0.34, 0.46]",0.305817302,0.759743754,0.016357696,0,6.53364E-12,7.83551E-09,0.898230321
+Individual Technique,Challenged vs. Unchallenged memory,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,61,1,1,1,0.75625," [0.38, 1.13]",3.968076818,7.2455E-05,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,116,1,2,6,0.049370597," [-0.16, 0.26]",0.45869945,0.646450009,4.983194586,0,6.08338E-11,8.75167E-08,0.41793459
+Individual Technique,Hyperventilation provocation + thought suppression,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,120,1,1,2,-0.25485232," [-0.66, 0.15]",-1.24208337,0.214205804,0.436857298,0,2.94657E-12,3.49929E-09,0.508643217
+Individual Technique,Imagery re-experience,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,149,1,1,1,-0.10385," [-0.72, 0.51]",-0.332842989,0.739252806,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,80,1,1,2,-0.126865885," [-0.57, 0.31]",-0.565899357,0.571462199,0.506014238,0,7.21332E-13,7.176E-10,0.476869371
+Individual Technique,Memorize numbers + thought suppression,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,200,2,2,4,0.256428121," [-0.04, 0.55]",1.692199088,0.09060802,0.755179281,5.48706E-12,0,5.95879E-09,0.860154711
+Individual Technique,Mindfulness vs. Muscle relaxation,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,60,1,1,2,-0.079849944," [-0.46, 0.30]",-0.410798945,0.681219967,0.012474667,0,5.05759E-12,6.69303E-09,0.91106917
+Individual Technique,Negative expectation towards intrusion,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,89,1,1,1,0.05377," [-0.43, 0.54]",0.216688952,0.828450758,NA,NA,NA,NA,NA
+Individual Technique,Positive expectation towards intrusion,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,89,1,1,1,0.22186," [-0.31, 0.75]",0.824524936,0.409641353,NA,NA,NA,NA,NA
+Individual Technique,Prosocial behavior,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,90,1,1,1,0.52366," [0.09, 0.96]",2.358946956,0.018326875,NA,NA,NA,NA,NA
+Individual Technique,Rem sleep,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,41,1,1,1,0.50993," [-0.11, 1.13]",1.606207694,0.108228283,NA,NA,NA,NA,NA
+Individual Technique,Sad induction,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,81,1,1,2,0.02096731," [-0.35, 0.40]",0.109770478,0.912591405,0.058755379,0,5.23128E-12,7.16908E-09,0.80847404
+Individual Technique,Self efficacy,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,74,1,1,2,-0.095817892," [-0.50, 0.31]",-0.466032537,0.641192211,0.322131766,0,4.02584E-12,4.75755E-09,0.570329339
+Individual Technique,Sleep,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,135,2,2,2,0.237056216," [-0.10, 0.58]",1.361403162,0.173386318,0.124041432,3.32185E-12,3.32544E-12,1.07911E-08,0.724691905
+Individual Technique,Thought suppression,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,200,2,2,4,0.147040315," [-0.24, 0.54]",0.740873717,0.458770013,5.063325854,2.46657E-11,0.064818687,41.15165514,0.167218411
+Individual Technique,Trauma reminder + pub quiz,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,135,1,2,2,0.638776224," [0.22, 1.06]",2.986968188,0.00281759,0.152297586,6.80728E-13,6.80728E-13,1.46772E-09,0.696349302
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,364,5,7,10,0.855599613," [0.65, 1.06]",8.298915387,1.05066E-16,2.484457956,8.05935E-13,5.92061E-15,7.60452E-10,0.981298548
+Individual Technique,Unconscious imagery re-experience,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,149,1,1,1,0.46274," [-0.09, 1.01]",1.646694378,0.09962088,NA,NA,NA,NA,NA
+Individual Technique,Unconscious vs. Conscious imagery re-experience,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,149,1,1,1,0.60707," [0.10, 1.11]",2.362325405,0.018160694,NA,NA,NA,NA,NA
+Individual Technique,Wakeful rest,Immediate post,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,45,1,1,1,0.37558," [-0.04, 0.79]",1.766012312,0.077393783,NA,NA,NA,NA,NA
+Individual Technique,Clay modeling,Peri,All,Intrusion frequency,Lab-based intrusion monitoring task,no,86,1,1,1,0.74422," [0.20, 1.29]",2.668373875,0.007621939,NA,NA,NA,NA,NA
+Individual Technique,Contextual information,Peri,All,Intrusion frequency,Lab-based intrusion monitoring task,no,110,1,1,2,-0.121696925," [-0.97, 0.72]",-0.282657986,0.777439025,6.547827518,0,0.314117994,84.72775896,0.01050123
+Individual Technique,Emotional acceptance,Peri,All,Intrusion frequency,Lab-based intrusion monitoring task,no,89,1,1,1,0.85607," [0.31, 1.40]",3.063991916,0.002184048,NA,NA,NA,NA,NA
+Individual Technique,Emotional suppression,Peri,All,Intrusion frequency,Lab-based intrusion monitoring task,no,171,2,2,2,0.464539092," [0.12, 0.81]",2.641261503,0.008259794,0.048964609,1.85172E-07,1.85172E-07,0.000564417,0.824874826
+Individual Technique,Hyperventilation provocation test (hvpt),Peri,All,Intrusion frequency,Lab-based intrusion monitoring task,no,65,1,1,1,-0.60722," [-1.22, 0.00]",-1.946040581,0.051649865,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers,Peri,All,Intrusion frequency,Lab-based intrusion monitoring task,no,65,1,1,1,-0.81964," [-1.44, -0.20]",-2.580517939,0.009865223,NA,NA,NA,NA,NA
+Individual Technique,Number counting,Peri,All,Intrusion frequency,Lab-based intrusion monitoring task,no,86,1,1,1,0.45291," [-0.06, 0.97]",1.715385558,0.086274561,NA,NA,NA,NA,NA
+Individual Technique,Clay modeling,Peri,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,86,1,1,1,0.74422," [0.20, 1.29]",2.668373875,0.007621939,NA,NA,NA,NA,NA
+Individual Technique,Contextual information,Peri,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,110,1,1,1,0.30843," [-0.16, 0.77]",1.30036019,0.193477548,NA,NA,NA,NA,NA
+Individual Technique,Emotional acceptance,Peri,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,89,1,1,1,0.85607," [0.31, 1.40]",3.063991916,0.002184048,NA,NA,NA,NA,NA
+Individual Technique,Emotional suppression,Peri,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,171,2,2,2,0.464539092," [0.12, 0.81]",2.641261503,0.008259794,0.048964609,1.85172E-07,1.85172E-07,0.000564417,0.824874826
+Individual Technique,Hyperventilation provocation test (hvpt),Peri,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,65,1,1,1,-0.60722," [-1.22, 0.00]",-1.946040581,0.051649865,NA,NA,NA,NA,NA
+Individual Technique,Number counting,Peri,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,86,1,1,1,0.45291," [-0.06, 0.97]",1.715385558,0.086274561,NA,NA,NA,NA,NA
+Individual Technique,High vs. Low self efficacy,Pre,All,Intrusion frequency,Lab-based intrusion monitoring task,no,33,1,1,1,0.90258," [0.19, 1.62]",2.468731235,0.013559302,NA,NA,NA,NA,NA
+Individual Technique,Low vs. High resistance to proactive interference,Pre,All,Intrusion frequency,Lab-based intrusion monitoring task,no,54,1,1,2,0.047698004," [-0.33, 0.43]",0.247635701,0.804416286,0.005912024,0,4.81055E-12,6.48321E-09,0.9387113
+Individual Technique,Nicotine,Pre,All,Intrusion frequency,Lab-based intrusion monitoring task,no,54,1,1,1,-0.7719," [-1.32, -0.22]",-2.736086304,0.006217472,NA,NA,NA,NA,NA
+Individual Technique,Positive vs. Negative cbm training,Pre,All,Intrusion frequency,Lab-based intrusion monitoring task,no,48,1,1,2,0.543752779," [0.14, 0.95]",2.615905067,0.00889913,0.000420997,0,6.84701E-12,7.9234E-09,0.983629986
+Individual Technique,Sad induction,Pre,All,Intrusion frequency,Lab-based intrusion monitoring task,no,81,1,1,2,0.33647968," [-0.04, 0.71]",1.749291953,0.080240566,0.078490057,0,5.72056E-12,7.73049E-09,0.779354163
+Individual Technique,Self efficacy,Pre,All,Intrusion frequency,Lab-based intrusion monitoring task,no,113,1,1,2,-0.106635426," [-0.43, 0.21]",-0.652357123,0.514170818,0.056359817,0,6.25327E-12,1.16993E-08,0.812344763
+Individual Technique,Tetris,Pre,All,Intrusion frequency,Lab-based intrusion monitoring task,no,56,1,1,1,-0.13001," [-0.65, 0.39]",-0.485948058,0.627003994,NA,NA,NA,NA,NA
+Individual Technique,High vs. Low self efficacy,Pre,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,33,1,1,1,0.90258," [0.19, 1.62]",2.468731235,0.013559302,NA,NA,NA,NA,NA
+Individual Technique,Low vs. High resistance to proactive interference,Pre,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,54,1,1,2,0.047698004," [-0.33, 0.43]",0.247635701,0.804416286,0.005912024,0,4.81055E-12,6.48321E-09,0.9387113
+Individual Technique,Positive vs. Negative cbm training,Pre,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,48,1,1,2,0.543752779," [0.14, 0.95]",2.615905067,0.00889913,0.000420997,0,6.84701E-12,7.9234E-09,0.983629986
+Individual Technique,Sad induction,Pre,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,81,1,1,2,0.33647968," [-0.04, 0.71]",1.749291953,0.080240566,0.078490057,0,5.72056E-12,7.73049E-09,0.779354163
+Individual Technique,Self efficacy,Pre,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,113,1,1,2,-0.106635426," [-0.43, 0.21]",-0.652357123,0.514170818,0.056359817,0,6.25327E-12,1.16993E-08,0.812344763
+Individual Technique,Tetris,Pre,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,56,1,1,1,-0.13001," [-0.65, 0.39]",-0.485948058,0.627003994,NA,NA,NA,NA,NA
+Individual Technique,Pre-neutral vs. Pre-negative trauma reminder,Delayed post,All,Intrusion frequency,Self-report questionnaire,no,173,1,1,1,0.21769," [-0.19, 0.63]",1.040782851,0.297976341,NA,NA,NA,NA,NA
+Individual Technique,Pre-vs. Post-extinction using trauma reminder,Delayed post,All,Intrusion frequency,Self-report questionnaire,no,336,2,2,4,-0.173570113," [-0.47, 0.12]",-1.166008405,0.243611047,2.408541999,0.020472862,4.02621E-12,32.85410522,0.492046513
+Individual Technique,Sleep-directed hypnosis,Delayed post,All,Intrusion frequency,Self-report questionnaire,no,181,1,1,1,0.10768," [-0.18, 0.40]",0.723567455,0.469331327,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + extinction vs. Extinction,Delayed post,All,Intrusion frequency,Self-report questionnaire,no,336,2,2,4,-0.18278104," [-0.82, 0.45]",-0.564534677,0.572390307,7.616438463,0.180473999,5.71067E-13,80.08884861,0.054640932
+Individual Technique,Pre-neutral vs. Pre-negative trauma reminder,Delayed post,All,Intrusion frequency,Self-report questionnaire,yes,173,1,1,1,0.21769," [-0.19, 0.63]",1.040782851,0.297976341,NA,NA,NA,NA,NA
+Individual Technique,Pre-vs. Post-extinction using trauma reminder,Delayed post,All,Intrusion frequency,Self-report questionnaire,yes,336,2,2,4,-0.173570113," [-0.47, 0.12]",-1.166008405,0.243611047,2.408541999,0.020472862,4.02621E-12,32.85410522,0.492046513
+Individual Technique,Sleep-directed hypnosis,Delayed post,All,Intrusion frequency,Self-report questionnaire,yes,181,1,1,1,0.10768," [-0.18, 0.40]",0.723567455,0.469331327,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + extinction vs. Extinction,Delayed post,All,Intrusion frequency,Self-report questionnaire,yes,336,2,2,4,-0.18278104," [-0.82, 0.45]",-0.564534677,0.572390307,7.616438463,0.180473999,5.71067E-13,80.08884861,0.054640932
+Individual Technique,Film-related rumination,Immediate + delayed post,All,Intrusion frequency,Self-report questionnaire,no,82,1,1,1,-0.31531," [-0.75, 0.12]",-1.410037955,0.158528476,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate + delayed post,All,Intrusion frequency,Self-report questionnaire,yes,82,1,1,1,-0.31531," [-0.75, 0.12]",-1.410037955,0.158528476,NA,NA,NA,NA,NA
+Individual Technique,Autobiographical memory elaboration,Immediate post,All,Intrusion frequency,Self-report questionnaire,no,315,3,3,5,0.034485943," [-0.17, 0.24]",0.3274097,0.743358031,4.238544532,1.60732E-12,0.004502056,8.101563109,0.374683901
+Individual Technique,Conceptual vs. Data-driven processing,Immediate post,All,Intrusion frequency,Self-report questionnaire,no,34,1,1,1,0.58175," [-0.12, 1.28]",1.636274414,0.101782168,NA,NA,NA,NA,NA
+Individual Technique,Concrete processing,Immediate post,All,Intrusion frequency,Self-report questionnaire,no,83,1,1,2,0.306304231," [-0.07, 0.68]",1.595685282,0.110559076,0.283691724,0,5.23065E-12,7.09722E-09,0.594291676
+Individual Technique,Concrete processing vs. Film-related rumination,Immediate post,All,Intrusion frequency,Self-report questionnaire,no,83,1,1,2,0.216713897," [-0.15, 0.59]",1.143375268,0.252882816,0.018730232,0,6.40337E-12,8.91213E-09,0.89114269
+Individual Technique,Detached mindfulness,Immediate post,All,Intrusion frequency,Self-report questionnaire,no,56,1,1,1,0.94608," [0.16, 1.73]",2.373814616,0.017605387,NA,NA,NA,NA,NA
+Individual Technique,Emotional acceptance,Immediate post,All,Intrusion frequency,Self-report questionnaire,no,56,1,1,1,0.61137," [-0.15, 1.37]",1.58100849,0.113876097,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate post,All,Intrusion frequency,Self-report questionnaire,no,241,3,3,6,-0.01827419," [-0.23, 0.19]",-0.171900604,0.863515672,3.702130311,7.89542E-12,0,1.16275E-08,0.593046972
+Individual Technique,Film-related rumination vs. Autobiographical memory elaboration,Immediate post,All,Intrusion frequency,Self-report questionnaire,no,101,1,1,2,0.073651172," [-0.27, 0.41]",0.424979316,0.670851753,0.922665587,0,5.31295E-12,8.8446E-09,0.336776048
+Individual Technique,Imagery re-experience,Immediate post,All,Intrusion frequency,Self-report questionnaire,no,122,1,1,1,0.37057," [-0.07, 0.81]",1.663612538,0.096189885,NA,NA,NA,NA,NA
+Individual Technique,Imaginary re-exposure,Immediate post,All,Intrusion frequency,Self-report questionnaire,no,56,1,1,1,0.24648," [-0.50, 0.99]",0.649661948,0.515910609,NA,NA,NA,NA,NA
+Individual Technique,Sad vs. Humor induction,Immediate post,All,Intrusion frequency,Self-report questionnaire,no,184,1,1,1,-0.3803," [-0.67, -0.09]",-2.555724863,0.010596687,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + d-corsi vs. Trauma reminder,Immediate post,All,Intrusion frequency,Self-report questionnaire,no,107,1,1,1,0.71311," [0.22, 1.20]",2.851006011,0.004358115,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Immediate post,All,Intrusion frequency,Self-report questionnaire,no,107,1,1,1,0.98697," [0.48, 1.50]",3.783689049,0.000154521,NA,NA,NA,NA,NA
+Individual Technique,Autobiographical memory elaboration,Immediate post,All,Intrusion frequency,Self-report questionnaire,yes,315,3,3,5,0.034485943," [-0.17, 0.24]",0.3274097,0.743358031,4.238544532,1.60732E-12,0.004502056,8.101563109,0.374683901
+Individual Technique,Conceptual vs. Data-driven processing,Immediate post,All,Intrusion frequency,Self-report questionnaire,yes,34,1,1,1,0.58175," [-0.12, 1.28]",1.636274414,0.101782168,NA,NA,NA,NA,NA
+Individual Technique,Concrete processing,Immediate post,All,Intrusion frequency,Self-report questionnaire,yes,83,1,1,2,0.306304231," [-0.07, 0.68]",1.595685282,0.110559076,0.283691724,0,5.23065E-12,7.09722E-09,0.594291676
+Individual Technique,Concrete processing vs. Film-related rumination,Immediate post,All,Intrusion frequency,Self-report questionnaire,yes,83,1,1,2,0.216713897," [-0.15, 0.59]",1.143375268,0.252882816,0.018730232,0,6.40337E-12,8.91213E-09,0.89114269
+Individual Technique,Detached mindfulness,Immediate post,All,Intrusion frequency,Self-report questionnaire,yes,56,1,1,1,0.94608," [0.16, 1.73]",2.373814616,0.017605387,NA,NA,NA,NA,NA
+Individual Technique,Emotional acceptance,Immediate post,All,Intrusion frequency,Self-report questionnaire,yes,56,1,1,1,0.61137," [-0.15, 1.37]",1.58100849,0.113876097,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate post,All,Intrusion frequency,Self-report questionnaire,yes,241,3,3,6,-0.01827419," [-0.23, 0.19]",-0.171900604,0.863515672,3.702130311,7.89542E-12,0,1.16275E-08,0.593046972
+Individual Technique,Film-related rumination vs. Autobiographical memory elaboration,Immediate post,All,Intrusion frequency,Self-report questionnaire,yes,101,1,1,2,0.073651172," [-0.27, 0.41]",0.424979316,0.670851753,0.922665587,0,5.31295E-12,8.8446E-09,0.336776048
+Individual Technique,Imagery re-experience,Immediate post,All,Intrusion frequency,Self-report questionnaire,yes,122,1,1,1,0.37057," [-0.07, 0.81]",1.663612538,0.096189885,NA,NA,NA,NA,NA
+Individual Technique,Imaginary re-exposure,Immediate post,All,Intrusion frequency,Self-report questionnaire,yes,56,1,1,1,0.24648," [-0.50, 0.99]",0.649661948,0.515910609,NA,NA,NA,NA,NA
+Individual Technique,Sad vs. Humor induction,Immediate post,All,Intrusion frequency,Self-report questionnaire,yes,184,1,1,1,-0.3803," [-0.67, -0.09]",-2.555724863,0.010596687,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + d-corsi vs. Trauma reminder,Immediate post,All,Intrusion frequency,Self-report questionnaire,yes,107,1,1,1,0.71311," [0.22, 1.20]",2.851006011,0.004358115,NA,NA,NA,NA,NA
+Individual Technique,Conceptual processing,Peri,All,Intrusion frequency,Self-report questionnaire,no,73,1,1,1,-0.00617," [-0.57, 0.55]",-0.0215805,0.982782588,NA,NA,NA,NA,NA
+Individual Technique,Data-driven processing,Peri,All,Intrusion frequency,Self-report questionnaire,no,73,1,1,1,-0.20534," [-0.77, 0.36]",-0.709434619,0.478054811,NA,NA,NA,NA,NA
+Individual Technique,Emotional acceptance,Peri,All,Intrusion frequency,Self-report questionnaire,no,56,1,1,1,0.68118," [0.03, 1.34]",2.041179994,0.041232939,NA,NA,NA,NA,NA
+Individual Technique,Emotional numbing,Peri,All,Intrusion frequency,Self-report questionnaire,no,56,1,1,1,0.20936," [-0.44, 0.86]",0.634760794,0.525584437,NA,NA,NA,NA,NA
+Individual Technique,Conceptual processing,Peri,All,Intrusion frequency,Self-report questionnaire,yes,73,1,1,1,-0.00617," [-0.57, 0.55]",-0.0215805,0.982782588,NA,NA,NA,NA,NA
+Individual Technique,Data-driven processing,Peri,All,Intrusion frequency,Self-report questionnaire,yes,73,1,1,1,-0.20534," [-0.77, 0.36]",-0.709434619,0.478054811,NA,NA,NA,NA,NA
+Individual Technique,Emotional acceptance,Peri,All,Intrusion frequency,Self-report questionnaire,yes,56,1,1,1,0.68118," [0.03, 1.34]",2.041179994,0.041232939,NA,NA,NA,NA,NA
+Individual Technique,Emotional numbing,Peri,All,Intrusion frequency,Self-report questionnaire,yes,56,1,1,1,0.20936," [-0.44, 0.86]",0.634760794,0.525584437,NA,NA,NA,NA,NA
+Individual Technique,Anodal tdcs,Pre,All,Intrusion frequency,Self-report questionnaire,no,118,1,1,1,0.17093," [-0.27, 0.61]",0.763029576,0.445445758,NA,NA,NA,NA,NA
+Individual Technique,Cathodal tdcs,Pre,All,Intrusion frequency,Self-report questionnaire,no,118,1,1,1,0.28166," [-0.16, 0.73]",1.23723106,0.216001314,NA,NA,NA,NA,NA
+Individual Technique,High vs. Low self efficacy,Pre,All,Intrusion frequency,Self-report questionnaire,no,33,1,1,1,0.79971," [0.09, 1.51]",2.209408284,0.027146255,NA,NA,NA,NA,NA
+Individual Technique,Anodal tdcs,Pre,All,Intrusion frequency,Self-report questionnaire,yes,118,1,1,1,0.17093," [-0.27, 0.61]",0.763029576,0.445445758,NA,NA,NA,NA,NA
+Individual Technique,Cathodal tdcs,Pre,All,Intrusion frequency,Self-report questionnaire,yes,118,1,1,1,0.28166," [-0.16, 0.73]",1.23723106,0.216001314,NA,NA,NA,NA,NA
+Individual Technique,High vs. Low self efficacy,Pre,All,Intrusion frequency,Self-report questionnaire,yes,33,1,1,1,0.79971," [0.09, 1.51]",2.209408284,0.027146255,NA,NA,NA,NA,NA
+Individual Technique,Attachment priming,Delayed post,All,Intrusion symptoms,NA,no,69,1,1,1,0.19256," [-0.28, 0.67]",0.79783286,0.424967489,NA,NA,NA,NA,NA
+Individual Technique,Cold vs. Warm water stress + trauma reminder,Delayed post,All,Intrusion symptoms,NA,no,63,1,1,1,-0.76759," [-1.39, -0.14]",-2.400450861,0.016374889,NA,NA,NA,NA,NA
+Individual Technique,Cold water stress induction + trauma reminder vs. Cold water stress induction,Delayed post,All,Intrusion symptoms,NA,no,63,1,1,1,-0.66198," [-1.28, -0.04]",-2.088609255,0.036742911,NA,NA,NA,NA,NA
+Individual Technique,Exercise vs. Trauma reminder + exercise,Delayed post,All,Intrusion symptoms,NA,no,54,1,1,1,-0.20094," [-0.86, 0.45]",-0.601309152,0.547634095,NA,NA,NA,NA,NA
+Individual Technique,Tetris,Delayed post,All,Intrusion symptoms,NA,no,72,1,1,1,0.1264," [-0.53, 0.78]",0.378819203,0.704822126,NA,NA,NA,NA,NA
+Individual Technique,Tetris + trauma reminder,Delayed post,All,Intrusion symptoms,NA,no,149,1,1,1,-0.38091," [-0.83, 0.07]",-1.64493648,0.099982911,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder,Delayed post,All,Intrusion symptoms,NA,no,72,1,1,1,0," [-0.65, 0.65]",0,1,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + break + tetris,Delayed post,All,Intrusion symptoms,NA,no,149,1,1,1,0.0025," [-0.44, 0.45]",0.010941607,0.991270035,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + exercise vs. Trauma reminder,Delayed post,All,Intrusion symptoms,NA,no,54,1,1,1,0.26458," [-0.39, 0.92]",0.790282939,0.429362548,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + tetris,Delayed post,All,Intrusion symptoms,NA,no,273,2,3,3,0.313467684," [-0.16, 0.78]",1.311170256,0.189800249,4.268185383,0.04519858,0.04519858,52.76650495,0.118351923
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Delayed post,All,Intrusion symptoms,NA,no,86,1,1,1,0.45339," [-0.07, 0.97]",1.703724499,0.088432569,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + word game vs. Trauma reminder,Delayed post,All,Intrusion symptoms,NA,no,86,1,1,1,-0.02996," [-0.55, 0.49]",-0.114010245,0.909229672,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder vs. Exercise,Delayed post,All,Intrusion symptoms,NA,no,54,1,1,1,-0.06799," [-0.72, 0.59]",-0.203924627,0.8384124,NA,NA,NA,NA,NA
+Individual Technique,Attachment priming,Delayed post,All,Intrusion symptoms,NA,yes,69,1,1,1,0.19256," [-0.28, 0.67]",0.79783286,0.424967489,NA,NA,NA,NA,NA
+Individual Technique,Cold water stress induction + trauma reminder vs. Cold water stress induction,Delayed post,All,Intrusion symptoms,NA,yes,63,1,1,1,-0.66198," [-1.28, -0.04]",-2.088609255,0.036742911,NA,NA,NA,NA,NA
+Individual Technique,Exercise vs. Trauma reminder + exercise,Delayed post,All,Intrusion symptoms,NA,yes,54,1,1,1,-0.20094," [-0.86, 0.45]",-0.601309152,0.547634095,NA,NA,NA,NA,NA
+Individual Technique,Tetris,Delayed post,All,Intrusion symptoms,NA,yes,72,1,1,1,0.1264," [-0.53, 0.78]",0.378819203,0.704822126,NA,NA,NA,NA,NA
+Individual Technique,Tetris + trauma reminder,Delayed post,All,Intrusion symptoms,NA,yes,149,1,1,1,-0.38091," [-0.83, 0.07]",-1.64493648,0.099982911,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder,Delayed post,All,Intrusion symptoms,NA,yes,72,1,1,1,0," [-0.65, 0.65]",0,1,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + break + tetris,Delayed post,All,Intrusion symptoms,NA,yes,149,1,1,1,0.0025," [-0.44, 0.45]",0.010941607,0.991270035,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + exercise vs. Trauma reminder,Delayed post,All,Intrusion symptoms,NA,yes,54,1,1,1,0.26458," [-0.39, 0.92]",0.790282939,0.429362548,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + tetris,Delayed post,All,Intrusion symptoms,NA,yes,273,2,3,3,0.313467684," [-0.16, 0.78]",1.311170256,0.189800249,4.268185383,0.04519858,0.04519858,52.76650495,0.118351923
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Delayed post,All,Intrusion symptoms,NA,yes,86,1,1,1,0.45339," [-0.07, 0.97]",1.703724499,0.088432569,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + word game vs. Trauma reminder,Delayed post,All,Intrusion symptoms,NA,yes,86,1,1,1,-0.02996," [-0.55, 0.49]",-0.114010245,0.909229672,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder vs. Exercise,Delayed post,All,Intrusion symptoms,NA,yes,54,1,1,1,-0.06799," [-0.72, 0.59]",-0.203924627,0.8384124,NA,NA,NA,NA,NA
+Individual Technique,Deceptive placebo,Immediate + delayed post,All,Intrusion symptoms,NA,no,112,1,1,1,0.63675," [0.18, 1.10]",2.707760973,0.006773879,NA,NA,NA,NA,NA
+Individual Technique,Open-label placebo,Immediate + delayed post,All,Intrusion symptoms,NA,no,112,1,1,1,0.2446," [-0.21, 0.70]",1.047777948,0.294740925,NA,NA,NA,NA,NA
+Individual Technique,Deceptive placebo,Immediate + delayed post,All,Intrusion symptoms,NA,yes,112,1,1,1,0.63675," [0.18, 1.10]",2.707760973,0.006773879,NA,NA,NA,NA,NA
+Individual Technique,Open-label placebo,Immediate + delayed post,All,Intrusion symptoms,NA,yes,112,1,1,1,0.2446," [-0.21, 0.70]",1.047777948,0.294740925,NA,NA,NA,NA,NA
+Individual Technique,Clay modeling,Immediate post,All,Intrusion symptoms,NA,no,41,1,1,1,-0.54974," [-1.44, 0.34]",-1.206679975,0.227555414,NA,NA,NA,NA,NA
+Individual Technique,Cold vs. Warm water stress,Immediate post,All,Intrusion symptoms,NA,no,78,1,1,1,-0.14949," [-0.59, 0.29]",-0.659223974,0.509751954,NA,NA,NA,NA,NA
+Individual Technique,Conscious vs. Unconscious imagery re-experience,Immediate post,All,Intrusion symptoms,NA,no,51,1,1,1,-0.63652," [-1.33, 0.05]",-1.810489698,0.070219881,NA,NA,NA,NA,NA
+Individual Technique,Exercise vs. Walk,Immediate post,All,Intrusion symptoms,NA,no,49,1,1,1,-0.66384," [-1.24, -0.09]",-2.26151799,0.0237272,NA,NA,NA,NA,NA
+Individual Technique,Field perspective recall,Immediate post,All,Intrusion symptoms,NA,no,85,1,1,1,-0.53693," [-1.10, 0.02]",-1.880427079,0.060049896,NA,NA,NA,NA,NA
+Individual Technique,Field vs. Observer perspective recall,Immediate post,All,Intrusion symptoms,NA,no,85,1,1,1,-0.92973," [-1.51, -0.35]",-3.120464964,0.001805658,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate post,All,Intrusion symptoms,NA,no,116,1,2,2,0.150098775," [-0.21, 0.51]",0.806476833,0.419967961,0.316501887,1.46502E-12,1.46502E-12,4.22745E-09,0.573717506
+Individual Technique,Hydrocortisone,Immediate post,All,Intrusion symptoms,NA,no,88,1,1,1,0.40747," [-0.11, 0.93]",1.535734556,0.124603496,NA,NA,NA,NA,NA
+Individual Technique,Imagery re-experience,Immediate post,All,Intrusion symptoms,NA,no,236,3,3,4,-0.136086871," [-0.63, 0.36]",-0.534858364,0.592747801,11.64214019,4.20062E-10,0.186624366,73.12227079,0.008715196
+Individual Technique,Imagery re-experience + eye movement,Immediate post,All,Intrusion symptoms,NA,no,250,1,3,3,0.259363201," [-0.06, 0.58]",1.580408088,0.114013441,0.469536608,7.01147E-13,7.01147E-13,1.7355E-09,0.790754043
+Individual Technique,Imagery re-experience + number counting,Immediate post,All,Intrusion symptoms,NA,no,250,1,3,3,0.559726172," [0.23, 0.89]",3.358225247,0.000784447,0.666290546,6.42855E-13,6.42855E-13,1.54179E-09,0.716666074
+Individual Technique,Invalidate talk,Immediate post,All,Intrusion symptoms,NA,no,256,1,1,1,0.32135," [-0.03, 0.67]",1.806222039,0.070883664,NA,NA,NA,NA,NA
+Individual Technique,Mindfulness vs. Muscle relaxation,Immediate post,All,Intrusion symptoms,NA,no,60,1,1,1,0," [-0.54, 0.54]",0,1,NA,NA,NA,NA,NA
+Individual Technique,Negative appraisal ,Immediate post,All,Intrusion symptoms,NA,no,45,1,1,1,-2.67004," [-3.65, -1.69]",-5.317243905,1.05351E-07,NA,NA,NA,NA,NA
+Individual Technique,Negative expectation towards intrusion,Immediate post,All,Intrusion symptoms,NA,no,89,1,1,1,0.19697," [-0.29, 0.68]",0.792011115,0.428354195,NA,NA,NA,NA,NA
+Individual Technique,Negative feedback,Immediate post,All,Intrusion symptoms,NA,no,72,1,1,2,0.254361876," [-0.18, 0.68]",1.159597177,0.246212851,1.138673692,0,0.011721395,12.17852843,0.285932758
+Individual Technique,Neutral attention walk,Immediate post,All,Intrusion symptoms,NA,no,60,1,1,1,-0.43216," [-0.94, 0.08]",-1.654559307,0.098013924,NA,NA,NA,NA,NA
+Individual Technique,Number counting,Immediate post,All,Intrusion symptoms,NA,no,41,1,1,2,0.032402616," [-0.58, 0.65]",0.103127005,0.917862172,0.858349733,0,1.30873E-10,6.62532E-08,0.35420092
+Individual Technique,Observer perspective recall,Immediate post,All,Intrusion symptoms,NA,no,85,1,1,1,0.28116," [-0.26, 0.82]",1.018231547,0.308567931,NA,NA,NA,NA,NA
+Individual Technique,Past vs. Now verbal training,Immediate post,All,Intrusion symptoms,NA,no,96,1,1,1,0.11137," [-0.17, 0.39]",0.770996685,0.440708896,NA,NA,NA,NA,NA
+Individual Technique,Positive appraisal,Immediate post,All,Intrusion symptoms,NA,no,45,1,1,1,1.11276," [0.34, 1.88]",2.835844659,0.004570467,NA,NA,NA,NA,NA
+Individual Technique,Positive expectation towards intrusion,Immediate post,All,Intrusion symptoms,NA,no,89,1,1,1,0.12791," [-0.40, 0.65]",0.476310723,0.633853027,NA,NA,NA,NA,NA
+Individual Technique,Positive vs. Negative cbm training,Immediate post,All,Intrusion symptoms,NA,no,267,2,2,3,-0.048464145," [-0.41, 0.31]",-0.263506622,0.79216012,4.459162849,8.90266E-12,0.056082038,55.26666374,0.107573448
+Individual Technique,Propranolol,Immediate post,All,Intrusion symptoms,NA,no,88,1,1,1,0.46066," [-0.06, 0.98]",1.745945621,0.080820402,NA,NA,NA,NA,NA
+Individual Technique,Prosocial behavior,Immediate post,All,Intrusion symptoms,NA,no,180,1,2,2,0.506665599," [0.21, 0.80]",3.345085621,0.000822572,0.084001743,2.07238E-12,2.07238E-12,9.03295E-09,0.771945881
+Individual Technique,Self efficacy,Immediate post,All,Intrusion symptoms,NA,no,74,1,1,2,-0.000764793," [-0.40, 0.40]",-0.003718653,0.997032951,0.648242443,0,4.3659E-13,5.15546E-10,0.420741754
+Individual Technique,Sleep,Immediate post,All,Intrusion symptoms,NA,no,295,5,5,5,0.000524245," [-0.45, 0.45]",0.00227184,0.998187336,14.78003544,0.095731808,0.095731808,72.65239935,0.005179871
+Individual Technique,Social comparison,Immediate post,All,Intrusion symptoms,NA,no,120,1,1,3,0.347077542," [0.02, 0.67]",2.104792419,0.035309381,2.406029891,0,0.013445233,16.47993315,0.300287495
+Individual Technique,Talk alone,Immediate post,All,Intrusion symptoms,NA,no,256,1,1,1,0.57893," [0.23, 0.93]",3.208412675,0.001334698,NA,NA,NA,NA,NA
+Individual Technique,Threat attention walk,Immediate post,All,Intrusion symptoms,NA,no,60,1,1,1,0.4211," [-0.09, 0.93]",1.613118632,0.106718737,NA,NA,NA,NA,NA
+Individual Technique,Threat vs. Neutral attention walk,Immediate post,All,Intrusion symptoms,NA,no,60,1,1,1,0," [-0.51, 0.51]",0,1,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder +  visual stimulation imagery,Immediate post,All,Intrusion symptoms,NA,no,114,1,1,1,-0.43568," [-0.89, 0.02]",-1.864396724,0.062266013,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + d-corsi vs. Trauma reminder,Immediate post,All,Intrusion symptoms,NA,no,107,1,1,1,0.08568," [-0.39, 0.56]",0.353098275,0.724014766,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + imagery rescripting vs. Trauma reminder,Immediate post,All,Intrusion symptoms,NA,no,60,1,1,1,0.25133," [-0.37, 0.87]",0.791671272,0.428552378,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Immediate post,All,Intrusion symptoms,NA,no,267,4,4,4,0.367967948," [0.09, 0.64]",2.61227074,0.008994299,1.851994526,4.09773E-12,4.09752E-12,1.01256E-08,0.603686228
+Individual Technique,Unconscious imagery re-experience,Immediate post,All,Intrusion symptoms,NA,no,51,1,1,1,0.40916," [-0.27, 1.09]",1.180598602,0.237762219,NA,NA,NA,NA,NA
+Individual Technique,Validate talk,Immediate post,All,Intrusion symptoms,NA,no,256,1,1,1,0.4148," [0.06, 0.76]",2.321610279,0.02025393,NA,NA,NA,NA,NA
+Individual Technique,Visual stimulation,Immediate post,All,Intrusion symptoms,NA,no,120,1,1,2,-0.014375841," [-0.32, 0.30]",-0.090793793,0.927656442,0.885738741,0,1.21882E-11,2.43083E-08,0.346634687
+Individual Technique,Visual stimulation imagery,Immediate post,All,Intrusion symptoms,NA,no,114,1,1,1,-0.18887," [-0.64, 0.26]",-0.821150564,0.411560512,NA,NA,NA,NA,NA
+Individual Technique,Clay modeling,Immediate post,All,Intrusion symptoms,NA,yes,41,1,1,1,-0.54974," [-1.44, 0.34]",-1.206679975,0.227555414,NA,NA,NA,NA,NA
+Individual Technique,Cold vs. Warm water stress,Immediate post,All,Intrusion symptoms,NA,yes,78,1,1,1,-0.14949," [-0.59, 0.29]",-0.659223974,0.509751954,NA,NA,NA,NA,NA
+Individual Technique,Conscious vs. Unconscious imagery re-experience,Immediate post,All,Intrusion symptoms,NA,yes,51,1,1,1,-0.63652," [-1.33, 0.05]",-1.810489698,0.070219881,NA,NA,NA,NA,NA
+Individual Technique,Exercise vs. Walk,Immediate post,All,Intrusion symptoms,NA,yes,49,1,1,1,-0.66384," [-1.24, -0.09]",-2.26151799,0.0237272,NA,NA,NA,NA,NA
+Individual Technique,Field perspective recall,Immediate post,All,Intrusion symptoms,NA,yes,85,1,1,1,-0.53693," [-1.10, 0.02]",-1.880427079,0.060049896,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate post,All,Intrusion symptoms,NA,yes,116,1,2,2,0.150098775," [-0.21, 0.51]",0.806476833,0.419967961,0.316501887,1.46502E-12,1.46502E-12,4.22745E-09,0.573717506
+Individual Technique,Hydrocortisone,Immediate post,All,Intrusion symptoms,NA,yes,88,1,1,1,0.40747," [-0.11, 0.93]",1.535734556,0.124603496,NA,NA,NA,NA,NA
+Individual Technique,Imagery re-experience,Immediate post,All,Intrusion symptoms,NA,yes,236,3,3,3,0.094749121," [-0.24, 0.43]",0.555537812,0.578526854,2.521618131,0.006027915,0.006027915,13.26135074,0.283424625
+Individual Technique,Imagery re-experience + eye movement,Immediate post,All,Intrusion symptoms,NA,yes,250,1,3,3,0.259363201," [-0.06, 0.58]",1.580408088,0.114013441,0.469536608,7.01147E-13,7.01147E-13,1.7355E-09,0.790754043
+Individual Technique,Imagery re-experience + number counting,Immediate post,All,Intrusion symptoms,NA,yes,250,1,3,3,0.559726172," [0.23, 0.89]",3.358225247,0.000784447,0.666290546,6.42855E-13,6.42855E-13,1.54179E-09,0.716666074
+Individual Technique,Invalidate talk,Immediate post,All,Intrusion symptoms,NA,yes,256,1,1,1,0.32135," [-0.03, 0.67]",1.806222039,0.070883664,NA,NA,NA,NA,NA
+Individual Technique,Mindfulness vs. Muscle relaxation,Immediate post,All,Intrusion symptoms,NA,yes,60,1,1,1,0," [-0.54, 0.54]",0,1,NA,NA,NA,NA,NA
+Individual Technique,Negative expectation towards intrusion,Immediate post,All,Intrusion symptoms,NA,yes,89,1,1,1,0.19697," [-0.29, 0.68]",0.792011115,0.428354195,NA,NA,NA,NA,NA
+Individual Technique,Negative feedback,Immediate post,All,Intrusion symptoms,NA,yes,72,1,1,2,0.254361876," [-0.18, 0.68]",1.159597177,0.246212851,1.138673692,0,0.011721395,12.17852843,0.285932758
+Individual Technique,Neutral attention walk,Immediate post,All,Intrusion symptoms,NA,yes,60,1,1,1,-0.43216," [-0.94, 0.08]",-1.654559307,0.098013924,NA,NA,NA,NA,NA
+Individual Technique,Number counting,Immediate post,All,Intrusion symptoms,NA,yes,41,1,1,2,0.032402616," [-0.58, 0.65]",0.103127005,0.917862172,0.858349733,0,1.30873E-10,6.62532E-08,0.35420092
+Individual Technique,Observer perspective recall,Immediate post,All,Intrusion symptoms,NA,yes,85,1,1,1,0.28116," [-0.26, 0.82]",1.018231547,0.308567931,NA,NA,NA,NA,NA
+Individual Technique,Past vs. Now verbal training,Immediate post,All,Intrusion symptoms,NA,yes,96,1,1,1,0.11137," [-0.17, 0.39]",0.770996685,0.440708896,NA,NA,NA,NA,NA
+Individual Technique,Positive expectation towards intrusion,Immediate post,All,Intrusion symptoms,NA,yes,89,1,1,1,0.12791," [-0.40, 0.65]",0.476310723,0.633853027,NA,NA,NA,NA,NA
+Individual Technique,Positive vs. Negative cbm training,Immediate post,All,Intrusion symptoms,NA,yes,267,2,2,3,-0.048464145," [-0.41, 0.31]",-0.263506622,0.79216012,4.459162849,8.90266E-12,0.056082038,55.26666374,0.107573448
+Individual Technique,Propranolol,Immediate post,All,Intrusion symptoms,NA,yes,88,1,1,1,0.46066," [-0.06, 0.98]",1.745945621,0.080820402,NA,NA,NA,NA,NA
+Individual Technique,Prosocial behavior,Immediate post,All,Intrusion symptoms,NA,yes,180,1,2,2,0.506665599," [0.21, 0.80]",3.345085621,0.000822572,0.084001743,2.07238E-12,2.07238E-12,9.03295E-09,0.771945881
+Individual Technique,Self efficacy,Immediate post,All,Intrusion symptoms,NA,yes,74,1,1,2,-0.000764793," [-0.40, 0.40]",-0.003718653,0.997032951,0.648242443,0,4.3659E-13,5.15546E-10,0.420741754
+Individual Technique,Sleep,Immediate post,All,Intrusion symptoms,NA,yes,295,5,5,5,0.000524245," [-0.45, 0.45]",0.00227184,0.998187336,14.78003544,0.095731808,0.095731808,72.65239935,0.005179871
+Individual Technique,Social comparison,Immediate post,All,Intrusion symptoms,NA,yes,120,1,1,3,0.347077542," [0.02, 0.67]",2.104792419,0.035309381,2.406029891,0,0.013445233,16.47993315,0.300287495
+Individual Technique,Talk alone,Immediate post,All,Intrusion symptoms,NA,yes,256,1,1,1,0.57893," [0.23, 0.93]",3.208412675,0.001334698,NA,NA,NA,NA,NA
+Individual Technique,Threat attention walk,Immediate post,All,Intrusion symptoms,NA,yes,60,1,1,1,0.4211," [-0.09, 0.93]",1.613118632,0.106718737,NA,NA,NA,NA,NA
+Individual Technique,Threat vs. Neutral attention walk,Immediate post,All,Intrusion symptoms,NA,yes,60,1,1,1,0," [-0.51, 0.51]",0,1,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder +  visual stimulation imagery,Immediate post,All,Intrusion symptoms,NA,yes,114,1,1,1,-0.43568," [-0.89, 0.02]",-1.864396724,0.062266013,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + d-corsi vs. Trauma reminder,Immediate post,All,Intrusion symptoms,NA,yes,107,1,1,1,0.08568," [-0.39, 0.56]",0.353098275,0.724014766,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + imagery rescripting vs. Trauma reminder,Immediate post,All,Intrusion symptoms,NA,yes,60,1,1,1,0.25133," [-0.37, 0.87]",0.791671272,0.428552378,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Immediate post,All,Intrusion symptoms,NA,yes,267,4,4,4,0.367967948," [0.09, 0.64]",2.61227074,0.008994299,1.851994526,4.09773E-12,4.09752E-12,1.01256E-08,0.603686228
+Individual Technique,Unconscious imagery re-experience,Immediate post,All,Intrusion symptoms,NA,yes,51,1,1,1,0.40916," [-0.27, 1.09]",1.180598602,0.237762219,NA,NA,NA,NA,NA
+Individual Technique,Validate talk,Immediate post,All,Intrusion symptoms,NA,yes,256,1,1,1,0.4148," [0.06, 0.76]",2.321610279,0.02025393,NA,NA,NA,NA,NA
+Individual Technique,Visual stimulation,Immediate post,All,Intrusion symptoms,NA,yes,120,1,1,2,-0.014375841," [-0.32, 0.30]",-0.090793793,0.927656442,0.885738741,0,1.21882E-11,2.43083E-08,0.346634687
+Individual Technique,Visual stimulation imagery,Immediate post,All,Intrusion symptoms,NA,yes,114,1,1,1,-0.18887," [-0.64, 0.26]",-0.821150564,0.411560512,NA,NA,NA,NA,NA
+Individual Technique,Social support,Peri + immediate post,All,Intrusion symptoms,NA,no,67,1,1,1,-0.62828," [-1.12, -0.14]",-2.507780322,0.012149217,NA,NA,NA,NA,NA
+Individual Technique,Social support,Peri + immediate post,All,Intrusion symptoms,NA,yes,67,1,1,1,-0.62828," [-1.12, -0.14]",-2.507780322,0.012149217,NA,NA,NA,NA,NA
+Individual Technique,Attachment priming,Peri,All,Intrusion symptoms,NA,no,63,1,1,1,0.36075," [-0.15, 0.87]",1.385965721,0.165757371,NA,NA,NA,NA,NA
+Individual Technique,Clay modeling,Peri,All,Intrusion symptoms,NA,no,86,1,1,1,0.44982," [-0.09, 0.99]",1.64699962,0.099558124,NA,NA,NA,NA,NA
+Individual Technique,Cold vs. Warm water stress,Peri,All,Intrusion symptoms,NA,no,55,1,1,1,-0.01287," [-0.54, 0.52]",-0.047510275,0.962106541,NA,NA,NA,NA,NA
+Individual Technique,Conceptual processing,Peri,All,Intrusion symptoms,NA,no,211,1,1,1,0.03842," [-0.43, 0.51]",0.161104042,0.872011457,NA,NA,NA,NA,NA
+Individual Technique,Contextual information,Peri,All,Intrusion symptoms,NA,no,110,1,1,2,-0.056057451," [-0.38, 0.27]",-0.337141348,0.736010349,0.169370283,0,4.61217E-12,8.34103E-09,0.680672064
+Individual Technique,Data-driven processing,Peri,All,Intrusion symptoms,NA,no,211,1,1,1,0.01867," [-0.45, 0.49]",0.078303431,0.937586689,NA,NA,NA,NA,NA
+Individual Technique,Finger tapping,Peri,All,Intrusion symptoms,NA,no,40,1,1,1,-0.01006," [-0.80, 0.78]",-0.024959113,0.980087576,NA,NA,NA,NA,NA
+Individual Technique,Hyperventilation provocation test (hvpt),Peri,All,Intrusion symptoms,NA,no,65,1,1,1,0.56902," [-0.04, 1.18]",1.828530108,0.067470031,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers,Peri,All,Intrusion symptoms,NA,no,65,1,1,1,-0.03632," [-0.63, 0.56]",-0.119043244,0.905241095,NA,NA,NA,NA,NA
+Individual Technique,Number counting,Peri,All,Intrusion symptoms,NA,no,126,2,2,2,-0.036162082," [-0.82, 0.75]",-0.09036512,0.927997074,3.075246979,0.10946409,0.10946409,67.48228651,0.079492519
+Individual Technique,Attachment priming,Peri,All,Intrusion symptoms,NA,yes,63,1,1,1,0.36075," [-0.15, 0.87]",1.385965721,0.165757371,NA,NA,NA,NA,NA
+Individual Technique,Clay modeling,Peri,All,Intrusion symptoms,NA,yes,86,1,1,1,0.44982," [-0.09, 0.99]",1.64699962,0.099558124,NA,NA,NA,NA,NA
+Individual Technique,Cold vs. Warm water stress,Peri,All,Intrusion symptoms,NA,yes,55,1,1,1,-0.01287," [-0.54, 0.52]",-0.047510275,0.962106541,NA,NA,NA,NA,NA
+Individual Technique,Conceptual processing,Peri,All,Intrusion symptoms,NA,yes,211,1,1,1,0.03842," [-0.43, 0.51]",0.161104042,0.872011457,NA,NA,NA,NA,NA
+Individual Technique,Contextual information,Peri,All,Intrusion symptoms,NA,yes,110,1,1,2,-0.056057451," [-0.38, 0.27]",-0.337141348,0.736010349,0.169370283,0,4.61217E-12,8.34103E-09,0.680672064
+Individual Technique,Data-driven processing,Peri,All,Intrusion symptoms,NA,yes,211,1,1,1,0.01867," [-0.45, 0.49]",0.078303431,0.937586689,NA,NA,NA,NA,NA
+Individual Technique,Finger tapping,Peri,All,Intrusion symptoms,NA,yes,40,1,1,1,-0.01006," [-0.80, 0.78]",-0.024959113,0.980087576,NA,NA,NA,NA,NA
+Individual Technique,Hyperventilation provocation test (hvpt),Peri,All,Intrusion symptoms,NA,yes,65,1,1,1,0.56902," [-0.04, 1.18]",1.828530108,0.067470031,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers,Peri,All,Intrusion symptoms,NA,yes,65,1,1,1,-0.03632," [-0.63, 0.56]",-0.119043244,0.905241095,NA,NA,NA,NA,NA
+Individual Technique,Number counting,Peri,All,Intrusion symptoms,NA,yes,126,2,2,2,-0.036162082," [-0.82, 0.75]",-0.09036512,0.927997074,3.075246979,0.10946409,0.10946409,67.48228651,0.079492519
+Individual Technique,Broad vs. Narrow trauma belief,Pre,All,Intrusion symptoms,NA,no,293,1,1,1,0.14179," [-0.09, 0.37]",1.208926725,0.226690998,NA,NA,NA,NA,NA
+Individual Technique,Low vs. High resistance to proactive interference,Pre,All,Intrusion symptoms,NA,no,54,1,1,1,0.03228," [-0.50, 0.57]",0.118533228,0.905645169,NA,NA,NA,NA,NA
+Individual Technique,Positive vs. Negative cbm training,Pre,All,Intrusion symptoms,NA,no,52,1,1,1,0.22923," [-0.32, 0.78]",0.823180698,0.410405244,NA,NA,NA,NA,NA
+Individual Technique,Real vs. Fake trauma video,Pre,All,Intrusion symptoms,NA,no,85,1,1,2,-0.498423249," [-0.81, -0.19]",-3.150635909,0.001629154,0.014905433,0,6.47598E-12,1.29235E-08,0.902829477
+Individual Technique,Self efficacy,Pre,All,Intrusion symptoms,NA,no,113,1,1,2,-0.126885629," [-0.45, 0.19]",-0.776078104,0.437702871,0.017322252,0,8.00659E-12,1.4974E-08,0.895289591
+Individual Technique,Broad vs. Narrow trauma belief,Pre,All,Intrusion symptoms,NA,yes,293,1,1,1,0.14179," [-0.09, 0.37]",1.208926725,0.226690998,NA,NA,NA,NA,NA
+Individual Technique,Low vs. High resistance to proactive interference,Pre,All,Intrusion symptoms,NA,yes,54,1,1,1,0.03228," [-0.50, 0.57]",0.118533228,0.905645169,NA,NA,NA,NA,NA
+Individual Technique,Positive vs. Negative cbm training,Pre,All,Intrusion symptoms,NA,yes,52,1,1,1,0.22923," [-0.32, 0.78]",0.823180698,0.410405244,NA,NA,NA,NA,NA
+Individual Technique,Real vs. Fake trauma video,Pre,All,Intrusion symptoms,NA,yes,85,1,1,2,-0.498423249," [-0.81, -0.19]",-3.150635909,0.001629154,0.014905433,0,6.47598E-12,1.29235E-08,0.902829477
+Individual Technique,Self efficacy,Pre,All,Intrusion symptoms,NA,yes,113,1,1,2,-0.126885629," [-0.45, 0.19]",-0.776078104,0.437702871,0.017322252,0,8.00659E-12,1.4974E-08,0.895289591
+Individual Technique,Hydrocortisone,Delayed post,All,Intrusion-related distress,NA,no,65,1,1,2,-0.176162814," [-0.52, 0.17]",-1.0019969,0.31634509,0.126840447,0,6.74459E-12,1.091E-08,0.721730731
+Individual Technique,Pre-neutral vs. Pre-negative trauma reminder,Delayed post,All,Intrusion-related distress,NA,no,173,1,1,1,-0.11258," [-0.52, 0.30]",-0.53937524,0.589627962,NA,NA,NA,NA,NA
+Individual Technique,Pre-vs. Post-extinction using trauma reminder,Delayed post,All,Intrusion-related distress,NA,no,173,1,1,1,-0.17864," [-0.58, 0.22]",-0.873438126,0.382424317,NA,NA,NA,NA,NA
+Individual Technique,Sleep-directed hypnosis,Delayed post,All,Intrusion-related distress,NA,no,181,1,1,2,-0.069116186," [-0.28, 0.14]",-0.657058595,0.511143241,0.084457741,0,3.70963E-12,1.67629E-08,0.771344915
+Individual Technique,Trauma reminder + extinction vs. Extinction,Delayed post,All,Intrusion-related distress,NA,no,173,1,1,1,-0.02672," [-0.45, 0.39]",-0.125074993,0.90046418,NA,NA,NA,NA,NA
+Individual Technique,Hydrocortisone,Delayed post,All,Intrusion-related distress,NA,yes,65,1,1,2,-0.176162814," [-0.52, 0.17]",-1.0019969,0.31634509,0.126840447,0,6.74459E-12,1.091E-08,0.721730731
+Individual Technique,Pre-neutral vs. Pre-negative trauma reminder,Delayed post,All,Intrusion-related distress,NA,yes,173,1,1,1,-0.11258," [-0.52, 0.30]",-0.53937524,0.589627962,NA,NA,NA,NA,NA
+Individual Technique,Pre-vs. Post-extinction using trauma reminder,Delayed post,All,Intrusion-related distress,NA,yes,173,1,1,1,-0.17864," [-0.58, 0.22]",-0.873438126,0.382424317,NA,NA,NA,NA,NA
+Individual Technique,Sleep-directed hypnosis,Delayed post,All,Intrusion-related distress,NA,yes,181,1,1,2,-0.069116186," [-0.28, 0.14]",-0.657058595,0.511143241,0.084457741,0,3.70963E-12,1.67629E-08,0.771344915
+Individual Technique,Trauma reminder + extinction vs. Extinction,Delayed post,All,Intrusion-related distress,NA,yes,173,1,1,1,-0.02672," [-0.45, 0.39]",-0.125074993,0.90046418,NA,NA,NA,NA,NA
+Individual Technique,Deceptive placebo,Immediate + delayed post,All,Intrusion-related distress,NA,no,112,1,1,1,0.18885," [-0.26, 0.64]",0.821342103,0.411451432,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate + delayed post,All,Intrusion-related distress,NA,no,139,2,2,3,-0.370511874," [-0.67, -0.07]",-2.412825713,0.015829387,2.044813616,2.94322E-12,0.009276507,12.75371267,0.359728101
+Individual Technique,Non-film related rumination,Immediate + delayed post,All,Intrusion-related distress,NA,no,57,1,1,1,-0.62368," [-1.28, 0.04]",-1.851711667,0.064067238,NA,NA,NA,NA,NA
+Individual Technique,Open-label placebo,Immediate + delayed post,All,Intrusion-related distress,NA,no,112,1,1,1,0.57921," [0.11, 1.04]",2.439782049,0.014696125,NA,NA,NA,NA,NA
+Individual Technique,Deceptive placebo,Immediate + delayed post,All,Intrusion-related distress,NA,yes,112,1,1,1,0.18885," [-0.26, 0.64]",0.821342103,0.411451432,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate + delayed post,All,Intrusion-related distress,NA,yes,139,2,2,2,-0.209484175," [-0.57, 0.15]",-1.148930484,0.250584647,0.000109336,5.04223E-12,5.04223E-12,1.32472E-08,0.991657165
+Individual Technique,Non-film related rumination,Immediate + delayed post,All,Intrusion-related distress,NA,yes,57,1,1,1,-0.62368," [-1.28, 0.04]",-1.851711667,0.064067238,NA,NA,NA,NA,NA
+Individual Technique,Open-label placebo,Immediate + delayed post,All,Intrusion-related distress,NA,yes,112,1,1,1,0.57921," [0.11, 1.04]",2.439782049,0.014696125,NA,NA,NA,NA,NA
+Individual Technique,Bilateral eye movement,Immediate post,All,Intrusion-related distress,NA,no,66,1,1,1,0.70342," [0.21, 1.20]",2.771648685,0.005577319,NA,NA,NA,NA,NA
+Individual Technique,Block rehearsal + thought suppression,Immediate post,All,Intrusion-related distress,NA,no,120,1,1,1,0.16679," [-0.40, 0.73]",0.576767436,0.56409657,NA,NA,NA,NA,NA
+Individual Technique,Clay modeling,Immediate post,All,Intrusion-related distress,NA,no,41,1,1,1,-0.11839," [-1.00, 0.76]",-0.264492215,0.791400663,NA,NA,NA,NA,NA
+Individual Technique,Concrete processing,Immediate post,All,Intrusion-related distress,NA,no,83,1,1,2,-0.247872807," [-0.62, 0.13]",-1.292884448,0.196051027,0.611915136,0,2.57471E-12,3.50206E-09,0.434067638
+Individual Technique,Concrete processing vs. Film-related rumination,Immediate post,All,Intrusion-related distress,NA,no,83,1,1,2,0.075047012," [-0.30, 0.45]",0.396844033,0.691482478,0.13705418,0,6.18815E-12,8.65173E-09,0.711227299
+Individual Technique,Dog interaction film,Immediate post,All,Intrusion-related distress,NA,no,60,1,1,1,0.40112," [-0.22, 1.03]",1.255896511,0.209153494,NA,NA,NA,NA,NA
+Individual Technique,Exercise,Immediate post,All,Intrusion-related distress,NA,no,71,1,1,1,-0.07221," [-0.64, 0.50]",-0.247395682,0.804602015,NA,NA,NA,NA,NA
+Individual Technique,Extinction,Immediate post,All,Intrusion-related distress,NA,no,84,1,1,1,0.17862," [-0.28, 0.64]",0.755515891,0.449939501,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate post,All,Intrusion-related distress,NA,no,199,2,3,12,-0.13648776," [-0.30, 0.03]",-1.608178299,0.107796135,9.549537294,0.003474507,2.31642E-12,4.701481458,0.571302387
+Individual Technique,Guilt induction,Immediate post,All,Intrusion-related distress,NA,no,39,1,1,1,-1.8603," [-2.61, -1.11]",-4.8520496,1.22192E-06,NA,NA,NA,NA,NA
+Individual Technique,Hydrocortisone,Immediate post,All,Intrusion-related distress,NA,no,88,1,1,1,0.27399," [-0.27, 0.82]",0.991115829,0.321629025,NA,NA,NA,NA,NA
+Individual Technique,Hyperventilation provocation + thought suppression,Immediate post,All,Intrusion-related distress,NA,no,120,1,1,1,-0.19314," [-0.76, 0.37]",-0.667518691,0.504440874,NA,NA,NA,NA,NA
+Individual Technique,Imagery re-experience,Immediate post,All,Intrusion-related distress,NA,no,319,3,3,3,0.36908525," [-0.03, 0.76]",1.830158508,0.06722624,2.895220812,0.019911414,0.019911414,32.57972117,0.235131486
+Individual Technique,Imagery re-experience + eye movement,Immediate post,All,Intrusion-related distress,NA,no,174,1,2,2,-0.189251658," [-0.61, 0.23]",-0.88879259,0.374114559,0.000140031,1.8731E-07,1.8731E-07,0.000413031,0.990558482
+Individual Technique,Imagery re-experience + number counting,Immediate post,All,Intrusion-related distress,NA,no,174,1,2,2,-0.204496688," [-0.63, 0.22]",-0.948783387,0.342730793,0.05929668,2.49834E-13,2.49834E-13,5.34118E-10,0.807611039
+Individual Technique,Imagery rescripting,Immediate post,All,Intrusion-related distress,NA,no,219,2,2,3,0.404224412," [0.09, 0.72]",2.528180408,0.011465542,0.533112656,1.96773E-12,4.6708E-13,3.16222E-09,0.766012854
+Individual Technique,Imagery trauma elaboration,Immediate post,All,Intrusion-related distress,NA,no,106,1,1,1,0.14657," [-0.23, 0.53]",0.75349503,0.451152497,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers,Immediate post,All,Intrusion-related distress,NA,no,80,1,1,1,-0.06921," [-0.69, 0.55]",-0.218809076,0.826798777,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers + thought suppression,Immediate post,All,Intrusion-related distress,NA,no,200,2,2,2,0.001346009," [-0.83, 0.83]",0.00317944,0.997463178,3.826455583,0.132461841,0.132461841,73.86615425,0.050449511
+Individual Technique,Memory test,Immediate post,All,Intrusion-related distress,NA,no,52,1,1,2,0.212488219," [-0.08, 0.51]",1.405392346,0.159904642,0.066552495,0,4.46825E-12,9.77308E-09,0.796424116
+Individual Technique,Mindfulness vs. Muscle relaxation,Immediate post,All,Intrusion-related distress,NA,no,60,1,1,3,0.143720379," [-0.17, 0.46]",0.892896694,0.371912498,2.037056795,0,0.001539185,1.980297636,0.361125983
+Individual Technique,Number counting,Immediate post,All,Intrusion-related distress,NA,no,41,1,1,2,0.250056228," [-0.51, 1.01]",0.644541276,0.519224501,1.501114136,0,0.100490925,33.38281409,0.220500014
+Individual Technique,Oxytocin,Immediate post,All,Intrusion-related distress,NA,no,202,1,1,1,-0.08503," [-0.36, 0.19]",-0.604013875,0.545834417,NA,NA,NA,NA,NA
+Individual Technique,Past vs. Now verbal training,Immediate post,All,Intrusion-related distress,NA,no,96,1,1,1,-0.02213," [-0.31, 0.26]",-0.153308858,0.878154716,NA,NA,NA,NA,NA
+Individual Technique,Positive vs. Negative cbm training,Immediate post,All,Intrusion-related distress,NA,no,341,3,3,4,-0.086863437," [-0.30, 0.13]",-0.800749104,0.423276909,1.405807648,3.32039E-13,6.34272E-12,1.41456E-08,0.704173953
+Individual Technique,Propranolol,Immediate post,All,Intrusion-related distress,NA,no,88,1,1,1,0.77255," [0.21, 1.34]",2.679637856,0.007370185,NA,NA,NA,NA,NA
+Individual Technique,Prosocial behavior,Immediate post,All,Intrusion-related distress,NA,no,180,1,2,2,0.352672026," [0.06, 0.65]",2.347629779,0.01889329,0.009640523,2.45569E-12,2.45923E-12,1.08894E-08,0.921784469
+Individual Technique,Sad induction,Immediate post,All,Intrusion-related distress,NA,no,81,1,1,2,0.032131801," [-0.34, 0.41]",0.167972967,0.866604546,0.703011603,0,1.58865E-12,2.17073E-09,0.401773598
+Individual Technique,Self efficacy,Immediate post,All,Intrusion-related distress,NA,no,74,1,1,2,0.040610206," [-0.36, 0.44]",0.197662116,0.843309432,0.213664286,0,5.72251E-12,6.7718E-09,0.64391041
+Individual Technique,Sleep,Immediate post,All,Intrusion-related distress,NA,no,367,6,6,6,0.118137764," [-0.10, 0.34]",1.066197216,0.2863345,5.87072868,0.003057704,0.003057704,8.229831973,0.319001533
+Individual Technique,Social comparison,Immediate post,All,Intrusion-related distress,NA,no,120,1,1,3,0.360876915," [0.07, 0.66]",2.398815946,0.01644818,0.76622829,0,5.19071E-12,7.64448E-09,0.681735078
+Individual Technique,Tetris,Immediate post,All,Intrusion-related distress,NA,no,71,1,1,1,-0.22435," [-0.80, 0.35]",-0.766459717,0.443402812,NA,NA,NA,NA,NA
+Individual Technique,Therapy dog interaction,Immediate post,All,Intrusion-related distress,NA,no,60,1,1,1,0.22849," [-0.39, 0.85]",0.720208567,0.47139659,NA,NA,NA,NA,NA
+Individual Technique,Thought suppression,Immediate post,All,Intrusion-related distress,NA,no,200,2,2,2,-0.223494658," [-0.82, 0.38]",-0.729525697,0.465680155,2.012169902,0.047349308,0.047349308,50.30240743,0.156041995
+Individual Technique,Trauma re-exposure,Immediate post,All,Intrusion-related distress,NA,no,115,1,1,1,-0.04825," [-0.49, 0.40]",-0.212755394,0.831517758,NA,NA,NA,NA,NA
+Individual Technique,Trauma re-exposure + verbal update,Immediate post,All,Intrusion-related distress,NA,no,115,1,1,1,0.15152," [-0.30, 0.61]",0.650758081,0.515202664,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder +  visual stimulation imagery,Immediate post,All,Intrusion-related distress,NA,no,114,1,1,1,-0.32057," [-0.78, 0.14]",-1.379159947,0.167845444,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + d-corsi vs. Trauma reminder,Immediate post,All,Intrusion-related distress,NA,no,107,1,1,1,0.13008," [-0.35, 0.61]",0.535755328,0.59212766,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Immediate post,All,Intrusion-related distress,NA,no,167,2,2,2,0.272278089," [-0.08, 0.62]",1.51784997,0.129052225,0.959450039,6.77141E-11,6.76979E-11,2.09665E-07,0.327325479
+Individual Technique,Ve allocentric recognition memory task,Immediate post,All,Intrusion-related distress,NA,no,45,1,1,1,-0.34433," [-1.07, 0.38]",-0.936070769,0.349236752,NA,NA,NA,NA,NA
+Individual Technique,Ve egocentric recognition memory task,Immediate post,All,Intrusion-related distress,NA,no,45,1,1,1,0.3428," [-0.38, 1.06]",0.931970639,0.351351699,NA,NA,NA,NA,NA
+Individual Technique,Visual stimulation,Immediate post,All,Intrusion-related distress,NA,no,120,1,1,2,-0.096290946," [-0.50, 0.31]",-0.465321678,0.641701113,1.70165286,0,0.035314214,41.23362523,0.192071961
+Individual Technique,Visual stimulation imagery,Immediate post,All,Intrusion-related distress,NA,no,114,1,1,1,-0.23419," [-0.69, 0.22]",-1.016986885,0.309159669,NA,NA,NA,NA,NA
+Individual Technique,Writing-based rescripting,Immediate post,All,Intrusion-related distress,NA,no,119,1,1,1,0.54555," [0.04, 1.05]",2.108947737,0.034949093,NA,NA,NA,NA,NA
+Individual Technique,Block rehearsal + thought suppression,Immediate post,All,Intrusion-related distress,NA,yes,120,1,1,1,0.16679," [-0.40, 0.73]",0.576767436,0.56409657,NA,NA,NA,NA,NA
+Individual Technique,Clay modeling,Immediate post,All,Intrusion-related distress,NA,yes,41,1,1,1,-0.11839," [-1.00, 0.76]",-0.264492215,0.791400663,NA,NA,NA,NA,NA
+Individual Technique,Concrete processing,Immediate post,All,Intrusion-related distress,NA,yes,83,1,1,2,-0.247872807," [-0.62, 0.13]",-1.292884448,0.196051027,0.611915136,0,2.57471E-12,3.50206E-09,0.434067638
+Individual Technique,Concrete processing vs. Film-related rumination,Immediate post,All,Intrusion-related distress,NA,yes,83,1,1,2,0.075047012," [-0.30, 0.45]",0.396844033,0.691482478,0.13705418,0,6.18815E-12,8.65173E-09,0.711227299
+Individual Technique,Dog interaction film,Immediate post,All,Intrusion-related distress,NA,yes,60,1,1,1,0.40112," [-0.22, 1.03]",1.255896511,0.209153494,NA,NA,NA,NA,NA
+Individual Technique,Exercise,Immediate post,All,Intrusion-related distress,NA,yes,71,1,1,1,-0.07221," [-0.64, 0.50]",-0.247395682,0.804602015,NA,NA,NA,NA,NA
+Individual Technique,Extinction,Immediate post,All,Intrusion-related distress,NA,yes,84,1,1,1,0.17862," [-0.28, 0.64]",0.755515891,0.449939501,NA,NA,NA,NA,NA
+Individual Technique,Film-related rumination,Immediate post,All,Intrusion-related distress,NA,yes,199,2,3,12,-0.13648776," [-0.30, 0.03]",-1.608178299,0.107796135,9.549537294,0.003474507,2.31642E-12,4.701481458,0.571302387
+Individual Technique,Hydrocortisone,Immediate post,All,Intrusion-related distress,NA,yes,88,1,1,1,0.27399," [-0.27, 0.82]",0.991115829,0.321629025,NA,NA,NA,NA,NA
+Individual Technique,Hyperventilation provocation + thought suppression,Immediate post,All,Intrusion-related distress,NA,yes,120,1,1,1,-0.19314," [-0.76, 0.37]",-0.667518691,0.504440874,NA,NA,NA,NA,NA
+Individual Technique,Imagery re-experience,Immediate post,All,Intrusion-related distress,NA,yes,319,3,3,3,0.36908525," [-0.03, 0.76]",1.830158508,0.06722624,2.895220812,0.019911414,0.019911414,32.57972117,0.235131486
+Individual Technique,Imagery re-experience + eye movement,Immediate post,All,Intrusion-related distress,NA,yes,174,1,2,2,-0.189251658," [-0.61, 0.23]",-0.88879259,0.374114559,0.000140031,1.8731E-07,1.8731E-07,0.000413031,0.990558482
+Individual Technique,Imagery re-experience + number counting,Immediate post,All,Intrusion-related distress,NA,yes,174,1,2,2,-0.204496688," [-0.63, 0.22]",-0.948783387,0.342730793,0.05929668,2.49834E-13,2.49834E-13,5.34118E-10,0.807611039
+Individual Technique,Imagery rescripting,Immediate post,All,Intrusion-related distress,NA,yes,219,2,2,3,0.404224412," [0.09, 0.72]",2.528180408,0.011465542,0.533112656,1.96773E-12,4.6708E-13,3.16222E-09,0.766012854
+Individual Technique,Imagery trauma elaboration,Immediate post,All,Intrusion-related distress,NA,yes,106,1,1,1,0.14657," [-0.23, 0.53]",0.75349503,0.451152497,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers,Immediate post,All,Intrusion-related distress,NA,yes,80,1,1,1,-0.06921," [-0.69, 0.55]",-0.218809076,0.826798777,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers + thought suppression,Immediate post,All,Intrusion-related distress,NA,yes,200,2,2,2,0.001346009," [-0.83, 0.83]",0.00317944,0.997463178,3.826455583,0.132461841,0.132461841,73.86615425,0.050449511
+Individual Technique,Memory test,Immediate post,All,Intrusion-related distress,NA,yes,52,1,1,2,0.212488219," [-0.08, 0.51]",1.405392346,0.159904642,0.066552495,0,4.46825E-12,9.77308E-09,0.796424116
+Individual Technique,Mindfulness vs. Muscle relaxation,Immediate post,All,Intrusion-related distress,NA,yes,60,1,1,3,0.143720379," [-0.17, 0.46]",0.892896694,0.371912498,2.037056795,0,0.001539185,1.980297636,0.361125983
+Individual Technique,Number counting,Immediate post,All,Intrusion-related distress,NA,yes,41,1,1,2,0.250056228," [-0.51, 1.01]",0.644541276,0.519224501,1.501114136,0,0.100490925,33.38281409,0.220500014
+Individual Technique,Oxytocin,Immediate post,All,Intrusion-related distress,NA,yes,202,1,1,1,-0.08503," [-0.36, 0.19]",-0.604013875,0.545834417,NA,NA,NA,NA,NA
+Individual Technique,Past vs. Now verbal training,Immediate post,All,Intrusion-related distress,NA,yes,96,1,1,1,-0.02213," [-0.31, 0.26]",-0.153308858,0.878154716,NA,NA,NA,NA,NA
+Individual Technique,Positive vs. Negative cbm training,Immediate post,All,Intrusion-related distress,NA,yes,341,3,3,4,-0.086863437," [-0.30, 0.13]",-0.800749104,0.423276909,1.405807648,3.32039E-13,6.34272E-12,1.41456E-08,0.704173953
+Individual Technique,Prosocial behavior,Immediate post,All,Intrusion-related distress,NA,yes,180,1,2,2,0.352672026," [0.06, 0.65]",2.347629779,0.01889329,0.009640523,2.45569E-12,2.45923E-12,1.08894E-08,0.921784469
+Individual Technique,Sad induction,Immediate post,All,Intrusion-related distress,NA,yes,81,1,1,2,0.032131801," [-0.34, 0.41]",0.167972967,0.866604546,0.703011603,0,1.58865E-12,2.17073E-09,0.401773598
+Individual Technique,Self efficacy,Immediate post,All,Intrusion-related distress,NA,yes,74,1,1,2,0.040610206," [-0.36, 0.44]",0.197662116,0.843309432,0.213664286,0,5.72251E-12,6.7718E-09,0.64391041
+Individual Technique,Sleep,Immediate post,All,Intrusion-related distress,NA,yes,367,6,6,6,0.118137764," [-0.10, 0.34]",1.066197216,0.2863345,5.87072868,0.003057704,0.003057704,8.229831973,0.319001533
+Individual Technique,Social comparison,Immediate post,All,Intrusion-related distress,NA,yes,120,1,1,3,0.360876915," [0.07, 0.66]",2.398815946,0.01644818,0.76622829,0,5.19071E-12,7.64448E-09,0.681735078
+Individual Technique,Tetris,Immediate post,All,Intrusion-related distress,NA,yes,71,1,1,1,-0.22435," [-0.80, 0.35]",-0.766459717,0.443402812,NA,NA,NA,NA,NA
+Individual Technique,Therapy dog interaction,Immediate post,All,Intrusion-related distress,NA,yes,60,1,1,1,0.22849," [-0.39, 0.85]",0.720208567,0.47139659,NA,NA,NA,NA,NA
+Individual Technique,Thought suppression,Immediate post,All,Intrusion-related distress,NA,yes,200,2,2,2,-0.223494658," [-0.82, 0.38]",-0.729525697,0.465680155,2.012169902,0.047349308,0.047349308,50.30240743,0.156041995
+Individual Technique,Trauma re-exposure,Immediate post,All,Intrusion-related distress,NA,yes,115,1,1,1,-0.04825," [-0.49, 0.40]",-0.212755394,0.831517758,NA,NA,NA,NA,NA
+Individual Technique,Trauma re-exposure + verbal update,Immediate post,All,Intrusion-related distress,NA,yes,115,1,1,1,0.15152," [-0.30, 0.61]",0.650758081,0.515202664,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder +  visual stimulation imagery,Immediate post,All,Intrusion-related distress,NA,yes,114,1,1,1,-0.32057," [-0.78, 0.14]",-1.379159947,0.167845444,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + d-corsi vs. Trauma reminder,Immediate post,All,Intrusion-related distress,NA,yes,107,1,1,1,0.13008," [-0.35, 0.61]",0.535755328,0.59212766,NA,NA,NA,NA,NA
+Individual Technique,Trauma reminder + tetris vs. Trauma reminder,Immediate post,All,Intrusion-related distress,NA,yes,167,2,2,2,0.272278089," [-0.08, 0.62]",1.51784997,0.129052225,0.959450039,6.77141E-11,6.76979E-11,2.09665E-07,0.327325479
+Individual Technique,Ve allocentric recognition memory task,Immediate post,All,Intrusion-related distress,NA,yes,45,1,1,1,-0.34433," [-1.07, 0.38]",-0.936070769,0.349236752,NA,NA,NA,NA,NA
+Individual Technique,Ve egocentric recognition memory task,Immediate post,All,Intrusion-related distress,NA,yes,45,1,1,1,0.3428," [-0.38, 1.06]",0.931970639,0.351351699,NA,NA,NA,NA,NA
+Individual Technique,Visual stimulation,Immediate post,All,Intrusion-related distress,NA,yes,120,1,1,2,-0.096290946," [-0.50, 0.31]",-0.465321678,0.641701113,1.70165286,0,0.035314214,41.23362523,0.192071961
+Individual Technique,Visual stimulation imagery,Immediate post,All,Intrusion-related distress,NA,yes,114,1,1,1,-0.23419," [-0.69, 0.22]",-1.016986885,0.309159669,NA,NA,NA,NA,NA
+Individual Technique,Writing-based rescripting,Immediate post,All,Intrusion-related distress,NA,yes,119,1,1,1,0.54555," [0.04, 1.05]",2.108947737,0.034949093,NA,NA,NA,NA,NA
+Individual Technique,Conceptual processing,Peri,All,Intrusion-related distress,NA,no,211,1,1,1,-0.28185," [-0.75, 0.19]",-1.176054197,0.239573219,NA,NA,NA,NA,NA
+Individual Technique,Contextual information,Peri,All,Intrusion-related distress,NA,no,148,2,2,3,0.216895395," [-0.32, 0.76]",0.785234935,0.432315836,3.235115351,0.094865715,2.7397E-11,57.76756975,0.198382623
+Individual Technique,Data-driven processing,Peri,All,Intrusion-related distress,NA,no,211,1,1,1,-0.31231," [-0.78, 0.16]",-1.301661945,0.193031974,NA,NA,NA,NA,NA
+Individual Technique,Dissociation,Peri,All,Intrusion-related distress,NA,no,111,2,2,3,-0.3630842," [-0.74, 0.02]",-1.875055264,0.060785121,1.207241595,0.002816272,0,2.543898644,0.546828093
+Individual Technique,Emotional acceptance,Peri,All,Intrusion-related distress,NA,no,145,2,2,3,-0.024611602," [-0.37, 0.32]",-0.140520553,0.888248715,1.152886252,0,2.22725E-12,2.37774E-09,0.5618934
+Individual Technique,Emotional numbing,Peri,All,Intrusion-related distress,NA,no,56,1,1,2,-0.170257957," [-0.63, 0.29]",-0.730714228,0.464953723,0.002991988,0,3.05271E-12,2.81148E-09,0.956378213
+Individual Technique,Emotional suppression,Peri,All,Intrusion-related distress,NA,no,89,1,1,1,0.15268," [-0.45, 0.76]",0.492466874,0.622389334,NA,NA,NA,NA,NA
+Individual Technique,Finger tapping,Peri,All,Intrusion-related distress,NA,no,51,1,1,1,0.0975," [-0.58, 0.77]",0.284092508,0.776339488,NA,NA,NA,NA,NA
+Individual Technique,Hyperventilation provocation test (hvpt),Peri,All,Intrusion-related distress,NA,no,65,1,1,1,0.42601," [-0.18, 1.03]",1.380818509,0.167334771,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers,Peri,All,Intrusion-related distress,NA,no,65,1,1,1,-0.05932," [-0.66, 0.54]",-0.194403734,0.845859767,NA,NA,NA,NA,NA
+Individual Technique,Conceptual processing,Peri,All,Intrusion-related distress,NA,yes,211,1,1,1,-0.28185," [-0.75, 0.19]",-1.176054197,0.239573219,NA,NA,NA,NA,NA
+Individual Technique,Contextual information,Peri,All,Intrusion-related distress,NA,yes,148,2,2,3,0.216895395," [-0.32, 0.76]",0.785234935,0.432315836,3.235115351,0.094865715,2.7397E-11,57.76756975,0.198382623
+Individual Technique,Data-driven processing,Peri,All,Intrusion-related distress,NA,yes,211,1,1,1,-0.31231," [-0.78, 0.16]",-1.301661945,0.193031974,NA,NA,NA,NA,NA
+Individual Technique,Dissociation,Peri,All,Intrusion-related distress,NA,yes,111,2,2,3,-0.3630842," [-0.74, 0.02]",-1.875055264,0.060785121,1.207241595,0.002816272,0,2.543898644,0.546828093
+Individual Technique,Emotional acceptance,Peri,All,Intrusion-related distress,NA,yes,145,2,2,3,-0.024611602," [-0.37, 0.32]",-0.140520553,0.888248715,1.152886252,0,2.22725E-12,2.37774E-09,0.5618934
+Individual Technique,Emotional numbing,Peri,All,Intrusion-related distress,NA,yes,56,1,1,2,-0.170257957," [-0.63, 0.29]",-0.730714228,0.464953723,0.002991988,0,3.05271E-12,2.81148E-09,0.956378213
+Individual Technique,Emotional suppression,Peri,All,Intrusion-related distress,NA,yes,89,1,1,1,0.15268," [-0.45, 0.76]",0.492466874,0.622389334,NA,NA,NA,NA,NA
+Individual Technique,Finger tapping,Peri,All,Intrusion-related distress,NA,yes,51,1,1,1,0.0975," [-0.58, 0.77]",0.284092508,0.776339488,NA,NA,NA,NA,NA
+Individual Technique,Hyperventilation provocation test (hvpt),Peri,All,Intrusion-related distress,NA,yes,65,1,1,1,0.42601," [-0.18, 1.03]",1.380818509,0.167334771,NA,NA,NA,NA,NA
+Individual Technique,Memorize numbers,Peri,All,Intrusion-related distress,NA,yes,65,1,1,1,-0.05932," [-0.66, 0.54]",-0.194403734,0.845859767,NA,NA,NA,NA,NA
+Individual Technique,Anodal tdcs,Pre,All,Intrusion-related distress,NA,no,118,1,1,1,-0.4689," [-0.96, 0.02]",-1.862811348,0.062488813,NA,NA,NA,NA,NA
+Individual Technique,Attachment priming,Pre,All,Intrusion-related distress,NA,no,99,1,1,2,0.467307423," [0.07, 0.87]",2.292287778,0.021889043,0.209298087,0,5.47008E-12,6.57817E-09,0.647318113
+Individual Technique,Cathodal tdcs,Pre,All,Intrusion-related distress,NA,no,118,1,1,1,-0.16962," [-0.67, 0.33]",-0.669840682,0.502959357,NA,NA,NA,NA,NA
+Individual Technique,Cold vs. Warm water stress,Pre,All,Intrusion-related distress,NA,no,63,1,1,2,-0.331075575," [-0.68, 0.02]",-1.83973837,0.065806657,0.018724429,0,7.76777E-12,1.19929E-08,0.891159452
+Individual Technique,Concrete processing,Pre,All,Intrusion-related distress,NA,no,64,1,1,1,-0.04685," [-0.54, 0.44]",-0.187278578,0.851442218,NA,NA,NA,NA,NA
+Individual Technique,Losartan,Pre,All,Intrusion-related distress,NA,no,40,1,1,1,0.30264," [-0.32, 0.93]",0.951602031,0.341298851,NA,NA,NA,NA,NA
+Individual Technique,Low vs. High resistance to proactive interference,Pre,All,Intrusion-related distress,NA,no,54,1,1,1,-0.06479," [-0.60, 0.47]",-0.237833474,0.812010255,NA,NA,NA,NA,NA
+Individual Technique,Nicotine,Pre,All,Intrusion-related distress,NA,no,54,1,1,1,0.25541," [-0.31, 0.82]",0.888664037,0.374183665,NA,NA,NA,NA,NA
+Individual Technique,Oxytocin,Pre,All,Intrusion-related distress,NA,no,300,2,2,3,-0.065662083," [-0.29, 0.16]",-0.568098195,0.569968294,0.245882137,2.69859E-12,2.61965E-12,9.88605E-09,0.884315775
+Individual Technique,Positive vs. Negative cbm training,Pre,All,Intrusion-related distress,NA,no,147,3,3,5,0.647537105," [0.38, 0.92]",4.676944674,2.91181E-06,0.148815871,6.28684E-12,0,6.54452E-09,0.997365294
+Individual Technique,Sad induction,Pre,All,Intrusion-related distress,NA,no,81,1,1,2,0.241063673," [-0.13, 0.62]",1.257742578,0.208484868,0.000646948,0,6.86586E-12,9.34512E-09,0.979707861
+Individual Technique,Self efficacy,Pre,All,Intrusion-related distress,NA,no,113,1,1,2,-0.133145105," [-0.45, 0.19]",-0.814287141,0.415480475,0.01136144,0,4.31395E-12,8.06647E-09,0.915114209
+Individual Technique,Anodal tdcs,Pre,All,Intrusion-related distress,NA,yes,118,1,1,1,-0.4689," [-0.96, 0.02]",-1.862811348,0.062488813,NA,NA,NA,NA,NA
+Individual Technique,Attachment priming,Pre,All,Intrusion-related distress,NA,yes,99,1,1,2,0.467307423," [0.07, 0.87]",2.292287778,0.021889043,0.209298087,0,5.47008E-12,6.57817E-09,0.647318113
+Individual Technique,Cathodal tdcs,Pre,All,Intrusion-related distress,NA,yes,118,1,1,1,-0.16962," [-0.67, 0.33]",-0.669840682,0.502959357,NA,NA,NA,NA,NA
+Individual Technique,Cold vs. Warm water stress,Pre,All,Intrusion-related distress,NA,yes,63,1,1,2,-0.331075575," [-0.68, 0.02]",-1.83973837,0.065806657,0.018724429,0,7.76777E-12,1.19929E-08,0.891159452
+Individual Technique,Concrete processing,Pre,All,Intrusion-related distress,NA,yes,64,1,1,1,-0.04685," [-0.54, 0.44]",-0.187278578,0.851442218,NA,NA,NA,NA,NA
+Individual Technique,Losartan,Pre,All,Intrusion-related distress,NA,yes,40,1,1,1,0.30264," [-0.32, 0.93]",0.951602031,0.341298851,NA,NA,NA,NA,NA
+Individual Technique,Low vs. High resistance to proactive interference,Pre,All,Intrusion-related distress,NA,yes,54,1,1,1,-0.06479," [-0.60, 0.47]",-0.237833474,0.812010255,NA,NA,NA,NA,NA
+Individual Technique,Nicotine,Pre,All,Intrusion-related distress,NA,yes,54,1,1,1,0.25541," [-0.31, 0.82]",0.888664037,0.374183665,NA,NA,NA,NA,NA
+Individual Technique,Oxytocin,Pre,All,Intrusion-related distress,NA,yes,300,2,2,3,-0.065662083," [-0.29, 0.16]",-0.568098195,0.569968294,0.245882137,2.69859E-12,2.61965E-12,9.88605E-09,0.884315775
+Individual Technique,Positive vs. Negative cbm training,Pre,All,Intrusion-related distress,NA,yes,147,3,3,5,0.647537105," [0.38, 0.92]",4.676944674,2.91181E-06,0.148815871,6.28684E-12,0,6.54452E-09,0.997365294
+Individual Technique,Sad induction,Pre,All,Intrusion-related distress,NA,yes,81,1,1,2,0.241063673," [-0.13, 0.62]",1.257742578,0.208484868,0.000646948,0,6.86586E-12,9.34512E-09,0.979707861
+Individual Technique,Self efficacy,Pre,All,Intrusion-related distress,NA,yes,113,1,1,2,-0.133145105," [-0.45, 0.19]",-0.814287141,0.415480475,0.01136144,0,4.31395E-12,8.06647E-09,0.915114209

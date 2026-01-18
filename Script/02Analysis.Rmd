@@ -1,0 +1,919 @@
+---
+title: "Verification of Varma et al. (2024)"
+subtitle: "Analysis"
+author: "Original code by authors of Varma et al. (2024). Additions by Ian Hussey, Saein Lee & Martin Götz"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_download: true
+    code_folding: hide
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+# TODO 
+
+- setwd()s to be removed
+
+# Dependencies
+
+```{r}
+
+library(metafor)
+library(papaja)
+
+options(scipen=999)
+
+```
+
+# Data and dirs
+
+```{r}
+
+date = "20260119"
+dataPath = paste0("../Results/OutlierInfluential/Data/",date) # where you store
+# your calculated data (with influential cases or outliers) from last step
+outputPath <- file.path("../Results/") # set up your output path
+
+runlist = list.files(dataPath)
+
+```
+
+# Functions
+
+```{r}
+
+#returns a template of df to store the results of all moderator analyses
+getTemplate_MainAnalysis <- function(){
+  df_temp = data.frame(
+    Analysis = character(),
+    Prediction = character(),
+    Outcome = character(),
+    Suboutcome = character(),
+    OutlierRemove = character(),
+    N = character(),
+    j = character(),
+    n = character(),
+    k = character(),
+    Hedgesg = character(),
+    CI = character(),
+    z = character(),
+    p = character(),
+    Q = character(),
+    tau2.studylevel =character(),
+    tau2.outcomelevel = character(),
+    I2 = character(),
+    Q.pval = character(),
+    
+    stringsAsFactors = FALSE
+  )
+  
+  return(df_temp)
+}
+
+getTemplate_ModAnalysis <- function(){
+  df_temp = data.frame(
+    Analysis = character(),
+    Prediction = character(),
+    Outcome = character(),
+    Suboutcome = character(),
+    OutlierRemove = character(),
+    N = character(),
+    j = character(),
+    n = character(),
+    k = character(),
+    Hedgesg = character(),
+    CI = character(),
+    QM = character(),
+    z = character(),
+    p = character(),
+    
+    stringsAsFactors = FALSE
+  )
+  
+  return(df_temp)
+}
+
+getTemplate_FocalAnalysis <- function(){
+  df_temp = data.frame(
+    Analysis = character(),
+    Analysis_levels = character(),
+    Prediction = character(),
+    Outcome = character(),
+    Suboutcome = character(),
+    OutlierRemove = character(),
+    N = character(),
+    j = character(),
+    n = character(),
+    k = character(),
+    Hedgesg = character(),
+    CI = character(),
+    z = character(),
+    p = character(),
+    Q = character(),
+    tau2.studylevel =character(),
+    tau2.outcomelevel = character(),
+    I2 = character(),
+    Q.pval = character(),
+    
+    stringsAsFactors = FALSE
+  )
+  
+  return(df_temp)
+}
+
+
+# returns a dataframe which containing variables of a single moderator analysis - Q, tau2, I2
+# analysisName: strings for your analysis. It won't influence the results
+# file: the file name of data that used to do the analysis e.g., ".csv"
+# modformula: model formula to use (as string)
+# modMain: 1 = main analysis, 2 = moderation analysis, 3 = focal analysis
+# modFactor: column name for the moderation analysis (as string)
+# *modType: if modMain = 2, you must specify if your moderator is continuous or categorical
+# *modType: 1 = categorical, 2 = continuous
+# outlier: T = remove outlier; F = retain outlier
+# optimizer_name: which optimizer to use; default is "nlminb", if cannot converge, automatically change to "optim" 
+
+getTable_Mod <- function(analysisName,file,modformula,modMain = 1,modFactor = NULL,focalColumnName,
+                         modType = NULL,outlier = F,optimizer_name = "nlminb") {
+  
+  require(forstringr)
+  df = read.csv(file)
+  
+  # if run moderation analysis on "Step3a_Hypothesized_mechanism", remove "Other" category
+  if (modMain == 2){
+    if (modFactor == "Step4_Hypothesized_mechanism" & modType==1) {
+      df = df[!(grepl("Other",df[,modFactor])|grepl("other",df[,modFactor])),]
+    }
+  }
+  
+  
+  # Extract the name for this analysis
+  separate_name = unlist(strsplit(file,"_"))
+  temp_name = separate_name[grepl("IntrusionEffectSizes",separate_name)] #prediction
+  temp_name_Outcome = str_split_i(file,"_",4)
+  
+  if (grepl("Intrusion frequency_Intrusion diary",file)) {
+    suboutcomeName = "Intrusion diary"
+  }else if (grepl("Intrusion frequency_Self-report questionnaire",file)) {
+    suboutcomeName = "Self-report questionnaire"
+  }else if (grepl("Intrusion frequency_Lab-based intrusion monitoring task",file)) {
+    suboutcomeName = "Lab-based intrusion monitoring task"
+  }else{
+    suboutcomeName = NA
+    
+  }
+  
+  
+  
+  df = subset(df,!is.na(df$yi_pos)) # remove missing ESs
+  
+  
+  optimizer = list(optimizer=optimizer_name)
+  optimizer2 =  list(optimizer="optim")
+  
+  # if remove outlier
+  if (outlier) {
+    outlierInd = which(df$outliers==1 | df$cooks_inf==1 | df$DFBETAS_inf==1)
+    if (length(outlierInd)!=0) {
+      df = df[-outlierInd,]
+    }
+  }
+  
+  # main analysis preparation
+  if (is.null(modType) & is.null(modFactor) & modMain == 1){
+    metaObject = rma.mv(yi=yi_pos, V = vi, data=df, random = formula(modformula),control = optimizer)
+    currentdf=getTemplate_MainAnalysis()
+    
+    # focal analysis preparation
+  } else if(is.null(modType) & is.null(modFactor) & modMain == 3) {
+    modFactor_prep = as.factor(df[,which(names(df) == focalColumnName)])
+    currentdf = getTemplate_FocalAnalysis()
+    
+    # moderation analysis with categorical moderator
+  }else if (modMain == 2 & modType == 1) { 
+    modFactor_prep = df[,which(names(df) == modFactor)]
+    change_optimizer = F
+    metaObject = try(rma.mv(yi=yi_pos, V = vi, data=df, mods = ~factor(modFactor_prep), random = formula(modformula),control = optimizer),silent = T)
+    meta_mod = try(rma.mv(yi=yi_pos, V = vi, data=df, mods = ~factor(modFactor_prep)-1, random = formula(modformula),control = optimizer),silent = T)
+    if("try-error" %in% class(meta_mod) | "try-error" %in% class(metaObject)) {
+      metaObject <- try(rma.mv(yi=yi_pos, V = vi, data=df,mods = ~factor(modFactor_prep), random = formula(modformula),control = optimizer2),silent = T)
+      change_optimizer = T
+    }
+    currentdf=getTemplate_ModAnalysis()
+    
+    # moderation analysis with continuous moderator
+  } else if (modMain == 2 & modType == 2) {
+    df[grepl("Not",df[,which(names(df) == modFactor)]),which(names(df) == modFactor)]<-NA # assign NA to those not providing any info
+    df = df[!is.na(df[,which(names(df) == modFactor)]),] # remove those with NA 
+    modFactor_prep = as.numeric(df[,which(names(df) == modFactor)])
+    metaObject = try(rma.mv(yi=yi_pos, V = vi, data=df, mods = ~modFactor_prep, random = formula(modformula),control = optimizer),silent = T)
+    change_optimizer = F
+    if("try-error" %in% class(metaObject)) {
+      metaObject <- try(rma.mv(yi=yi_pos, V = vi, data=df,mods = ~modFactor_prep, random = formula(modformula),control = optimizer2),silent = T)
+      change_optimizer = T
+    }
+    currentdf=getTemplate_ModAnalysis()
+  }
+  
+  
+  if (modMain != 3) {
+    currentdf[1,"Prediction"] = str_extract_part(temp_name, before = TRUE, pattern = "IntrusionEffectSizes")
+    currentdf[1,"Outcome"] = temp_name_Outcome
+    currentdf[1,"Suboutcome"] = suboutcomeName
+    currentdf[1,"OutlierRemove"] = ifelse(outlier,"yes","no")
+    
+  }
+  # if (modMain == 3) {
+  #   currentdf[1,"Prediction"] = substring(temp_name,1,nchar(temp_name)-20)
+  #   currentdf[1,"Outcome"] = temp_name_Outcome
+  #   currentdf[1,"Suboutcome"] = suboutcomeName
+  #   currentdf[1,"OutlierRemove"] = ifelse(outlier,"yes","no")
+  # 
+  # }
+  
+  # Organize for main analysis
+  if (modMain == 1 & is.null(modType) & is.null(modFactor)) {
+    
+    ### study and outcome level I^2
+    sav <- confint(metaObject)
+    W <- diag(1/df$vi)
+    X <- model.matrix(metaObject)
+    P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
+    # print(100 * meta$sigma2 / (meta$sigma2 + (meta$k-meta$p)/sum(diag(P)))) ### study and outcome level I^2
+    # 
+    # print(100 * sav[[1]]$random[1,2:3] / (sav[[1]]$random[1,2:3] + (meta$k-meta$p)/sum(diag(P)))) ### CI for study level I^2
+    # print(100 * sav[[2]]$random[1,2:3] / (sav[[2]]$random[1,2:3] + (meta$k-meta$p)/sum(diag(P)))) ### CI for outcome level I^2
+    
+    #calculation of the total I^2
+    total_I2 <- 100 * sum(metaObject$sigma2) / (sum(metaObject$sigma2) + (metaObject$k-metaObject$p)/sum(diag(P))) ### total I^2
+    options(digits=3) #sets all output to 3 decimal places
+    
+    # Compute N participant size
+    sampleSize = 0
+    df_noNA = df[!is.na(df$yi_pos),]
+    for (thisID in unique(df_noNA$StudyID)){
+      thisSampleSize = subset(df_noNA,StudyID == thisID)$SampleSize[1]
+      # print(thisSampleSize)
+      sampleSize = sampleSize + thisSampleSize
+    }
+    
+    # Create results df
+    currentdf[1,"Analysis"] = analysisName
+    currentdf[1,"N"] = sampleSize
+    currentdf[1,"j"] = length(unique(df_noNA$ArticleID))
+    currentdf[1,"n"] = length(unique(df_noNA$StudyID))
+    currentdf[1,"k"] = as.character(nrow(df_noNA))
+    currentdf[1,"Hedgesg"] = metaObject$beta
+    cilb = formatC(metaObject$ci.lb,2,format="f")
+    ciub = formatC(metaObject$ci.ub,2,format="f")
+    currentdf[1,"CI"] = paste(" [",cilb,", ",ciub,"]",sep="")
+    currentdf[1,"z"] = metaObject$zval
+    currentdf[1,"p"] = metaObject$pval
+    currentdf[1,"Q"] = metaObject$QE
+    currentdf[1,"tau2.studylevel"] = metaObject$sigma2[1]
+    currentdf[1,"tau2.outcomelevel"] = metaObject$sigma2[2]
+    currentdf[1,"I2"] = total_I2
+    currentdf[1,"Q.pval"] = metaObject$QEp
+    
+    # names(currentdf)<-c("Analysis","Prediction","Outcome","Suboutcome","OutlierRemove","N","n","k","Hedge's g","95% CI","z","p","p")
+    
+    # ------- Organize for focal analysis ------- 
+  }else if (modMain == 3 & is.null(modType) & is.null(modFactor)) {
+    row = 0
+    if (nlevels(modFactor_prep)!=0) {
+      for (i in 1:nlevels(modFactor_prep)){
+        tempdf = subset(df,modFactor_prep == levels(modFactor_prep)[i])
+        
+        
+        # Calculate sample size by summing the sample size of each studyID
+        sampleSize = 0
+        tempdf_noNA = tempdf[!is.na(tempdf$yi_pos),]
+        for (thisID in unique(tempdf_noNA$StudyID)){
+          thisSampleSize = subset(tempdf_noNA,StudyID == thisID)$SampleSize[1]
+          sampleSize = sampleSize + thisSampleSize
+        }
+        
+        
+        #Calculate sample size 
+        if (dim(tempdf)[1]==1){
+          currentdf[1+row,"Analysis"] = analysisName
+          currentdf[1+row,"Prediction"] = str_extract_part(temp_name, before = TRUE, pattern = "IntrusionEffectSizes")
+          currentdf[1+row,"Outcome"] = temp_name_Outcome
+          currentdf[1+row,"Suboutcome"] = suboutcomeName
+          currentdf[1+row,"OutlierRemove"] = ifelse(outlier,"yes","no")
+          currentdf[1+row,"Analysis_levels"] = levels(modFactor_prep)[i]
+          currentdf[1+row,"N"] = sampleSize
+          currentdf[1+row,"j"] = length(unique(tempdf_noNA$ArticleID))
+          currentdf[1+row,"n"] = length(unique(tempdf_noNA$StudyID))
+          currentdf[1+row,"k"] = as.character(nrow(tempdf_noNA))
+          currentdf[1+row,"Hedgesg"] = tempdf$yi_pos
+          cilb = formatC(tempdf$Lower.Limit,2,format="f")
+          ciub = formatC(tempdf$Upper.Limit,2,format="f")
+          currentdf[1+row,"CI"] = paste(" [",cilb,", ",ciub,"]",sep="")
+          currentdf[1+row,"z"] = tempdf$Z.value
+          currentdf[1+row,"p"] = tempdf$p.value
+          currentdf[1+row,"Q"] = NA
+          currentdf[1+row,"tau2.studylevel"] = NA
+          currentdf[1+row,"tau2.outcomelevel"] = NA
+          currentdf[1+row,"I2"] = NA
+          currentdf[1+row,"Q.pval"] = NA
+          row = row +1
+        } else { # if there is only 1 article, move to next iteration
+          metaObject = NULL
+          
+          # Run random model for each level in focal columns names
+          metaObject <- try(rma.mv(yi=yi_pos, V = vi, data=tempdf, random = formula(modformula),control = optimizer),silent = T)
+          if("try-error" %in% class(metaObject)) {
+            metaObject <- try(rma.mv(yi=yi_pos, V = vi, data=tempdf, random = formula(modformula),control = optimizer2),silent = T)
+          }
+          
+          sav <- confint(metaObject)
+          W <- diag(1/tempdf$vi)
+          X <- model.matrix(metaObject)
+          P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
+          # print(100 * meta$sigma2 / (meta$sigma2 + (meta$k-meta$p)/sum(diag(P)))) ### study and outcome level I^2
+          # 
+          # print(100 * sav[[1]]$random[1,2:3] / (sav[[1]]$random[1,2:3] + (meta$k-meta$p)/sum(diag(P)))) ### CI for study level I^2
+          # print(100 * sav[[2]]$random[1,2:3] / (sav[[2]]$random[1,2:3] + (meta$k-meta$p)/sum(diag(P)))) ### CI for outcome level I^2
+          
+          #calculation of the total I^2
+          total_I2 <- 100 * sum(metaObject$sigma2) / (sum(metaObject$sigma2) + (metaObject$k-metaObject$p)/sum(diag(P))) ### total I^2
+          options(digits=3) #sets all output to 3 decimal places
+          
+          currentdf[1+row,"Analysis"] = analysisName
+          currentdf[1+row,"Prediction"] = str_extract_part(temp_name, before = TRUE, pattern = "IntrusionEffectSizes")
+          currentdf[1+row,"Outcome"] = temp_name_Outcome
+          currentdf[1+row,"Suboutcome"] = suboutcomeName
+          currentdf[1+row,"OutlierRemove"] = ifelse(outlier,"yes","no")
+          currentdf[1+row,"Analysis_levels"] = levels(modFactor_prep)[i]
+          currentdf[1+row,"N"] = sampleSize
+          currentdf[1+row,"j"] = length(unique(tempdf_noNA$ArticleID))
+          currentdf[1+row,"n"] = length(unique(tempdf_noNA$StudyID))
+          currentdf[1+row,"k"] = as.character(nrow(tempdf_noNA))
+          currentdf[1+row,"Hedgesg"] = metaObject$beta
+          cilb = formatC(metaObject$ci.lb,2,format="f")
+          ciub = formatC(metaObject$ci.ub,2,format="f")
+          currentdf[1+row,"CI"] = paste(" [",cilb,", ",ciub,"]",sep="")
+          currentdf[1+row,"z"] = metaObject$zval
+          currentdf[1+row,"p"] = metaObject$pval
+          currentdf[1+row,"Q"] = metaObject$QE
+          currentdf[1+row,"tau2.studylevel"] = metaObject$sigma2[1]
+          currentdf[1+row,"tau2.outcomelevel"] = metaObject$sigma2[2]
+          currentdf[1+row,"I2"] = total_I2
+          currentdf[1+row,"Q.pval"] = metaObject$QEp
+          row = row +1
+        }
+      }
+    }
+    
+    
+  }else if (modMain == 2 & modType == 1) { # moderation analysis with categorical moderator
+    currentdf[1,"Analysis"] = analysisName
+    currentdf[1,"QM"] = formatC(metaObject$QM,3,format="f")
+    currentdf[1,"p"] = formatC(metaObject$QMp,3,format="f")
+    
+    #without reference level ( this is to get the individual p value for each mod level (H0：beta = 0))
+    if (change_optimizer) {
+      meta_mod <- rma.mv(yi=yi_pos, V = vi, data=df, mods = ~factor(modFactor_prep)-1, random = formula(modformula),control = optimizer2)
+    }else{
+      meta_mod = rma.mv(yi=yi_pos, V = vi, data=df, mods = ~factor(modFactor_prep)-1, random = formula(modformula),control = optimizer)
+    }
+    
+    modFactor_prep=as.factor(modFactor_prep)
+    # print(meta_mod)
+    for (i in 1:nlevels(modFactor_prep)){
+      currentdf[1+i,"Analysis"] = levels(modFactor_prep)[i]
+      #create a subset with only the current level of modFactor
+      tempdf = subset(df,modFactor_prep == levels(modFactor_prep)[i])
+      
+      #Calculate sample size by summing the sample size of each studyID
+      sampleSize = 0
+      tempdf_noNA = tempdf[!is.na(tempdf$yi_pos),]
+      for (thisID in unique(tempdf_noNA$StudyID)){
+        thisSampleSize = subset(tempdf_noNA,StudyID == thisID)$SampleSize[1]
+        sampleSize = sampleSize + thisSampleSize
+      }
+      
+      currentdf[1+i,"Prediction"] = str_extract_part(temp_name, before = TRUE, pattern = "IntrusionEffectSizes")
+      currentdf[1+i,"Outcome"] = temp_name_Outcome
+      currentdf[1+i,"Suboutcome"] = suboutcomeName
+      currentdf[1+i,"OutlierRemove"] = ifelse(outlier,"yes","no")
+      currentdf[1+i,"N"] = sampleSize
+      currentdf[1+i,"j"] = length(unique(tempdf_noNA$ArticleID))
+      currentdf[1+i,"n"] = length(unique(tempdf_noNA$StudyID))
+      currentdf[1+i,"k"] = as.character(nrow(tempdf_noNA))
+      currentdf[1+i,"Hedgesg"] = formatC(meta_mod$beta[i],2,format="f")
+      cilb = formatC(meta_mod$ci.lb[i],2,format="f")
+      ciub = formatC(meta_mod$ci.ub[i],2,format="f")
+      currentdf[1+i,"CI"] = paste(" [",cilb,", ",ciub,"]",sep="")
+      currentdf[1+i,"z"] = formatC(meta_mod$zval[i],6,format="f")
+      currentdf[1+i,"p"] = formatC(meta_mod$pval[i],6,format="f")
+      
+    }
+    # names(currentdf)<-c("Analysis","Prediction","Outcome","Suboutcome","OutlierRemove","N","n","k","Hedge's g","95% CI","Q","Z","p")
+    
+  }else if (modMain == 2 & modType == 2) { # moderation analysis with continuous moderator
+    currentdf[1,"QM"] = formatC(metaObject$QM,3,format="f")
+    currentdf[1,"p"] = formatC(metaObject$QMp,3,format="f")
+    currentdf[1,"Analysis"] = analysisName
+    
+    #Calculate sample size by summing the sample size of each studyID
+    sampleSize = 0
+    df_noNA = df[!is.na(df$yi_pos),]
+    for (thisID in unique(df_noNA$StudyID)){
+      thisSampleSize = subset(df_noNA,StudyID == thisID)$SampleSize[1]
+      sampleSize = sampleSize + thisSampleSize
+    }
+    
+    # Store the information for continuous moderator
+    currentdf[2,"Prediction"] = str_extract_part(temp_name, before = TRUE, pattern = "IntrusionEffectSizes")
+    currentdf[2,"Outcome"] = temp_name_Outcome
+    currentdf[2,"Suboutcome"] = suboutcomeName
+    currentdf[2,"OutlierRemove"] = ifelse(outlier,"yes","no")
+    currentdf[2,"Analysis"] = modFactor
+    currentdf[2,"N"] = sampleSize
+    currentdf[2,"j"] = length(unique(df_noNA$ArticleID))
+    currentdf[2,"n"] = length(unique(df_noNA$StudyID))
+    currentdf[2,"k"] = as.character(nrow(df_noNA))
+    currentdf[2,"Hedgesg"] = formatC(metaObject$beta[2],2,format="f")
+    cilb = formatC(metaObject$ci.lb[2],2,format="f")
+    ciub = formatC(metaObject$ci.ub[2],2,format="f")
+    currentdf[2,"CI"] = paste(" [",cilb,", ",ciub,"]",sep="")
+    currentdf[2,"z"] = formatC(metaObject$zval[2],6,format="f")
+    currentdf[2,"p"] = formatC(metaObject$pval[2],6,format="f")
+    
+    # names(currentdf)<-c("Analysis","Prediction","Outcome","Suboutcome","OutlierRemove","N","n","k","Hedge's g","95% CI","Q","Z","p")
+    
+  }
+  
+  
+  return(currentdf)
+}
+
+```
+
+# Whole sample
+
+## Main analysis
+
+```{r}
+
+modMain = 1 # conduct main analysis
+modformula = "~1 | StudyID/EffectSizeID" # this is the random model we use
+date = "20240408"
+dir.create(paste0(outputPath,"MainAnalysis/"))
+MainOutputPath = paste0(outputPath,"MainAnalysis/",date,"/")
+dir.create(MainOutputPath, showWarnings = FALSE)
+
+
+meta_all = data.frame()
+for (i in runlist) {
+  temp = getTable_Mod(file = i,analysisName = "Main Analysis", 
+                      modMain = modMain,  modformula= modformula,
+                      outlier = F)
+  temp_out = getTable_Mod(file = i,analysisName = "Main Analysis", 
+                          modMain = modMain,  modformula= modformula,
+                          outlier = T)
+  meta_all = rbind(meta_all,temp,temp_out)
+}
+
+write.csv(meta_all, paste0(MainOutputPath,"/Results_Multilevel_Meta-Analysis_",date,".csv"),row.names = F)
+
+```
+
+## Moderation analysis
+
+Across entire dataset
+
+```{r}
+
+# parameter to use
+modformula = "~1 | StudyID/EffectSizeID" # this is the random model we use
+modMain = 2 # conduct moderation analysis
+# modFactor = "Level2_final"  #moderator name
+cat_mod = 1 #categorical moderator
+con_mod = 2  #continuous moderator
+# outlier = T
+date = "20240408"
+dir.create(paste0(outputPath,"ModerationAnalysis/"),showWarnings = F)
+dir.create(paste0(outputPath,"ModerationAnalysis/",date),showWarnings = F)
+ModOutputPath = paste0(outputPath,"ModerationAnalysis/",date,"/NoSubset/")
+dir.create(ModOutputPath,showWarnings = F)
+
+moderation_category_runlist = c("Step3_Technique_procedure","Step4_Hypothesized_mechanism",          
+                                "Step4a_Direct_Indirect_involvement" , "Step4b_Task_Instruction",
+                                "TraumaStimuliType","ComparisonType","StudyDesign","ModeOfMeasurement","TimeOfManipulation",
+                                "Physio_binary", "PublicationStatus","Country_RegionofOrigin", "Continent")
+moderation_continuous_runlist = c("MeanAge","FemaleRatio")
+
+for (i in runlist) {
+  all =  data.frame()
+  
+  # load data to later check if the moderation level is larger than 2
+  check = read.csv(i)
+  check = subset(check,!is.na(check$yi_pos))
+  
+  if (dim(check)[1]==0) next # if there is no data, move to next iteration
+  
+  outlierInd = which(check$outliers==1 | check$cooks_inf==1 | check$DFBETAS_inf==1)
+  check_out = check[-outlierInd,] #check_out is the dataset without outlier
+  temp = NULL
+  temp_out = NULL
+  temp_con = NULL
+  temp_con_out = NULL
+  
+  
+  # for categorical moderation
+  for (k in 1:length(moderation_category_runlist)) {
+    
+    if (length(unique(check[,moderation_category_runlist[k]]))==1) next # if there is only 1 level, move to next iteration
+    tryCatch({temp = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+                                  modMain = modMain, modType = cat_mod, modformula= modformula,
+                                  modFactor = moderation_category_runlist[k],outlier = F)
+    # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : True"))
+    }, 
+    error=function(e){cat(paste0("ERROR :",conditionMessage(e), "\n",i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : False \n \n"))})
+    
+    # with outlier removal
+    if (length(unique(check_out[,moderation_category_runlist[k]]))==1) next # if there is only 1 level in outlier removal data, move to next iteration
+    tryCatch({temp_out = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+                                      modMain = modMain, modType = cat_mod, modformula= modformula,
+                                      modFactor = moderation_category_runlist[k],outlier = T)
+    # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : False"))
+    },
+    error=function(e){cat(paste0("ERROR :",conditionMessage(e), "\n",i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : True \n \n"))})
+    
+    if(is.null(temp)) print(paste0("Iteration ",k,": null temp")) 
+    if(is.null(temp_out)) print(paste0("Iteration ",k,": null temp_out")) 
+    all = rbind(all,temp,temp_out)
+    temp = NULL
+    temp_out = NULL
+  }
+  
+  # for continuous moderation
+  for (j in 1:length(moderation_continuous_runlist)) {
+    tryCatch({temp_con = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_continuous_runlist[j]), 
+                                      modMain = modMain, modType = con_mod, modformula= modformula,
+                                      modFactor = moderation_continuous_runlist[j],outlier = F)},
+             error=function(e){cat(paste0("ERROR :",conditionMessage(e), "\n",i,"\n", "Moderator:",moderation_continuous_runlist[j],"\nOutlier : False \n \n"))})
+    
+    tryCatch({temp_con_out = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_continuous_runlist[j]), 
+                                          modMain = modMain, modType = con_mod, modformula= modformula,
+                                          modFactor = moderation_continuous_runlist[j],outlier = T)},
+             error=function(e){cat(paste0("ERROR :",conditionMessage(e), "\n",i,"\n", "Moderator:",moderation_continuous_runlist[j],"\nOutlier : True \n \n"))})
+    
+    
+    if(is.null(temp_con)) print(paste0("Iteration ",k,": null temp")) 
+    if(is.null(temp_con_out)) print(paste0("Iteration ",k,": null temp_out")) 
+    all = rbind(all,temp_con,temp_con_out)
+    temp_con = NULL
+    temp_con_out = NULL
+  }
+  
+  write.csv(all, paste0(ModOutputPath,substring(i,1,nchar(i)-4),"_ModerationAnalysis_",date,".csv"),
+            row.names = F)
+  # save all outcome as one big file
+  # mod_all = rbind(mod_all,all)
+}
+
+```
+
+# Analyses by timepoint
+
+```{r}
+
+#Subset data into different timepoints
+#step 3 and step 4 categories
+
+ModOutputPath = paste0(outputPath,"ModerationAnalysis/",date,"/")
+ModOutputPath_SubsetTime = paste0(ModOutputPath,"SubsetTime/")
+dir.create(ModOutputPath_SubsetTime,showWarnings = F)
+
+# Create the data path to store the data subsets
+TimeDataPath = paste0(outputPath,"Subset_Time/",date,"/")
+Step3DataPath = paste0(outputPath,"Subset_Step3/",date,"/")
+Step4DataPath = paste0(outputPath,"Subset_Step4/",date,"/")
+dir.create(paste0(outputPath,"Subset_Time/"), showWarnings = F)
+dir.create(paste0(outputPath,"Subset_Step3/"), showWarnings = F)
+dir.create(paste0(outputPath,"Subset_Step4/"), showWarnings = F)
+dir.create(TimeDataPath, showWarnings = F)
+dir.create(Step3DataPath, showWarnings = F)
+dir.create(Step4DataPath, showWarnings = F)
+
+# subset data into different timepoints, different step 3 and step 4 categories
+for (i in runlist) {
+  tempDF = read.csv(i)
+  for (k in unique(tempDF$TimeOfManipulation)) {
+    temp = subset(tempDF, tempDF$TimeOfManipulation==k)
+    write.csv(temp,paste0(TimeDataPath,substring(i,1,nchar(i)-4),"_",k,".csv"),
+              row.names = F)
+  }
+  
+  for (p in unique(tempDF$Step3_Technique_procedure)) {
+    temp = subset(tempDF, tempDF$Step3_Technique_procedure==p)
+    write.csv(temp,paste0(Step3DataPath,substring(i,1,nchar(i)-4),"_",p,".csv"),
+              row.names = F)
+  }
+  
+  for (q in unique(tempDF$Step4_Hypothesized_mechanism)) {
+    temp = subset(tempDF, tempDF$Step4_Hypothesized_mechanism==q)
+    if (is.na(q)) {
+      write.csv(temp,paste0(Step4DataPath,substring(i,1,nchar(i)-4),"_Pharmac.csv"),
+                row.names = F)
+    }else{
+      write.csv(temp,paste0(Step4DataPath,substring(i,1,nchar(i)-4),"_",q,".csv"),
+                row.names = F)
+    }
+  }
+  
+}
+
+runlist_subsetTime = list.files(TimeDataPath)
+runlist_subsetStep3 = list.files(Step3DataPath)
+runlist_subsetStep4 = list.files(Step4DataPath)
+
+```
+
+##  Moderation Analysis within each timepoint
+
+```{r}
+
+setwd(TimeDataPath) # \TODO fix
+moderation_category_runlist = c("Step3_Technique_procedure","Step4_Hypothesized_mechanism")
+
+mod_all = data.frame()
+for (i in runlist_subsetTime) {
+  all =  data.frame()
+  
+  # load data to later check if the moderation level is larger than 2
+  check = read.csv(i)
+  check = subset(check,!is.na(check$yi_pos))
+  
+  if (dim(check)[1]==0) next # if there is no data, move to next iteration
+  
+  outlierInd = which(check$outliers==1 | check$cooks_inf==1 | check$DFBETAS_inf==1)
+  check_out = check[-outlierInd,] #check_out is the dataset without outlier
+  temp = NULL
+  temp_out = NULL
+  
+  # for categorical moderation
+  for (k in 1:length(moderation_category_runlist)) {
+    
+    if (length(unique(check[,moderation_category_runlist[k]]))==1) next # if there is only 1 level, move to next iteration
+    tryCatch({temp = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+                                  modMain = modMain, modType = cat_mod, modformula= modformula,
+                                  modFactor = moderation_category_runlist[k],outlier = F)
+    # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : True"))
+    }, 
+    error=function(e){cat(paste0("ERROR :",conditionMessage(e), "\n",i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : False \n \n"))})
+    
+    if (!is.null(temp)) {
+      temp$TimeofManipulation = substr(tail(unlist(str_split(i,"_")),1),1,nchar(tail(unlist(str_split(i,"_")),1))-4)
+      temp = temp[c(1,2,15,3:14)]}
+    
+    
+    # with outlier removal
+    if (length(unique(check_out[,moderation_category_runlist[k]]))==1) next # if there is only 1 level in outlier removal data, move to next iteration
+    tryCatch({temp_out = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+                                      modMain = modMain, modType = cat_mod, modformula= modformula,
+                                      modFactor = moderation_category_runlist[k],outlier = T)
+    # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : False"))
+    },
+    error=function(e){cat(paste0("ERROR :",conditionMessage(e), "\n",i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : True \n \n"))})
+    
+    
+    if (!is.null(temp_out)) {
+      temp_out$TimeofManipulation = substr(tail(unlist(str_split(i,"_")),1),1,nchar(tail(unlist(str_split(i,"_")),1))-4)
+      temp_out = temp_out[c(1,2,15,3:14)]}
+    
+    # if(is.null(temp)) print(paste0("Iteration ",k,": null temp")) 
+    # if(is.null(temp_out)) print(paste0("Iteration ",k,": null temp_out")) 
+    all = rbind(all,temp,temp_out)
+    temp = NULL
+    temp_out = NULL
+  }
+  
+  
+  
+  # write.csv(all, paste0(ModOutputPath,substring(i,30,nchar(i)-4),"_ModerationAnalysis_SubSetTime_",date,".csv"),
+  #           row.names = F)
+  # save all outcome as one big file
+  mod_all = rbind(mod_all,all)
+}
+
+write.csv(mod_all, paste0(ModOutputPath_SubsetTime,"ModerationAnalysis_SubSetTime_",date,".csv"),
+          row.names = F)
+
+```
+
+##  Moderation Analysis within each Step 3 Procedure-based categories
+
+```{r}
+
+ModOutputPath = paste0(outputPath,"ModerationAnalysis/",date,"/")
+ModOutputPath_SubsetStep3 = paste0(ModOutputPath,"SubsetStep3/")
+dir.create(ModOutputPath_SubsetStep3,showWarnings = F)
+
+setwd(Step3DataPath)
+moderation_category_runlist = c("TimeOfManipulation")
+
+mod_all2 = data.frame()
+for (i in runlist_subsetStep3) {
+  all =  data.frame()
+  
+  # load data to later check if the moderation level is larger than 2
+  check = read.csv(i)
+  check = subset(check,!is.na(check$yi_pos))
+  
+  if (dim(check)[1]==0) next # if there is no data, move to next iteration
+  
+  outlierInd = which(check$outliers==1 | check$cooks_inf==1 | check$DFBETAS_inf==1)
+  check_out = check[-outlierInd,] #check_out is the dataset without outlier
+  temp = NULL
+  temp_out = NULL
+  
+  # for categorical moderation
+  for (k in 1:length(moderation_category_runlist)) {
+    
+    if (length(unique(check[,moderation_category_runlist[k]]))==1) next # if there is only 1 level, move to next iteration
+    tryCatch({temp = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+                                  modMain = modMain, modType = cat_mod, modformula= modformula,
+                                  modFactor = moderation_category_runlist[k],outlier = F)
+    # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : True"))
+    }, 
+    error=function(e){cat(paste0("ERROR :",conditionMessage(e), "\n",i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : False \n \n"))})
+    
+    # if (!exists("temp")) next
+    if (!is.null(temp)) {
+      temp$Step3 = substr(tail(unlist(str_split(i,"_")),1),1,nchar(tail(unlist(str_split(i,"_")),1))-4)
+      temp = temp[c(1,2,15,3:14)]}
+    
+    
+    # with outlier removal
+    if (length(unique(check_out[,moderation_category_runlist[k]]))==1) next # if there is only 1 level in outlier removal data, move to next iteration
+    tryCatch({temp_out = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+                                      modMain = modMain, modType = cat_mod, modformula= modformula,
+                                      modFactor = moderation_category_runlist[k],outlier = T)
+    # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : False"))
+    },
+    error=function(e){cat(paste0("ERROR :",conditionMessage(e), "\n",i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : True \n \n"))})
+    
+    
+    if (!is.null(temp_out)) {
+      temp_out$Step3 = substr(tail(unlist(str_split(i,"_")),1),1,nchar(tail(unlist(str_split(i,"_")),1))-4)
+      temp_out = temp_out[c(1,2,15,3:14)]
+      
+    }
+    
+    if(is.null(temp)) print(paste0("Iteration ",k,": null temp")) 
+    if(is.null(temp_out)) print(paste0("Iteration ",k,": null temp_out")) 
+    all = rbind(all,temp,temp_out)
+    temp = NULL
+    temp_out = NULL
+    
+  }
+  
+  mod_all2 = rbind(mod_all2,all)
+}
+
+write.csv(mod_all2, paste0(ModOutputPath_SubsetStep3,"ModerationAnalysis_SubSetStep3_",date,".csv"),
+          row.names = F)
+
+```
+
+## Moderation Analysis - Within each Step 4 Mechanism-based categories
+
+```{r}
+
+ModOutputPath = paste0(outputPath,"ModerationAnalysis/",date,"/")
+ModOutputPath_SubsetStep4 = paste0(ModOutputPath,"SubsetStep4/")
+dir.create(ModOutputPath_SubsetStep4,showWarnings = F)
+
+setwd(Step4DataPath)
+moderation_category_runlist = c("TimeOfManipulation")
+
+mod_all3 = data.frame()
+for (i in runlist_subsetStep4) {
+  all =  data.frame()
+  
+  # load data to later check if the moderation level is larger than 2
+  check = read.csv(i)
+  check = subset(check,!is.na(check$yi_pos))
+  
+  if (dim(check)[1]==0) next # if there is no data, move to next iteration
+  
+  outlierInd = which(check$outliers==1 | check$cooks_inf==1 | check$DFBETAS_inf==1)
+  check_out = check[-outlierInd,] #check_out is the dataset without outlier
+  temp = NULL
+  temp_out = NULL
+  
+  
+  # for categorical moderation
+  for (k in 1:length(moderation_category_runlist)) {
+    
+    if (length(unique(check[,moderation_category_runlist[k]]))==1) next # if there is only 1 level, move to next iteration
+    tryCatch({temp = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+                                  modMain = modMain, modType = cat_mod, modformula= modformula,
+                                  modFactor = moderation_category_runlist[k],outlier = F)
+    # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : True"))
+    }, 
+    error=function(e){cat(paste0("ERROR :",conditionMessage(e), "\n",i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : False \n \n"))})
+    
+    if (!is.null(temp)) {
+      temp$Step3a = substr(tail(unlist(str_split(i,"_")),1),1,nchar(tail(unlist(str_split(i,"_")),1))-4)
+      temp = temp[c(1,2,15,3:14)]}
+    
+    
+    # with outlier removal
+    if (length(unique(check_out[,moderation_category_runlist[k]]))==1) next # if there is only 1 level in outlier removal data, move to next iteration
+    tryCatch({temp_out = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+                                      modMain = modMain, modType = cat_mod, modformula= modformula,
+                                      modFactor = moderation_category_runlist[k],outlier = T)
+    # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : False"))
+    },
+    error=function(e){cat(paste0("ERROR :",conditionMessage(e), "\n",i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : True \n \n"))})
+    
+    
+    if (!is.null(temp_out)) {
+      temp_out$Step3a = substr(tail(unlist(str_split(i,"_")),1),1,nchar(tail(unlist(str_split(i,"_")),1))-4)
+      temp_out = temp_out[c(1,2,15,3:14)]}
+    
+    
+    if(is.null(temp)) print(paste0("Iteration ",k,": null temp")) 
+    if(is.null(temp_out)) print(paste0("Iteration ",k,": null temp_out")) 
+    all = rbind(all,temp,temp_out)
+    temp = NULL
+    temp_out = NULL
+  }
+  
+  
+  
+  # write.csv(all, paste0(ModOutputPath,substring(i,30,nchar(i)-4),"_ModerationAnalysis_SubSetTime_",date,".csv"),
+  #           row.names = F)
+  # save all outcome as one big file
+  mod_all3 = rbind(mod_all3,all)
+}
+
+write.csv(mod_all3, paste0(ModOutputPath_SubsetStep4,"ModerationAnalysis_SubSetStep4_",date,".csv"),
+          row.names = F)
+
+```
+
+# Analysis for Individual Techniques
+
+```{r}
+
+modMain = 3 # conduct focal analysis
+modformula = "~1 | StudyID/EffectSizeID" # this is the random model we use
+date = "20240408"
+TechniqueOutputPath = paste0(outputPath,"IndividualTechniqueAnalysis/",date,"/")
+dir.create(paste0(outputPath,"IndividualTechniqueAnalysis/"), showWarnings = F)
+dir.create(TechniqueOutputPath, showWarnings = F)
+
+setwd(TimeDataPath)
+focal_columns = c("Step2_Individual_technique")
+# ,"Step3_Technique_procedure","Step3a_Hypothesized_mechanism")
+focal_all = data.frame()
+
+for (g in focal_columns) {
+  for (i in runlist_subsetTime) {
+    test = read.csv(i) #load data to see if higher than 1 rows
+    outlierInd = which(test$outliers==1 | test$cooks_inf==1 | test$DFBETAS_inf==1)
+    test_out = test[-outlierInd,] #check_out is the dataset without outlier
+    
+    temp = NULL
+    temp2 = NULL
+    
+    if (!is.null(dim(test)[1]) & dim(test)[1] >=1) {
+      temp = getTable_Mod(file  = i,analysisName = paste0("FocalAnalysis_",g), 
+                          modMain = modMain,  modformula= modformula,focalColumnName = g,
+                          outlier = F)
+      if (!(dim(temp)[1] ==0|is.null(temp))) {
+        temp$TimeofManipulation = substr(tail(unlist(str_split(i,"_")),1),1,nchar(tail(unlist(str_split(i,"_")),1))-4)
+        temp = temp[c(1,2,20,3:19)]  
+      }
+      
+      
+      # remove outlier
+      temp2 = getTable_Mod(file  = i,analysisName = paste0("FocalAnalysis_",g), 
+                           modMain = modMain,  modformula= modformula,focalColumnName = g,
+                           outlier = T)
+      if (!(dim(temp2)[1] ==0|is.null(temp2))) {
+        temp2$TimeofManipulation = substr(tail(unlist(str_split(i,"_")),1),1,nchar(tail(unlist(str_split(i,"_")),1))-4)
+        temp2 = temp2[c(1,2,20,3:19)]
+      }
+      
+      focal_all = rbind(focal_all,temp,temp2)
+    }
+    
+  }
+}
+
+
+write.csv(focal_all,paste0(TechniqueOutputPath,"SubsetTime_IndividualTechnique_Analysis.csv"),
+          row.names = F)
+
+```

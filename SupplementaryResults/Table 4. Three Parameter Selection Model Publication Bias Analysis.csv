@@ -1,0 +1,49 @@
+Analysis,Prediction,Outcome,Suboutcome,OutlierRemove,N,j,n,k,estimate,std.error,z.stat,p.val,ci.lb,ci.ub
+3 Parameter Selection Model,All,Intrusion frequency,NA,no,12023,135,155,410,0.060056334,0.029145885,2.060542513,0.039346706,0.00293145,0.117181218
+3 Parameter Selection Model,All,Intrusion frequency,NA,yes,11946,134,153,396,0.064514686,0.026020397,2.479388969,0.01316077,0.013515645,0.115513728
+3 Parameter Selection Model,Decrease,Intrusion frequency,NA,no,8865,100,116,220,0.13864388,0.042055317,3.296702768,0.00097827,0.056216973,0.221070786
+3 Parameter Selection Model,Decrease,Intrusion frequency,NA,yes,8758,99,114,213,0.151200314,0.039625376,3.815744591,0.000135773,0.073536004,0.228864624
+3 Parameter Selection Model,Increase,Intrusion frequency,NA,no,4554,50,56,109,-0.104902781,0.049862179,-2.103854711,0.035391123,-0.202630857,-0.007174705
+3 Parameter Selection Model,Increase,Intrusion frequency,NA,yes,4295,47,53,104,-0.10391145,0.042262781,-2.458698795,0.013944155,-0.18674498,-0.02107792
+3 Parameter Selection Model,All,Intrusion frequency,Intrusion diary,no,10182,118,136,274,0.016418855,0.033254177,0.49373811,0.621491147,-0.048758135,0.081595845
+3 Parameter Selection Model,All,Intrusion frequency,Intrusion diary,yes,10017,117,132,262,0.025290353,0.028339282,0.89241333,0.372171429,-0.03025362,0.080834326
+3 Parameter Selection Model,Decrease,Intrusion frequency,Intrusion diary,no,7354,86,100,150,0.092334106,0.043318708,2.131506477,0.033047439,0.007430999,0.177237212
+3 Parameter Selection Model,Decrease,Intrusion frequency,Intrusion diary,yes,7025,83,95,143,0.083210849,0.042080216,1.97743396,0.047992599,0.00073514,0.165686558
+3 Parameter Selection Model,Increase,Intrusion frequency,Intrusion diary,no,4068,45,51,67,-0.198859918,0.06623632,-3.0022791,0.002679664,-0.328680719,-0.069039117
+3 Parameter Selection Model,Increase,Intrusion frequency,Intrusion diary,yes,3809,42,48,63,-0.182834498,0.054270385,-3.368955263,0.000754537,-0.289202497,-0.076466499
+3 Parameter Selection Model,Unspecified,Intrusion frequency,Intrusion diary,no,2771,31,32,55,0.079330087,0.055131198,1.438932756,0.150169576,-0.028725076,0.187385249
+3 Parameter Selection Model,Unspecified,Intrusion frequency,Intrusion diary,yes,2771,31,32,53,0.098644375,0.049583835,1.989446257,0.046651968,0.001461844,0.195826906
+3 Parameter Selection Model,All,Intrusion frequency,Lab-based intrusion monitoring task,no,2978,35,40,80,0.177455152,0.067635519,2.623697646,0.008698096,0.044891971,0.310018333
+3 Parameter Selection Model,All,Intrusion frequency,Lab-based intrusion monitoring task,yes,2924,34,39,77,0.208092009,0.061390711,3.389633476,0.000699861,0.087768426,0.328415591
+3 Parameter Selection Model,Decrease,Intrusion frequency,Lab-based intrusion monitoring task,no,2052,24,28,34,0.313657092,0.107383753,2.920898956,0.00349023,0.103188804,0.52412538
+3 Parameter Selection Model,Decrease,Intrusion frequency,Lab-based intrusion monitoring task,yes,2052,24,28,34,0.313657092,0.107383753,2.920898956,0.00349023,0.103188804,0.52412538
+3 Parameter Selection Model,Increase,Intrusion frequency,Lab-based intrusion monitoring task,no,1357,13,16,32,0.024524327,0.085599189,0.286501862,0.774493768,-0.143247,0.192295654
+3 Parameter Selection Model,Increase,Intrusion frequency,Lab-based intrusion monitoring task,yes,1214,11,14,29,0.046752546,0.066098461,0.707316701,0.479369689,-0.082798058,0.176303149
+3 Parameter Selection Model,Unspecified,Intrusion frequency,Lab-based intrusion monitoring task,no,715,8,8,13,0.224403444,0.105662065,2.12378439,0.033688177,0.017309602,0.431497286
+3 Parameter Selection Model,Unspecified,Intrusion frequency,Lab-based intrusion monitoring task,yes,715,8,8,13,0.224403444,0.105662065,2.12378439,0.033688177,0.017309602,0.431497286
+3 Parameter Selection Model,All,Intrusion frequency,Self-report questionnaire,no,1935,20,21,56,0.120478827,0.111916401,1.076507346,0.281700417,-0.098873287,0.339830942
+3 Parameter Selection Model,All,Intrusion frequency,Self-report questionnaire,yes,1935,20,21,55,0.063482606,0.093023237,0.682438149,0.49496194,-0.118839589,0.2458048
+3 Parameter Selection Model,Decrease,Intrusion frequency,Self-report questionnaire,no,1511,16,17,36,0.184876433,0.160830092,1.149513943,0.250344121,-0.130344755,0.500097621
+3 Parameter Selection Model,Decrease,Intrusion frequency,Self-report questionnaire,yes,1511,16,17,34,0.223648574,0.152384809,1.467656618,0.14219752,-0.075020164,0.522317311
+3 Parameter Selection Model,Increase,Intrusion frequency,Self-report questionnaire,no,487,6,6,10,-0.021079573,0.087122605,-0.241952973,0.808816603,-0.191836742,0.149677596
+3 Parameter Selection Model,Increase,Intrusion frequency,Self-report questionnaire,yes,487,6,6,10,-0.021079573,0.087122605,-0.241952973,0.808816603,-0.191836742,0.149677596
+3 Parameter Selection Model,Unspecified,Intrusion frequency,Self-report questionnaire,no,469,5,5,10,0.317864122,0.688512762,0.461667728,0.644319617,-1.031596094,1.667324338
+3 Parameter Selection Model,Increase,Intrusion frequency,Self-report questionnaire,yes,487,6,6,10,-0.021079573,0.087122605,-0.241952973,0.808816603,-0.191836742,0.149677596
+3 Parameter Selection Model,Unspecified,Intrusion frequency,NA,no,3243,35,36,78,0.114269847,0.057586599,1.984313167,0.047220939,0.001402187,0.227137506
+3 Parameter Selection Model,Unspecified,Intrusion frequency,NA,yes,3059,34,35,75,0.127377617,0.044963501,2.832911462,0.004612616,0.039250775,0.21550446
+3 Parameter Selection Model,All,Intrusion symptoms,NA,no,5718,61,68,119,0.107929773,0.066259626,1.62889196,0.103335892,-0.021936709,0.237796254
+3 Parameter Selection Model,All,Intrusion symptoms,NA,yes,5673,60,67,114,0.119736669,0.052403269,2.284908389,0.0223182,0.017028149,0.222445189
+3 Parameter Selection Model,Decrease,Intrusion symptoms,NA,no,3734,39,45,60,0.232207393,0.07467585,3.109538008,0.001873802,0.085845417,0.378569369
+3 Parameter Selection Model,Decrease,Intrusion symptoms,NA,yes,3618,37,43,57,0.277417064,0.061455023,4.514147884,6.35718E-06,0.156967432,0.397866697
+3 Parameter Selection Model,Increase,Intrusion symptoms,NA,no,2473,25,27,34,0.07442997,0.305071709,0.243975328,0.807249928,-0.523499592,0.672359532
+3 Parameter Selection Model,Increase,Intrusion symptoms,NA,yes,2428,24,26,33,-0.04479967,0.123362261,-0.363155389,0.71648881,-0.286585259,0.196985919
+3 Parameter Selection Model,Unspecified,Intrusion symptoms,NA,no,1695,19,19,24,0.047205384,0.089510863,0.527370442,0.597936366,-0.128232685,0.222643452
+3 Parameter Selection Model,Unspecified,Intrusion symptoms,NA,yes,1565,17,17,21,0.132330974,0.064649335,2.046903863,0.040667525,0.005620605,0.259041342
+3 Parameter Selection Model,All,Intrusion-related distress,NA,no,7126,77,85,169,-0.009072443,0.026662707,-0.340267155,0.733655349,-0.061330389,0.043185502
+3 Parameter Selection Model,All,Intrusion-related distress,NA,yes,7021,75,83,165,0.000353323,0.026357174,0.01340518,0.989304534,-0.05130579,0.052012435
+3 Parameter Selection Model,Decrease,Intrusion-related distress,NA,no,4921,52,58,92,0.036534191,0.067960545,0.537579429,0.590867435,-0.09666603,0.169734411
+3 Parameter Selection Model,Decrease,Intrusion-related distress,NA,yes,4855,51,57,90,0.034821902,0.094582909,0.368162732,0.712751897,-0.150557193,0.220200998
+3 Parameter Selection Model,Increase,Intrusion-related distress,NA,no,2770,31,34,54,-0.104035364,0.049810047,-2.088642156,0.036739947,-0.201661262,-0.006409466
+3 Parameter Selection Model,Increase,Intrusion-related distress,NA,yes,2731,30,33,53,-0.089415202,0.040942929,-2.183898523,0.028969706,-0.169661867,-0.009168536
+3 Parameter Selection Model,Unspecified,Intrusion-related distress,NA,no,1737,17,17,23,0.051639481,0.085765033,0.602104129,0.547104826,-0.116456896,0.219735857
+3 Parameter Selection Model,Unspecified,Intrusion-related distress,NA,yes,1737,17,17,23,0.051639481,0.085765033,0.602104129,0.547104826,-0.116456896,0.219735857
