@@ -39,13 +39,13 @@ dir.create(file.path("../data/processed/outlier_influential/plots"), showWarning
 ```{r}
 
 # Load functions to run outlier and influential cases
-computeOutliers<- function(file,dataPath,outputPath,ncore,date){
+computeOutliers<- function(file,dataPath,outputPath,ncore){
   require(metafor)
   require(meta)
   # require(ggplot2)
   # require(gridExtra)
-  dataOutputPath = file.path(paste0(outputPath,"/outlier_influential/data/",date))
-  plotOutputPath = file.path(paste0(outputPath,"/outlier_influential/plots/",date))
+  dataOutputPath = file.path(paste0(outputPath,"/outlier_influential/data"))
+  plotOutputPath = file.path(paste0(outputPath,"/outlier_influential/plots"))
   dir.create(dataOutputPath, showWarnings = FALSE)
   dir.create(plotOutputPath, showWarnings = FALSE)
   
@@ -178,7 +178,7 @@ computeOutliers<- function(file,dataPath,outputPath,ncore,date){
     df_Studentized_Outliers <- df[df$outliers == 1, ]
     
     # Export the outliers(Optional)
-    write.csv(df_Studentized_Outliers,paste0(outputPath,"/outlier_influential/Results_Studentized_Outliers_",i,"_", file)
+    write.csv(df_Studentized_Outliers,paste0(outputPath,"/outlier_influential/data/Results_Studentized_Outliers_",i,"_", file)
               ,row.names = F) # FIXED: Missing closing parenthesis in paste0
     
     ###### Influential Case ######
@@ -241,17 +241,16 @@ computeOutliers<- function(file,dataPath,outputPath,ncore,date){
 
 # set the data path where the dataset store and the output path
 dataPath <- "../data/processed/" 
-outputPath <- "../data/processed"
+outputPath <- "../data/processed/"
 
 # set the core number for running
-ncore = parallel::detectCores()-3
-date = "20260119" # enter the date of running the analysis (for create folder and file name only)
+ncore = parallel::detectCores()-1
 
 # run for each file
-computeOutliers("AllIntrusionEffectSizes.csv",dataPath,outputPath,ncore,date)
-computeOutliers("IncreaseIntrusionEffectSizes.csv",dataPath,outputPath,ncore,date)
-computeOutliers("DecreaseIntrusionEffectSizes.csv",dataPath,outputPath,ncore,date)
-computeOutliers("UnspecifiedIntrusionEffectSizes.csv",dataPath,outputPath,ncore,date)
+computeOutliers("AllIntrusionEffectSizes.csv",dataPath,outputPath,ncore)
+computeOutliers("IncreaseIntrusionEffectSizes.csv",dataPath,outputPath,ncore)
+computeOutliers("DecreaseIntrusionEffectSizes.csv",dataPath,outputPath,ncore)
+computeOutliers("UnspecifiedIntrusionEffectSizes.csv",dataPath,outputPath,ncore)
 
 ```
 
