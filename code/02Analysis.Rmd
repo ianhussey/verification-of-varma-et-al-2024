@@ -43,6 +43,10 @@ runlist = list.files(dataPath)
 
 ```{r}
 
+# Functions
+
+```{r}
+
 #returns a template of df to store the results of all moderator analyses
 getTemplate_MainAnalysis <- function(){
   df_temp = data.frame(
@@ -187,7 +191,15 @@ getTable_Mod <- function(analysisName,file,modformula,modMain = 1,modFactor = NU
   
   # main analysis preparation
   if (is.null(modType) & is.null(modFactor) & modMain == 1){
+    
+    # WRAPPED IN TRY
     metaObject = try(rma.mv(yi=yi_pos, V = vi, data=df, random = formula(modformula),control = optimizer), silent = TRUE)
+    
+    # SAFETY CHECK: If try failed, return NULL immediately
+    if (inherits(metaObject, "try-error")) {
+        return(NULL)
+    }
+
     currentdf=getTemplate_MainAnalysis()
     
     # focal analysis preparation
@@ -202,7 +214,7 @@ getTable_Mod <- function(analysisName,file,modformula,modMain = 1,modFactor = NU
     metaObject = try(rma.mv(yi=yi_pos, V = vi, data=df, mods = ~factor(modFactor_prep), random = formula(modformula),control = optimizer),silent = T)
     meta_mod = try(rma.mv(yi=yi_pos, V = vi, data=df, mods = ~factor(modFactor_prep)-1, random = formula(modformula),control = optimizer),silent = T)
     if("try-error" %in% class(meta_mod) | "try-error" %in% class(metaObject)) {
-      metaObject = try(rma.mv(yi=yi_pos, V = vi, data=df,mods = ~factor(modFactor_prep), random = formula(modformula),control = optimizer2),silent = T)
+      metaObject <- try(rma.mv(yi=yi_pos, V = vi, data=df,mods = ~factor(modFactor_prep), random = formula(modformula),control = optimizer2),silent = T)
       change_optimizer = T
     }
     currentdf=getTemplate_ModAnalysis()
@@ -229,59 +241,54 @@ getTable_Mod <- function(analysisName,file,modformula,modMain = 1,modFactor = NU
     currentdf[1,"OutlierRemove"] = ifelse(outlier,"yes","no")
     
   }
-  # if (modMain == 3) {
-  #   currentdf[1,"Prediction"] = substring(temp_name,1,nchar(temp_name)-20)
-  #   currentdf[1,"Outcome"] = temp_name_Outcome
-  #   currentdf[1,"Suboutcome"] = suboutcomeName
-  #   currentdf[1,"OutlierRemove"] = ifelse(outlier,"yes","no")
-  #  
-  # }
+
   
   # Organize for main analysis
   if (modMain == 1 & is.null(modType) & is.null(modFactor)) {
     
-    ### study and outcome level I^2
-    sav <- confint(metaObject)
-    W <- diag(1/df$vi)
-    X <- model.matrix(metaObject)
-    P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
-    # print(100 * meta$sigma2 / (meta$sigma2 + (meta$k-meta$p)/sum(diag(P)))) ### study and outcome level I^2
-    # 
-    # print(100 * sav[[1]]$random[1,2:3] / (sav[[1]]$random[1,2:3] + (meta$k-meta$p)/sum(diag(P)))) ### CI for study level I^2
-    # print(100 * sav[[2]]$random[1,2:3] / (sav[[2]]$random[1,2:3] + (meta$k-meta$p)/sum(diag(P)))) ### CI for outcome level I^2
-    
-    #calculation of the total I^2
-    total_I2 <- 100 * sum(metaObject$sigma2) / (sum(metaObject$sigma2) + (metaObject$k-metaObject$p)/sum(diag(P))) ### total I^2
-    options(digits=3) #sets all output to 3 decimal places
-    
-    # Compute N participant size
-    sampleSize = 0
-    df_noNA = df[!is.na(df$yi_pos),]
-    for (thisID in unique(df_noNA$StudyID)){
-      thisSampleSize = subset(df_noNA,StudyID == thisID)$SampleSize[1]
-      # print(thisSampleSize)
-      sampleSize = sampleSize + thisSampleSize
+    # ONLY RUN if metaObject is valid
+    if (!inherits(metaObject, "try-error") && !is.null(metaObject)) {
+
+        ### study and outcome level I^2
+        sav <- confint(metaObject)
+        W <- diag(1/df$vi)
+        X <- model.matrix(metaObject)
+        P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
+        
+        #calculation of the total I^2
+        total_I2 <- 100 * sum(metaObject$sigma2) / (sum(metaObject$sigma2) + (metaObject$k-metaObject$p)/sum(diag(P))) ### total I^2
+        options(digits=3) #sets all output to 3 decimal places
+        
+        # Compute N participant size
+        sampleSize = 0
+        df_noNA = df[!is.na(df$yi_pos),]
+        for (thisID in unique(df_noNA$StudyID)){
+          thisSampleSize = subset(df_noNA,StudyID == thisID)$SampleSize[1]
+          # print(thisSampleSize)
+          sampleSize = sampleSize + thisSampleSize
+        }
+        
+        # Create results df
+        currentdf[1,"Analysis"] = analysisName
+        currentdf[1,"N"] = sampleSize
+        currentdf[1,"j"] = length(unique(df_noNA$ArticleID))
+        currentdf[1,"n"] = length(unique(df_noNA$StudyID))
+        currentdf[1,"k"] = as.character(nrow(df_noNA))
+        currentdf[1,"Hedgesg"] = metaObject$beta
+        cilb = formatC(metaObject$ci.lb,2,format="f")
+        ciub = formatC(metaObject$ci.ub,2,format="f")
+        currentdf[1,"CI"] = paste(" [",cilb,", ",ciub,"]",sep="")
+        currentdf[1,"z"] = metaObject$zval
+        currentdf[1,"p"] = metaObject$pval
+        currentdf[1,"Q"] = metaObject$QE
+        currentdf[1,"tau2.studylevel"] = metaObject$sigma2[1]
+        currentdf[1,"tau2.outcomelevel"] = metaObject$sigma2[2]
+        currentdf[1,"I2"] = total_I2
+        currentdf[1,"Q.pval"] = metaObject$QEp
+
+    } else {
+        return(NULL)
     }
-    
-    # Create results df
-    currentdf[1,"Analysis"] = analysisName
-    currentdf[1,"N"] = sampleSize
-    currentdf[1,"j"] = length(unique(df_noNA$ArticleID))
-    currentdf[1,"n"] = length(unique(df_noNA$StudyID))
-    currentdf[1,"k"] = as.character(nrow(df_noNA))
-    currentdf[1,"Hedgesg"] = metaObject$beta
-    cilb = formatC(metaObject$ci.lb,2,format="f")
-    ciub = formatC(metaObject$ci.ub,2,format="f")
-    currentdf[1,"CI"] = paste(" [",cilb,", ",ciub,"]",sep="")
-    currentdf[1,"z"] = metaObject$zval
-    currentdf[1,"p"] = metaObject$pval
-    currentdf[1,"Q"] = metaObject$QE
-    currentdf[1,"tau2.studylevel"] = metaObject$sigma2[1]
-    currentdf[1,"tau2.outcomelevel"] = metaObject$sigma2[2]
-    currentdf[1,"I2"] = total_I2
-    currentdf[1,"Q.pval"] = metaObject$QEp
-    
-    # names(currentdf)<-c("Analysis","Prediction","Outcome","Suboutcome","OutlierRemove","N","n","k","Hedge's g","95% CI","z","p","p")
     
     # ------- Organize for focal analysis ------- 
   }else if (modMain == 3 & is.null(modType) & is.null(modFactor)) {
@@ -333,41 +340,39 @@ getTable_Mod <- function(analysisName,file,modformula,modMain = 1,modFactor = NU
             metaObject <- try(rma.mv(yi=yi_pos, V = vi, data=tempdf, random = formula(modformula),control = optimizer2),silent = T)
           }
           
-          sav <- confint(metaObject)
-          W <- diag(1/tempdf$vi)
-          X <- model.matrix(metaObject)
-          P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
-          # print(100 * meta$sigma2 / (meta$sigma2 + (meta$k-meta$p)/sum(diag(P)))) ### study and outcome level I^2
-          # 
-          # print(100 * sav[[1]]$random[1,2:3] / (sav[[1]]$random[1,2:3] + (meta$k-meta$p)/sum(diag(P)))) ### CI for study level I^2
-          # print(100 * sav[[2]]$random[1,2:3] / (sav[[2]]$random[1,2:3] + (meta$k-meta$p)/sum(diag(P)))) ### CI for outcome level I^2
-          
-          #calculation of the total I^2
-          total_I2 <- 100 * sum(metaObject$sigma2) / (sum(metaObject$sigma2) + (metaObject$k-metaObject$p)/sum(diag(P))) ### total I^2
-          options(digits=3) #sets all output to 3 decimal places
-          
-          currentdf[1+row,"Analysis"] = analysisName
-          currentdf[1+row,"Prediction"] = str_extract_part(temp_name, before = TRUE, pattern = "IntrusionEffectSizes")
-          currentdf[1+row,"Outcome"] = temp_name_Outcome
-          currentdf[1+row,"Suboutcome"] = suboutcomeName
-          currentdf[1+row,"OutlierRemove"] = ifelse(outlier,"yes","no")
-          currentdf[1+row,"Analysis_levels"] = levels(modFactor_prep)[i]
-          currentdf[1+row,"N"] = sampleSize
-          currentdf[1+row,"j"] = length(unique(tempdf_noNA$ArticleID))
-          currentdf[1+row,"n"] = length(unique(tempdf_noNA$StudyID))
-          currentdf[1+row,"k"] = as.character(nrow(tempdf_noNA))
-          currentdf[1+row,"Hedgesg"] = metaObject$beta
-          cilb = formatC(metaObject$ci.lb,2,format="f")
-          ciub = formatC(metaObject$ci.ub,2,format="f")
-          currentdf[1+row,"CI"] = paste(" [",cilb,", ",ciub,"]",sep="")
-          currentdf[1+row,"z"] = metaObject$zval
-          currentdf[1+row,"p"] = metaObject$pval
-          currentdf[1+row,"Q"] = metaObject$QE
-          currentdf[1+row,"tau2.studylevel"] = metaObject$sigma2[1]
-          currentdf[1+row,"tau2.outcomelevel"] = metaObject$sigma2[2]
-          currentdf[1+row,"I2"] = total_I2
-          currentdf[1+row,"Q.pval"] = metaObject$QEp
-          row = row +1
+          if(!inherits(metaObject, "try-error")){
+            sav <- confint(metaObject)
+            W <- diag(1/tempdf$vi)
+            X <- model.matrix(metaObject)
+            P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
+
+            #calculation of the total I^2
+            total_I2 <- 100 * sum(metaObject$sigma2) / (sum(metaObject$sigma2) + (metaObject$k-metaObject$p)/sum(diag(P))) ### total I^2
+            options(digits=3) #sets all output to 3 decimal places
+            
+            currentdf[1+row,"Analysis"] = analysisName
+            currentdf[1+row,"Prediction"] = str_extract_part(temp_name, before = TRUE, pattern = "IntrusionEffectSizes")
+            currentdf[1+row,"Outcome"] = temp_name_Outcome
+            currentdf[1+row,"Suboutcome"] = suboutcomeName
+            currentdf[1+row,"OutlierRemove"] = ifelse(outlier,"yes","no")
+            currentdf[1+row,"Analysis_levels"] = levels(modFactor_prep)[i]
+            currentdf[1+row,"N"] = sampleSize
+            currentdf[1+row,"j"] = length(unique(tempdf_noNA$ArticleID))
+            currentdf[1+row,"n"] = length(unique(tempdf_noNA$StudyID))
+            currentdf[1+row,"k"] = as.character(nrow(tempdf_noNA))
+            currentdf[1+row,"Hedgesg"] = metaObject$beta
+            cilb = formatC(metaObject$ci.lb,2,format="f")
+            ciub = formatC(metaObject$ci.ub,2,format="f")
+            currentdf[1+row,"CI"] = paste(" [",cilb,", ",ciub,"]",sep="")
+            currentdf[1+row,"z"] = metaObject$zval
+            currentdf[1+row,"p"] = metaObject$pval
+            currentdf[1+row,"Q"] = metaObject$QE
+            currentdf[1+row,"tau2.studylevel"] = metaObject$sigma2[1]
+            currentdf[1+row,"tau2.outcomelevel"] = metaObject$sigma2[2]
+            currentdf[1+row,"I2"] = total_I2
+            currentdf[1+row,"Q.pval"] = metaObject$QEp
+            row = row +1
+          }
         }
       }
     }
