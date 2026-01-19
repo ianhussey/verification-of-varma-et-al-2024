@@ -27,29 +27,26 @@ library(dplyr)
 
 ```{r}
 
-# Set data paths
-dataPath = file.path("../Results/OutlierInfluential/data") # Set data path
-date = 20260119
-dataPath = paste0(dataPath,"/",date,"/")
-dir.create(file.path("../Results/OutlierInfluential/ExpLevel_data/"), showWarnings = FALSE)
-dataPath_expLevel = paste0("../Results/OutlierInfluential/ExpLevel_data/",date,"/")
+# Set data paths - Updated to match the specific date folder from previous steps
+dataPath = file.path("../data/processed/outlier_influential/data/20260119") 
+dir.create(file.path("../data/processed/Results/OutlierInfluential/ExpLevel_data/"), showWarnings = FALSE, recursive = TRUE)
+dataPath_expLevel = file.path("../data/processed/Results/OutlierInfluential/ExpLevel_data/")
 
 # Set output paths
-outputPath = file.path("../Results/PublicationBias")
-outputPath_expLevel = file.path("../Results/OutlierInfluential/ExpLevel_data/")
-outputPath_expLevel = paste0(outputPath_expLevel,"/",date,"/")
+outputPath = file.path("../data/processed/Results/PublicationBias")
+outputPath_expLevel = file.path("../data/processed/Results/OutlierInfluential/ExpLevel_data/")
 
 # Create path if not exist
-dir.create(file.path(outputPath), showWarnings = FALSE)
+dir.create(outputPath, showWarnings = FALSE, recursive = TRUE)
 dir.create(file.path(outputPath,"plots"), showWarnings = FALSE)
 dir.create(file.path(outputPath,"EggersTest"), showWarnings = FALSE)
 dir.create(file.path(outputPath,"TrimFill"), showWarnings = FALSE)
 dir.create(file.path(outputPath,"TrimFill","plots"), showWarnings = FALSE)
 dir.create(file.path(outputPath,"ThreePSM"), showWarnings = FALSE)
-dir.create(file.path(outputPath_expLevel), showWarnings = FALSE)
+dir.create(outputPath_expLevel, showWarnings = FALSE, recursive = TRUE)
 
 # Outcome-level files
-outcomeFile =list.files(dataPath)
+outcomeFile = list.files(dataPath)
 
 # Experiment-level files
 exp_calculate <-function(dataName,dataPath,outputPath,outlier = F){
@@ -76,7 +73,7 @@ exp_calculate <-function(dataName,dataPath,outputPath,outlier = F){
   temp_cal$p.value = ifelse(temp_cal$Z.value>=0,pnorm(temp_cal$Z.value,lower.tail =  F)*2,
                                  pnorm(temp_cal$Z.value,lower.tail =  T)*2)
   
-  write.csv(temp_cal,paste0(outputPath,"ExpLevel_",substring(dataName,30,nchar(dataName)-4),name,".csv"),
+  write.csv(temp_cal,file.path(outputPath,paste0("ExpLevel_",substring(dataName,30,nchar(dataName)-4),name,".csv")),
             row.names = F)
 }
 
@@ -87,6 +84,9 @@ exp_calculate <-function(dataName,dataPath,outputPath,outlier = F){
 ```{r}
 
 for (k in outcomeFile) {
+  # Fix: Skip "Results_" files
+  if (!grepl("^Data_", k)) next
+  
   exp_calculate(k,dataPath,outputPath_expLevel,outlier = F)
   exp_calculate(k,dataPath,outputPath_expLevel,outlier = T)
 }
@@ -342,8 +342,8 @@ Trim_Fill <- function(dataName_expLevel,dataPath_expLevel,outputPath){
     dotCol = c("black","black")
   }
   
-  dir.create(paste0(outputPath,"/TrimFill/plots/",date),showWarnings = F)
-  png(paste0(outputPath,"/TrimFill/plots/",date,"/FunnelPlot_",substring(dataName_expLevel,10,nchar(dataName_expLevel)-4),".png",sep=""), width = 4, height = 5, units = 'in', res = 300)
+  dir.create(paste0(outputPath,"/TrimFill/plots/"),showWarnings = F)
+  png(paste0(outputPath,"/TrimFill/plots/FunnelPlot_",substring(dataName_expLevel,10,nchar(dataName_expLevel)-4),".png",sep=""), width = 4, height = 5, units = 'in', res = 300)
   
   # Use 'par' to create two plots in one row (row, columns)
   par(cex = 0.8)
@@ -441,6 +441,9 @@ ThreePSM <- function(dataName,dataPath,outputPath,outlier = F){
 # ---- Run for Egger's Test ----
 egger = data.frame()
 for (i in outcomeFile) {
+  # Fix: Skip "Results_" files
+  if (!grepl("^Data_", i)) next
+  
   tryCatch({temp = Egger(i,dataPath,outputPath,outlier = F)},
   error=function(e){cat(paste0("ERROR :",conditionMessage(e), "\n",i,"\n \n"))})
   
@@ -450,20 +453,24 @@ for (i in outcomeFile) {
   
 }
 
-write.csv(egger,paste(outputPath,"/EggersTest/Results_EggersTest_",date, ".csv",sep=""),row.names = F)
+write.csv(egger,file.path(outputPath,"EggersTest/Results_EggersTest.csv"),row.names = F)
 
 # ---- Run for Trim & Fill----
 trimfill_df = data.frame()
 for (i in expFile) {
+  # No grepl needed here because expFile comes from the folder we just cleaned up
   tryCatch({temp = Trim_Fill(i,dataPath_expLevel,outputPath)},
            error=function(e){cat(paste0("Model: Trim & Fill \nERROR :",conditionMessage(e), "\n",i,"\n \n"))})
   trimfill_df=rbind(trimfill_df,temp)
 }
-write.csv(trimfill_df,paste(outputPath,"/TrimFill/Results_TrimFill_",date, ".csv",sep=""),row.names = F)
+write.csv(trimfill_df,file.path(outputPath,"TrimFill/Results_TrimFill.csv"),row.names = F)
 
 # ---- Run for ThreePSM ----
 psm=data.frame()
 for (i in outcomeFile) {
+  # Fix: Skip "Results_" files
+  if (!grepl("^Data_", i)) next
+
   tryCatch({temp= ThreePSM(i,dataPath,outputPath,outlier = F)},
            error=function(e){cat(paste0("Model: ThreePSM \nERROR :",conditionMessage(e), "\n",i,"\nOutlier : False\n \n"))})
   
@@ -471,6 +478,6 @@ for (i in outcomeFile) {
            error=function(e){cat(paste0("Model: ThreePSM \nERROR :",conditionMessage(e), "\n",i,"\nOutlier : True\n \n"))})
   psm=rbind(psm,temp,temp_out)
 }
-write.csv(psm,paste(outputPath,"/ThreePSM/Results_ThreePSM_",date, ".csv",sep=""),row.names = F)
+write.csv(psm,file.path(outputPath,"ThreePSM/Results_ThreePSM.csv"),row.names = F)
 
 ```
