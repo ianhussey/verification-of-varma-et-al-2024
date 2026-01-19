@@ -474,6 +474,9 @@ dir.create(MainOutputPath, showWarnings = FALSE)
 
 meta_all = data.frame()
 for (i in runlist) {
+  # FIX: Skip the "Results_" files so we only analyze actual data
+  if (!grepl("^Data_", i)) next
+  
   temp = getTable_Mod(file = file.path(dataPath, i), analysisName = "Main Analysis", 
                       modMain = modMain,  modformula= modformula,
                       outlier = F)
@@ -588,48 +591,63 @@ for (i in runlist) {
 
 # Analyses by timepoint
 
+## Subset data into different timepoints
+
 ```{r}
 
-#Subset data into different timepoints
 #step 3 and step 4 categories
 
-ModOutputPath = paste0(outputPath,"ModerationAnalysis/")
-ModOutputPath_SubsetTime = paste0(ModOutputPath,"SubsetTime/")
-dir.create(ModOutputPath_SubsetTime,showWarnings = F)
+# Use file.path for robust cross-platform path construction
+ModOutputPath = file.path(outputPath, "ModerationAnalysis")
+ModOutputPath_SubsetTime = file.path(ModOutputPath, "SubsetTime")
+dir.create(ModOutputPath_SubsetTime, showWarnings = F, recursive = TRUE)
 
 # Create the data path to store the data subsets
-TimeDataPath = paste0(outputPath,"Subset_Time/")
-Step3DataPath = paste0(outputPath,"Subset_Step3/")
-Step4DataPath = paste0(outputPath,"Subset_Step4/")
-dir.create(paste0(outputPath,"Subset_Time/"), showWarnings = F)
-dir.create(paste0(outputPath,"Subset_Step3/"), showWarnings = F)
-dir.create(paste0(outputPath,"Subset_Step4/"), showWarnings = F)
-dir.create(TimeDataPath, showWarnings = F)
-dir.create(Step3DataPath, showWarnings = F)
-dir.create(Step4DataPath, showWarnings = F)
+TimeDataPath = file.path(outputPath, "Subset_Time")
+Step3DataPath = file.path(outputPath, "Subset_Step3")
+Step4DataPath = file.path(outputPath, "Subset_Step4")
+
+dir.create(TimeDataPath, showWarnings = F, recursive = TRUE)
+dir.create(Step3DataPath, showWarnings = F, recursive = TRUE)
+dir.create(Step4DataPath, showWarnings = F, recursive = TRUE)
 
 # subset data into different timepoints, different step 3 and step 4 categories
 for (i in runlist) {
+  
+  # FIX: Skip non-Data files to avoid processing previous results
+  if (!grepl("^Data_", i)) next 
+  
+  # Read file
   tempDF = read.csv(file.path(dataPath, i))
+  
+  # Loop 1: TimeOfManipulation
   for (k in unique(tempDF$TimeOfManipulation)) {
+    # Skip if NA
+    if (is.na(k)) next 
+    
     temp = subset(tempDF, tempDF$TimeOfManipulation==k)
-    write.csv(temp,paste0(TimeDataPath,substring(i,1,nchar(i)-4),"_",k,".csv"),
+    write.csv(temp, file.path(TimeDataPath, paste0(substring(i,1,nchar(i)-4),"_",k,".csv")),
               row.names = F)
   }
   
+  # Loop 2: Step3
   for (p in unique(tempDF$Step3_Technique_procedure)) {
+    if (is.na(p)) next
+    
     temp = subset(tempDF, tempDF$Step3_Technique_procedure==p)
-    write.csv(temp,paste0(Step3DataPath,substring(i,1,nchar(i)-4),"_",p,".csv"),
+    write.csv(temp, file.path(Step3DataPath, paste0(substring(i,1,nchar(i)-4),"_",p,".csv")),
               row.names = F)
   }
   
+  # Loop 3: Step4
   for (q in unique(tempDF$Step4_Hypothesized_mechanism)) {
     temp = subset(tempDF, tempDF$Step4_Hypothesized_mechanism==q)
+    
     if (is.na(q)) {
-      write.csv(temp,paste0(Step4DataPath,substring(i,1,nchar(i)-4),"_Pharmac.csv"),
+      write.csv(temp, file.path(Step4DataPath, paste0(substring(i,1,nchar(i)-4),"_Pharmac.csv")),
                 row.names = F)
-    }else{
-      write.csv(temp,paste0(Step4DataPath,substring(i,1,nchar(i)-4),"_",q,".csv"),
+    } else {
+      write.csv(temp, file.path(Step4DataPath, paste0(substring(i,1,nchar(i)-4),"_",q,".csv")),
                 row.names = F)
     }
   }
@@ -646,15 +664,15 @@ runlist_subsetStep4 = list.files(Step4DataPath)
 
 ```{r}
 
-setwd(TimeDataPath) # \TODO fix
 moderation_category_runlist = c("Step3_Technique_procedure","Step4_Hypothesized_mechanism")
 
 mod_all = data.frame()
 for (i in runlist_subsetTime) {
+
   all =  data.frame()
   
-  # load data to later check if the moderation level is larger than 2
-  check = read.csv(file.path(dataPath, i))
+  # FIX: Read from TimeDataPath, not dataPath, because 'i' is from runlist_subsetTime
+  check = read.csv(file.path(TimeDataPath, i))
   check = subset(check,!is.na(check$yi_pos))
   
   if (dim(check)[1]==0) next # if there is no data, move to next iteration
@@ -668,7 +686,9 @@ for (i in runlist_subsetTime) {
   for (k in 1:length(moderation_category_runlist)) {
     
     if (length(unique(check[,moderation_category_runlist[k]]))==1) next # if there is only 1 level, move to next iteration
-    tryCatch({temp = getTable_Mod(file.path(dataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+    
+    # FIX: Use file.path(TimeDataPath, i)
+    tryCatch({temp = getTable_Mod(file.path(TimeDataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
                                   modMain = modMain, modType = cat_mod, modformula= modformula,
                                   modFactor = moderation_category_runlist[k],outlier = F)
     # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : True"))
@@ -682,7 +702,9 @@ for (i in runlist_subsetTime) {
     
     # with outlier removal
     if (length(unique(check_out[,moderation_category_runlist[k]]))==1) next # if there is only 1 level in outlier removal data, move to next iteration
-    tryCatch({temp_out = getTable_Mod(file.path(dataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+    
+    # FIX: Use file.path(TimeDataPath, i)
+    tryCatch({temp_out = getTable_Mod(file.path(TimeDataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
                                       modMain = modMain, modType = cat_mod, modformula= modformula,
                                       modFactor = moderation_category_runlist[k],outlier = T)
     # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : False"))
@@ -718,19 +740,21 @@ write.csv(mod_all, paste0(ModOutputPath_SubsetTime,"ModerationAnalysis_SubSetTim
 
 ```{r}
 
-ModOutputPath = paste0(outputPath,"ModerationAnalysis/")
-ModOutputPath_SubsetStep3 = paste0(ModOutputPath,"SubsetStep3/")
-dir.create(ModOutputPath_SubsetStep3,showWarnings = F)
+ModOutputPath = file.path(outputPath, "ModerationAnalysis")
+ModOutputPath_SubsetStep3 = file.path(ModOutputPath, "SubsetStep3")
+dir.create(ModOutputPath_SubsetStep3, showWarnings = F, recursive = TRUE)
 
-setwd(Step3DataPath)
 moderation_category_runlist = c("TimeOfManipulation")
 
 mod_all2 = data.frame()
 for (i in runlist_subsetStep3) {
+  # Fix: Only process the "Data_..." files, skip the "Results_..." files
+  if (!grepl("^Data_", i)) next
+  
   all =  data.frame()
   
-  # load data to later check if the moderation level is larger than 2
-  check = read.csv(file.path(dataPath, i))
+  # FIX: Read from Step3DataPath, not dataPath
+  check = read.csv(file.path(Step3DataPath, i))
   check = subset(check,!is.na(check$yi_pos))
   
   if (dim(check)[1]==0) next # if there is no data, move to next iteration
@@ -744,7 +768,9 @@ for (i in runlist_subsetStep3) {
   for (k in 1:length(moderation_category_runlist)) {
     
     if (length(unique(check[,moderation_category_runlist[k]]))==1) next # if there is only 1 level, move to next iteration
-    tryCatch({temp = getTable_Mod(file.path(dataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+    
+    # FIX: Use file.path(Step3DataPath, i)
+    tryCatch({temp = getTable_Mod(file.path(Step3DataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
                                   modMain = modMain, modType = cat_mod, modformula= modformula,
                                   modFactor = moderation_category_runlist[k],outlier = F)
     # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : True"))
@@ -759,7 +785,9 @@ for (i in runlist_subsetStep3) {
     
     # with outlier removal
     if (length(unique(check_out[,moderation_category_runlist[k]]))==1) next # if there is only 1 level in outlier removal data, move to next iteration
-    tryCatch({temp_out = getTable_Mod(file.path(dataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+    
+    # FIX: Use file.path(Step3DataPath, i)
+    tryCatch({temp_out = getTable_Mod(file.path(Step3DataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
                                       modMain = modMain, modType = cat_mod, modformula= modformula,
                                       modFactor = moderation_category_runlist[k],outlier = T)
     # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : False"))
@@ -793,19 +821,21 @@ write.csv(mod_all2, paste0(ModOutputPath_SubsetStep3,"ModerationAnalysis_SubSetS
 
 ```{r}
 
-ModOutputPath = paste0(outputPath,"ModerationAnalysis/")
-ModOutputPath_SubsetStep4 = paste0(ModOutputPath,"SubsetStep4/")
-dir.create(ModOutputPath_SubsetStep4,showWarnings = F)
+ModOutputPath = file.path(outputPath, "ModerationAnalysis")
+ModOutputPath_SubsetStep4 = file.path(ModOutputPath, "SubsetStep4")
+dir.create(ModOutputPath_SubsetStep4, showWarnings = F, recursive = TRUE)
 
-setwd(Step4DataPath)
 moderation_category_runlist = c("TimeOfManipulation")
 
 mod_all3 = data.frame()
 for (i in runlist_subsetStep4) {
+  # Fix: Only process the "Data_..." files, skip the "Results_..." files
+  if (!grepl("^Data_", i)) next
+  
   all =  data.frame()
   
-  # load data to later check if the moderation level is larger than 2
-  check = read.csv(file.path(dataPath, i))
+  # FIX: Read from Step4DataPath, not dataPath
+  check = read.csv(file.path(Step4DataPath, i))
   check = subset(check,!is.na(check$yi_pos))
   
   if (dim(check)[1]==0) next # if there is no data, move to next iteration
@@ -820,7 +850,9 @@ for (i in runlist_subsetStep4) {
   for (k in 1:length(moderation_category_runlist)) {
     
     if (length(unique(check[,moderation_category_runlist[k]]))==1) next # if there is only 1 level, move to next iteration
-    tryCatch({temp = getTable_Mod(file.path(dataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+    
+    # FIX: Use file.path(Step4DataPath, i)
+    tryCatch({temp = getTable_Mod(file.path(Step4DataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
                                   modMain = modMain, modType = cat_mod, modformula= modformula,
                                   modFactor = moderation_category_runlist[k],outlier = F)
     # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : True"))
@@ -834,7 +866,9 @@ for (i in runlist_subsetStep4) {
     
     # with outlier removal
     if (length(unique(check_out[,moderation_category_runlist[k]]))==1) next # if there is only 1 level in outlier removal data, move to next iteration
-    tryCatch({temp_out = getTable_Mod(file.path(dataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+    
+    # FIX: Use file.path(Step4DataPath, i)
+    tryCatch({temp_out = getTable_Mod(file.path(Step4DataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
                                       modMain = modMain, modType = cat_mod, modformula= modformula,
                                       modFactor = moderation_category_runlist[k],outlier = T)
     # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : False"))
@@ -873,18 +907,24 @@ write.csv(mod_all3, paste0(ModOutputPath_SubsetStep4,"ModerationAnalysis_SubSetS
 
 modMain = 3 # conduct focal analysis
 modformula = "~1 | StudyID/EffectSizeID" # this is the random model we use
-TechniqueOutputPath = paste0(outputPath,"IndividualTechniqueAnalysis/")
-dir.create(paste0(outputPath,"IndividualTechniqueAnalysis/"), showWarnings = F)
-dir.create(TechniqueOutputPath, showWarnings = F)
 
-setwd(TimeDataPath)
+# Use file.path for robust paths
+TechniqueOutputPath = file.path(outputPath, "IndividualTechniqueAnalysis")
+dir.create(TechniqueOutputPath, showWarnings = F, recursive = TRUE)
+
 focal_columns = c("Step2_Individual_technique")
 # ,"Step3_Technique_procedure","Step3a_Hypothesized_mechanism")
 focal_all = data.frame()
 
 for (g in focal_columns) {
   for (i in runlist_subsetTime) {
-    test = read.csv(file.path(dataPath, i)) #load data to see if higher than 1 rows
+    
+    # Optional safety: Skip non-data files if any exist
+    if (!grepl(".csv$", i)) next
+    
+    # FIX: Read from TimeDataPath, NOT dataPath
+    test = read.csv(file.path(TimeDataPath, i)) 
+    
     outlierInd = which(test$outliers==1 | test$cooks_inf==1 | test$DFBETAS_inf==1)
     test_out = test[-outlierInd,] #check_out is the dataset without outlier
     
@@ -892,22 +932,28 @@ for (g in focal_columns) {
     temp2 = NULL
     
     if (!is.null(dim(test)[1]) & dim(test)[1] >=1) {
-      temp = getTable_Mod(file  = i,analysisName = paste0("FocalAnalysis_",g), 
-                          modMain = modMain,  modformula= modformula,focalColumnName = g,
+      
+      # FIX: Pass full path to getTable_Mod
+      temp = getTable_Mod(file = file.path(TimeDataPath, i), analysisName = paste0("FocalAnalysis_",g), 
+                          modMain = modMain,  modformula= modformula, focalColumnName = g,
                           outlier = F)
-      if (!(dim(temp)[1] ==0|is.null(temp))) {
+      
+      if (!is.null(temp) && dim(temp)[1] > 0) {
         temp$TimeofManipulation = substr(tail(unlist(str_split(i,"_")),1),1,nchar(tail(unlist(str_split(i,"_")),1))-4)
-        temp = temp[c(1,2,20,3:19)]  
+        # Verify columns exist before subsetting by index to be safe, but keeping minimal changes:
+        if(ncol(temp) >= 20) temp = temp[c(1,2,20,3:19)]  
       }
       
       
       # remove outlier
-      temp2 = getTable_Mod(file  = i,analysisName = paste0("FocalAnalysis_",g), 
-                           modMain = modMain,  modformula= modformula,focalColumnName = g,
+      # FIX: Pass full path to getTable_Mod
+      temp2 = getTable_Mod(file = file.path(TimeDataPath, i), analysisName = paste0("FocalAnalysis_",g), 
+                           modMain = modMain,  modformula= modformula, focalColumnName = g,
                            outlier = T)
-      if (!(dim(temp2)[1] ==0|is.null(temp2))) {
+      
+      if (!is.null(temp2) && dim(temp2)[1] > 0) {
         temp2$TimeofManipulation = substr(tail(unlist(str_split(i,"_")),1),1,nchar(tail(unlist(str_split(i,"_")),1))-4)
-        temp2 = temp2[c(1,2,20,3:19)]
+        if(ncol(temp2) >= 20) temp2 = temp2[c(1,2,20,3:19)]
       }
       
       focal_all = rbind(focal_all,temp,temp2)
@@ -917,7 +963,7 @@ for (g in focal_columns) {
 }
 
 
-write.csv(focal_all,paste0(TechniqueOutputPath,"SubsetTime_IndividualTechnique_Analysis.csv"),
+write.csv(focal_all, file.path(TechniqueOutputPath, "SubsetTime_IndividualTechnique_Analysis.csv"),
           row.names = F)
 
 ```
