@@ -13,16 +13,13 @@ output:
     toc_float: yes
 ---
 
-# TODO 
-
-- setwd()s to be removed
-
 # Dependencies
 
 ```{r}
 
 library(metafor)
 library(papaja)
+library(stringr)
 
 options(scipen=999)
 
@@ -32,10 +29,11 @@ options(scipen=999)
 
 ```{r}
 
-date = "20260119"
-dataPath = paste0("../Results/OutlierInfluential/Data/",date) # where you store
-# your calculated data (with influential cases or outliers) from last step
-outputPath <- file.path("../Results/") # set up your output path
+# Pointing to the specific date folder created in the previous step
+dataPath = file.path("../data/processed/outlier_influential/data/") 
+outputPath <- file.path("../data/processed/Results/") # Outputting results into processed/Results
+
+dir.create(outputPath, showWarnings = FALSE, recursive = TRUE)
 
 runlist = list.files(dataPath)
 
@@ -137,10 +135,15 @@ getTemplate_FocalAnalysis <- function(){
 # optimizer_name: which optimizer to use; default is "nlminb", if cannot converge, automatically change to "optim" 
 
 getTable_Mod <- function(analysisName,file,modformula,modMain = 1,modFactor = NULL,focalColumnName,
-                         modType = NULL,outlier = F,optimizer_name = "nlminb") {
+                          modType = NULL,outlier = F,optimizer_name = "nlminb") {
   
   require(forstringr)
+  
+  # Read using the full path passed in 'file' argument
   df = read.csv(file)
+  
+  # Use only the filename for string parsing logic
+  filename_only = basename(file)
   
   # if run moderation analysis on "Step3a_Hypothesized_mechanism", remove "Other" category
   if (modMain == 2){
@@ -150,16 +153,16 @@ getTable_Mod <- function(analysisName,file,modformula,modMain = 1,modFactor = NU
   }
   
   
-  # Extract the name for this analysis
-  separate_name = unlist(strsplit(file,"_"))
+  # Extract the name for this analysis using filename_only
+  separate_name = unlist(strsplit(filename_only,"_"))
   temp_name = separate_name[grepl("IntrusionEffectSizes",separate_name)] #prediction
-  temp_name_Outcome = str_split_i(file,"_",4)
+  temp_name_Outcome = str_split_i(filename_only,"_",4)
   
-  if (grepl("Intrusion frequency_Intrusion diary",file)) {
+  if (grepl("Intrusion frequency_Intrusion diary",filename_only)) {
     suboutcomeName = "Intrusion diary"
-  }else if (grepl("Intrusion frequency_Self-report questionnaire",file)) {
+  }else if (grepl("Intrusion frequency_Self-report questionnaire",filename_only)) {
     suboutcomeName = "Self-report questionnaire"
-  }else if (grepl("Intrusion frequency_Lab-based intrusion monitoring task",file)) {
+  }else if (grepl("Intrusion frequency_Lab-based intrusion monitoring task",filename_only)) {
     suboutcomeName = "Lab-based intrusion monitoring task"
   }else{
     suboutcomeName = NA
@@ -231,7 +234,7 @@ getTable_Mod <- function(analysisName,file,modformula,modMain = 1,modFactor = NU
   #   currentdf[1,"Outcome"] = temp_name_Outcome
   #   currentdf[1,"Suboutcome"] = suboutcomeName
   #   currentdf[1,"OutlierRemove"] = ifelse(outlier,"yes","no")
-  # 
+  #  
   # }
   
   # Organize for main analysis
@@ -463,24 +466,23 @@ getTable_Mod <- function(analysisName,file,modformula,modMain = 1,modFactor = NU
 
 modMain = 1 # conduct main analysis
 modformula = "~1 | StudyID/EffectSizeID" # this is the random model we use
-date = "20240408"
-dir.create(paste0(outputPath,"MainAnalysis/"))
-MainOutputPath = paste0(outputPath,"MainAnalysis/",date,"/")
+dir.create(paste0(outputPath,"MainAnalysis/"), showWarnings = FALSE) # Fixed dir creation
+MainOutputPath = paste0(outputPath,"MainAnalysis/")
 dir.create(MainOutputPath, showWarnings = FALSE)
 
 
 meta_all = data.frame()
 for (i in runlist) {
-  temp = getTable_Mod(file = i,analysisName = "Main Analysis", 
+  temp = getTable_Mod(file = file.path(dataPath, i), analysisName = "Main Analysis", 
                       modMain = modMain,  modformula= modformula,
                       outlier = F)
-  temp_out = getTable_Mod(file = i,analysisName = "Main Analysis", 
+  temp_out = getTable_Mod(file = file.path(dataPath, i), analysisName = "Main Analysis", 
                           modMain = modMain,  modformula= modformula,
                           outlier = T)
   meta_all = rbind(meta_all,temp,temp_out)
 }
 
-write.csv(meta_all, paste0(MainOutputPath,"/Results_Multilevel_Meta-Analysis_",date,".csv"),row.names = F)
+write.csv(meta_all, paste0(MainOutputPath,"/Results_Multilevel_Meta-Analysis.csv"),row.names = F)
 
 ```
 
@@ -497,10 +499,9 @@ modMain = 2 # conduct moderation analysis
 cat_mod = 1 #categorical moderator
 con_mod = 2  #continuous moderator
 # outlier = T
-date = "20240408"
 dir.create(paste0(outputPath,"ModerationAnalysis/"),showWarnings = F)
-dir.create(paste0(outputPath,"ModerationAnalysis/",date),showWarnings = F)
-ModOutputPath = paste0(outputPath,"ModerationAnalysis/",date,"/NoSubset/")
+dir.create(paste0(outputPath,"ModerationAnalysis/"),showWarnings = F)
+ModOutputPath = paste0(outputPath,"ModerationAnalysis/NoSubset/")
 dir.create(ModOutputPath,showWarnings = F)
 
 moderation_category_runlist = c("Step3_Technique_procedure","Step4_Hypothesized_mechanism",          
@@ -530,7 +531,7 @@ for (i in runlist) {
   for (k in 1:length(moderation_category_runlist)) {
     
     if (length(unique(check[,moderation_category_runlist[k]]))==1) next # if there is only 1 level, move to next iteration
-    tryCatch({temp = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+    tryCatch({temp = getTable_Mod(file.path(dataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
                                   modMain = modMain, modType = cat_mod, modformula= modformula,
                                   modFactor = moderation_category_runlist[k],outlier = F)
     # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : True"))
@@ -539,7 +540,7 @@ for (i in runlist) {
     
     # with outlier removal
     if (length(unique(check_out[,moderation_category_runlist[k]]))==1) next # if there is only 1 level in outlier removal data, move to next iteration
-    tryCatch({temp_out = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+    tryCatch({temp_out = getTable_Mod(file.path(dataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
                                       modMain = modMain, modType = cat_mod, modformula= modformula,
                                       modFactor = moderation_category_runlist[k],outlier = T)
     # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : False"))
@@ -555,12 +556,12 @@ for (i in runlist) {
   
   # for continuous moderation
   for (j in 1:length(moderation_continuous_runlist)) {
-    tryCatch({temp_con = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_continuous_runlist[j]), 
+    tryCatch({temp_con = getTable_Mod(file.path(dataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_continuous_runlist[j]), 
                                       modMain = modMain, modType = con_mod, modformula= modformula,
                                       modFactor = moderation_continuous_runlist[j],outlier = F)},
              error=function(e){cat(paste0("ERROR :",conditionMessage(e), "\n",i,"\n", "Moderator:",moderation_continuous_runlist[j],"\nOutlier : False \n \n"))})
     
-    tryCatch({temp_con_out = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_continuous_runlist[j]), 
+    tryCatch({temp_con_out = getTable_Mod(file.path(dataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_continuous_runlist[j]), 
                                           modMain = modMain, modType = con_mod, modformula= modformula,
                                           modFactor = moderation_continuous_runlist[j],outlier = T)},
              error=function(e){cat(paste0("ERROR :",conditionMessage(e), "\n",i,"\n", "Moderator:",moderation_continuous_runlist[j],"\nOutlier : True \n \n"))})
@@ -573,7 +574,7 @@ for (i in runlist) {
     temp_con_out = NULL
   }
   
-  write.csv(all, paste0(ModOutputPath,substring(i,1,nchar(i)-4),"_ModerationAnalysis_",date,".csv"),
+  write.csv(all, paste0(ModOutputPath,substring(i,1,nchar(i)-4),"_ModerationAnalysis.csv"),
             row.names = F)
   # save all outcome as one big file
   # mod_all = rbind(mod_all,all)
@@ -588,14 +589,14 @@ for (i in runlist) {
 #Subset data into different timepoints
 #step 3 and step 4 categories
 
-ModOutputPath = paste0(outputPath,"ModerationAnalysis/",date,"/")
+ModOutputPath = paste0(outputPath,"ModerationAnalysis/")
 ModOutputPath_SubsetTime = paste0(ModOutputPath,"SubsetTime/")
 dir.create(ModOutputPath_SubsetTime,showWarnings = F)
 
 # Create the data path to store the data subsets
-TimeDataPath = paste0(outputPath,"Subset_Time/",date,"/")
-Step3DataPath = paste0(outputPath,"Subset_Step3/",date,"/")
-Step4DataPath = paste0(outputPath,"Subset_Step4/",date,"/")
+TimeDataPath = paste0(outputPath,"Subset_Time/")
+Step3DataPath = paste0(outputPath,"Subset_Step3/")
+Step4DataPath = paste0(outputPath,"Subset_Step4/")
 dir.create(paste0(outputPath,"Subset_Time/"), showWarnings = F)
 dir.create(paste0(outputPath,"Subset_Step3/"), showWarnings = F)
 dir.create(paste0(outputPath,"Subset_Step4/"), showWarnings = F)
@@ -663,7 +664,7 @@ for (i in runlist_subsetTime) {
   for (k in 1:length(moderation_category_runlist)) {
     
     if (length(unique(check[,moderation_category_runlist[k]]))==1) next # if there is only 1 level, move to next iteration
-    tryCatch({temp = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+    tryCatch({temp = getTable_Mod(file.path(dataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
                                   modMain = modMain, modType = cat_mod, modformula= modformula,
                                   modFactor = moderation_category_runlist[k],outlier = F)
     # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : True"))
@@ -677,7 +678,7 @@ for (i in runlist_subsetTime) {
     
     # with outlier removal
     if (length(unique(check_out[,moderation_category_runlist[k]]))==1) next # if there is only 1 level in outlier removal data, move to next iteration
-    tryCatch({temp_out = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+    tryCatch({temp_out = getTable_Mod(file.path(dataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
                                       modMain = modMain, modType = cat_mod, modformula= modformula,
                                       modFactor = moderation_category_runlist[k],outlier = T)
     # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : False"))
@@ -698,13 +699,13 @@ for (i in runlist_subsetTime) {
   
   
   
-  # write.csv(all, paste0(ModOutputPath,substring(i,30,nchar(i)-4),"_ModerationAnalysis_SubSetTime_",date,".csv"),
+  # write.csv(all, paste0(ModOutputPath,substring(i,30,nchar(i)-4),"_ModerationAnalysis_SubSetTime.csv"),
   #           row.names = F)
   # save all outcome as one big file
   mod_all = rbind(mod_all,all)
 }
 
-write.csv(mod_all, paste0(ModOutputPath_SubsetTime,"ModerationAnalysis_SubSetTime_",date,".csv"),
+write.csv(mod_all, paste0(ModOutputPath_SubsetTime,"ModerationAnalysis_SubSetTime.csv"),
           row.names = F)
 
 ```
@@ -713,7 +714,7 @@ write.csv(mod_all, paste0(ModOutputPath_SubsetTime,"ModerationAnalysis_SubSetTim
 
 ```{r}
 
-ModOutputPath = paste0(outputPath,"ModerationAnalysis/",date,"/")
+ModOutputPath = paste0(outputPath,"ModerationAnalysis/")
 ModOutputPath_SubsetStep3 = paste0(ModOutputPath,"SubsetStep3/")
 dir.create(ModOutputPath_SubsetStep3,showWarnings = F)
 
@@ -739,7 +740,7 @@ for (i in runlist_subsetStep3) {
   for (k in 1:length(moderation_category_runlist)) {
     
     if (length(unique(check[,moderation_category_runlist[k]]))==1) next # if there is only 1 level, move to next iteration
-    tryCatch({temp = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+    tryCatch({temp = getTable_Mod(file.path(dataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
                                   modMain = modMain, modType = cat_mod, modformula= modformula,
                                   modFactor = moderation_category_runlist[k],outlier = F)
     # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : True"))
@@ -754,7 +755,7 @@ for (i in runlist_subsetStep3) {
     
     # with outlier removal
     if (length(unique(check_out[,moderation_category_runlist[k]]))==1) next # if there is only 1 level in outlier removal data, move to next iteration
-    tryCatch({temp_out = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+    tryCatch({temp_out = getTable_Mod(file.path(dataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
                                       modMain = modMain, modType = cat_mod, modformula= modformula,
                                       modFactor = moderation_category_runlist[k],outlier = T)
     # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : False"))
@@ -779,7 +780,7 @@ for (i in runlist_subsetStep3) {
   mod_all2 = rbind(mod_all2,all)
 }
 
-write.csv(mod_all2, paste0(ModOutputPath_SubsetStep3,"ModerationAnalysis_SubSetStep3_",date,".csv"),
+write.csv(mod_all2, paste0(ModOutputPath_SubsetStep3,"ModerationAnalysis_SubSetStep3.csv"),
           row.names = F)
 
 ```
@@ -788,7 +789,7 @@ write.csv(mod_all2, paste0(ModOutputPath_SubsetStep3,"ModerationAnalysis_SubSetS
 
 ```{r}
 
-ModOutputPath = paste0(outputPath,"ModerationAnalysis/",date,"/")
+ModOutputPath = paste0(outputPath,"ModerationAnalysis/")
 ModOutputPath_SubsetStep4 = paste0(ModOutputPath,"SubsetStep4/")
 dir.create(ModOutputPath_SubsetStep4,showWarnings = F)
 
@@ -815,7 +816,7 @@ for (i in runlist_subsetStep4) {
   for (k in 1:length(moderation_category_runlist)) {
     
     if (length(unique(check[,moderation_category_runlist[k]]))==1) next # if there is only 1 level, move to next iteration
-    tryCatch({temp = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+    tryCatch({temp = getTable_Mod(file.path(dataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
                                   modMain = modMain, modType = cat_mod, modformula= modformula,
                                   modFactor = moderation_category_runlist[k],outlier = F)
     # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : True"))
@@ -829,7 +830,7 @@ for (i in runlist_subsetStep4) {
     
     # with outlier removal
     if (length(unique(check_out[,moderation_category_runlist[k]]))==1) next # if there is only 1 level in outlier removal data, move to next iteration
-    tryCatch({temp_out = getTable_Mod(file = i,analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
+    tryCatch({temp_out = getTable_Mod(file.path(dataPath, i),analysisName = paste0("Moderation Analysis: ",moderation_category_runlist[k]), 
                                       modMain = modMain, modType = cat_mod, modformula= modformula,
                                       modFactor = moderation_category_runlist[k],outlier = T)
     # cat(paste0(i,"\n", "Moderator:",moderation_category_runlist[k],"\nOutlier : False"))
@@ -851,13 +852,13 @@ for (i in runlist_subsetStep4) {
   
   
   
-  # write.csv(all, paste0(ModOutputPath,substring(i,30,nchar(i)-4),"_ModerationAnalysis_SubSetTime_",date,".csv"),
+  # write.csv(all, paste0(ModOutputPath,substring(i,30,nchar(i)-4),"_ModerationAnalysis_SubSetTime.csv"),
   #           row.names = F)
   # save all outcome as one big file
   mod_all3 = rbind(mod_all3,all)
 }
 
-write.csv(mod_all3, paste0(ModOutputPath_SubsetStep4,"ModerationAnalysis_SubSetStep4_",date,".csv"),
+write.csv(mod_all3, paste0(ModOutputPath_SubsetStep4,"ModerationAnalysis_SubSetStep4.csv"),
           row.names = F)
 
 ```
@@ -868,8 +869,7 @@ write.csv(mod_all3, paste0(ModOutputPath_SubsetStep4,"ModerationAnalysis_SubSetS
 
 modMain = 3 # conduct focal analysis
 modformula = "~1 | StudyID/EffectSizeID" # this is the random model we use
-date = "20240408"
-TechniqueOutputPath = paste0(outputPath,"IndividualTechniqueAnalysis/",date,"/")
+TechniqueOutputPath = paste0(outputPath,"IndividualTechniqueAnalysis/")
 dir.create(paste0(outputPath,"IndividualTechniqueAnalysis/"), showWarnings = F)
 dir.create(TechniqueOutputPath, showWarnings = F)
 
