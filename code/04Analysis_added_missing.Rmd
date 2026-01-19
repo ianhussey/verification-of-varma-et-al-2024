@@ -504,7 +504,7 @@ data_tetris_delayed_fu <- df_subset |>
          EffectSize, EffectSizeType,
          Notes_fromMo,
          Notes_fromSZ,
-         sign, yi, vi)
+         sign, yi_pos, vi)
 
 data_tetris_delayed_fu
 
@@ -513,6 +513,33 @@ write_csv(data_tetris_delayed_fu, file.path(output_dir, "data_tetris_delayed_fu.
 ```
 
 # Exploring effect sizes
+
+Most extreme effect sizes
+
+```{r}
+
+data_10_most_extreme_effect_sizes <- df_full |>
+  select(Author, Title, Year, Journal, DOI, 
+         StudyID, # multiple studies per article
+         SampleSize, StudyDesign, StatExtracted, ExperimentalCondition, ComparisonCondition, 
+         TimeOfManipulation,
+         DVTask, ModeOfMeasurement,
+         ExperimentalConditionSampleSize, ComparisonConditionSampleSize, 
+         Experimental_Mean, Comparison_Mean,
+         Experimental_SD, Comparison_SD,
+         EffectSize, EffectSizeType,
+         Notes_fromMo,
+         Notes_fromSZ,
+         sign, yi_pos, vi) |>
+  mutate(abs_yi_pos = abs(yi_pos)) |>
+  arrange(desc(abs_yi_pos)) |>
+  head(n = 10)
+
+data_10_most_extreme_effect_sizes
+
+write_csv(data_10_most_extreme_effect_sizes, file.path(output_dir, "data_10_most_extreme_effect_sizes.csv"))
+
+```
 
 ```{r}
 
