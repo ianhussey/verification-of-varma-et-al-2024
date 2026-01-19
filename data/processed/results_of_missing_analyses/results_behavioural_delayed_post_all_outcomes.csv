@@ -1,0 +1,2 @@
+Analysis,Outcome,Subset_Step3,Subset_Time,N_Participants,n_Experiments,k_EffectSizes,Hedges_g,CI_Lower,CI_Upper,p_value,I2_Total,Tau2_Study,Tau2_Effect
+Subgroup Analysis (Behavioural / Immediate),All Outcomes Aggregated,Behavioural,Immediate post,1204,12,51,0.1,-0.12,0.33,0.37371,70.82,0.138,0
