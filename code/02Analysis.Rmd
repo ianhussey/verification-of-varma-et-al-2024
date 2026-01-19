@@ -43,10 +43,6 @@ runlist = list.files(dataPath)
 
 ```{r}
 
-# Functions
-
-```{r}
-
 #returns a template of df to store the results of all moderator analyses
 getTemplate_MainAnalysis <- function(){
   df_temp = data.frame(
@@ -516,10 +512,13 @@ moderation_category_runlist = c("Step3_Technique_procedure","Step4_Hypothesized_
 moderation_continuous_runlist = c("MeanAge","FemaleRatio")
 
 for (i in runlist) {
+  # Fix: Only process the "Data_..." files, skip the "Results_..." files
+  if (!grepl("^Data_", i)) next
+  
   all =  data.frame()
   
   # load data to later check if the moderation level is larger than 2
-  check = read.csv(i)
+  check = read.csv(file.path(dataPath, i))
   check = subset(check,!is.na(check$yi_pos))
   
   if (dim(check)[1]==0) next # if there is no data, move to next iteration
@@ -611,7 +610,7 @@ dir.create(Step4DataPath, showWarnings = F)
 
 # subset data into different timepoints, different step 3 and step 4 categories
 for (i in runlist) {
-  tempDF = read.csv(i)
+  tempDF = read.csv(file.path(dataPath, i))
   for (k in unique(tempDF$TimeOfManipulation)) {
     temp = subset(tempDF, tempDF$TimeOfManipulation==k)
     write.csv(temp,paste0(TimeDataPath,substring(i,1,nchar(i)-4),"_",k,".csv"),
@@ -655,7 +654,7 @@ for (i in runlist_subsetTime) {
   all =  data.frame()
   
   # load data to later check if the moderation level is larger than 2
-  check = read.csv(i)
+  check = read.csv(file.path(dataPath, i))
   check = subset(check,!is.na(check$yi_pos))
   
   if (dim(check)[1]==0) next # if there is no data, move to next iteration
@@ -731,7 +730,7 @@ for (i in runlist_subsetStep3) {
   all =  data.frame()
   
   # load data to later check if the moderation level is larger than 2
-  check = read.csv(i)
+  check = read.csv(file.path(dataPath, i))
   check = subset(check,!is.na(check$yi_pos))
   
   if (dim(check)[1]==0) next # if there is no data, move to next iteration
@@ -806,7 +805,7 @@ for (i in runlist_subsetStep4) {
   all =  data.frame()
   
   # load data to later check if the moderation level is larger than 2
-  check = read.csv(i)
+  check = read.csv(file.path(dataPath, i))
   check = subset(check,!is.na(check$yi_pos))
   
   if (dim(check)[1]==0) next # if there is no data, move to next iteration
@@ -885,7 +884,7 @@ focal_all = data.frame()
 
 for (g in focal_columns) {
   for (i in runlist_subsetTime) {
-    test = read.csv(i) #load data to see if higher than 1 rows
+    test = read.csv(file.path(dataPath, i)) #load data to see if higher than 1 rows
     outlierInd = which(test$outliers==1 | test$cooks_inf==1 | test$DFBETAS_inf==1)
     test_out = test[-outlierInd,] #check_out is the dataset without outlier
     
