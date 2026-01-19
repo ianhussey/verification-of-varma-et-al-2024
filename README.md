@@ -38,7 +38,6 @@ data/
   statistical results, correlation tables
 registration/         # copy of PROSPERO registration
 SupplementaryResults   # folder of results supplied by the original authors, not directly produced by code here.
-
 README.md             # this file
 ```
 
