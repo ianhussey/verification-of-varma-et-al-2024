@@ -488,5 +488,97 @@ write_csv(results_table, output_file)
 
 ```
 
+List included studies
+
+```{r}
+
+data_tetris_delayed_fu <- df_subset |>
+  select(Author, Title, Year, Journal, DOI, 
+         StudyID, # multiple studies per article
+         SampleSize, StudyDesign, StatExtracted, ExperimentalCondition, ComparisonCondition, 
+         TimeOfManipulation,
+         DVTask, ModeOfMeasurement,
+         ExperimentalConditionSampleSize, ComparisonConditionSampleSize, 
+         Experimental_Mean, Comparison_Mean,
+         Experimental_SD, Comparison_SD,
+         EffectSize, EffectSizeType,
+         Notes_fromMo,
+         Notes_fromSZ,
+         sign, yi, vi)
+
+data_tetris_delayed_fu
+
+write_csv(data_tetris_delayed_fu, file.path(output_dir, "data_tetris_delayed_fu.csv"))
+
+```
+
+# Exploring effect sizes
+
+```{r}
+
+ggplot(df_full, aes(yi_pos)) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  geom_histogram(binwidth = 0.1) +
+  scale_x_continuous(breaks = scales::breaks_pretty(n = 8)) +
+  theme_linedraw()
+
+```
+
+```{r fig.height=10, fig.width=9}
+
+df_full |>
+  count(TimeOfManipulation) 
+
+ggplot(df_full, aes(yi_pos)) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  geom_histogram(binwidth = 0.1) +
+  scale_x_continuous(breaks = scales::breaks_pretty(n = 8)) +
+  facet_grid(TimeOfManipulation ~ DependentVariablesType) +
+  theme_linedraw()
+
+```
+
+
+```{r}
+
+dat_key <- df_full |>
+  filter(TimeOfManipulation == "Delayed post" & 
+           DependentVariablesType == "Intrusion frequency") |>
+  select(yi_pos, Year) |>
+  arrange(yi_pos)
+
+ggplot(dat_key, aes(yi_pos)) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  geom_histogram(binwidth = 0.1) +
+  scale_x_continuous(breaks = scales::breaks_pretty(n = 8)) +
+  theme_linedraw()
+
+```
+
+
+```{r fig.height=6, fig.width=9}
+
+df_full |>
+  arrange(yi_pos) |>
+  mutate(rank = row_number()) |>
+  ggplot(aes(yi_pos, rank)) +
+  geom_point()
+
+```
+
+```{r}
+
+df_full |>
+  ggplot(aes(Year, yi_pos)) +
+  geom_point(alpha =0.3) +
+  geom_smooth(method = "lm")
+
+dat_key |>
+  ggplot(aes(Year, yi_pos)) +
+  geom_point(alpha =0.3) +
+  geom_smooth(method = "lm")
+
+```
+
 
 
