@@ -187,7 +187,7 @@ getTable_Mod <- function(analysisName,file,modformula,modMain = 1,modFactor = NU
   
   # main analysis preparation
   if (is.null(modType) & is.null(modFactor) & modMain == 1){
-    metaObject = rma.mv(yi=yi_pos, V = vi, data=df, random = formula(modformula),control = optimizer)
+    metaObject = try(rma.mv(yi=yi_pos, V = vi, data=df, random = formula(modformula),control = optimizer), silent = TRUE)
     currentdf=getTemplate_MainAnalysis()
     
     # focal analysis preparation
@@ -202,7 +202,7 @@ getTable_Mod <- function(analysisName,file,modformula,modMain = 1,modFactor = NU
     metaObject = try(rma.mv(yi=yi_pos, V = vi, data=df, mods = ~factor(modFactor_prep), random = formula(modformula),control = optimizer),silent = T)
     meta_mod = try(rma.mv(yi=yi_pos, V = vi, data=df, mods = ~factor(modFactor_prep)-1, random = formula(modformula),control = optimizer),silent = T)
     if("try-error" %in% class(meta_mod) | "try-error" %in% class(metaObject)) {
-      metaObject <- try(rma.mv(yi=yi_pos, V = vi, data=df,mods = ~factor(modFactor_prep), random = formula(modformula),control = optimizer2),silent = T)
+      metaObject = try(rma.mv(yi=yi_pos, V = vi, data=df,mods = ~factor(modFactor_prep), random = formula(modformula),control = optimizer2),silent = T)
       change_optimizer = T
     }
     currentdf=getTemplate_ModAnalysis()
@@ -380,9 +380,9 @@ getTable_Mod <- function(analysisName,file,modformula,modMain = 1,modFactor = NU
     
     #without reference level ( this is to get the individual p value for each mod level (H0：beta = 0))
     if (change_optimizer) {
-      meta_mod <- rma.mv(yi=yi_pos, V = vi, data=df, mods = ~factor(modFactor_prep)-1, random = formula(modformula),control = optimizer2)
+      meta_mod <- try(rma.mv(yi=yi_pos, V = vi, data=df, mods = ~factor(modFactor_prep)-1, random = formula(modformula),control = optimizer2), silent = TRUE)
     }else{
-      meta_mod = rma.mv(yi=yi_pos, V = vi, data=df, mods = ~factor(modFactor_prep)-1, random = formula(modformula),control = optimizer)
+      meta_mod = try(rma.mv(yi=yi_pos, V = vi, data=df, mods = ~factor(modFactor_prep)-1, random = formula(modformula),control = optimizer), silent = TRUE)
     }
     
     modFactor_prep=as.factor(modFactor_prep)
