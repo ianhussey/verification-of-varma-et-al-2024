@@ -28,7 +28,7 @@ library(dplyr)
 ```{r}
 
 # Set data paths - Updated to match the specific date folder from previous steps
-dataPath = file.path("../data/processed/outlier_influential/data/20260119") 
+dataPath = file.path("../data/processed/outlier_influential/data") 
 dir.create(file.path("../data/processed/Results/OutlierInfluential/ExpLevel_data/"), showWarnings = FALSE, recursive = TRUE)
 dataPath_expLevel = file.path("../data/processed/Results/OutlierInfluential/ExpLevel_data/")
 

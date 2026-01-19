@@ -1,1 +1,41 @@
-""
+"Analysis","Prediction","Outcome","Suboutcome","OutlierRemove","N","n_article","n_study","k","z","p"
+"Egger's test for funnel plot asymmetry","All","Intrusion frequency","Intrusion diary","no",10182,118,136,"274",0.724576118498623,0.468712114181148
+"Egger's test for funnel plot asymmetry","All","Intrusion frequency","Intrusion diary","yes",10017,117,132,"262",0.749889903654454,0.453321015752864
+"Egger's test for funnel plot asymmetry","Decrease","Intrusion frequency","Intrusion diary","no",7354,86,100,"150",3.7910360284256,0.000150020187918637
+"Egger's test for funnel plot asymmetry","Decrease","Intrusion frequency","Intrusion diary","yes",7025,83,95,"143",3.21375021814323,0.00131013590309077
+"Egger's test for funnel plot asymmetry","Increase","Intrusion frequency","Intrusion diary","no",4068,45,51,"67",-3.38400365456502,0.00071437052296213
+"Egger's test for funnel plot asymmetry","Increase","Intrusion frequency","Intrusion diary","yes",3809,42,48,"63",-2.57293600782389,0.0100839850747814
+"Egger's test for funnel plot asymmetry","Unspecified","Intrusion frequency","Intrusion diary","no",2771,31,32,"55",-1.33903677601567,0.18055870092034
+"Egger's test for funnel plot asymmetry","Unspecified","Intrusion frequency","Intrusion diary","yes",2771,31,32,"53",-0.576689194005503,0.564149433509991
+"Egger's test for funnel plot asymmetry","All","Intrusion frequency","Lab-based intrusion monitoring task","no",2978,35,40,"80",1.80325723245896,0.0713478258805574
+"Egger's test for funnel plot asymmetry","All","Intrusion frequency","Lab-based intrusion monitoring task","yes",2924,34,39,"77",2.07821092326134,0.0376899364579264
+"Egger's test for funnel plot asymmetry","Decrease","Intrusion frequency","Lab-based intrusion monitoring task","no",2052,24,28,"34",3.23602480970106,0.00121206848929324
+"Egger's test for funnel plot asymmetry","Decrease","Intrusion frequency","Lab-based intrusion monitoring task","yes",2052,24,28,"34",3.23602480970106,0.00121206848929324
+"Egger's test for funnel plot asymmetry","Increase","Intrusion frequency","Lab-based intrusion monitoring task","no",1357,13,16,"32",0.24581932667814,0.805822095507473
+"Egger's test for funnel plot asymmetry","Increase","Intrusion frequency","Lab-based intrusion monitoring task","yes",1214,11,14,"29",0.502962680600241,0.61499051063301
+"Egger's test for funnel plot asymmetry","Unspecified","Intrusion frequency","Lab-based intrusion monitoring task","no",715,8,8,"13",-2.07941290198671,0.0375794156534711
+"Egger's test for funnel plot asymmetry","Unspecified","Intrusion frequency","Lab-based intrusion monitoring task","yes",715,8,8,"13",-2.07941290198671,0.0375794156534711
+"Egger's test for funnel plot asymmetry","All","Intrusion frequency","Self-report questionnaire","no",1935,20,21,"56",2.85173835655006,0.00434808737699558
+"Egger's test for funnel plot asymmetry","All","Intrusion frequency","Self-report questionnaire","yes",1935,20,21,"55",2.99073501359699,0.00278306883133124
+"Egger's test for funnel plot asymmetry","Decrease","Intrusion frequency","Self-report questionnaire","no",1511,16,17,"36",2.65528013716452,0.00792425710862057
+"Egger's test for funnel plot asymmetry","Decrease","Intrusion frequency","Self-report questionnaire","yes",1511,16,17,"34",2.8167023778675,0.0048519464098385
+"Egger's test for funnel plot asymmetry","Increase","Intrusion frequency","Self-report questionnaire","no",487,6,6,"10",0.0702125076937803,0.944024519195565
+"Egger's test for funnel plot asymmetry","Increase","Intrusion frequency","Self-report questionnaire","yes",487,6,6,"10",0.0702125076937803,0.944024519195565
+"Egger's test for funnel plot asymmetry","Unspecified","Intrusion frequency","Self-report questionnaire","no",469,5,5,"10",2.98508376695014,0.00283500676277311
+"Egger's test for funnel plot asymmetry","Unspecified","Intrusion frequency","Self-report questionnaire","yes",285,4,4,"9",1.58887445803906,0.112088738766313
+"Egger's test for funnel plot asymmetry","All","Intrusion symptoms",NA,"no",5718,61,68,"119",-2.09739039346579,0.035959030787235
+"Egger's test for funnel plot asymmetry","All","Intrusion symptoms",NA,"yes",5673,60,67,"114",-0.939416971484533,0.347516702780851
+"Egger's test for funnel plot asymmetry","Decrease","Intrusion symptoms",NA,"no",3734,39,45,"60",0.299175663615526,0.76480601701243
+"Egger's test for funnel plot asymmetry","Decrease","Intrusion symptoms",NA,"yes",3618,37,43,"57",0.370865779652321,0.710737504283143
+"Egger's test for funnel plot asymmetry","Increase","Intrusion symptoms",NA,"no",2473,25,27,"34",-3.55355415840921,0.000380062932329793
+"Egger's test for funnel plot asymmetry","Increase","Intrusion symptoms",NA,"yes",2428,24,26,"33",-1.85602308264052,0.0634502680152672
+"Egger's test for funnel plot asymmetry","Unspecified","Intrusion symptoms",NA,"no",1695,19,19,"24",0.442677480394712,0.657999033379959
+"Egger's test for funnel plot asymmetry","Unspecified","Intrusion symptoms",NA,"yes",1565,17,17,"21",-1.63798623391923,0.101424565486619
+"Egger's test for funnel plot asymmetry","All","Intrusion-related distress",NA,"no",7126,77,85,"169",-0.188868142330462,0.850196162903978
+"Egger's test for funnel plot asymmetry","All","Intrusion-related distress",NA,"yes",7021,75,83,"165",0.601935621976764,0.547216991368015
+"Egger's test for funnel plot asymmetry","Decrease","Intrusion-related distress",NA,"no",4921,52,58,"92",2.05356265831939,0.0400180394293994
+"Egger's test for funnel plot asymmetry","Decrease","Intrusion-related distress",NA,"yes",4855,51,57,"90",1.99420701108504,0.046129436279148
+"Egger's test for funnel plot asymmetry","Increase","Intrusion-related distress",NA,"no",2770,31,34,"54",-1.84396896899019,0.065187662640315
+"Egger's test for funnel plot asymmetry","Increase","Intrusion-related distress",NA,"yes",2731,30,33,"53",-0.582143731310908,0.560469870857493
+"Egger's test for funnel plot asymmetry","Unspecified","Intrusion-related distress",NA,"no",1737,17,17,"23",-0.656385630775962,0.511576033493367
+"Egger's test for funnel plot asymmetry","Unspecified","Intrusion-related distress",NA,"yes",1737,17,17,"23",-0.656385630775962,0.511576033493367
