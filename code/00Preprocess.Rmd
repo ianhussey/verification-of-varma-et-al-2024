@@ -19,12 +19,12 @@ output:
 options(scipen=999)
 
 #Outcome-level File
-AllFile <- "../Data/IntrusionMetaData_Clean_v2.csv"
-NameAllFile_forDescriptive <-"../Data/AllIntrusionEffectSizes_forDescriptive.csv"
-NameAllFile <- "../Data/AllIntrusionEffectSizes.csv"
-NameIncreaseFile <- "../Data/IncreaseIntrusionEffectSizes.csv"
-NameDecreaseFile <- "../Data/DecreaseIntrusionEffectSizes.csv"
-NameUnspecifiedFile <- "../Data/UnspecifiedIntrusionEffectSizes.csv"
+AllFile <- "../data/raw/IntrusionMetaData_Clean_v2.csv"
+NameAllFile_forDescriptive <-"../data/processed/AllIntrusionEffectSizes_forDescriptive.csv"
+NameAllFile <- "../data/processed/AllIntrusionEffectSizes.csv"
+NameIncreaseFile <- "../data/processed/IncreaseIntrusionEffectSizes.csv"
+NameDecreaseFile <- "../data/processed/DecreaseIntrusionEffectSizes.csv"
+NameUnspecifiedFile <- "../data/processed/UnspecifiedIntrusionEffectSizes.csv"
 
 alldf = read.csv(AllFile,na.strings=c("","NA"))
 
