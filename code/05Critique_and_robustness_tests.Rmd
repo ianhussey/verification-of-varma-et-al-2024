@@ -1,0 +1,451 @@
+---
+title: "Verification of Varma et al. (2024)"
+subtitle: "Robustness tests"
+author: "Original code by authors of Varma et al. (2024). Additions by Ian Hussey, Sae In Lee & Martin Götz"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_download: true
+    code_folding: hide
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+# Dependencies
+
+```{r}
+
+library(metafor)
+library(papaja)
+library(stringr)
+library(dplyr)
+library(readr) 
+
+options(scipen=999)
+
+```
+
+# Increase vs decrease of aggreated intrusion frequency across the three frequency outcome variables
+
+Pointing out that the result reported in the abstract and table 4a, but not produced by the distributed code, is a meaningless combination of two different estimands. 
+
+“Results showed that techniques (behavioural, pharmacological, neuromodulation) significantly reduced intrusion frequency (g = 0.16, 95% confidence interval [0.09, 0.23])”
+
+## increase
+
+```{r}
+
+# Input: The master file containing all effect sizes
+input_file <- "../data/processed/IncreaseIntrusionEffectSizes.csv"
+
+# Output: Where to save the aggregated result
+output_dir <- "../data/processed/robustness_tests"
+
+# Create output directory if it doesn't exist
+dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
+
+# --- Load and Prepare Data ---
+df_full <- read.csv(input_file)
+
+```
+
+```{r}
+
+output_file <- file.path(output_dir, "results_aggregated_frequency_outcomes_increase.csv")
+
+# Filter for the aggregated "Intrusion frequency" outcome
+# (This combines Diary, Lab, and Questionnaire measures)
+df_overall <- df_full %>% 
+  filter(DependentVariablesType == "Intrusion frequency") %>%
+  filter(!is.na(yi_pos) & !is.na(vi)) # Ensure valid effect sizes
+
+# --- Run Multilevel Meta-Analysis ---
+# Random effects nested: StudyID / EffectSizeID
+model <- rma.mv(yi = yi_pos, 
+                V = vi, 
+                data = df_overall, 
+                random = ~ 1 | StudyID/EffectSizeID, 
+                method = "REML")
+
+# --- Extract Results ---
+
+# 1. Calculate Heterogeneity (Total I2)
+W <- diag(1/df_overall$vi)
+X <- model.matrix(model)
+P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
+total_I2 <- 100 * sum(model$sigma2) / (sum(model$sigma2) + (model$k - model$p) / sum(diag(P)))
+
+# 2. Calculate Sample Size (N)
+# Sum unique sample sizes per study to avoid double-counting within-study effects
+n_participants <- df_overall %>% 
+  distinct(StudyID, SampleSize) %>% 
+  summarise(total_n = sum(SampleSize, na.rm = TRUE)) %>% 
+  pull(total_n)
+
+# 3. Create Results Table
+results_table <- data.frame(
+  Analysis = "Main Analysis (Aggregated)",
+  Outcome = "Overall Intrusion Frequency",
+  N_Participants = n_participants,
+  n_Experiments = model$s.nlevels[1], # Number of unique StudyIDs
+  k_EffectSizes = model$k,            # Number of effect sizes
+  Hedges_g = round(model$beta[1], 2),
+  CI_Lower = round(model$ci.lb, 2),
+  CI_Upper = round(model$ci.ub, 2),
+  p_value = format.pval(model$pval, eps = 0.001),
+  I2_Total = round(total_I2, 2),
+  Tau2_Study = round(model$sigma2[1], 4),
+  Tau2_Effect = round(model$sigma2[2], 4)
+)
+
+# --- View and Save ---
+print(results_table)
+write_csv(results_table, output_file)
+
+```
+
+## decrease
+
+```{r}
+
+# Input: The master file containing all effect sizes
+input_file <- "../data/processed/DecreaseIntrusionEffectSizes.csv"
+
+# Output: Where to save the aggregated result
+output_dir <- "../data/processed/robustness_tests"
+
+# Create output directory if it doesn't exist
+dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
+
+# --- Load and Prepare Data ---
+df_full <- read.csv(input_file)
+
+```
+
+```{r}
+
+output_file <- file.path(output_dir, "results_aggregated_frequency_outcomes_decrease.csv")
+
+# Filter for the aggregated "Intrusion frequency" outcome
+# (This combines Diary, Lab, and Questionnaire measures)
+df_overall <- df_full %>% 
+  filter(DependentVariablesType == "Intrusion frequency") %>%
+  filter(!is.na(yi_pos) & !is.na(vi)) # Ensure valid effect sizes
+
+# --- Run Multilevel Meta-Analysis ---
+# Random effects nested: StudyID / EffectSizeID
+model <- rma.mv(yi = yi_pos, 
+                V = vi, 
+                data = df_overall, 
+                random = ~ 1 | StudyID/EffectSizeID, 
+                method = "REML")
+
+# --- Extract Results ---
+
+# 1. Calculate Heterogeneity (Total I2)
+W <- diag(1/df_overall$vi)
+X <- model.matrix(model)
+P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
+total_I2 <- 100 * sum(model$sigma2) / (sum(model$sigma2) + (model$k - model$p) / sum(diag(P)))
+
+# 2. Calculate Sample Size (N)
+# Sum unique sample sizes per study to avoid double-counting within-study effects
+n_participants <- df_overall %>% 
+  distinct(StudyID, SampleSize) %>% 
+  summarise(total_n = sum(SampleSize, na.rm = TRUE)) %>% 
+  pull(total_n)
+
+# 3. Create Results Table
+results_table <- data.frame(
+  Analysis = "Main Analysis (Aggregated)",
+  Outcome = "Overall Intrusion Frequency",
+  N_Participants = n_participants,
+  n_Experiments = model$s.nlevels[1], # Number of unique StudyIDs
+  k_EffectSizes = model$k,            # Number of effect sizes
+  Hedges_g = round(model$beta[1], 2),
+  CI_Lower = round(model$ci.lb, 2),
+  CI_Upper = round(model$ci.ub, 2),
+  p_value = format.pval(model$pval, eps = 0.001),
+  I2_Total = round(total_I2, 2),
+  Tau2_Study = round(model$sigma2[1], 4),
+  Tau2_Effect = round(model$sigma2[2], 4)
+)
+
+# --- View and Save ---
+print(results_table)
+write_csv(results_table, output_file)
+
+```
+
+# Robustness tests - Subsets and moderators on decrease studies only
+
+```{r}
+
+# Input: The master file containing all effect sizes
+input_file <- "../data/processed/DecreaseIntrusionEffectSizes.csv"
+
+# Output: Where to save the aggregated result
+output_dir <- "../data/processed/robustness_tests"
+
+# Create output directory if it doesn't exist
+dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
+
+# --- Load and Prepare Data ---
+df_full <- read.csv(input_file)
+
+```
+
+## Immediate post
+
+### Behavioral interventions only
+
+```{r}
+
+output_file <- file.path(output_dir, "results_behavioural_immediate_post_all_outcomes_decrease.csv")
+
+# Filter for:
+# 1. Behavioural interventions only (Step 3)
+# 2. Immediate Post timepoint
+# 3. Aggregating across ALL outcomes (no filter on DependentVariablesType)
+df_subset <- df_full %>% 
+  filter(Step3_Technique_procedure == "Behavioural") %>%
+  filter(TimeOfManipulation == "Immediate post") %>%
+  filter(!is.na(yi_pos) & !is.na(vi)) # Ensure valid effect sizes
+
+# --- Run Multilevel Meta-Analysis ---
+# Random effects nested: StudyID / EffectSizeID
+model <- rma.mv(yi = yi_pos, 
+                V = vi, 
+                data = df_subset, 
+                random = ~ 1 | StudyID/EffectSizeID, 
+                method = "REML")
+
+# --- Extract Results ---
+
+# 1. Calculate Heterogeneity (Total I2)
+W <- diag(1/df_subset$vi)
+X <- model.matrix(model)
+P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
+total_I2 <- 100 * sum(model$sigma2) / (sum(model$sigma2) + (model$k - model$p) / sum(diag(P)))
+
+# 2. Calculate Sample Size (N)
+# Sum unique sample sizes per study to avoid double-counting within-study effects
+n_participants <- df_subset %>% 
+  distinct(StudyID, SampleSize) %>% 
+  summarise(total_n = sum(SampleSize, na.rm = TRUE)) %>% 
+  pull(total_n)
+
+# 3. Create Results Table
+results_table <- data.frame(
+  Analysis = "Subgroup Analysis (Behavioural / Immediate)",
+  Outcome = "All Outcomes Aggregated",
+  Subset_Step3 = "Behavioural",
+  Subset_Time = "Immediate post",
+  N_Participants = n_participants,
+  n_Experiments = model$s.nlevels[1], # Number of unique StudyIDs
+  k_EffectSizes = model$k,            # Number of effect sizes
+  Hedges_g = round(model$beta[1], 2),
+  CI_Lower = round(model$ci.lb, 2),
+  CI_Upper = round(model$ci.ub, 2),
+  p_value = format.pval(model$pval, eps = 0.001),
+  I2_Total = round(total_I2, 2),
+  Tau2_Study = round(model$sigma2[1], 4),
+  Tau2_Effect = round(model$sigma2[2], 4)
+)
+
+# --- View and Save ---
+print(results_table)
+write_csv(results_table, output_file)
+
+```
+
+### Imagery only
+
+```{r}
+
+output_file <- file.path(output_dir, "results_imagery_immediate_post_all_outcomes_decrease.csv")
+
+# Filter for:
+# 1. Behavioural interventions only (Step 3)
+# 2. Immediate Post timepoint
+# 3. Aggregating across ALL outcomes (no filter on DependentVariablesType)
+df_subset <- df_full %>% 
+  filter(Step4_Hypothesized_mechanism == "Imagery") %>%
+  filter(TimeOfManipulation == "Immediate post") %>%
+  filter(!is.na(yi_pos) & !is.na(vi)) # Ensure valid effect sizes
+
+# --- Run Multilevel Meta-Analysis ---
+# Random effects nested: StudyID / EffectSizeID
+model <- rma.mv(yi = yi_pos, 
+                V = vi, 
+                data = df_subset, 
+                random = ~ 1 | StudyID/EffectSizeID, 
+                method = "REML")
+
+# --- Extract Results ---
+
+# 1. Calculate Heterogeneity (Total I2)
+W <- diag(1/df_subset$vi)
+X <- model.matrix(model)
+P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
+total_I2 <- 100 * sum(model$sigma2) / (sum(model$sigma2) + (model$k - model$p) / sum(diag(P)))
+
+# 2. Calculate Sample Size (N)
+# Sum unique sample sizes per study to avoid double-counting within-study effects
+n_participants <- df_subset %>% 
+  distinct(StudyID, SampleSize) %>% 
+  summarise(total_n = sum(SampleSize, na.rm = TRUE)) %>% 
+  pull(total_n)
+
+# 3. Create Results Table
+results_table <- data.frame(
+  Analysis = "Subgroup Analysis (Behavioural / Immediate)",
+  Outcome = "All Outcomes Aggregated",
+  Subset_Step3 = "Behavioural",
+  Subset_Time = "Immediate post",
+  N_Participants = n_participants,
+  n_Experiments = model$s.nlevels[1], # Number of unique StudyIDs
+  k_EffectSizes = model$k,            # Number of effect sizes
+  Hedges_g = round(model$beta[1], 2),
+  CI_Lower = round(model$ci.lb, 2),
+  CI_Upper = round(model$ci.ub, 2),
+  p_value = format.pval(model$pval, eps = 0.001),
+  I2_Total = round(total_I2, 2),
+  Tau2_Study = round(model$sigma2[1], 4),
+  Tau2_Effect = round(model$sigma2[2], 4)
+)
+
+# --- View and Save ---
+print(results_table)
+write_csv(results_table, output_file)
+
+```
+
+## Delayed post
+
+### Behavioral interventions only
+
+```{r}
+
+output_file <- file.path(output_dir, "results_behavioural_delayed_post_all_outcomes_decrease.csv")
+
+# Filter for:
+# 1. Behavioural interventions only (Step 3)
+# 2. Immediate Post timepoint
+# 3. Aggregating across ALL outcomes (no filter on DependentVariablesType)
+df_subset <- df_full %>% 
+  filter(Step3_Technique_procedure == "Behavioural") %>%
+  filter(TimeOfManipulation == "Delayed post") %>%
+  filter(!is.na(yi_pos) & !is.na(vi)) # Ensure valid effect sizes
+
+# --- Run Multilevel Meta-Analysis ---
+# Random effects nested: StudyID / EffectSizeID
+model <- rma.mv(yi = yi_pos, 
+                V = vi, 
+                data = df_subset, 
+                random = ~ 1 | StudyID/EffectSizeID, 
+                method = "REML")
+
+# --- Extract Results ---
+
+# 1. Calculate Heterogeneity (Total I2)
+W <- diag(1/df_subset$vi)
+X <- model.matrix(model)
+P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
+total_I2 <- 100 * sum(model$sigma2) / (sum(model$sigma2) + (model$k - model$p) / sum(diag(P)))
+
+# 2. Calculate Sample Size (N)
+# Sum unique sample sizes per study to avoid double-counting within-study effects
+n_participants <- df_subset %>% 
+  distinct(StudyID, SampleSize) %>% 
+  summarise(total_n = sum(SampleSize, na.rm = TRUE)) %>% 
+  pull(total_n)
+
+# 3. Create Results Table
+results_table <- data.frame(
+  Analysis = "Subgroup Analysis (Behavioural / Immediate)",
+  Outcome = "All Outcomes Aggregated",
+  Subset_Step3 = "Behavioural",
+  Subset_Time = "Immediate post",
+  N_Participants = n_participants,
+  n_Experiments = model$s.nlevels[1], # Number of unique StudyIDs
+  k_EffectSizes = model$k,            # Number of effect sizes
+  Hedges_g = round(model$beta[1], 2),
+  CI_Lower = round(model$ci.lb, 2),
+  CI_Upper = round(model$ci.ub, 2),
+  p_value = format.pval(model$pval, eps = 0.001),
+  I2_Total = round(total_I2, 2),
+  Tau2_Study = round(model$sigma2[1], 4),
+  Tau2_Effect = round(model$sigma2[2], 4)
+)
+
+# --- View and Save ---
+print(results_table)
+write_csv(results_table, output_file)
+
+```
+
+### Imagery only
+
+```{r}
+
+output_file <- file.path(output_dir, "results_imagery_delayed_post_all_outcomes_decrease.csv")
+
+# Filter for:
+# 1. Behavioural interventions only (Step 3)
+# 2. Immediate Post timepoint
+# 3. Aggregating across ALL outcomes (no filter on DependentVariablesType)
+df_subset <- df_full %>% 
+  filter(Step4_Hypothesized_mechanism == "Imagery") %>%
+  filter(TimeOfManipulation == "Delayed post") %>%
+  filter(!is.na(yi_pos) & !is.na(vi)) # Ensure valid effect sizes
+
+# --- Run Multilevel Meta-Analysis ---
+# Random effects nested: StudyID / EffectSizeID
+model <- rma.mv(yi = yi_pos, 
+                V = vi, 
+                data = df_subset, 
+                random = ~ 1 | StudyID/EffectSizeID, 
+                method = "REML")
+
+# --- Extract Results ---
+
+# 1. Calculate Heterogeneity (Total I2)
+W <- diag(1/df_subset$vi)
+X <- model.matrix(model)
+P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
+total_I2 <- 100 * sum(model$sigma2) / (sum(model$sigma2) + (model$k - model$p) / sum(diag(P)))
+
+# 2. Calculate Sample Size (N)
+# Sum unique sample sizes per study to avoid double-counting within-study effects
+n_participants <- df_subset %>% 
+  distinct(StudyID, SampleSize) %>% 
+  summarise(total_n = sum(SampleSize, na.rm = TRUE)) %>% 
+  pull(total_n)
+
+# 3. Create Results Table
+results_table <- data.frame(
+  Analysis = "Subgroup Analysis (Behavioural / Immediate)",
+  Outcome = "All Outcomes Aggregated",
+  Subset_Step3 = "Behavioural",
+  Subset_Time = "Immediate post",
+  N_Participants = n_participants,
+  n_Experiments = model$s.nlevels[1], # Number of unique StudyIDs
+  k_EffectSizes = model$k,            # Number of effect sizes
+  Hedges_g = round(model$beta[1], 2),
+  CI_Lower = round(model$ci.lb, 2),
+  CI_Upper = round(model$ci.ub, 2),
+  p_value = format.pval(model$pval, eps = 0.001),
+  I2_Total = round(total_I2, 2),
+  Tau2_Study = round(model$sigma2[1], 4),
+  Tau2_Effect = round(model$sigma2[2], 4)
+)
+
+# --- View and Save ---
+print(results_table)
+write_csv(results_table, output_file)
+
+```
+

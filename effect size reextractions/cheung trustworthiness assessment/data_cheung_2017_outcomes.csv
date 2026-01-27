@@ -1,0 +1,10 @@
+Outcome,Condition,x,sd,n,digits_m,digits_sd
+Negative beliefs of intrusions,Negative,56.94,14.86,15,2,2
+Intrusion score,Negative,18.76,1.54,15,2,2
+Interference correct,Negative,51.34,0.31,15,2,2
+Negative beliefs of intrusions,Benign,49.9,26.34,15,2,2
+Intrusion score,Benign,12.76,1.58,15,2,2
+Interference correct,Benign,50.71,0.32,15,2,2
+Negative beliefs of intrusions,Control,42.17,27.12,15,2,2
+Intrusion score,Control,14.55,1.55,15,2,2
+Interference correct,Control,51.55,0.31,15,2,2

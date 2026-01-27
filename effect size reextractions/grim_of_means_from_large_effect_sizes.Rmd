@@ -1,0 +1,69 @@
+---
+title: "Trustworthiness assessment"
+author: "Ian Hussey"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(message = FALSE, 
+                      warning = FALSE)
+
+```
+
+# Dependencies
+
+```{r}
+
+library(readr)
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(scrutiny)
+library(ggplot2)
+library(janitor)
+library(stringr)
+
+```
+
+```{r}
+
+dat <- read_csv("varma.csv") %>%
+  mutate(mean_str = as.character(x),
+         sd_str = as.character(sd),
+         mean_str = restore_zeros(mean_str, width = digits_m),
+         sd_str = restore_zeros(sd_str, width = digits_sd)) |>
+  tibble::rownames_to_column(var = "id")
+  
+```
+
+# GRIM/MER+TIDES
+
+```{r}
+
+res_grim <- dat |>
+  # grim
+  mutate(grim = pmap(.l = list(x = mean_str, 
+                               n = n,
+                               items = 1), 
+                     .f = scrutiny::grim)) |>
+  unnest(grim) |>
+  select(id, Author, DOI, condition, n, mean = x, grim)
+
+res_grim |>
+  knitr::kable() |>
+  kableExtra::kable_classic()
+  
+```
+
+
+
+
+

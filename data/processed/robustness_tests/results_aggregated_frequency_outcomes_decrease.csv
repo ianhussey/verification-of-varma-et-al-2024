@@ -1,2 +1,2 @@
 Analysis,Outcome,N_Participants,n_Experiments,k_EffectSizes,Hedges_g,CI_Lower,CI_Upper,p_value,I2_Total,Tau2_Study,Tau2_Effect
-Main Analysis (Aggregated),Overall Intrusion Frequency,10765,139,370,0.16,0.09,0.23,<0.001,64.34,0.1282,0
+Main Analysis (Aggregated),Overall Intrusion Frequency,8069,104,194,0.31,0.23,0.39,< 0.001,62.83,0.1149,0

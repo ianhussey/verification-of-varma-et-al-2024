@@ -1,0 +1,141 @@
+---
+title: "Trustworthiness assessment - James et al. 2014"
+author: "Ian Hussey"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(message = FALSE, 
+                      warning = FALSE)
+
+```
+
+# Dependencies
+
+```{r}
+
+library(readr)
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(scrutiny)
+library(ggplot2)
+library(janitor)
+library(stringr)
+library(effectsize)
+library(roundwork)
+
+```
+
+```{r}
+
+data_study1 <- read_csv("exp1/data_study1.csv") |>
+  janitor::clean_names() |>
+  mutate(condition = case_when(condition == 1 ~ "No-Task Control",
+                               condition == 2 ~ "Reactivation+Tetris")) |>
+  select(condition, intrusions = days_one_to_seven_image_based_intrusions_in_intrusion_diary)
+
+data_study2 <- read_csv("exp2/data_study2.csv") |>
+  janitor::clean_names() |>
+  filter(condition %in% c(1, 2)) |>
+  mutate(condition = case_when(condition == 1 ~ "No-Task Control",
+                               condition == 2 ~ "Reactivation+Tetris")) |>
+  select(condition, intrusions = days_one_to_seven_image_based_intrusions_in_intrusion_diary)
+
+```
+
+
+# study 1
+
+## Descriptives
+
+```{r}
+
+data_study1 |>
+  group_by(condition) |>
+  summarize(mean = mean(intrusions),
+            sd = sd(intrusions),
+            n = n()) |>
+  mutate_if(is.numeric, round_up, 2)
+
+```
+
+## Cohen's d
+
+```{r}
+
+res1 <- cohens_d(intrusions ~ condition, 
+                 adjust = TRUE,
+                 data = data_study1) |>
+  as_tibble() |>
+  mutate(study = 2) |>
+  select(study, g = Hedges_g, ci_lower = CI_low, ci_upper = CI_high)
+
+res1
+
+```
+
+
+# study 2
+
+## Descriptives
+
+```{r}
+
+data_study2 |>
+  group_by(condition) |>
+  summarize(mean = mean(intrusions),
+            sd = sd(intrusions),
+            n = n()) |>
+  mutate_if(is.numeric, round_up, 2)
+
+```
+
+## Cohen's d
+
+```{r}
+
+res2 <- cohens_d(intrusions ~ condition, 
+                 adjust = TRUE,
+                 data = data_study2) |>
+  as_tibble() |>
+  mutate(study = 2) |>
+  select(study, g = Hedges_g, ci_lower = CI_low, ci_upper = CI_high)
+
+res2
+
+```
+
+# Varma meta - extracted from plots
+
+```{r}
+
+data_varma <- read_csv("varma_james.csv")
+
+data_varma_recalc <- 
+  metafor::escalc(data = data_varma,
+                  measure = "SMD",
+                  m1 = m1, 
+                  m2 = m2, 
+                  sd1 = sd1, 
+                  sd2 = sd2, 
+                  n1 = n1,
+                  n2 = n2)
+
+data_varma_recalc |>
+  as_tibble() 
+
+```
+
+SDs used for study 2 (2.27, 2.3), are very different to data's SDs (4.23, 1.75)
+
+Hedges' g used for study 2 (1.36) is quite different to data's g (0.974), `r 1.36/0.974*100`% of correct size.
+
