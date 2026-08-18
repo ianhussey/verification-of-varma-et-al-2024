@@ -1,0 +1,519 @@
+---
+title: "Verification of Varma et al. (2024)"
+subtitle: "Added analyses reported in article but missing from the public code"
+author: "Original code by authors of Varma et al. (2024). Additions by Ian Hussey, Martin Götz & Sae In Lee"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_download: true
+    code_folding: hide
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+# Dependencies
+
+```{r}
+install.packages("metafor")
+install.packages("dplyr")
+install.packages("papaja")
+install.packages("stringr")
+install.packages("readr")
+install.packages("ggplot2")
+install.packages("rlang")
+library(metafor)
+library(papaja)
+library(stringr)
+library(dplyr)
+library(readr)
+library(ggplot2)
+
+options(scipen=999)
+
+```
+
+# Dirs and data
+
+```{r}
+
+# Input: The master file containing all effect sizes
+input_file <- "/Users/saeinlee/downloads/AllIntrusionEffectSizes.csv"
+
+# Output: Where to save the aggregated result
+output_dir <- "/Users/saeinlee/downloads/results_of_missing_analyses"
+
+# Create output directory if it doesn't exist
+dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
+
+# --- Load and Prepare Data ---
+df_full <- read.csv(input_file)
+
+```
+
+# Helper
+
+```{r}
+
+# One-row summary of an rma.mv model. Pass label columns via `labels` (a named
+# list) so the labels can never get out of sync with the actual filter used
+# (this replaces the hand-copied Analysis/Subset/Time strings that had drifted
+# out of sync in the previous version of this script).
+meta_row <- function(model, df_used, labels = list()) {
+
+  # Total I2 (Nakagawa & Santos / metafor formulation)
+  W <- diag(1 / df_used$vi)
+  X <- model.matrix(model)
+  P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
+  I2 <- 100 * sum(model$sigma2) /
+    (sum(model$sigma2) + (model$k - model$p) / sum(diag(P)))
+
+  # N participants: unique sample size per study, to avoid double-counting
+  # within-study effect sizes
+  n_participants <- df_used %>%
+    distinct(StudyID, SampleSize) %>%
+    summarise(total_n = sum(SampleSize, na.rm = TRUE)) %>%
+    pull(total_n)
+
+  base <- data.frame(
+    N_Participants = n_participants,
+    n_Experiments  = model$s.nlevels[1],   # number of unique StudyIDs
+    k_EffectSizes  = model$k,              # number of effect sizes
+    Hedges_g       = round(model$beta[1], 3),
+    CI_Lower       = round(model$ci.lb, 3),
+    CI_Upper       = round(model$ci.ub, 3),
+    Z              = round(model$zval, 2),
+    p_value        = format.pval(model$pval, eps = 0.001),
+    I2_Total       = round(I2, 2),
+    Tau2_Study     = round(model$sigma2[1], 4),
+    Tau2_Effect    = round(model$sigma2[2], 4)
+  )
+
+  cbind(as.data.frame(labels, stringsAsFactors = FALSE), base)
+}
+
+```
+
+# Whole sample
+
+## Main analysis
+
+### Aggregated intrusion frequency across the three frequency measures
+
+The result reported in the abstract and Fig. 4a but not produced by the
+distributed code: the *overall* intrusion frequency, pooled across diary-,
+lab-, and questionnaire-based measures.
+
+> "Results showed that techniques (behavioural, pharmacological, neuromodulation)
+> significantly reduced intrusion frequency (g = 0.16, 95% CI [0.09, 0.23])"
+
+This chunk now reports the result **both with outliers retained and with
+outliers/influential cases removed**, because the original authors' comment
+(Feb 2025) concerned specifically the outlier step for the overall frequency
+outcome. The outlier flags are computed with the same rules used in
+`01Detect_Outlier_Influential_Cases.Rmd` (studentized residual > |1.96|,
+Cook's distance > chi-square(0.5) cutoff, DFBETAS > 1).
+
+```{r}
+meta_row <- function(model, df_used, labels = list()) {
+  W <- diag(1 / df_used$vi)
+  X <- model.matrix(model)
+  P <- W - W %*% X %*% solve(t(X) %*% W %*% X) %*% t(X) %*% W
+  I2 <- 100 * sum(model$sigma2) /
+    (sum(model$sigma2) + (model$k - model$p) / sum(diag(P)))
+  ss <- unique(df_used[, c("StudyID", "SampleSize")])   # base-R distinct()
+  n_participants <- sum(ss$SampleSize, na.rm = TRUE)
+  base <- data.frame(
+    N_Participants = n_participants,
+    n_Experiments  = model$s.nlevels[1],
+    k_EffectSizes  = model$k,
+    Hedges_g = round(model$beta[1], 3),
+    CI_Lower = round(model$ci.lb, 3),
+    CI_Upper = round(model$ci.ub, 3),
+    Z        = round(model$zval, 2),
+    p_value  = format.pval(model$pval, eps = 0.001),
+    I2_Total = round(I2, 2),
+    Tau2_Study = round(model$sigma2[1], 4),
+    Tau2_Effect = round(model$sigma2[2], 4)
+  )
+  cbind(as.data.frame(labels, stringsAsFactors = FALSE), base)
+}
+
+install.packages("metafor", lib = .libPaths()[1])
+library(metafor)
+install.packages(c("rlang", "dplyr"), lib = .libPaths()[1])
+output_file <- file.path(output_dir, "results_aggregated_frequency_outcomes.csv")
+
+# Pooled "Intrusion frequency" (combines Diary, Lab, Questionnaire)
+df_overall <- subset(df_full,
+                     DependentVariablesType == "Intrusion frequency" &
+                     !is.na(yi_pos) & !is.na(vi))
+
+# --- Outlier-RETAINED model (reproduces abstract / Fig. 4a) ---
+model_ret <- rma.mv(yi = yi_pos, V = vi, data = df_overall,
+                    random = ~ 1 | StudyID/EffectSizeID, method = "REML")
+
+# --- Influence diagnostics (mirrors 01Detect_Outlier_Influential_Cases) -------
+# NOTE ON SPEED: rstudent()/cooks.distance()/dfbetas() refit the multilevel
+# model once per effect size (370x here), so this block takes a few minutes.
+# That is inherent to leave-one-out influence on a 3-level rma.mv, not a bug.
+#
+# REESTIMATE = FALSE holds the variance components fixed at their full-data
+# values while deleting each case. This is the standard, fast choice (~minutes)
+# and is what is reported below.
+#
+# For the exact leave-one-out-WITH-refit version (variance components
+# re-estimated for every deletion, as in 01), set REESTIMATE = TRUE. It is
+# considerably slower (can be 30+ min on 370 effect sizes) but needs no
+# supervision; the flagged set may differ by a case or two.
+REESTIMATE <- FALSE
+
+rst <- rstudent(model_ret,      reestimate = REESTIMATE)$z
+ck  <- cooks.distance(model_ret, reestimate = REESTIMATE)
+dfb <- dfbetas(model_ret,        reestimate = REESTIMATE)$intrcpt
+
+cooks_cutoff <- round(qchisq(0.5, df = dim(model_ret$beta)[1], lower.tail = TRUE), 2)
+df_overall$StudentizedResiduals <- rst
+df_overall$outliers    <- ifelse(rst < -1.96 | rst > 1.96, 1, 0)
+df_overall$cooks       <- ck
+df_overall$cooks_inf   <- ifelse(ck > cooks_cutoff, 1, 0)
+df_overall$DFBETAS     <- dfb
+df_overall$DFBETAS_inf <- ifelse(dfb > 1, 1, 0)
+
+outlierInd <- which(df_overall$outliers == 1 |
+                    df_overall$cooks_inf == 1 |
+                    df_overall$DFBETAS_inf == 1)
+
+cat("Flagged effect sizes:", length(outlierInd), "of", nrow(df_overall),
+    "(studentized:", sum(df_overall$outliers == 1),
+    "| Cook's:", sum(df_overall$cooks_inf == 1),
+    "| DFBETAS:", sum(df_overall$DFBETAS_inf == 1), ")\n")
+
+df_removed <- if (length(outlierInd)) df_overall[-outlierInd, ] else df_overall
+
+# --- Outlier-REMOVED model ---
+model_rem <- rma.mv(yi = yi_pos, V = vi, data = df_removed,
+                    random = ~ 1 | StudyID/EffectSizeID, method = "REML")
+
+# --- Combined results table ---
+results_table <- rbind(
+  meta_row(model_ret, df_overall,
+           list(Analysis = "Main Analysis (Aggregated)",
+                Outcome = "Overall Intrusion Frequency",
+                OutlierRemoved = "no")),
+  meta_row(model_rem, df_removed,
+           list(Analysis = "Main Analysis (Aggregated)",
+                Outcome = "Overall Intrusion Frequency",
+                OutlierRemoved = "yes"))
+)
+
+print(results_table)
+write_csv(results_table, output_file)
+print(results_table)
+# Also save the flagged dataset so the diagnostics are inspectable / auditable
+write_csv(df_overall,
+          file.path(output_dir, "data_overall_frequency_with_outlier_flags.csv"))
+
+```
+
+Expected values (for sanity-checking your run): outlier-retained g = 0.16
+[0.09, 0.23], k = 370; outlier-removed g ~ 0.17 [0.11, 0.23], k ~ 356
+(reestimate = FALSE flags 14 effect sizes). Retained matches Varma et al.
+exactly; removed is "largely consistent," as the paper states.
+
+# Subsets and moderators
+
+> ## DECISION REQUIRED before sharing with the institute
+> The subset chunks below pool across **all three** outcome types
+> (frequency + distress + symptoms), i.e. there is no filter on
+> `DependentVariablesType`. The paper's Fig. 5 individual-technique numbers
+> (e.g. Trauma reminder + Tetris, immediate, g = 0.80) are **intrusion-frequency
+> only**. As written these subset results will therefore NOT match Fig. 5.
+> If the intended target is Fig. 5, add
+> `filter(DependentVariablesType == "Intrusion frequency")` to each subset
+> below (marked `## FREQ-ONLY?`). Left unfiltered here because it is unclear
+> whether "all outcomes aggregated" was deliberate.
+
+## Immediate post
+
+### Behavioural interventions only
+
+```{r}
+
+output_file <- file.path(output_dir, "results_behavioural_immediate_post_all_outcomes.csv")
+
+df_subset <- df_full %>%
+  filter(Step3_Technique_procedure == "Behavioural") %>%
+  filter(TimeOfManipulation == "Immediate post") %>%
+  # filter(DependentVariablesType == "Intrusion frequency") %>%  ## FREQ-ONLY?
+  filter(!is.na(yi_pos) & !is.na(vi))
+
+model <- rma.mv(yi = yi_pos, V = vi, data = df_subset,
+                random = ~ 1 | StudyID/EffectSizeID, method = "REML")
+
+results_table <- meta_row(model, df_subset, list(
+  Analysis  = "Subgroup (Behavioural / Immediate post)",
+  Technique = "Behavioural (Step3 procedure)",
+  Timepoint = "Immediate post",
+  Outcome   = "All outcomes aggregated"
+))
+
+print(results_table)
+write_csv(results_table, output_file)
+
+```
+
+### Imagery only
+
+```{r}
+
+output_file <- file.path(output_dir, "results_imagery_immediate_post_all_outcomes.csv")
+
+df_subset <- df_full %>%
+  filter(Step4_Hypothesized_mechanism == "Imagery") %>%
+  filter(TimeOfManipulation == "Immediate post") %>%
+  # filter(DependentVariablesType == "Intrusion frequency") %>%  ## FREQ-ONLY?
+  filter(!is.na(yi_pos) & !is.na(vi))
+
+model <- rma.mv(yi = yi_pos, V = vi, data = df_subset,
+                random = ~ 1 | StudyID/EffectSizeID, method = "REML")
+
+results_table <- meta_row(model, df_subset, list(
+  Analysis  = "Subgroup (Imagery / Immediate post)",
+  Technique = "Imagery (Step4 mechanism)",
+  Timepoint = "Immediate post",
+  Outcome   = "All outcomes aggregated"
+))
+
+print(results_table)
+write_csv(results_table, output_file)
+
+```
+
+### Trauma Reminder + Tetris vs Trauma Reminder
+
+```{r}
+
+output_file <- file.path(output_dir, "results_tetris_immediate_post_all_outcomes.csv")
+
+df_subset <- df_full %>%
+  filter(Step2_Individual_technique == "Trauma reminder + tetris vs. Trauma reminder") %>%
+  filter(TimeOfManipulation == "Immediate post") %>%
+  # filter(DependentVariablesType == "Intrusion frequency") %>%  ## FREQ-ONLY?
+  filter(!is.na(yi_pos) & !is.na(vi))
+
+model <- rma.mv(yi = yi_pos, V = vi, data = df_subset,
+                random = ~ 1 | StudyID/EffectSizeID, method = "REML")
+
+results_table <- meta_row(model, df_subset, list(
+  Analysis  = "Subgroup (Tetris vs Trauma reminder / Immediate post)",
+  Technique = "Trauma reminder + tetris vs. Trauma reminder",
+  Timepoint = "Immediate post",
+  Outcome   = "All outcomes aggregated"
+))
+
+print(results_table)
+write_csv(results_table, output_file)
+
+```
+
+## Delayed post
+
+### Behavioural interventions only
+
+```{r}
+
+output_file <- file.path(output_dir, "results_behavioural_delayed_post_all_outcomes.csv")
+
+df_subset <- df_full %>%
+  filter(Step3_Technique_procedure == "Behavioural") %>%
+  filter(TimeOfManipulation == "Delayed post") %>%
+  # filter(DependentVariablesType == "Intrusion frequency") %>%  ## FREQ-ONLY?
+  filter(!is.na(yi_pos) & !is.na(vi))
+
+model <- rma.mv(yi = yi_pos, V = vi, data = df_subset,
+                random = ~ 1 | StudyID/EffectSizeID, method = "REML")
+
+results_table <- meta_row(model, df_subset, list(
+  Analysis  = "Subgroup (Behavioural / Delayed post)",
+  Technique = "Behavioural (Step3 procedure)",
+  Timepoint = "Delayed post",
+  Outcome   = "All outcomes aggregated"
+))
+
+print(results_table)
+write_csv(results_table, output_file)
+
+```
+
+### Imagery only
+
+```{r}
+
+output_file <- file.path(output_dir, "results_imagery_delayed_post_all_outcomes.csv")
+
+df_subset <- df_full %>%
+  filter(Step4_Hypothesized_mechanism == "Imagery") %>%
+  filter(TimeOfManipulation == "Delayed post") %>%
+  # filter(DependentVariablesType == "Intrusion frequency") %>%  ## FREQ-ONLY?
+  filter(!is.na(yi_pos) & !is.na(vi))
+
+model <- rma.mv(yi = yi_pos, V = vi, data = df_subset,
+                random = ~ 1 | StudyID/EffectSizeID, method = "REML")
+
+results_table <- meta_row(model, df_subset, list(
+  Analysis  = "Subgroup (Imagery / Delayed post)",
+  Technique = "Imagery (Step4 mechanism)",
+  Timepoint = "Delayed post",
+  Outcome   = "All outcomes aggregated"
+))
+
+print(results_table)
+write_csv(results_table, output_file)
+
+```
+
+### Trauma Reminder + Tetris vs Trauma Reminder
+
+```{r}
+
+output_file <- file.path(output_dir, "results_tetris_delayed_post_all_outcomes.csv")
+
+df_subset <- df_full %>%
+  filter(Step2_Individual_technique == "Trauma reminder + tetris") %>%
+  filter(TimeOfManipulation == "Delayed post") %>%
+  # filter(DependentVariablesType == "Intrusion frequency") %>%  ## FREQ-ONLY?
+  filter(!is.na(yi_pos) & !is.na(vi))
+
+model <- rma.mv(yi = yi_pos, V = vi, data = df_subset,
+                random = ~ 1 | StudyID/EffectSizeID, method = "REML")
+
+results_table <- meta_row(model, df_subset, list(
+  Analysis  = "Subgroup (Tetris / Delayed post)",
+  Technique = "Trauma reminder + tetris",
+  Timepoint = "Delayed post",
+  Outcome   = "All outcomes aggregated"
+))
+
+print(results_table)
+write_csv(results_table, output_file)
+
+```
+
+List included studies (for the Tetris / Delayed post subset)
+
+```{r}
+
+data_tetris_delayed_fu <- df_subset |>
+  select(Author, Title, Year, Journal, DOI,
+         StudyID, # multiple studies per article
+         SampleSize, StudyDesign, StatExtracted, ExperimentalCondition, ComparisonCondition,
+         TimeOfManipulation,
+         DVTask, ModeOfMeasurement,
+         ExperimentalConditionSampleSize, ComparisonConditionSampleSize,
+         Experimental_Mean, Comparison_Mean,
+         Experimental_SD, Comparison_SD,
+         EffectSize, EffectSizeType,
+         Notes_fromMo,
+         Notes_fromSZ,
+         sign, yi_pos, vi)
+
+data_tetris_delayed_fu
+
+write_csv(data_tetris_delayed_fu, file.path(output_dir, "data_tetris_delayed_fu.csv"))
+
+```
+
+# Exploring effect sizes
+
+Most extreme effect sizes
+
+```{r}
+
+data_10_most_extreme_effect_sizes <- df_full |>
+  select(Author, Title, Year, Journal, DOI,
+         StudyID, # multiple studies per article
+         SampleSize, StudyDesign, StatExtracted, ExperimentalCondition, ComparisonCondition,
+         TimeOfManipulation,
+         DVTask, ModeOfMeasurement,
+         ExperimentalConditionSampleSize, ComparisonConditionSampleSize,
+         Experimental_Mean, Comparison_Mean,
+         Experimental_SD, Comparison_SD,
+         EffectSize, EffectSizeType,
+         Notes_fromMo,
+         Notes_fromSZ,
+         sign, yi_pos, vi) |>
+  mutate(abs_yi_pos = abs(yi_pos)) |>
+  arrange(desc(abs_yi_pos)) |>
+  head(n = 10)
+
+data_10_most_extreme_effect_sizes
+
+write_csv(data_10_most_extreme_effect_sizes, file.path(output_dir, "data_10_most_extreme_effect_sizes.csv"))
+
+```
+
+```{r}
+
+ggplot(df_full, aes(yi_pos)) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  geom_histogram(binwidth = 0.1) +
+  scale_x_continuous(breaks = scales::breaks_pretty(n = 8)) +
+  theme_linedraw()
+
+```
+
+```{r fig.height=10, fig.width=9}
+
+df_full |>
+  count(TimeOfManipulation)
+
+ggplot(df_full, aes(yi_pos)) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  geom_histogram(binwidth = 0.1) +
+  scale_x_continuous(breaks = scales::breaks_pretty(n = 8)) +
+  facet_grid(TimeOfManipulation ~ DependentVariablesType) +
+  theme_linedraw()
+
+```
+
+```{r}
+
+dat_key <- df_full |>
+  filter(TimeOfManipulation == "Delayed post" &
+           DependentVariablesType == "Intrusion frequency") |>
+  select(yi_pos, Year) |>
+  arrange(yi_pos)
+
+ggplot(dat_key, aes(yi_pos)) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  geom_histogram(binwidth = 0.1) +
+  scale_x_continuous(breaks = scales::breaks_pretty(n = 8)) +
+  theme_linedraw()
+
+```
+
+```{r fig.height=6, fig.width=9}
+
+df_full |>
+  arrange(yi_pos) |>
+  mutate(rank = row_number()) |>
+  ggplot(aes(yi_pos, rank)) +
+  geom_point()
+
+```
+
+```{r}
+
+df_full |>
+  ggplot(aes(Year, yi_pos)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(method = "lm")
+
+dat_key |>
+  ggplot(aes(Year, yi_pos)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(method = "lm")
+
+```
